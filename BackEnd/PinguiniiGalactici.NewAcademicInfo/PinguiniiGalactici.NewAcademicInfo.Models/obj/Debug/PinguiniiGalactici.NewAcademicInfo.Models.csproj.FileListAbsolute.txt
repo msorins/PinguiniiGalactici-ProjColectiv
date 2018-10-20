@@ -1,0 +1,12 @@
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.csprojAssemblyReference.cache
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.csproj.CoreCompileInputs.cache
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll.config
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.xml
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.csproj.CopyComplete

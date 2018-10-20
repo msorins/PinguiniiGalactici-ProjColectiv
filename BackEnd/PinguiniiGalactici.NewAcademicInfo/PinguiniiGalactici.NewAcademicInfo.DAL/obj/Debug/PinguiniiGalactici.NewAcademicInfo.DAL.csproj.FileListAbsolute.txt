@@ -1,0 +1,14 @@
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.pdb
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Library.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\EntityFramework.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Library.pdb
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll.config
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\EntityFramework.xml
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csprojAssemblyReference.cache
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csproj.CoreCompileInputs.cache
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csproj.CopyComplete
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.dll
+E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.pdb
