@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { LandingPageComponent } from './lading-page/landing-page.component';
 
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: LandingPageComponent
+    },
+    {
+        path: 'login/student',
+        loadChildren: '../app/_modules/student-login-module/student-login.module#StudentLoginModule'
     },
     {
         path: 'lazy',
@@ -14,7 +18,7 @@ const routes: Routes = [
 ];
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes),
+        RouterModule.forRoot(routes, {enableTracing: true}),
     ],
     exports: [
         RouterModule

@@ -1,0 +1,13 @@
+<div class="left-side" [ngClass]="{'left-side-hovered':studentHovered,'left-side-right-hovered':teacherHovered}">
+   
+</div>
+<div class="student-button" (mouseenter)="toggleStudent($event)"
+                            (mouseleave)="toggleStudent($event)"
+                            [routerLink]="['/login/student']">Login Page</div>
+<div class="title-student">Student's Section</div> 
+<div class="right-side" [ngClass]="{'right-side-hovered':teacherHovered,'right-side-left-hovered':studentHovered}">
+</div>
+<div class="teacher-button" (mouseenter)="toggleTeacher($event)"
+                            (mouseleave)="toggleTeacher($event)"
+                            (click)="goToLoginTeacher()">Login Page</div>
+<div class="title-teacher">Teacher's Section</div> 
