@@ -1,0 +1,68 @@
+.left-side, .right-side{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    filter:blur(10px);
+    transition: 1s all ease-in-out;
+}
+.left-side{
+    left:0;
+    background: url('/src/assets/images/landing-page-students.jpg') center center no-repeat;
+    
+}
+
+.right-side{
+    right: 0;
+    background: url('/src/assets/images/landing-page-teachers.jpg') center center no-repeat;
+}
+
+.teacher-button, .student-button{
+    z-index: 20;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    padding:5px;
+    border:1px solid #ffffff;
+    position: absolute;
+    color:white;
+    cursor: pointer;
+}
+.teacher-button{
+    top:45%;
+    right:20%;
+    
+}
+
+.student-button{
+    top:45%;
+    left:20%;
+}
+
+.right-side-hovered, .left-side-hovered{
+    filter: blur(0);
+    width: 60%;
+}
+
+.left-side-right-hovered, .right-side-left-hovered{
+    width: 40%;
+}
+
+.title-student, .title-teacher{
+    z-index: 20;
+    position: absolute;
+    color:white;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+}
+
+.title-student{
+    top:25%;
+    left:17%;
+}
+
+.title-teacher {
+    top:25%;
+    right:17%;
+}
