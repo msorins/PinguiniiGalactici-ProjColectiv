@@ -32,6 +32,6 @@ export class LandingPageComponent implements OnInit {
     }
 
     goToLoginTeacher(): void {
-        this.router.navigate([]);
+        this.router.navigate(['/login/teacher']);
     }
 }

@@ -1,2 +1,85 @@
-/*Here the style that is common across all pages will be placed*/
+/*Here the style that is common across all pages will be placed**/
+
+.form-container{
+    position: absolute;
+    width: 30%;
+    height: auto;
+    left:35%;
+    top:30%;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+
+}
+
+.form-input{
+    padding-top: 15px;
+    padding-left:15px;
+    padding-right: 15px;
+    width:100%;
+}
+
+.login-button{
+    margin:5px;
+    left:79%;
+}
+
+@media only screen and (max-width:360px){
+    .form-container{
+        height: 40%;
+        width: 60%;
+        left:20%;
+    }
+
+    .login-button{
+        left:58%;
+    }
+}
+
+@media only screen and (max-width:420px) and (min-width:361px){
+    .form-container{
+        height: 40%;
+        width: 60%;
+        left:20%;
+    }
+
+    .login-button{
+        left:57%;
+    }
+}
+@media only screen and (max-width:640px) and (min-width:421px){
+    .login-button{
+        left:58%;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width:641px) {
+    .login-button{
+        left:65%;
+    }
+}
+
+@media only screen and (max-width:1024px) and (min-width:769px){
+    .login-button{
+        left:75%;
+    }
+}
+
+@media only screen and (max-width:924px) and (min-width:769px){
+    .login-button{
+        left:70%;
+    }
+}
+
+@media only screen and (max-width:1057px) and (min-width:1025px){
+    .login-button{
+        left:74%;
+    }
+}
+
+
+
+
+
+
+
+
 

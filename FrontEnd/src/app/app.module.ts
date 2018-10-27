@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './lading-page/landing-page.component';
+import { SharedModule } from './_modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LandingPageComponent } from './lading-page/landing-page.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
