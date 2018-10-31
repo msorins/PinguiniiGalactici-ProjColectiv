@@ -1,5 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { LoginService } from './services/login.service';
+import { AuthenticationService } from './services/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -16,7 +16,7 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [LoginService]
+            providers: [AuthenticationService]
         }
     }
 }
