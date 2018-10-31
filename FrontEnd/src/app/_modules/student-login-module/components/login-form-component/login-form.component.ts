@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { LoginService } from 'src/app/_modules/shared/services/login.service';
+import { AuthenticationService } from 'src/app/_modules/shared/services/authentication.service';
 
 @Component({
     selector: 'app-login-form',
@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit {
     studentForm: FormGroup;
     constructor(
         private formBuilder: FormBuilder,
-        private loginService: LoginService) {
+        private loginService: AuthenticationService) {
         this.studentForm = formBuilder.group({
             email: new FormControl('', [Validators.required, Validators.email]),
             password: new FormControl('', [Validators.required])
