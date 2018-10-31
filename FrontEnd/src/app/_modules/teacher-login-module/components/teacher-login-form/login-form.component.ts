@@ -37,8 +37,8 @@ export class LoginFormComponent implements OnInit {
         return this.password.hasError('required') ? 'You must enter a value' : '';
     }
 
-    loginStudent(): void {
-        const studentCredentials = {email: this.email.value, password: this.password.value};
-        this.loginService.loginStudent(studentCredentials);
+    loginTeacher(): void {
+        const teacherCredentials = {email: this.email.value, password: this.password.value};
+        this.loginService.loginTeacher(teacherCredentials);
     }
 }
