@@ -21,10 +21,19 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
             {
                 if (_businessContext == null)
                 {
-                    _businessContext = new BusinessContext();
+                    _businessContext = GetAuthenticatedBusinessContext();
                 }
                 return _businessContext;
             }
+        }
+        #endregion
+
+        #region Methods
+        private BusinessContext GetAuthenticatedBusinessContext()
+        {
+            //Get authenticated user and pass it to the context
+
+            return new BusinessContext();
         }
         #endregion
 
