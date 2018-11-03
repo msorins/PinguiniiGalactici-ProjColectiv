@@ -9,16 +9,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
+using System.Web;
 using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
-    //[AuthenticationFilter]
+
     [RoutePrefix("users")]
     public class UserController : MainAPIController
     {
         //[Route("{userID:Guid}")] - example for Guid (type must be specified)
         #region Methods
+        [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -27,6 +29,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.UserBusiness.ReadAll();
         }
 
+        [AuthenticationFilter]
         [HttpGet]
         [Route("{username}")]
         public User ReadByUsername(string username)
@@ -34,6 +37,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.UserBusiness.ReadByUsername(username);
         }
 
+        [AuthenticationFilter]
         [HttpGet]
         [Route("ReadCurrentUserInfo")]
         public User ReadCurrentUserInfo()
@@ -41,6 +45,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.CurrentUser;
         }
 
+        [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]User user)
@@ -48,6 +53,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.UserBusiness.Insert(user);
         }
 
+        [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]User user)
@@ -55,6 +61,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.UserBusiness.Update(user);
         }
 
+        [AuthenticationFilter]
         [HttpDelete]
         [Route("{username}")]
         public void Delete(string username)
@@ -62,11 +69,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.UserBusiness.Delete(username);
         }
 
-
-        [HttpGet]
-        [Route("register/{username}/{password}")]
-        public string Register(string username, string password)
+        [AuthenticationFilter]
+        [HttpPost]
+        [Route("authenticate")]
+        public string Authenticate()
         {
+            // User sends his/hers username and password and if they match will receive json web token
+            string username = HttpContext.Current.Request.Params["username"];
+            string password = HttpContext.Current.Request.Params["password"];
+
             // To do, check in db if username && password are correct
             // If they are, generate the auth token
             return GenerateToken(username, 20);
