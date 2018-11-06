@@ -17,13 +17,17 @@ const routes: Routes = [
         loadChildren: '../app/_modules/teacher-login-module/teacher-login.module#TeacherLoginModule'
     },
     {
+        path: 'teacher/main-page',
+        loadChildren: '../app/_modules/teacher-main-page/teacher-main-page.module#TeacherMainPageModule'
+    },
+    {
         path: 'lazy',
         loadChildren: '../app/_modules/lazy-module/lazy.module#LazyModule'
     }
 ];
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes, {enableTracing: true}),
+        RouterModule.forRoot(routes, {enableTracing: false}), // enableTracing debuging purpose
     ],
     exports: [
         RouterModule

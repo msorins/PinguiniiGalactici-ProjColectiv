@@ -1,5 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 body{
-    background-color: #d0d0d0;
+    margin:0px;
+}
+
+.toolbar .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 54px !important;
+    position: absolute;
+    z-index: 2;
+}
+
+.mat-drawer.mat-drawer-side{
+    margin-top:54px;
+}
+.mat-drawer-content.mat-sidenav-content{
+    margin-left: 204px !important;
+    margin-top:54px;
+}
+
+.mat-drawer-inner-container{
+    width: 204px !important;
 }
