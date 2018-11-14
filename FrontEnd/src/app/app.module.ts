@@ -13,6 +13,7 @@ import { SharedModule } from './_modules/shared/shared.module';
 import { JwtInterceptor } from './_modules/shared/helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_modules/shared/helpers/error.interceptor';
 import { FakeBackendInterceptor, fakeBackendProvider } from './_modules/shared/helpers/fakeBackend.interceptor';
+import { MatToolbarModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FakeBackendInterceptor, fakeBackendProvider } from './_modules/shared/h
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MatToolbarModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule.forRoot()

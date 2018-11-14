@@ -3,6 +3,7 @@
 
 body{
     margin:0px;
+    background-color: #f1f1f1f1;
 }
 
 .toolbar .mat-toolbar-row, .mat-toolbar-single-row {

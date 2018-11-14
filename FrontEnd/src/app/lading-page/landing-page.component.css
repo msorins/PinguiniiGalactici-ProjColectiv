@@ -1,8 +1,9 @@
 .left-side, .right-side{
     width: 50%;
-    height: 100%;
+    height: calc(100% - 54px);
     overflow: hidden;
     position: absolute;
+    top:50px;
     filter:blur(10px);
     transition: 1s all ease-in-out;
 }
