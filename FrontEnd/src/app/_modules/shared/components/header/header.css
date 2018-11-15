@@ -1,0 +1,22 @@
+
+.toolbar-user{
+  font-size:14px;
+  font-weight: 400;
+  float:right;
+  padding-left:10px;
+  padding-right: 10px;
+  border-right: 2px solid white
+}
+
+.toolbar-logout{
+  font-size:14px;
+  font-weight: 400;
+  float:right;
+  padding-left:10px;
+  padding-right: 10px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+  
