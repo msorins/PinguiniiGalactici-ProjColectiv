@@ -6,7 +6,9 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+    <mat-sidenav mode="side" opened>
+        <app-teacher-menu></app-teacher-menu>
+    </mat-sidenav>
     <mat-sidenav-content>
         <div class="main-info-container">
             <form class="example-form" [formGroup]="createUser">
