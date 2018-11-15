@@ -7,8 +7,10 @@ import {
     MatExpansionModule,
     MatListModule,
     MatIconModule,
+    MatToolbarModule,
 } from '@angular/material';
-import { TeacherMenuComponent } from './teacher-menu/teacher-menu';
+import { TeacherMenuComponent } from './components/teacher-menu/teacher-menu';
+import { HeaderComponent } from './components/header/header';
 
 @NgModule({
     imports: [
@@ -20,12 +22,15 @@ import { TeacherMenuComponent } from './teacher-menu/teacher-menu';
         MatExpansionModule,
         MatListModule,
         MatIconModule,
+        MatToolbarModule
     ],
     exports: [
-        TeacherMenuComponent
+        TeacherMenuComponent,
+        HeaderComponent
     ],
     declarations: [
-        TeacherMenuComponent
+        TeacherMenuComponent,
+        HeaderComponent
     ]
 })
 export class SharedModule {
