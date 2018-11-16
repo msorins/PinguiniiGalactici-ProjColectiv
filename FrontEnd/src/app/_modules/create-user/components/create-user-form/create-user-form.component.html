@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar" color="primary">
+    <div>SmartAcademy</div>
+    <span class="example-spacer"></span>
+    <div class="toolbar-user">Username</div>
+    <div class="toolbar-logout">Logout</div>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+    <mat-sidenav-content>
+        <div class="main-info-container">
+            <form class="example-form" [formGroup]="createUser">
+                <h3>Create Student User</h3>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Name" [formControl]="name" required>
+                    <mat-error *ngIf="name.invalid">Error</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" [formControl]="email" required>
+                </mat-form-field>
+                <mat-form-field class="half-width-input">
+                    <input matInput placeholder="Registration" [formControl]="registration" required>
+                </mat-form-field>
+                <mat-form-field class="half-width-input">
+                    <input matInput placeholder="Group" [formControl]="group" [disabled]="checked" required>
+                </mat-form-field>
+                
+            </form>
+            <mat-checkbox class="half-width-input checkbox-margin" [(ngModel)]="checked">Erasmus Student</mat-checkbox>
+            <button class="login-button" mat-raised-button color="primary">Create</button>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

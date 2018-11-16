@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: '../app/_modules/teacher-main-page/teacher-main-page.module#TeacherMainPageModule'
     },
     {
+        path: 'teacher/create-user',
+        loadChildren: '../app/_modules/create-user/create-user.module#CreateUserModule'
+    },
+    {
         path: 'lazy',
         loadChildren: '../app/_modules/lazy-module/lazy.module#LazyModule'
     }
