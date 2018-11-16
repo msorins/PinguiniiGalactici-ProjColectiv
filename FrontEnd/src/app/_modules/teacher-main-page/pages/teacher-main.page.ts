@@ -11,6 +11,8 @@ export class TeacherMainPageComponent implements OnInit{
     username: AbstractControl;
     password: AbstractControl;
     createUser: FormGroup;
+    panelOpenState = false;
+    
     constructor(private formBuilder: FormBuilder) {
 
         this.createUser = formBuilder.group({
