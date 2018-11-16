@@ -11,10 +11,13 @@ import {
 } from '@angular/material';
 import { TeacherMenuComponent } from './components/teacher-menu/teacher-menu';
 import { HeaderComponent } from './components/header/header';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
         MatExpansionModule,
         MatListModule,
         MatIconModule,
@@ -39,6 +42,6 @@ export class SharedModule {
         return {
             ngModule: SharedModule,
             providers: [AuthenticationService]
-        }
+        };
     }
 }

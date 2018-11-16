@@ -1,60 +1,36 @@
 
-
 .example-form {
     min-width: 150px;
     max-width: 400px;
     width: 50%;
-    margin-left:40px;
+    margin-left:30%;
   }
   
 .example-full-width {
     width: 100%;
-    padding-right: 20px;
+    padding-top:10px;
 }
 
 .half-width-input{
     width: 50%;
+    padding-top:10px;
+}
+
+.registration-input{
+  width: 45%;
+  padding-right: 20px;
 }
 
 .checkbox-margin {
     margin: 0 10px;
+    margin-left:30%;
+    display: block;
   }
 
-.toolbar-user{
-  font-size:14px;
-  font-weight: 400;
-  float:right;
-  padding-left:10px;
-  padding-right: 10px;
-  border-right: 2px solid white
+.login-button{
+  margin-left: 58%;
 }
 
-.toolbar-logout{
-  font-size:14px;
-  font-weight: 400;
-  float:right;
-  padding-left:10px;
-  padding-right: 10px;
-}
 
-.example-spacer {
-  flex: 1 1 auto;
-}
 
-.example-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #eee;
-  }
-
-  .main-info-container{
-    width: calc(100%-204px);
-    height: calc(50% - 54px);
-    margin:10px;
-    background-color:white;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
-}
   

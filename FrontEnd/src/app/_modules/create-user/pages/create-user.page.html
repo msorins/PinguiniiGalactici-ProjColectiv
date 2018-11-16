@@ -1,1 +1,20 @@
-<app-create-user-form></app-create-user-form>
+<app-header></app-header>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+      <app-teacher-menu></app-teacher-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="main-info-container">
+            <mat-tab-group>
+                    <mat-tab label="Create Student User">
+                            <app-create-user-form></app-create-user-form>
+                    </mat-tab>
+                    <mat-tab label="Create Teacher User">
+                        <h1>Some more tab content</h1>
+                        <p>...</p>
+                    </mat-tab>
+            </mat-tab-group>
+          
+      </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
