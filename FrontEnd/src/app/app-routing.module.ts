@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: '../app/_modules/teacher-main-page/teacher-main-page.module#TeacherMainPageModule'
     },
     {
+        path: 'teacher/create-user',
+        loadChildren: '../app/_modules/create-user/create-user.module#CreateUserModule'
+    },
+    {
         path: 'teacher/courses',
         loadChildren: '../app/_modules/teacher-courses/teacher-courses.module#TeacherCoursesModule'
     },
