@@ -12,9 +12,13 @@ import {
 import { TeacherMenuComponent } from './components/teacher-menu/teacher-menu';
 import { HeaderComponent } from './components/header/header';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
+        CommonModule,
+        RouterModule,
         HttpClientModule,
         ReactiveFormsModule,
         FormsModule,

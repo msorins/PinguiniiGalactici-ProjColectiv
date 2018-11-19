@@ -86,4 +86,25 @@
                       </mat-list-item>
                   </mat-list>
         </mat-expansion-panel>
+        <mat-expansion-panel *ngIf="loggedUser.Admin == true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Create User
+              </mat-panel-title>
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <mat-list>
+                  <mat-list-item>
+                      <mat-icon mat-list-icon>folder</mat-icon>
+                      <input type="file" class="file-chooser" mat-line><h4 mat-line>Import users</h4>
+                  </mat-list-item>
+                  <mat-divider></mat-divider>
+                  <mat-list-item [routerLink]="['/teacher/create-user']">
+                      <mat-icon mat-list-icon>folder</mat-icon>
+                      <h4 mat-line>Create User</h4>
+                  </mat-list-item>
+              </mat-list>
+    </mat-expansion-panel>
     </mat-accordion>

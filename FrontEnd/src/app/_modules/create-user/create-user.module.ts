@@ -10,6 +10,7 @@ import { CreateUserFormComponent } from './components/create-user-form/create-us
 import { HeaderComponent } from '../shared/components/header/header';
 import { SharedModule } from '../shared/shared.module';
 import { CreateUserService } from './services/create-user.service';
+import { CreateTeacherFormComponent } from './components/create-teacher-form-component/create-teacher-form.component';
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import { CreateUserService } from './services/create-user.service';
     declarations: [
         CreateUserPageComponent,
         CreateUserFormComponent,
+        CreateTeacherFormComponent
     ],
     providers: [
         CreateUserService
