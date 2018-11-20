@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Subscriber } from 'rxjs';
+import { LoggedUser } from '../models/LoggedUser';
+import { USE_VALUE } from '@angular/core/src/di/injector';
 
 
 @Injectable()
@@ -38,5 +40,19 @@ export class AuthenticationService {
 
     logout() {
         localStorage.removeItem('currentUser');
+    }
+
+    getLoggedUser(): LoggedUser {
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(user);
+        const loggedUser: LoggedUser = {
+            Id: user.id,
+            Name: user.username,
+            FirstName: user.firstName,
+            LastName: user.lastName,
+            Admin: true
+        };
+
+        return loggedUser;
     }
 }
