@@ -1,0 +1,36 @@
+
+.example-form {
+    min-width: 150px;
+    max-width: 400px;
+    width: 50%;
+    margin-left:30%;
+  }
+  
+.example-full-width {
+    width: 100%;
+    padding-top:10px;
+}
+
+.half-width-input{
+    width: 50%;
+    padding-top:10px;
+}
+
+.registration-input{
+  width: 45%;
+  padding-right: 20px;
+}
+
+.checkbox-margin {
+    margin: 0 10px;
+    margin-left:30%;
+    display: block;
+  }
+
+.create-button{
+  margin-left: 58%;
+}
+
+
+
+  

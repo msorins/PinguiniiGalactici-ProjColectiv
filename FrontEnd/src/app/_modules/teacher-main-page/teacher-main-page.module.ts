@@ -4,7 +4,7 @@ import { TeacherMainPageRoutingModule } from './teacher-main-page-routing.module
 import { TeacherMainPageComponent } from './pages/teacher-main.page';
 import { MatSidenavModule, MatToolbarModule, MatFormFieldModule, MatButtonModule, MatInputModule, MatTableModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AttendancesComponent } from './components/attendances/attendances.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports: [
@@ -18,10 +18,10 @@ import { AttendancesComponent } from './components/attendances/attendances.compo
         MatButtonModule,
         MatInputModule,
         MatTableModule,
+        SharedModule
     ],
     declarations: [
         TeacherMainPageComponent,
-        AttendancesComponent
     ],
     providers: []
 })

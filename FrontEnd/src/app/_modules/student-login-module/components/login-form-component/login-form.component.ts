@@ -39,6 +39,6 @@ export class LoginFormComponent implements OnInit {
 
     loginStudent(): void {
         const studentCredentials = {email: this.email.value, password: this.password.value};
-        this.loginService.loginStudent(studentCredentials);
+        //this.loginService.loginStudent(studentCredentials);
     }
 }
