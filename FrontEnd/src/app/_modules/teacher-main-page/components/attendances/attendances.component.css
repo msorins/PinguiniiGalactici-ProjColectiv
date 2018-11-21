@@ -1,7 +1,27 @@
 
 .attendaces-component {
-  height: 10%;
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 300px;
+  margin-left: 20px;
+}
+
+/*find something better then ::ng-deep... */
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: gray;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
+  background-color: #4CAF50 !important; 
+}
+
+.table-container{
+  height: 570px;
+  margin-left:20px;
+  margin-top:10px;
+  margin-right: 20px;
   overflow: auto;
-  width: 1200px;
-  margin: 100px;
+  width: auto;
 }

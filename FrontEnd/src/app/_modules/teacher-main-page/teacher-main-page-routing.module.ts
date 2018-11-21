@@ -5,7 +5,7 @@ import { AttendancesComponent } from './components/attendances/attendances.compo
 
 
 const routes: Routes = [
-    {path: '', component: AttendancesComponent}
+    {path: '', component: TeacherMainPageComponent}
 ];
 @NgModule({
     imports: [

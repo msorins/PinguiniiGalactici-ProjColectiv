@@ -1,46 +1,62 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewEncapsulation } from '@angular/compiler/src/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
 
-export interface PeriodicElement {
+export interface Student {
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  email: string;
+  present: boolean[];  
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Nazarie Ciprian', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Nechita Sebastian', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Vieriu Denis', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Mircea Sorin', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Mircea Madalina', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Moisuc Naomi', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Jugaru Robert', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Mihalache Mihai', weight: 15.9994, symbol: 'O'},
-  {position: 1, name: 'Nazarie Ciprian', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Nechita Sebastian', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Vieriu Denis', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Mircea Sorin', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Mircea Madalina', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Moisuc Naomi', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Jugaru Robert', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Mihalache Mihai', weight: 15.9994, symbol: 'O'},
-  {position: 1, name: 'Nazarie Ciprian', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Nechita Sebastian', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Vieriu Denis', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Mircea Sorin', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Mircea Madalina', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Moisuc Naomi', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Jugaru Robert', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Mihalache Mihai', weight: 15.9994, symbol: 'O'},
-  {position: 1, name: 'Nazarie Ciprian', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Nechita Sebastian', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Vieriu Denis', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Mircea Sorin', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Mircea Madalina', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Moisuc Naomi', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Jugaru Robert', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Mihalache Mihai', weight: 15.9994, symbol: 'O'},
+const STUDENTS_DATA: Student[] = [
+  {name: 'Nazarie Ciprian', email: "a@gmail.com",
+   present: [false, true, false, false, true, true, true, false,
+     false, false, false, true, true, true, false]
+  },
+  {name: 'Nechita Sebastian',  email: "a@gmail.com", 
+    present: [false, false, false, true, true, true, false,
+      false, false, false, true, true, true, false]
+  },
+  {name: 'Mircea Sorin',  email: "a@gmail.com", 
+    present: [false, true, false, false, true, true, true, false,
+      false, false, false, true, false, true, true, true, false,]
+  },
+  {name: 'Vieriu Denis',  email: "a@gmail.com", 
+    present: [true, true, false, false, true, true, true, false,
+      false, false, false, true, true, true, false]
+  },
+  {name: 'Mircea Madalina',  email: "a@gmail.com", 
+    present: [false, true, false, false, true, true, true, false,
+      false, false, false, true, true, true, false]
+  },
+  {name: 'Moisuc Naomi',  email: "a@gmail.com", 
+  
+    present: [false, false, false, true, true, true, false,
+      false, true, false, false, true, true, true, false,]
+  },
+  {name: 'Nazarie Ciprian', email: "a@gmail.com",
+   present: [false, true, false, false, true, true, true, false,
+     false, false, false, true, true, true, false]
+  },
+  {name: 'Nechita Sebastian',  email: "a@gmail.com", 
+    present: [false, false, false, true, true, true, false,
+      false, false, false, true, true, true, false]
+  },
+  {name: 'Mircea Sorin',  email: "a@gmail.com", 
+    present: [false, true, false, false, true, true, true, false,
+      false, false, false, true, false, true, true, true, false,]
+  },
+  {name: 'Vieriu Denis',  email: "a@gmail.com", 
+    present: [true, true, false, false, true, true, true, false,
+      false, false, false, true, true, true, false]
+  },
+  {name: 'Mircea Madalina',  email: "a@gmail.com", 
+    present: [false, true, false, false, true, true, true, false,
+      false, false, false, true, true, true, false]
+  },
+  {name: 'Moisuc Naomi',  email: "a@gmail.com", 
+    present: [false, false, false, true, true, true, false,
+      false, true, false, false, true, true, true, false,]
+  },
 ];
 
 @Component({
@@ -50,14 +66,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AttendancesComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  displayedColumns: string[] = ['position', 'name','week1', 'week2', 'week3', 'week4',
+  displayedColumns: string[] = ['position', 'name', 'week1', 'week2', 'week3', 'week4',
   'week5', 'week6', 'week7', 'week8', 'week9', 'week10', 'week11', 'week12', 'week13', 'week14'
   ];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource(STUDENTS_DATA);
+
+  constructor() { }
+
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngOnInit() {
+    this.dataSource.sort = this.sort;
+  }
+
+ 
+  applyFilter(filterValue: string) {
+    //todo: add custom filter only by name
+    this.dataSource.filter = filterValue.trim();
+  }
+
+  onChecked(element, position): void {
+    //bug :-?
+    // element.present[position] = !element.present[position]
+    console.log(element, position);
+    //todo
+  }
 
 }
