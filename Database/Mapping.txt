@@ -1,0 +1,8 @@
+Students: Table1
+Teachers: Table2
+Courses: Table3
+Attendances: Table4
+Groups: Table5
+Departaments: Table6
+Types: Table7
+Faculties: Table8

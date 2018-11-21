@@ -34,3 +34,13 @@ Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAc
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.csproj.CopyComplete
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll.config
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.dll
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.xml
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.csprojResolveAssemblyReference.cache
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
