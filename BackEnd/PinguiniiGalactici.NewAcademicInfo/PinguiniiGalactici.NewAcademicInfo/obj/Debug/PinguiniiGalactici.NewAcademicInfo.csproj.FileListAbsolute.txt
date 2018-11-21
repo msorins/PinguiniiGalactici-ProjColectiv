@@ -8,3 +8,13 @@ E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalacti
 E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\obj\Debug\PinguiniiGalactici.NewAcademicInfo.csproj.CopyComplete
 E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\obj\Debug\PinguiniiGalactici.NewAcademicInfo.exe
 E:\Facultate\ProiectColectiv\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\obj\Debug\PinguiniiGalactici.NewAcademicInfo.pdb
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\bin\Debug\PinguiniiGalactici.NewAcademicInfo.exe.config
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\obj\Debug\PinguiniiGalactici.NewAcademicInfo.exe
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\obj\Debug\PinguiniiGalactici.NewAcademicInfo.pdb
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\bin\Debug\PinguiniiGalactici.NewAcademicInfo.exe
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\bin\Debug\PinguiniiGalactici.NewAcademicInfo.pdb
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\bin\Debug\EntityFramework.dll
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\bin\Debug\EntityFramework.xml
+E:\Mada\School\Anul 3\PC\GIT\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo\obj\Debug\PinguiniiGalactici.NewAcademicInfo.csprojResolveAssemblyReference.cache
