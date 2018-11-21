@@ -1,0 +1,100 @@
+<table mat-table [dataSource]="dataSource" class="attendaces-component mat-elevation-z8 ">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="week1">
+    <th mat-header-cell *matHeaderCellDef> Week 1 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week2">
+    <th mat-header-cell *matHeaderCellDef> Week 2 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week3">
+    <th mat-header-cell *matHeaderCellDef> Week 3 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week4">
+    <th mat-header-cell *matHeaderCellDef> Week 4 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week5">
+    <th mat-header-cell *matHeaderCellDef> Week 5 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week6">
+    <th mat-header-cell *matHeaderCellDef> Week 6 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week7">
+    <th mat-header-cell *matHeaderCellDef> Week 7 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week8">
+    <th mat-header-cell *matHeaderCellDef> Week 8 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week9">
+    <th mat-header-cell *matHeaderCellDef> Week 9 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week10">
+    <th mat-header-cell *matHeaderCellDef> Week 10 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week11">
+    <th mat-header-cell *matHeaderCellDef> Week 11 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week12">
+    <th mat-header-cell *matHeaderCellDef> Week 12 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week13">
+    <th mat-header-cell *matHeaderCellDef> Week 13 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="week14">
+    <th mat-header-cell *matHeaderCellDef> Week 14 </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> 
+
+<!-- <table mat-table [dataSource]="data" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+</table> -->
