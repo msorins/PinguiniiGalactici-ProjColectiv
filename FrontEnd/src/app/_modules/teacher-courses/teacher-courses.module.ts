@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatSidenavModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatSidenavModule, MatAutocompleteModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
@@ -16,6 +16,7 @@ import { TeacherCoursesRoutingModule } from './teacher-courses-routing.module';
         MatIconModule,
         MatButtonModule,
         MatSidenavModule,
+        MatAutocompleteModule,
         ReactiveFormsModule,
         SharedModule,
         FormsModule,
