@@ -7,6 +7,7 @@ import { MatSidenavModule, MatToolbarModule, MatFormFieldModule, MatButtonModule
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AttendancesComponent } from './components/attendances/attendances.component';
+import { GradesComponent } from './components/grades/grades.component';
 
 @NgModule({
     imports: [
@@ -27,7 +28,8 @@ import { AttendancesComponent } from './components/attendances/attendances.compo
     ],
     declarations: [
         TeacherMainPageComponent,
-        AttendancesComponent
+        AttendancesComponent,
+        GradesComponent
     ],
     providers: []
 })
