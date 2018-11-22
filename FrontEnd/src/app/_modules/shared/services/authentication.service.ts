@@ -45,14 +45,14 @@ export class AuthenticationService {
     getLoggedUser(): LoggedUser {
         const user = JSON.parse(localStorage.getItem('currentUser'));
         console.log(user);
-        const loggedUser: LoggedUser = {
-            Id: user.id,
-            Name: user.username,
-            FirstName: user.firstName,
-            LastName: user.lastName,
-            Admin: true
-        };
+        // const loggedUser: LoggedUser = {
+        //     Id: user.id,
+        //     Name: user.username,
+        //     FirstName: user.firstName,
+        //     LastName: user.lastName,
+        //     Admin: true
+        // };
 
-        return loggedUser;
+        return null;
     }
 }
