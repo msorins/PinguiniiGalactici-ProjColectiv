@@ -6,8 +6,6 @@ import { MatSidenavModule, MatToolbarModule, MatFormFieldModule, MatButtonModule
      MatInputModule, MatTableModule, MatCheckboxModule, MatSort, MatSortModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { AttendancesComponent } from './components/attendances/attendances.component';
-import { GradesComponent } from './components/grades/grades.component';
 
 @NgModule({
     imports: [
@@ -27,9 +25,7 @@ import { GradesComponent } from './components/grades/grades.component';
         
     ],
     declarations: [
-        TeacherMainPageComponent,
-        AttendancesComponent,
-        GradesComponent
+        TeacherMainPageComponent
     ],
     providers: []
 })
