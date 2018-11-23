@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatSidenavModule, MatAutocompleteModule, MatCheckboxModule,
-         MatTableModule, MatSortModule } from '@angular/material';
+         MatTableModule, MatSortModule, MatTabsModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
@@ -24,6 +24,7 @@ import { GradesComponent } from './components/grades/grades.component';
         ReactiveFormsModule,
         MatTableModule,
         MatSortModule,
+        MatTabsModule,
         SharedModule,
         FormsModule,
         TeacherCoursesRoutingModule,

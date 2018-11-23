@@ -4,8 +4,19 @@
         <app-teacher-menu></app-teacher-menu>
     </mat-sidenav>
     <mat-sidenav-content>
+            <div style="height:60px;" class="main-info-container">
+                    <app-teacher-courses-select></app-teacher-courses-select>
+            </div>
+               
         <div class="main-info-container">
-            <app-teacher-courses-select></app-teacher-courses-select>
+             <mat-tab-group>
+                 <mat-tab label="Grades">
+                    <app-grades></app-grades>
+                 </mat-tab>
+                <mat-tab label="Attendences">
+                    <app-attendances></app-attendances>
+                </mat-tab>
+            </mat-tab-group>
         </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
