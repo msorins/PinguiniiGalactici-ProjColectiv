@@ -31,7 +31,15 @@
         </EntityType>
         <EntityContainer Name="PinguiniiGalacticiEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Faculties" EntityType="PinguiniiGalacticiModel.Faculty" />
         </EntityContainer>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="FacultyID" />
+          </Key>
+          <Property Name="FacultyID" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -45,6 +53,11 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="IsTypeOf(PinguiniiGalacticiModel.Faculty)">
+              <MappingFragment StoreEntitySet="Users" />
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>

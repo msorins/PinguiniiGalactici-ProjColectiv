@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="37d2655ff14546209164cb958248c22b" Name="Diagram1">
         <EntityTypeShape EntityType="PinguiniiGalacticiModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PinguiniiGalacticiModel.Faculty" Width="1.5" PointX="4.125" PointY="1.375" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

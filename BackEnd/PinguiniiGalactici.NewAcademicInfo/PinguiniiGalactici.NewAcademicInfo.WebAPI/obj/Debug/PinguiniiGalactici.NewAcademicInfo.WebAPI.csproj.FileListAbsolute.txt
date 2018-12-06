@@ -235,3 +235,15 @@ Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAc
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.Tokens.xml
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\System.IdentityModel.Tokens.Jwt.pdb
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\System.IdentityModel.Tokens.Jwt.xml
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.Logging.dll
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.Tokens.dll
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\System.IdentityModel.Tokens.Jwt.dll
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.Logging.pdb
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.Logging.xml
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.Tokens.pdb
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.IdentityModel.Tokens.xml
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\System.IdentityModel.Tokens.Jwt.pdb
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\System.IdentityModel.Tokens.Jwt.xml

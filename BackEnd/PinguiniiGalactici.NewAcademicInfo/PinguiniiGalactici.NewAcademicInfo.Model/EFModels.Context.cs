@@ -26,5 +26,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.Models
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Faculty> Faculties { get; set; }
     }
 }

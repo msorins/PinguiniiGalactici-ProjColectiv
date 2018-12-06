@@ -45,6 +45,7 @@
     <Compile Include="Core\DALContext.cs" />
     <Compile Include="Core\DALObject.cs" />
     <Compile Include="Core\DbOperations.cs" />
+    <Compile Include="FacultyDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDAL.cs" />
   </ItemGroup>

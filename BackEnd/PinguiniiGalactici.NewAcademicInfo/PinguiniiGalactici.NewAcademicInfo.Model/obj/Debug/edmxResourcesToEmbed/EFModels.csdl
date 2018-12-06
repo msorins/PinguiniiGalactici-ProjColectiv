@@ -10,5 +10,13 @@
   </EntityType>
   <EntityContainer Name="PinguiniiGalacticiEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Faculties" EntityType="PinguiniiGalacticiModel.Faculty" />
   </EntityContainer>
+  <EntityType Name="Faculty">
+    <Key>
+      <PropertyRef Name="FacultyID" />
+    </Key>
+    <Property Name="FacultyID" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+    <Property Name="Name" Type="String" Nullable="false" />
+  </EntityType>
 </Schema>

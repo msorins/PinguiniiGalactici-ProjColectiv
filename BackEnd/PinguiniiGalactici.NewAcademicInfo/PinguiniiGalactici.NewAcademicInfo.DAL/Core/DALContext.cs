@@ -15,6 +15,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
 
         #region Members
         private UserDAL _userDAL;
+        private FacultyDAL _facultyDAL;
         #endregion
 
         #region Properties      
@@ -25,6 +26,16 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
                 if (_userDAL == null)
                     _userDAL = new UserDAL(this);
                 return _userDAL;
+            }
+        }
+
+        public FacultyDAL FacultyDAL
+        {
+            get
+            {
+                if (_facultyDAL == null)
+                    _facultyDAL = new FacultyDAL(this);
+                return _facultyDAL;
             }
         }
         #endregion
