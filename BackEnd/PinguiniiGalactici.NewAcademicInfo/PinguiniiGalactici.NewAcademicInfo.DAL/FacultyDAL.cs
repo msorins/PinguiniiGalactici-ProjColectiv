@@ -22,8 +22,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             return DbOperations.ExecuteQuery<Faculty>(_context.CONNECTION_STRING, "dbo.Faculties_ReadAll");
         }
 
-        //aka ReadByID for the other models
-        public Faculty ReadByUsername(Guid facultyID)
+        public Faculty ReadByID(Guid facultyID)
         {
             return DbOperations.ExecuteQuery<Faculty>(_context.CONNECTION_STRING, "dbo.Faculties_ReadByID", new SqlParameter("FacultyID", facultyID)).FirstOrDefault();
         }
