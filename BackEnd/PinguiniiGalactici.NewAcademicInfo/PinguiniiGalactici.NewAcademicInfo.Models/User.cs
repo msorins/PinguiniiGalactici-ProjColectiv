@@ -12,5 +12,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.Models
     {
         [DataMember(Name = "Username")]
         public string Username { get; set; }
+        [DataMember(Name = "Password")]
+        public string Password { get; set; }
+        [DataMember(Name = "Email")]
+        public string Email { get; set; }
     }
 }

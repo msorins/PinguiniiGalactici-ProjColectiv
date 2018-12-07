@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo", "PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.csproj", "{CF20680A-4CD7-4E5D-BF01-200057D0D8DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.Models", "PinguiniiGalactici.NewAcademicInfo.Models\PinguiniiGalactici.NewAcademicInfo.Models.csproj", "{744B6F97-C625-44B9-A6BD-71CCAA9DBDAF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.Library", "PinguiniiGalactici.NewAcademicInfo.Library\PinguiniiGalactici.NewAcademicInfo.Library.csproj", "{1422102A-36C7-4AC7-8689-051F5E40D30D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.DAL", "PinguiniiGalactici.NewAcademicInfo.DAL\PinguiniiGalactici.NewAcademicInfo.DAL.csproj", "{69A0D922-65D2-4519-92A3-3C144AA0BF6F}"
@@ -20,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{D358FAFF-E49
 		C:\Users\Robert\Desktop\ProiectColectiv-TestQuery.sql = C:\Users\Robert\Desktop\ProiectColectiv-TestQuery.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.Models", "PinguiniiGalactici.NewAcademicInfo.Models\PinguiniiGalactici.NewAcademicInfo.Models.csproj", "{C34CCF5E-20EE-4501-861C-8490A501EF7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,10 +30,6 @@ Global
 		{CF20680A-4CD7-4E5D-BF01-200057D0D8DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF20680A-4CD7-4E5D-BF01-200057D0D8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF20680A-4CD7-4E5D-BF01-200057D0D8DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{744B6F97-C625-44B9-A6BD-71CCAA9DBDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{744B6F97-C625-44B9-A6BD-71CCAA9DBDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{744B6F97-C625-44B9-A6BD-71CCAA9DBDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{744B6F97-C625-44B9-A6BD-71CCAA9DBDAF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1422102A-36C7-4AC7-8689-051F5E40D30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1422102A-36C7-4AC7-8689-051F5E40D30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1422102A-36C7-4AC7-8689-051F5E40D30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -50,6 +46,10 @@ Global
 		{5E48B563-8716-40C5-8979-23F210336AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E48B563-8716-40C5-8979-23F210336AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E48B563-8716-40C5-8979-23F210336AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C34CCF5E-20EE-4501-861C-8490A501EF7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C34CCF5E-20EE-4501-861C-8490A501EF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C34CCF5E-20EE-4501-861C-8490A501EF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C34CCF5E-20EE-4501-861C-8490A501EF7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,33 +14,34 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
     {
         #region Constructors
         public FacultyDAL(DALContext context) : base(context) { }
+        private static string tableName = "Table8";
         #endregion
 
         #region Methods
         public IEnumerable<Faculty> ReadAll()
         {
-            return DbOperations.ExecuteQuery<Faculty>(_context.CONNECTION_STRING, "dbo.Faculties_ReadAll");
+            return DbOperations.ExecuteQuery<Faculty>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadAll");
         }
 
         //aka ReadByID for the other models
-        public Faculty ReadByUsername(Guid facultyID)
+        public Faculty ReadById(Guid facultyID)
         {
-            return DbOperations.ExecuteQuery<Faculty>(_context.CONNECTION_STRING, "dbo.Faculties_ReadByID", new SqlParameter("FacultyID", facultyID)).FirstOrDefault();
+            return DbOperations.ExecuteQuery<Faculty>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadByID", new SqlParameter("FacultyID", facultyID)).FirstOrDefault();
         }
 
         public void Insert(Faculty faculty)
         {
-            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo.Faculties_Insert", faculty.GenerateSqlParametersFromModel().ToArray());
+            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Insert", faculty.GenerateSqlParametersFromModel().ToArray());
         }
 
         public void Update(Faculty faculty)
         {
-            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo.Faculties_Update", faculty.GenerateSqlParametersFromModel().ToArray());
+            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Update", faculty.GenerateSqlParametersFromModel().ToArray());
         }
 
         public void Delete(Guid facultyID)
         {
-            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo.Faculties_Delete", new SqlParameter("FacultyID", facultyID));
+            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Delete", new SqlParameter("FacultyID", facultyID));
         }
         #endregion
     }

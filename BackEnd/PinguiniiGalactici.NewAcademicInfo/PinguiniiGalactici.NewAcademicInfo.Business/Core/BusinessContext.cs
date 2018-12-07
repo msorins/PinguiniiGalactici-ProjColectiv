@@ -15,6 +15,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         private DALContext _dalContext;
 
         private UserBusiness _userBusiness;
+        private FacultyBusiness _facultyBusiness;
+        private DepartmentBusiness _departmentBusiness;
+        private GroupBusiness _groupBusiness;
         #endregion
 
         #region Constructor
@@ -56,6 +59,39 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
                     _userBusiness = new UserBusiness(this);
                 }
                 return _userBusiness;
+            }
+        }
+        public FacultyBusiness FacultyBusiness
+        {
+            get
+            {
+                if (_facultyBusiness == null)
+                {
+                    _facultyBusiness = new FacultyBusiness(this);
+                }
+                return _facultyBusiness;
+            }
+        }
+        public DepartmentBusiness DepartmentBusiness
+        {
+            get
+            {
+                if (_departmentBusiness == null)
+                {
+                    _departmentBusiness = new DepartmentBusiness(this);
+                }
+                return _departmentBusiness;
+            }
+        }
+        public GroupBusiness GroupBusiness
+        {
+            get
+            {
+                if (_groupBusiness == null)
+                {
+                    _groupBusiness = new GroupBusiness(this);
+                }
+                return _groupBusiness;
             }
         }
         #endregion

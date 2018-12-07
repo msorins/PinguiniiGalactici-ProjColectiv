@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PinguiniiGalactici.NewAcademicInfo.Business
 {
-    class FacultyBusiness : BusinessObject
+    public class FacultyBusiness : BusinessObject
     {
         #region Constructor
         public FacultyBusiness(BusinessContext context) : base(context) { }
@@ -20,9 +20,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
             _context.DALContext.FacultyDAL.Insert(faculty);
         }
 
-        public Faculty ReadByUsername(Guid facultyID)
+        public Faculty ReadById(Guid facultyID)
         {
-            return _context.DALContext.FacultyDAL.ReadByUsername(facultyID);
+            return _context.DALContext.FacultyDAL.ReadById(facultyID);
         }
 
         public IEnumerable<Faculty> ReadAll()
