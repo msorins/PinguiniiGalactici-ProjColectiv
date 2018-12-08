@@ -101,6 +101,7 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
+    <Compile Include="Controllers\TokenController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Core\MainAPIController.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />

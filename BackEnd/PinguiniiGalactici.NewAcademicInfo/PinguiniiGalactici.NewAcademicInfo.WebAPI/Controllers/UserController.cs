@@ -20,54 +20,54 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     {
         //[Route("{userID:Guid}")] - example for Guid (type must be specified)
         #region Methods
-       // [AuthenticationFilter]
-        [HttpGet]
-        [Route("")]
-        //[AuthorizationFilter(Role.Administrator)]
-        public IEnumerable<User> ReadAll()
-        {
-            return BusinessContext.UserBusiness.ReadAll();
-        }
+      // // [AuthenticationFilter]
+      //  [HttpGet]
+      //  [Route("")]
+      //  //[AuthorizationFilter(Role.Administrator)]
+      //  public IEnumerable<User> ReadAll()
+      //  {
+      //      return BusinessContext.UserBusiness.ReadAll();
+      //  }
 
-      //  [AuthenticationFilter]
-        [HttpGet]
-        [Route("{username}")]
-        public User ReadByUsername(string username)
-        {
-            return BusinessContext.UserBusiness.ReadByUsername(username);
-        }
+      ////  [AuthenticationFilter]
+      //  [HttpGet]
+      //  [Route("{username}")]
+      //  public User ReadByUsername(string username)
+      //  {
+      //      //return BusinessContext.UserBusiness.ReadByUsername(username);
+      //  }
 
-       // [AuthenticationFilter]
-        [HttpGet]
-        [Route("ReadCurrentUserInfo")]
-        public User ReadCurrentUserInfo()
-        {
-            return BusinessContext.CurrentUser;
-        }
+      // // [AuthenticationFilter]
+      //  [HttpGet]
+      //  [Route("ReadCurrentUserInfo")]
+      //  public User ReadCurrentUserInfo()
+      //  {
+      //      return BusinessContext.CurrentUser;
+      //  }
 
-      //  [AuthenticationFilter]
-        [HttpPost]
-        [Route("")]
-        public void Insert([FromBody]User user)
-        {
-            BusinessContext.UserBusiness.Insert(user);
-        }
+      ////  [AuthenticationFilter]
+      //  [HttpPost]
+      //  [Route("")]
+      //  public void Insert([FromBody]User user)
+      //  {
+      //      //BusinessContext.UserBusiness.Insert(user);
+      //  }
 
-       // [AuthenticationFilter]
-        [HttpPut]
-        [Route("")]
-        public void Update([FromBody]User user)
-        {
-            BusinessContext.UserBusiness.Update(user);
-        }
+      // // [AuthenticationFilter]
+      //  [HttpPut]
+      //  [Route("")]
+      //  public void Update([FromBody]User user)
+      //  {
+      //      //BusinessContext.UserBusiness.Update(user);
+      //  }
 
-      //  [AuthenticationFilter]
-        [HttpDelete]
-        [Route("{username}")]
-        public void Delete(string username)
-        {
-            BusinessContext.UserBusiness.Delete(username);
-        }
+      ////  [AuthenticationFilter]
+      //  [HttpDelete]
+      //  [Route("{username}")]
+      //  public void Delete(string username)
+      //  {
+      //     // BusinessContext.UserBusiness.Delete(username);
+      //  }
 
        // [AuthenticationFilter]
         [HttpPost]
@@ -83,32 +83,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return GenerateToken(username, 20);
         }
         #endregion
-
-        private const string Secret = "ab3OIsj+BXE9NZDy0t8W3TcNekrF+2d/1sFnWG4HnV8TZY30iTOdtVWJG8abWvB1GlOgJuQZdcF2Luqm/hccMw==";
-        public static string GenerateToken(string username, int expireMinutes = 20)
-        {
-            var symmetricKey = Convert.FromBase64String(Secret);
-            var tokenHandler = new JwtSecurityTokenHandler();
-
-            var now = DateTime.UtcNow;
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                        {
-                        new Claim(ClaimTypes.Name, username)
-                    }),
-
-                Expires = now.AddMinutes(Convert.ToInt32(expireMinutes)),
-
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(symmetricKey), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var stoken = tokenHandler.CreateToken(tokenDescriptor);
-            var token = tokenHandler.WriteToken(stoken);
-
-            return token;
-        }
-
+        
         private static bool ValidateToken(string token, out string username) // return true and the username if token was correct
         {
             username = null;

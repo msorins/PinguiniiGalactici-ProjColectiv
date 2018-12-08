@@ -36,13 +36,13 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters
 
             using (BusinessContext businessContext = new BusinessContext())
             {
-                User currentUser = businessContext.UserBusiness.ReadByUsername(principal.Identity.Name);
-                if (currentUser != null)
-                {
+                //User currentUser = businessContext.UserBusiness.ReadByUsername(principal.Identity.Name);
+                //if (currentUser != null)
+                //{
                     //claim based maybe :)) - depends on the received context (frontend authorizaton)
-                    context.Principal = principal;
-                    return;
-                }
+                  //  context.Principal = principal;
+                    //return;
+                //}
                 throw new Exception("The user has no rights to authenticate!!");
             }
         }

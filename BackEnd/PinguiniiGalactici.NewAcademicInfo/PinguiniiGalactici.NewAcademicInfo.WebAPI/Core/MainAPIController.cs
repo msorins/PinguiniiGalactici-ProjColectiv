@@ -28,15 +28,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
         }
         #endregion
 
-        #region Methods
-        private BusinessContext GetAuthenticatedBusinessContext()
-        {
-            //Get authenticated user and pass it to the context
-
-            return new BusinessContext();
-        }
-        #endregion
-
         #region IDisposable
         protected override void Dispose(bool disposing)
         {

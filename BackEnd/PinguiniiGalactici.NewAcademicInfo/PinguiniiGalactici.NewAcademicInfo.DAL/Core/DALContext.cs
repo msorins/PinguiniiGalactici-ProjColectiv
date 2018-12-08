@@ -65,11 +65,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         #region IDisposable Implementation
         public void Dispose()
         {
-            Dispose(true);
+            //Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        private void Dispose(bool disposing)
+        private void dispose(bool disposing)
         {
             if (!disposing)
                 return;
@@ -88,7 +88,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
 
         ~DALContext()
         {
-            Dispose(false);
+            //Dispose(false);
         }
         #endregion
     }

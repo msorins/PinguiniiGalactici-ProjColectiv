@@ -15,30 +15,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         #endregion
 
         #region Methods
-        public void Insert(User user)
+        public User ReadUser(String connectionString, String username, String password)
         {
-            _context.DALContext.UserDAL.Insert(user);
-        }
-
-        public User ReadByUsername(string username)
-        {
-            return _context.DALContext.UserDAL.ReadByUsername(username);
-        }
-
-        public IEnumerable<User> ReadAll()
-        {
-            return _context.DALContext.UserDAL.ReadAll();
-        }
-
-        public void Update(User user)
-        {
-            _context.DALContext.UserDAL.Update(user);
-        }
-
-        public void Delete(string username)
-        {
-            _context.DALContext.UserDAL.Delete(username);
+            return _context.DALContext.UserDAL.ReadUser(String username,String password);
         }
         #endregion
     }
 }
+
