@@ -2,7 +2,7 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              Attendences
+              Courses
             </mat-panel-title>
             <mat-panel-description>
             </mat-panel-description>
@@ -10,13 +10,11 @@
       
           <mat-list>
                 <mat-list-item>
-                    <mat-icon mat-list-icon>folder</mat-icon>
-                    <h4 mat-line>Link1</h4>
+                        <h4 [routerLink]="[ '/teacher/courses' ]" mat-line>Attendences</h4>
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <mat-list-item>
-                    <mat-icon mat-list-icon>folder</mat-icon>
-                    <h4 mat-line>Link2</h4>
+                    <h4 [routerLink]="[ '/teacher/courses' ]" mat-line>Grades</h4>
                 </mat-list-item>
             </mat-list>
         </mat-expansion-panel>
@@ -24,7 +22,27 @@
         <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Courses
+                    Users
+                  </mat-panel-title>
+                  <mat-panel-description>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+            
+                <mat-list>
+                      <mat-list-item>
+                          <h4 [routerLink]="[ '/teacher/create-user' ]" mat-line>Create Student</h4>
+                      </mat-list-item>
+                      <mat-divider></mat-divider>
+                      <mat-list-item>
+                          <h4 [routerLink]="[ '/teacher/create-user' ]" mat-line>Create Teacher</h4>
+                      </mat-list-item>
+                  </mat-list>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Blank1
                   </mat-panel-title>
                   <mat-panel-description>
                   </mat-panel-description>
@@ -46,7 +64,7 @@
         <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Grades
+                    Blank2
                   </mat-panel-title>
                   <mat-panel-description>
                   </mat-panel-description>
@@ -65,28 +83,7 @@
                   </mat-list>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    Students
-                  </mat-panel-title>
-                  <mat-panel-description>
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-            
-                <mat-list>
-                      <mat-list-item>
-                          <mat-icon mat-list-icon>folder</mat-icon>
-                          <h4 mat-line>Link1</h4>
-                      </mat-list-item>
-                      <mat-divider></mat-divider>
-                      <mat-list-item>
-                          <mat-icon mat-list-icon>folder</mat-icon>
-                          <h4 mat-line>Link2</h4>
-                      </mat-list-item>
-                  </mat-list>
-        </mat-expansion-panel>
-        <mat-expansion-panel *ngIf="loggedUser.Admin == true">
+        <mat-expansion-panel *ngIf="loggedUser?.Admin == true">
             <mat-expansion-panel-header>
               <mat-panel-title>
                 Create User

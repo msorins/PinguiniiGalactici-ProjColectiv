@@ -1,19 +1,12 @@
-  <app-header></app-header>
-  <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>
-        <app-teacher-menu></app-teacher-menu>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="main-info-container">
-            <form class="example-form" [formGroup]="createUser">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Username" [formControl]="username">
-                </mat-form-field>
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Password" [formControl]="password">
-                </mat-form-field>
-                <button class="login-button" mat-raised-button color="primary">Create User</button>
-            </form>
-        </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+<app-header></app-header>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+      <app-teacher-menu></app-teacher-menu>
+  </mat-sidenav>
+  <!--<mat-sidenav-content>-->
+    <!--<app-attendances></app-attendances>-->
+  <!--</mat-sidenav-content>-->
+  <mat-sidenav-content>
+    <app-grades></app-grades>
+  </mat-sidenav-content>
+</mat-sidenav-container>
