@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/header/header';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ConfigService } from './services/client.service';
 
 @NgModule({
     imports: [
@@ -45,7 +46,7 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [AuthenticationService]
+            providers: [AuthenticationService, ConfigService]
         };
     }
 }

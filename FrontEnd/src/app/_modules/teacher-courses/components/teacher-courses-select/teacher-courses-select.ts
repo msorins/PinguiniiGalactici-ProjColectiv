@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
+import { ConfigService } from 'src/app/_modules/shared/services/client.service';
+import { Course } from 'src/app/models/Course';
 
 export interface StateGroup {
   year: string;
@@ -40,16 +42,31 @@ export class TeacherCoursesSelectComponent implements OnInit {
   }
 ];
 
+  public groups : any = [931,932,933,934,935,936];
+
   stateGroupOptions: Observable<StateGroup[]>;
 
-  constructor(private fb: FormBuilder) {}
+  courses : Course[];
+
+  constructor(private fb: FormBuilder,
+    private APIservice : ConfigService
+    ) {}
 
   ngOnInit() {
-    this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filterGroup(value))
-      );
+    this.APIservice.getAllCourses().subscribe(
+      data => {
+        this.courses = data
+      },
+      error => {
+        console.log("error")
+      }
+    )
+
+    // this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(value => this._filterGroup(value))
+    //   );
   }
 
   private _filterGroup(value: string): StateGroup[] {
