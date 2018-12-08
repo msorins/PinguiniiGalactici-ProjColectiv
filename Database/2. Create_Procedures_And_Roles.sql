@@ -44,57 +44,57 @@ GO
 
 --insert
 create or alter procedure [Table1_Insert]
-		@regNr int,
-		@name  varchar(100),
-		@email text,
-		@groupNumber int,
-		@username varchar(50),
-		@password text
+		@RegistrationNumber int,
+		@Name  varchar(100),
+		@Email text,
+		@GroupNumber int,
+		@Username varchar(50),
+		@Password text
 AS 
 BEGIN
 	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber], [Username]) 
-     VALUES (@regNr, @name, @email, @groupNumber,@username);
-	 exec Create_Student @username, @password
+     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber,@Username);
+	 exec Create_Student @Username, @Password
 END 
 GO
 
 --update
 create or alter procedure [Table1_Update]
-	@regNr int,
-	@name  varchar(100),
-	@email text,
-	@groupNumber int,
-	@username varchar(50),
-	@password text
+	@RegistrationNumber int,
+	@Name  varchar(100),
+	@Email text,
+	@GroupNumber int,
+	@Username varchar(50),
+	@Password text
 AS
 BEGIN
 	UPDATE [Table1]
 	SET           
-		[Name] = @name,
-		[Email] = @email,
-		[Username] = @username,
-		[GroupNumber] = @groupNumber
-	WHERE [RegistrationNumber] = @regNr
+		[Name] = @Name,
+		[Email] = @Email,
+		[Username] = @Username,
+		[GroupNumber] = @GroupNumber
+	WHERE [RegistrationNumber] = @RegistrationNumber
 	--ALTER LOGIN @username WITH PASSWORD = @password;
 END
 GO
 
 --delete
 create or alter procedure [Table1_Delete]
-       @regNr    INT        
+       @RegistrationNumber    INT        
 AS 
 BEGIN 
-	DELETE FROM [Table1] WHERE [RegistrationNumber] = @regNr;
+	DELETE FROM [Table1] WHERE [RegistrationNumber] = @RegistrationNumber;
 
 END
 GO 
 
 --read by id
 create or alter procedure [Table1_ReadById]
-	@regNr INT
+	@RegistrationNumber INT
 AS
 BEGIN
-	SELECT * FROM [Table1] WHERE [RegistrationNumber] = @regNr;
+	SELECT * FROM [Table1] WHERE [RegistrationNumber] = @RegistrationNumber;
 END
 GO
 
@@ -107,11 +107,11 @@ END
 GO
 
 create or alter procedure [Table8_Insert]
-	@FID UNIQUEIDENTIFIER,
+	@FacultyID UNIQUEIDENTIFIER,
 	@Name VARCHAR(100)
 AS
 BEGIN
-	INSERT INTO [Table8]([FacultyID], [Name]) VALUES(@FID, @Name);
+	INSERT INTO [Table8]([FacultyID], [Name]) VALUES(@FacultyID, @Name);
 END
 GO
 
@@ -154,11 +154,11 @@ END
 GO
 
 create or alter procedure [Table7_Insert]
-	@TID UNIQUEIDENTIFIER,
+	@TypeID UNIQUEIDENTIFIER,
 	@Name VARCHAR(20)
 AS
 BEGIN
-	INSERT INTO [Table7]([TypeID], [Name]) VALUES(@TID, @Name);
+	INSERT INTO [Table7]([TypeID], [Name]) VALUES(@TypeID, @Name);
 END
 GO
 
@@ -202,48 +202,48 @@ GO
 
 ---------insert
 create or alter procedure Table2_Insert
-	@TID UNIQUEIDENTIFIER,
+	@TeacherID UNIQUEIDENTIFIER,
     @Name  varchar(50)  = NULL,
-	@username varchar(50),
-	@password text
+	@Username varchar(50),
+	@Password text
 AS 
 BEGIN
 	INSERT INTO Table2([TeacherID], [Name]) 
-     VALUES (@TID, @Name)
-	 EXEC Create_Teacher @username, @password
+     VALUES (@TeacherID, @Name)
+	 EXEC Create_Teacher @Username, @Password
 END 
 
 GO
 
 -------update
 create or alter procedure Table2_Update
-	@id UNIQUEIDENTIFIER,
+	@TeacherID UNIQUEIDENTIFIER,
 	@Name varchar(50)
 AS
 BEGIN
 	UPDATE Table2 
 	SET                 
 		[Name] = @Name
-	WHERE TeacherID = @id
+	WHERE TeacherID = @TeacherID
 
 END
 GO
 ----------delete
 create or alter procedure Table2_Delete
-       @id    UNIQUEIDENTIFIER        
+       @TeacherID UNIQUEIDENTIFIER        
 AS 
 BEGIN 
-	DELETE FROM   Table2 WHERE TeacherID = @id
+	DELETE FROM   Table2 WHERE TeacherID = @TeacherID
 
 END
 GO 
 
 --------read by id
 create or alter procedure Table2_ReadById
-	@id UNIQUEIDENTIFIER
+	@TeacherID UNIQUEIDENTIFIER
 AS
 BEGIN
-SELECT * FROM Table2 WHERE TeacherID = @id;
+SELECT * FROM Table2 WHERE TeacherID = @TeacherID;
 END
 GO
 
@@ -339,31 +339,34 @@ END
 GO
 
 CREATE OR ALTER PROCEDURE Table3_Insert
-	@CID UNIQUEIDENTIFIER, @cname nvarchar(100), @DID UNIQUEIDENTIFIER, @year INT, @labNr INT, @semNr INT AS 
+	@CourseID UNIQUEIDENTIFIER, @Name nvarchar(100), @DepartmentID UNIQUEIDENTIFIER, 
+	@Year INT, @TotalLabNr INT, @TotalSeminarNr INT AS 
 BEGIN
 	INSERT INTO [Table3]([CourseID], [Name], [DepartmentID], [Year], [TotalLabNr], [TotalSeminarNr])
-	VALUES (@CID, @cname, @DID, @year, @labNr, @semNr)
+	VALUES (@CourseID, @Name, @DepartmentID, @Year, @TotalLabNr, @TotalSeminarNr)
 END
 GO
 
 CREATE OR ALTER PROCEDURE Table3_Update
-	@CID UNIQUEIDENTIFIER, @cname nvarchar(100), @DID UNIQUEIDENTIFIER, @year INT, @labNr INT, @semNr INT AS 
+	@CourseID UNIQUEIDENTIFIER, @Name nvarchar(100), @DepartmentID UNIQUEIDENTIFIER, 
+	@Year INT, @TotalLabNr INT, @TotalSeminarNr INT AS 
 BEGIN
 	UPDATE [Table3] set 
-	[Name] = @cname, [DepartmentID] = @DID, [Year] = @year, [TotalLabNr] = @labNr, [TotalSeminarNr] = @semNr
-	WHERE [CourseID] = @CID 
+	[Name] = @Name, [DepartmentID] = @DepartmentID, [Year] = @Year, [TotalLabNr] = @TotalLabNr,
+	 [TotalSeminarNr] = @TotalSeminarNr
+	WHERE [CourseID] = @CourseID 
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table3_Delete @CID UNIQUEIDENTIFIER AS
+CREATE OR ALTER PROCEDURE Table3_Delete @CourseID UNIQUEIDENTIFIER AS
 BEGIN
-	DELETE FROM [Table3] WHERE [CourseID] = @CID
+	DELETE FROM [Table3] WHERE [CourseID] = @CourseID
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table3_ReadByID @CID UNIQUEIDENTIFIER AS
+CREATE OR ALTER PROCEDURE Table3_ReadByID @CourseID UNIQUEIDENTIFIER AS
 BEGIN
-	SELECT * FROM [Table3] WHERE [CourseID] = @CID
+	SELECT * FROM [Table3] WHERE [CourseID] = @CourseID
 END
 GO
 
@@ -373,16 +376,16 @@ BEGIN
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table2Table3_Insert @TID UNIQUEIDENTIFIER, @CID UNIQUEIDENTIFIER AS 
+CREATE OR ALTER PROCEDURE Table2Table3_Insert @TeacherID UNIQUEIDENTIFIER, @CourseID UNIQUEIDENTIFIER AS 
 BEGIN
 	INSERT INTO [Table2Table3]([CourseID], [TeacherID])
-	VALUES (@CID, @TID)
+	VALUES (@CourseID, @TeacherID)
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table2Table3_ReadByID @TID UNIQUEIDENTIFIER, @CID UNIQUEIDENTIFIER AS 
+CREATE OR ALTER PROCEDURE Table2Table3_ReadByID @TeacherID UNIQUEIDENTIFIER, @CourseID UNIQUEIDENTIFIER AS 
 BEGIN
-	SELECT * FROM [Table2Table3] WHERE [CourseID] = @CID AND [TeacherID] = @TID
+	SELECT * FROM [Table2Table3] WHERE [CourseID] = @CourseID AND [TeacherID] = @TeacherID
 END
 GO
 
@@ -392,40 +395,40 @@ BEGIN
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table2Table3_Delete @TID UNIQUEIDENTIFIER, @CID UNIQUEIDENTIFIER AS
+CREATE OR ALTER PROCEDURE Table2Table3_Delete @TeacherID UNIQUEIDENTIFIER, @CourseID UNIQUEIDENTIFIER AS
 BEGIN
-	DELETE FROM [Table2Table3] WHERE [CourseID] = @CID AND [TeacherID] = @TID
+	DELETE FROM [Table2Table3] WHERE [CourseID] = @CourseID AND [TeacherID] = @TeacherID
 END
 GO
 
 GO
 CREATE OR ALTER PROCEDURE Table1Table3_Insert
-	@EID UNIQUEIDENTIFIER, @SID INT, @CID UNIQUEIDENTIFIER AS 
+	@EnrollmentID UNIQUEIDENTIFIER, @StudentID INT, @CourseID UNIQUEIDENTIFIER AS 
 BEGIN
 	INSERT INTO [Table1Table3]([EnrollmentID], [StudentID], [CourseID])
-	VALUES (@EID, @SID, @CID)
+	VALUES (@EnrollmentID, @StudentID, @CourseID)
 END
 GO
 
 CREATE OR ALTER PROCEDURE Table1Table3_Update
-	@EID UNIQUEIDENTIFIER, @SID INT, @CID UNIQUEIDENTIFIER AS 
+	@EnrollmentID UNIQUEIDENTIFIER, @StudentID INT, @CourseID UNIQUEIDENTIFIER AS 
 BEGIN
 	UPDATE [Table1Table3] set 
-	[StudentID] = @SID, [CourseID]=@CID
-	WHERE [EnrollmentID] = @EID 
+	[StudentID] = @StudentID, [CourseID]=@CourseID
+	WHERE [EnrollmentID] = @EnrollmentID 
 END
 GO
 
 CREATE OR ALTER PROCEDURE Table1Table3_Delete
-	@EID UNIQUEIDENTIFIER AS
+	@EnrollmentID UNIQUEIDENTIFIER AS
 BEGIN
-	DELETE FROM [Table1Table3] WHERE [EnrollmentID] = @EID
+	DELETE FROM [Table1Table3] WHERE [EnrollmentID] = @EnrollmentID
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table1Table3_ReadByID @EID UNIQUEIDENTIFIER AS
+CREATE OR ALTER PROCEDURE Table1Table3_ReadByID @EnrollmentID UNIQUEIDENTIFIER AS
 BEGIN
-	SELECT * FROM [Table1Table3] WHERE [EnrollmentID] = @EID
+	SELECT * FROM [Table1Table3] WHERE [EnrollmentID] = @EnrollmentID
 END
 GO
 
@@ -473,17 +476,18 @@ END
 GO
 
 CREATE OR ALTER PROCEDURE [Table4_Insert]
-	@AID UNIQUEIDENTIFIER, @EID UNIQUEIDENTIFIER, @weeknr int , @typeid UNIQUEIDENTIFIER, @grade INT AS 
+	@AttendanceID UNIQUEIDENTIFIER, @EnrollmentID UNIQUEIDENTIFIER, @WeekNr int,
+	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2) AS 
 BEGIN
 	INSERT INTO [Table4]([AttendanceID], [EnrollmentID],[WeekNr],[TypeID], [Grade])
-	VALUES (@AID, @EID,@weeknr, @typeid, @grade)
+	VALUES (@AttendanceID, @EnrollmentID, @WeekNr, @TypeID, @Grade)
 END
 GO
 
 CREATE OR ALTER PROCEDURE [Table4_ReadByID]
-	@AID UNIQUEIDENTIFIER AS 
+	@AttendanceID UNIQUEIDENTIFIER AS 
 BEGIN
-	SELECT * FROM [Table4] WHERE [AttendanceID] = @AID
+	SELECT * FROM [Table4] WHERE [AttendanceID] = @AttendanceID
 END
 GO
 
@@ -494,18 +498,19 @@ END
 GO
 
 CREATE OR ALTER PROCEDURE [Table4_Delete]
-	@AID UNIQUEIDENTIFIER AS
+	@AttendanceID UNIQUEIDENTIFIER AS
 BEGIN
-	DELETE FROM [Table4] WHERE [AttendanceID] = @AID
+	DELETE FROM [Table4] WHERE [AttendanceID] = @AttendanceID
 END
 GO
 
 CREATE OR ALTER PROCEDURE [Table4_Update]
-	@AID UNIQUEIDENTIFIER, @EID UNIQUEIDENTIFIER, @weeknr INT, @typeid UNIQUEIDENTIFIER AS
+	@AttendanceID UNIQUEIDENTIFIER, @EnrollmentID UNIQUEIDENTIFIER, @WeekNr INT,
+	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2) AS
 BEGIN
 	UPDATE [Table4] 
-	SET [EnrollmentID] = @EID, [WeekNr]=@weeknr, [TypeID] = @typeid
-	WHERE [AttendanceID] = @AID
+	SET [EnrollmentID] = @EnrollmentID, [WeekNr]=@WeekNr, [TypeID] = @TypeID, Grade = @Grade
+	WHERE [AttendanceID] = @AttendanceID
 END
 GO
 
