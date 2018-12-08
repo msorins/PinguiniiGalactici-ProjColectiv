@@ -45,6 +45,11 @@
     <Compile Include="Core\DALContext.cs" />
     <Compile Include="Core\DALObject.cs" />
     <Compile Include="Core\DbOperations.cs" />
+    <Compile Include="StudentDAL.cs" />
+    <Compile Include="TeacherDAL.cs" />
+    <Compile Include="CoursesDAL.cs" />
+    <Compile Include="AttendanceDAL.cs" />
+    <Compile Include="GradeTypeDAL.cs" />
     <Compile Include="GroupDAL.cs" />
     <Compile Include="DepartmentDAL.cs" />
     <Compile Include="FacultyDAL.cs" />

@@ -18,7 +18,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("departments")]
     public class DepartmentController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (type must be specified)
+        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
         [AuthenticationFilter]
         [HttpGet]

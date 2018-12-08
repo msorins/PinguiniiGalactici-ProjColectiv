@@ -18,7 +18,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("users")]
     public class UserController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (type must be specified)
+        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
        // [AuthenticationFilter]
         [HttpGet]
@@ -39,7 +39,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
        // [AuthenticationFilter]
         [HttpGet]
-        [Route("ReadCurrentUserInfo")]
+        [Route("ReadCurrentUserInfou,uk9l;o0k.u8,kuh")]
         public User ReadCurrentUserInfo()
         {
             return BusinessContext.CurrentUser;

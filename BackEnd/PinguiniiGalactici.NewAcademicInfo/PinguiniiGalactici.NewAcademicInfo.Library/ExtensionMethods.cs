@@ -16,9 +16,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.Library
         {
             T element = new T();
             Type type = element.GetType();
-            List<PropertyInfo> typeProperties = type.GetProperties().ToList();
+            List<PropertyInfo> TypeProperties = type.GetProperties().ToList();
 
-            foreach (PropertyInfo property in typeProperties)
+            foreach (PropertyInfo property in TypeProperties)
             {
                 DataMemberAttribute attribute = property.GetCustomAttributes(typeof(DataMemberAttribute), true).FirstOrDefault() as DataMemberAttribute;
 
