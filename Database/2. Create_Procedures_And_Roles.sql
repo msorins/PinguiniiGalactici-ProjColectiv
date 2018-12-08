@@ -1,6 +1,27 @@
 use AcademicInfo
 GO
 
+create or alter procedure [GetCurrentUserRole]
+as begin
+	if IS_ROLEMEMBER('Admin') = 1
+	begin
+		select 'Admin'
+		return
+	end
+	if IS_ROLEMEMBER('Teacher') = 1
+	begin
+		select 'Teacher'
+		return
+	end
+	if IS_ROLEMEMBER('Student') = 1
+	begin
+		select 'Student'
+		return
+	end
+	select 'Error'	
+end
+go
+
 CREATE OR ALTER PROCEDURE [Create_Admin]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
@@ -48,13 +69,12 @@ create or alter procedure [Table1_Insert]
 		@Name  varchar(100),
 		@Email text,
 		@GroupNumber int,
-		@Username varchar(50),
 		@Password text
 AS 
 BEGIN
-	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber], [Username]) 
-     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber,@Username);
-	 exec Create_Student @Username, @Password
+	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber]) 
+     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber);
+	 exec Create_Student @Email, @Password
 END 
 GO
 
@@ -64,15 +84,12 @@ create or alter procedure [Table1_Update]
 	@Name  varchar(100),
 	@Email text,
 	@GroupNumber int,
-	@Username varchar(50),
 	@Password text
 AS
 BEGIN
 	UPDATE [Table1]
 	SET           
 		[Name] = @Name,
-		[Email] = @Email,
-		[Username] = @Username,
 		[GroupNumber] = @GroupNumber
 	WHERE [RegistrationNumber] = @RegistrationNumber
 	--ALTER LOGIN @username WITH PASSWORD = @password;
@@ -204,13 +221,13 @@ GO
 create or alter procedure Table2_Insert
 	@TeacherID UNIQUEIDENTIFIER,
     @Name  varchar(50)  = NULL,
-	@Username varchar(50),
+	@Email text,
 	@Password text
 AS 
 BEGIN
-	INSERT INTO Table2([TeacherID], [Name]) 
-     VALUES (@TeacherID, @Name)
-	 EXEC Create_Teacher @Username, @Password
+	INSERT INTO Table2([TeacherID], [Name], [Email]) 
+     VALUES (@TeacherID, @Name, @Email)
+	 EXEC Create_Teacher @Email, @Password
 END 
 
 GO
@@ -218,7 +235,8 @@ GO
 -------update
 create or alter procedure Table2_Update
 	@TeacherID UNIQUEIDENTIFIER,
-	@Name varchar(50)
+	@Name varchar(50),
+	@Email text
 AS
 BEGIN
 	UPDATE Table2 
@@ -578,6 +596,8 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_Update] TO [Admin]
 	GRANT EXECUTE ON [Table7_Delete] TO [Admin]
 
+	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
+
 	DROP ROLE IF EXISTS [Teacher]
 	CREATE ROLE [Teacher]
 	GRANT EXECUTE ON [Table2_ReadAll] TO [Teacher]
@@ -595,6 +615,8 @@ order by rp.name
 	GRANT EXECUTE ON [Table4_Update] TO [Teacher]
 	GRANT EXECUTE ON [Table4_Delete] TO [Teacher]
 
+	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
+
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
 
@@ -607,8 +629,17 @@ order by rp.name
 	GRANT EXECUTE ON [Table1Table3_ReadAll] TO [Student]
 	GRANT EXECUTE ON [Table2Table3_ReadAll] TO [Student]
 	GRANT EXECUTE ON [Table7_ReadAll] TO [Student]
+
+	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
 END
 GO
 
 EXEC Create_Roles
 GO
+
+
+
+
+--execute as login='mirceamariamadalina@yahoo.com'
+--execute GetCurrentUserRole
+--revert
