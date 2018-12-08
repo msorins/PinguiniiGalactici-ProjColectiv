@@ -48,13 +48,12 @@ create or alter procedure [Table1_Insert]
 		@Name  varchar(100),
 		@Email text,
 		@GroupNumber int,
-		@Username varchar(50),
 		@Password text
 AS 
 BEGIN
-	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber], [Username]) 
-     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber,@Username);
-	 exec Create_Student @Username, @Password
+	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber]) 
+     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber);
+	 exec Create_Student @Email, @Password
 END 
 GO
 
@@ -64,7 +63,6 @@ create or alter procedure [Table1_Update]
 	@Name  varchar(100),
 	@Email text,
 	@GroupNumber int,
-	@Username varchar(50),
 	@Password text
 AS
 BEGIN
@@ -72,7 +70,6 @@ BEGIN
 	SET           
 		[Name] = @Name,
 		[Email] = @Email,
-		[Username] = @Username,
 		[GroupNumber] = @GroupNumber
 	WHERE [RegistrationNumber] = @RegistrationNumber
 	--ALTER LOGIN @username WITH PASSWORD = @password;

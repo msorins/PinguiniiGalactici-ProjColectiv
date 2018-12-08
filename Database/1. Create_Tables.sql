@@ -67,7 +67,6 @@ BEGIN
 		[Name] varchar(100) NULL,
 		[Email] text NULL,
 		[GroupNumber] INT,
-		[Username] VARCHAR(50),
 		CONSTRAINT [PK_Table1] PRIMARY KEY ([RegistrationNumber]),
 		CONSTRAINT [FK_Table1Table5] FOREIGN KEY([GroupNumber])
 			REFERENCES [Table5]([GroupNumber]) ON DELETE SET NULL

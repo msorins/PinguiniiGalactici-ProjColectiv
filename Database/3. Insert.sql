@@ -25,7 +25,7 @@ RETURN
 	WHERE USER_NAME() = @username OR IS_ROLEMEMBER('Teacher') = 1 OR IS_ROLEMEMBER('Admin') = 1
 GO
 CREATE SECURITY POLICY Table1Filter
-ADD FILTER PREDICATE sec.[fn_Table1Security](Username)
+ADD FILTER PREDICATE sec.[fn_Table1Security](Email)
 ON dbo.Table1
 WITH (STATE=ON)
 GO
@@ -131,33 +131,27 @@ GO
 
 --exec deleteUser mmie2169
 GO
-EXEC Table1_Insert 2169, 'Mircea V.D. Maria-Madalina', 'mirceamariamadalina@yahoo.com', 935,
-	'mmie2169', 'pass'
+EXEC Table1_Insert 2169, 'Mircea V.D. Maria-Madalina', 'mirceamariamadalina@yahoo.com', 935, 'pass'
 GO
 --exec deleteUser mmie2165
 GO
-EXEC Table1_Insert 2165, 'Mihalache Mihai', 'mmie2165@scs.ubbcluj.ro', 935,
-	'mmie2165', '1234'
+EXEC Table1_Insert 2165, 'Mihalache Mihai', 'mmie2165@scs.ubbcluj.ro', 935, '1234'
 GO
 --exec deleteUser biie2065
 GO
-EXEC Table1_Insert 2065, 'BILC Irina', 'asdfg', 931,
-	'biie2065', '1234'
+EXEC Table1_Insert 2065, 'BILC Irina', 'asdfg', 931, '1234'
 GO
 --exec deleteUser jrie2143
 GO
-EXEC Table1_Insert 2143, 'JUGARU Robert', 'ksfjdsf@fiowe.com', 935,
-	'jrie2143', '1234'
+EXEC Table1_Insert 2143, 'JUGARU Robert', 'ksfjdsf@fiowe.com', 935, '1234'
 GO
 --exec deleteUser lskd1234
 GO
-EXEC Table1_Insert 1234, 'IONESCU Ion', 'covfefe', 11,
-	'lskd1234', '1234'
+EXEC Table1_Insert 1234, 'IONESCU Ion', 'covfefe', 11, '1234'
 GO
 --exec deleteUser asdf2222
 GO
-EXEC Table1_Insert 2222, 'POPESCU Maria', 'kofew', 11,
-	'asdf2222', '1234'
+EXEC Table1_Insert 2222, 'POPESCU Maria', 'kofew', 11, '1234'
 GO
 
 EXEC Table3_Insert 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab', 'Arhitectura Sistemelor de Calcul', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
