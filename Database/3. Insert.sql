@@ -72,36 +72,38 @@ GO
 
 --exec deleteUser rares
 GO
-EXEC Table2_Insert '2357f5bd-cdbe-4e66-ae06-d013b3511050', 'BOIAN Rares', 'rares', 'pass'
+EXEC Table2_Insert '2357f5bd-cdbe-4e66-ae06-d013b3511050', 'BOIAN Rares', 'rares@123.com', 'pass'
 GO
 --exec deleteUser vancea
 GO
-EXEC Table2_Insert '99506ecd-d561-432f-8245-ec5ea3360ee8', 'VANCEA Alexandru', 'vancea', 'pass'
+EXEC Table2_Insert '99506ecd-d561-432f-8245-ec5ea3360ee8', 'VANCEA Alexandru', 'vancea@ks.com', 'pass'
 GO
 --exec deleteUser tzutzu
 GO
-EXEC Table2_Insert 'd813d59d-4827-4dc1-8d4b-4aef1b898a82', 'SUCIU Dan Mircea', 'tzutzu', 'pass'
+EXEC Table2_Insert 'd813d59d-4827-4dc1-8d4b-4aef1b898a82', 'SUCIU Dan Mircea', 'tzutzu@dkwo.com', 'pass'
 GO
 --exec deleteUser forest
 GO
-EXEC Table2_Insert '426fef7f-4288-47f2-9df2-8c448dc04786', 'STERCA Adrian', 'forest', '1234'
+EXEC Table2_Insert '426fef7f-4288-47f2-9df2-8c448dc04786', 'STERCA Adrian', 'forest@deo.com', '1234'
 GO
 --exec deleteUser florin
 GO
-EXEC Table2_Insert 'a1fde6e0-37de-4b13-b5a8-8db8a7da2187', 'STRETEANU Florin', 'florin', '1234'
+EXEC Table2_Insert 'a1fde6e0-37de-4b13-b5a8-8db8a7da2187', 'STRETEANU Florin', 'florin@doe.ro', '1234'
 GO
 --exec deleteUser ioana
 GO
-EXEC Table2_Insert 'a9e2492f-85b0-47fa-bb36-8e04d8900c6d', 'VASIU Ioana', 'ioana', '1234'
+EXEC Table2_Insert 'a9e2492f-85b0-47fa-bb36-8e04d8900c6d', 'VASIU Ioana', 'ioana@dow.ro', '1234'
 GO
 --exec deleteUser cuibus
 GO
-EXEC Table2_Insert 'fa76bd8c-fbab-45b6-a6e1-725378a778ae', 'CUIBUS Daiana', 'cuibus', 'pass'
+EXEC Table2_Insert 'fa76bd8c-fbab-45b6-a6e1-725378a778ae', 'CUIBUS Daiana', 'cuibus@lcdsp.com', 'pass'
 GO
 --exec deleteUser bocbocboc
 GO
-EXEC Table2_Insert 'cafdccfc-0073-413e-9c62-c7f6e84df9ff', 'BOC Oana', 'bocbocboc', '121212'
+EXEC Table2_Insert 'cafdccfc-0073-413e-9c62-c7f6e84df9ff', 'BOC Oana', 'bocbocboc@qsl.com', '121212'
 GO
+
+
 
 EXEC Table6_Insert 'ebeb04bd-0610-4eb7-9184-1206eaeac40a', 'Matematica', '9097dc47-e843-4a1c-9978-bb5519f047b2'
 GO
@@ -226,7 +228,7 @@ GO
 --execute as login='mmie2169'
 --GO
 --execute Table1_ReadAll
---execute Table1_ReadTable4
+execute Table1_ReadTable4
 --execute Table4_ReadAll
 --GO
 --revert

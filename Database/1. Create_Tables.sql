@@ -42,6 +42,7 @@ BEGIN
 	create table [Table2] (
 		[TeacherID] UNIQUEIDENTIFIER,
 		[Name] varchar(100),
+		[Email] text,
 		CONSTRAINT [PK_Table2] PRIMARY KEY ([TeacherID])
 	)
 

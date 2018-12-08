@@ -1,6 +1,27 @@
 use AcademicInfo
 GO
 
+create or alter procedure [GetCurrentUserRole]
+as begin
+	if IS_ROLEMEMBER('Admin') = 1
+	begin
+		select 'Admin'
+		return
+	end
+	if IS_ROLEMEMBER('Teacher') = 1
+	begin
+		select 'Teacher'
+		return
+	end
+	if IS_ROLEMEMBER('Student') = 1
+	begin
+		select 'Student'
+		return
+	end
+	select 'Error'	
+end
+go
+
 CREATE OR ALTER PROCEDURE [Create_Admin]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
@@ -69,7 +90,6 @@ BEGIN
 	UPDATE [Table1]
 	SET           
 		[Name] = @Name,
-		[Email] = @Email,
 		[GroupNumber] = @GroupNumber
 	WHERE [RegistrationNumber] = @RegistrationNumber
 	--ALTER LOGIN @username WITH PASSWORD = @password;
@@ -201,13 +221,13 @@ GO
 create or alter procedure Table2_Insert
 	@TeacherID UNIQUEIDENTIFIER,
     @Name  varchar(50)  = NULL,
-	@Username varchar(50),
+	@Email text,
 	@Password text
 AS 
 BEGIN
-	INSERT INTO Table2([TeacherID], [Name]) 
-     VALUES (@TeacherID, @Name)
-	 EXEC Create_Teacher @Username, @Password
+	INSERT INTO Table2([TeacherID], [Name], [Email]) 
+     VALUES (@TeacherID, @Name, @Email)
+	 EXEC Create_Teacher @Email, @Password
 END 
 
 GO
@@ -215,7 +235,8 @@ GO
 -------update
 create or alter procedure Table2_Update
 	@TeacherID UNIQUEIDENTIFIER,
-	@Name varchar(50)
+	@Name varchar(50),
+	@Email text
 AS
 BEGIN
 	UPDATE Table2 
@@ -616,26 +637,7 @@ GO
 EXEC Create_Roles
 GO
 
-create or alter procedure [GetCurrentUserRole]
-as begin
-	if IS_ROLEMEMBER('Admin') = 1
-	begin
-		select 'Admin'
-		return
-	end
-	if IS_ROLEMEMBER('Teacher') = 1
-	begin
-		select 'Teacher'
-		return
-	end
-	if IS_ROLEMEMBER('Student') = 1
-	begin
-		select 'Student'
-		return
-	end
-	select 'Error'	
-end
-go
+
 
 
 --execute as login='mirceamariamadalina@yahoo.com'
