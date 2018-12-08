@@ -1,0 +1,47 @@
+
+.attendaces-component {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 300px;
+  margin-left: 20px;
+}
+
+/*find something better then ::ng-deep... */
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: gray;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
+  background-color: #4CAF50 !important; 
+}
+
+.table-container{
+  height: 570px;
+  margin-left:20px;
+  margin-top:10px;
+  margin-right: 20px;
+  overflow: auto;
+  width: auto;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9E9E9E; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #616161;
+}
