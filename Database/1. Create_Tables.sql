@@ -121,7 +121,7 @@ BEGIN
 		[EnrollmentID] UNIQUEIDENTIFIER,
 		[WeekNr] INT,
 		[TypeID] UNIQUEIDENTIFIER,
-		[Grade] TINYINT,
+		[Grade] DECIMAL(9,2),
 		CONSTRAINT [PK_Table4] PRIMARY KEY ([AttendanceID]),
 		CONSTRAINT [FK_Table4Table1Table3] FOREIGN KEY ([EnrollmentID]) 
 			REFERENCES [Table1Table3]([EnrollmentID]) ON DELETE CASCADE ,

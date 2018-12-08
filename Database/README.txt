@@ -14,25 +14,3 @@ EXECUTE Students_ReadAll
 If this doesn't work either, there might be a bug somewhere.
 
 The names of the tables have been changed to hide what they contain and to protect from sql injection. You can find the mapping of the new names in the file called Mapping.
-
-Authentication example:
-            string username = "mmie2169";
-            string password = "pass";
-            string connectionString =
-            "Data Source=MADALINA\\SQLEXPRESS01;" +
-            "Initial Catalog=AcademicInfo;" +
-            "User id=" + username + ";" +
-            "Password=" + password + ";";
-
-            SqlConnection conn = new SqlConnection(connectionString);
-
-            SqlCommand cmd = new SqlCommand();
-
-            cmd.CommandText = "Table1_ReadAll";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = conn;
-            conn.Open();
-            da = new SqlDataAdapter(cmd);
-            da.Fill(ds);
-            ParentList.DataSource = ds.Tables[0];
-            conn.Close();
