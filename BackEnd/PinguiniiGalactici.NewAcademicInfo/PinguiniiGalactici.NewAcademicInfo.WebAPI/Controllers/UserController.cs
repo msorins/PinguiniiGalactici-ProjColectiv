@@ -20,7 +20,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     {
         //[Route("{userID:Guid}")] - example for Guid (type must be specified)
         #region Methods
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +29,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.UserBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpGet]
         [Route("{username}")]
         public User ReadByUsername(string username)
@@ -37,7 +37,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.UserBusiness.ReadByUsername(username);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("ReadCurrentUserInfo")]
         public User ReadCurrentUserInfo()
@@ -45,7 +45,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.CurrentUser;
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]User user)
@@ -53,7 +53,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.UserBusiness.Insert(user);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]User user)
@@ -61,7 +61,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.UserBusiness.Update(user);
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpDelete]
         [Route("{username}")]
         public void Delete(string username)
@@ -69,7 +69,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.UserBusiness.Delete(username);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpPost]
         [Route("authenticate")]
         public string Authenticate()

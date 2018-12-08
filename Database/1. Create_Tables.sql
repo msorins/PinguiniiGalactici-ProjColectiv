@@ -46,20 +46,20 @@ BEGIN
 	)
 
 	CREATE TABLE [Table6] (
-		[DepartamentID] UNIQUEIDENTIFIER,
+		[DepartmentID] UNIQUEIDENTIFIER,
 		[Name] NVARCHAR(50) NULL,
 		[FacultyID] UNIQUEIDENTIFIER,
-		CONSTRAINT [PK_Table6] PRIMARY KEY ([DepartamentID]),
+		CONSTRAINT [PK_Table6] PRIMARY KEY ([DepartmentID]),
 		CONSTRAINT [FK_Table6Table8] FOREIGN KEY ([FacultyID]) 
 			REFERENCES [Table8]([FacultyID]) ON DELETE CASCADE
 	)
 
 	CREATE TABLE [Table5] (
 		[GroupNumber] INT,
-		[DepartamentID] UNIQUEIDENTIFIER,
+		[DepartmentID] UNIQUEIDENTIFIER,
 		CONSTRAINT [PK_Table5] PRIMARY KEY ([GroupNumber]),
-		CONSTRAINT [FK_Table5Table6] FOREIGN KEY ([DepartamentID]) 
-			REFERENCES [Table6]([DepartamentID]) ON DELETE CASCADE
+		CONSTRAINT [FK_Table5Table6] FOREIGN KEY ([DepartmentID]) 
+			REFERENCES [Table6]([DepartmentID]) ON DELETE CASCADE
 	)
 
 	create table [Table1] (
@@ -86,13 +86,13 @@ BEGIN
 	CREATE TABLE [Table3](
 		[CourseID] UNIQUEIDENTIFIER,
 		[Name] NVARCHAR(100),
-		[DepartamentID] UNIQUEIDENTIFIER,
+		[DepartmentID] UNIQUEIDENTIFIER,
 		[Year] INT,
 		[TotalLabNr] INT,
 		[TotalSeminarNr] INT,
 		CONSTRAINT [PK_Table3] PRIMARY KEY ([CourseID]),
-		CONSTRAINT [FK_Table3Table6] FOREIGN KEY ([DepartamentID]) 
-			REFERENCES [Table6]([DepartamentID]) ON DELETE CASCADE
+		CONSTRAINT [FK_Table3Table6] FOREIGN KEY ([DepartmentID]) 
+			REFERENCES [Table6]([DepartmentID]) ON DELETE CASCADE
 	)
 
 	CREATE TABLE [Table2Table3](

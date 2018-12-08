@@ -305,24 +305,24 @@ GO
 --END
 --GO
 
-CREATE OR ALTER PROCEDURE Table5_Insert @GroupNr INT, @DepartamentID UNIQUEIDENTIFIER AS 
+CREATE OR ALTER PROCEDURE Table5_Insert @GroupNumber INT, @DepartmentID UNIQUEIDENTIFIER AS 
 BEGIN
-	INSERT INTO [Table5]([GroupNumber], [DepartamentID])
-	VALUES (@GroupNr, @DepartamentID)
+	INSERT INTO [Table5]([GroupNumber], [DepartmentID])
+	VALUES (@GroupNumber, @DepartmentID)
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table5_Delete @GroupNr INT AS
+CREATE OR ALTER PROCEDURE Table5_Delete @GroupNumber INT AS
 BEGIN
-	DELETE FROM [Table5] WHERE [GroupNumber] = @GroupNr
+	DELETE FROM [Table5] WHERE [GroupNumber] = @GroupNumber
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table5_Update @GroupNr INT, @DepartamentID UNIQUEIDENTIFIER AS 
+CREATE OR ALTER PROCEDURE Table5_Update @GroupNumber INT, @DepartmentID UNIQUEIDENTIFIER AS 
 BEGIN
 	UPDATE [Table5] set 
-	[DepartamentID] = @DepartamentID
-	WHERE [GroupNumber] = @GroupNr 
+	[DepartmentID] = @DepartmentID
+	WHERE [GroupNumber] = @GroupNumber 
 END
 GO
 
@@ -332,16 +332,16 @@ BEGIN
 END
 GO
 
-CREATE OR ALTER PROCEDURE Table5_ReadByID @GroupNr INT AS
+CREATE OR ALTER PROCEDURE Table5_ReadByID @GroupNumber INT AS
 BEGIN
-	SELECT * FROM [Table5] WHERE [GroupNumber] = @GroupNr
+	SELECT * FROM [Table5] WHERE [GroupNumber] = @GroupNumber
 END
 GO
 
 CREATE OR ALTER PROCEDURE Table3_Insert
 	@CID UNIQUEIDENTIFIER, @cname nvarchar(100), @DID UNIQUEIDENTIFIER, @year INT, @labNr INT, @semNr INT AS 
 BEGIN
-	INSERT INTO [Table3]([CourseID], [Name], [DepartamentID], [Year], [TotalLabNr], [TotalSeminarNr])
+	INSERT INTO [Table3]([CourseID], [Name], [DepartmentID], [Year], [TotalLabNr], [TotalSeminarNr])
 	VALUES (@CID, @cname, @DID, @year, @labNr, @semNr)
 END
 GO
@@ -350,7 +350,7 @@ CREATE OR ALTER PROCEDURE Table3_Update
 	@CID UNIQUEIDENTIFIER, @cname nvarchar(100), @DID UNIQUEIDENTIFIER, @year INT, @labNr INT, @semNr INT AS 
 BEGIN
 	UPDATE [Table3] set 
-	[Name] = @cname, [DepartamentID] = @DID, [Year] = @year, [TotalLabNr] = @labNr, [TotalSeminarNr] = @semNr
+	[Name] = @cname, [DepartmentID] = @DID, [Year] = @year, [TotalLabNr] = @labNr, [TotalSeminarNr] = @semNr
 	WHERE [CourseID] = @CID 
 END
 GO
@@ -436,33 +436,33 @@ END
 GO
 
 CREATE OR ALTER PROCEDURE [Table6_Insert]
-	@DID UNIQUEIDENTIFIER, @name nvarchar(100), @fID UNIQUEIDENTIFIER AS 
+	@DepartmentID UNIQUEIDENTIFIER, @Name nvarchar(100), @FacultyID UNIQUEIDENTIFIER AS 
 BEGIN
-	INSERT INTO [Table6]([DepartamentID], [Name], [FacultyID])
-	VALUES (@DID, @name, @fID)
+	INSERT INTO [Table6]([DepartmentID], [Name], [FacultyID])
+	VALUES (@DepartmentID, @Name, @FacultyID)
 END
 GO
 
 CREATE OR ALTER PROCEDURE [Table6_Update]
-	@ID UNIQUEIDENTIFIER, @name nvarchar(100), @fID UNIQUEIDENTIFIER AS 
+	@DepartmentID UNIQUEIDENTIFIER, @Name nvarchar(100), @FacultyID UNIQUEIDENTIFIER AS 
 BEGIN
 	UPDATE [Table6] set 
-	[Name] = @name, [FacultyID] = @fID
-	WHERE [DepartamentID] = @ID 
+	[Name] = @Name, [FacultyID] = @FacultyID
+	WHERE [DepartmentID] = @DepartmentID 
 END
 GO
 
 CREATE OR ALTER PROCEDURE [Table6_Delete]
-	@ID UNIQUEIDENTIFIER AS
+	@DepartmentID UNIQUEIDENTIFIER AS
 BEGIN
-	DELETE FROM [Table6] WHERE [DepartamentID] = @ID
+	DELETE FROM [Table6] WHERE [DepartmentID] = @DepartmentID
 END
 GO
 
 CREATE OR ALTER PROCEDURE [Table6_ReadByID]
-	@ID UNIQUEIDENTIFIER AS
+	@DepartmentID UNIQUEIDENTIFIER AS
 BEGIN
-	SELECT * FROM [Table6] WHERE [DepartamentID] = @ID
+	SELECT * FROM [Table6] WHERE [DepartmentID] = @DepartmentID
 END
 GO
 
