@@ -20,7 +20,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     {
         //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
+        //[AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +29,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.TeachersBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
+     //   [AuthenticationFilter]
         [HttpGet]
         [Route("{TeachersNumber:Guid}")]
         public Teacher ReadById(Guid TeachersNumber)
@@ -37,7 +37,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.TeachersBusiness.ReadById(TeachersNumber);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Teacher Teachers)
@@ -45,7 +45,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.TeachersBusiness.Insert(Teachers);
         }
 
-        [AuthenticationFilter]
+     //   [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Teacher Teachers)
@@ -53,7 +53,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.TeachersBusiness.Update(Teachers);
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpDelete]
         [Route("{TeachersNumber:Guid}")]
         public void Delete(Guid TeachersNumber)
