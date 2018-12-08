@@ -1,7 +1,10 @@
 
 export class ApiUrl {
 
-    static apiexaple = 'controller/....';
+    static readonly basePrefix = '/api';
+    static readonly userUrl = '/User';
+    // link for the call
+    static readonly insertUserUrl = ApiUrl.basePrefix + ApiUrl.userUrl + '/Insert';
 
 }
 

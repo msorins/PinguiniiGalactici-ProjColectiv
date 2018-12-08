@@ -95,7 +95,7 @@
             <mat-list>
                   <mat-list-item>
                       <mat-icon mat-list-icon>folder</mat-icon>
-                      <input type="file" class="file-chooser" mat-line><h4 mat-line>Import users</h4>
+                      <input type="file" class="file-chooser" mat-line (change)="importFile($event)"><h4 mat-line>Import users</h4>
                   </mat-list-item>
                   <mat-divider></mat-divider>
                   <mat-list-item [routerLink]="['/teacher/create-user']">
