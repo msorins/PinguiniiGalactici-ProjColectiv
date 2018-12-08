@@ -575,6 +575,8 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_Update] TO [Admin]
 	GRANT EXECUTE ON [Table7_Delete] TO [Admin]
 
+	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
+
 	DROP ROLE IF EXISTS [Teacher]
 	CREATE ROLE [Teacher]
 	GRANT EXECUTE ON [Table2_ReadAll] TO [Teacher]
@@ -592,6 +594,8 @@ order by rp.name
 	GRANT EXECUTE ON [Table4_Update] TO [Teacher]
 	GRANT EXECUTE ON [Table4_Delete] TO [Teacher]
 
+	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
+
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
 
@@ -604,8 +608,36 @@ order by rp.name
 	GRANT EXECUTE ON [Table1Table3_ReadAll] TO [Student]
 	GRANT EXECUTE ON [Table2Table3_ReadAll] TO [Student]
 	GRANT EXECUTE ON [Table7_ReadAll] TO [Student]
+
+	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
 END
 GO
 
 EXEC Create_Roles
 GO
+
+create or alter procedure [GetCurrentUserRole]
+as begin
+	if IS_ROLEMEMBER('Admin') = 1
+	begin
+		select 'Admin'
+		return
+	end
+	if IS_ROLEMEMBER('Teacher') = 1
+	begin
+		select 'Teacher'
+		return
+	end
+	if IS_ROLEMEMBER('Student') = 1
+	begin
+		select 'Student'
+		return
+	end
+	select 'Error'	
+end
+go
+
+
+--execute as login='mirceamariamadalina@yahoo.com'
+--execute GetCurrentUserRole
+--revert
