@@ -18,6 +18,13 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         private FacultyBusiness _facultyBusiness;
         private DepartmentBusiness _departmentBusiness;
         private GroupBusiness _groupBusiness;
+
+
+        private AttendanceBusiness _AttendancesBusiness;
+        private CourseBusiness _CoursesBusiness;
+        private StudentBusiness _StudentsBusiness;
+        private TeacherBusiness _TeachersBusiness;
+        private GradeTypeBusiness _TypesBusiness;
         #endregion
 
         #region Constructor
@@ -92,6 +99,61 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
                     _groupBusiness = new GroupBusiness(this);
                 }
                 return _groupBusiness;
+            }
+        }
+        public AttendanceBusiness AttendancesBusiness
+        {
+            get
+            {
+                if (_AttendancesBusiness == null)
+                {
+                    _AttendancesBusiness = new AttendanceBusiness(this);
+                }
+                return _AttendancesBusiness;
+            }
+        }
+        public CourseBusiness CoursesBusiness
+        {
+            get
+            {
+                if (_CoursesBusiness == null)
+                {
+                    _CoursesBusiness = new CourseBusiness(this);
+                }
+                return _CoursesBusiness;
+            }
+        }
+        public StudentBusiness StudentsBusiness
+        {
+            get
+            {
+                if (_StudentsBusiness == null)
+                {
+                    _StudentsBusiness = new StudentBusiness(this);
+                }
+                return _StudentsBusiness;
+            }
+        }
+        public TeacherBusiness TeachersBusiness
+        {
+            get
+            {
+                if (_TeachersBusiness == null)
+                {
+                    _TeachersBusiness = new TeacherBusiness(this);
+                }
+                return _TeachersBusiness;
+            }
+        }
+        public GradeTypeBusiness TypesBusiness
+        {
+            get
+            {
+                if (_TypesBusiness == null)
+                {
+                    _TypesBusiness = new GradeTypeBusiness(this);
+                }
+                return _TypesBusiness;
             }
         }
         #endregion

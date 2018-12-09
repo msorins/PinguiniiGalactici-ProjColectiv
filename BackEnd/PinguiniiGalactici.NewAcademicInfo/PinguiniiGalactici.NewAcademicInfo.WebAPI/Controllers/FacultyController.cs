@@ -18,9 +18,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("faculties")]
     public class FacultyController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (type must be specified)
+        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +29,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.FacultyBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("{facultyID:Guid}")]
         public Faculty ReadById(Guid facultyID)
@@ -37,7 +37,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.FacultyBusiness.ReadById(facultyID);
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Faculty faculty)
@@ -45,7 +45,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.FacultyBusiness.Insert(faculty);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Faculty faculty)
