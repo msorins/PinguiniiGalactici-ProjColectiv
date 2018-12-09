@@ -18,11 +18,13 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
         #endregion
 
         #region Methods
-        public User ReadUser(String connectionString, String username, String password)
+        public User ReadUser(String username, String password)
         {
+            _context.InitializeConnectionString(username,password);
+
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(_context.CONNECTION_STRING))
                 {
                     using (SqlCommand command = new SqlCommand("dbo.GetCurrentUserRole"))
                     {

@@ -22,3 +22,9 @@ Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAc
 \\Mac\Home\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Library.csproj.CoreCompileInputs.cache
 \\Mac\Home\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Library.dll
 \\Mac\Home\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Library.pdb
+E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Library.dll
+E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Library.pdb
+E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Library.csprojAssemblyReference.cache
+E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Library.csproj.CoreCompileInputs.cache
+E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Library.dll
+E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Library\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Library.pdb

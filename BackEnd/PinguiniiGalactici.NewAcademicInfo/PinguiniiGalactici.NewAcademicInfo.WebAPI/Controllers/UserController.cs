@@ -80,7 +80,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
             // To do, check in db if username && password are correct
             // If they are, generate the auth token
-            return GenerateToken(username, 20);
+            //return GenerateToken(username, 20);
+
+            return null;
         }
         #endregion
         
@@ -118,7 +120,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
                 if (jwtToken == null)
                     return null;
-
+                string Secret = "ab3OIsj+BXE9NZDy0t8W3TcNekrF+2d/1sFnWG4HnV8TZY30iTOdtVWJG8abWvB1GlOgJuQZdcF2Luqm/hccMw==";
                 var symmetricKey = Convert.FromBase64String(Secret);
 
                 var validationParameters = new TokenValidationParameters()

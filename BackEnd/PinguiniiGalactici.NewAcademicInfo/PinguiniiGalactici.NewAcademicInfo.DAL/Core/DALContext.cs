@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PinguiniiGalactici.NewAcademicInfo.Models.Utils;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
     public class DALContext : IDisposable
     {
         #region Constants
-        internal string CONNECTION_STRING = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+        internal string CONNECTION_STRING = "";
         #endregion
 
         #region Members
@@ -59,6 +60,16 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
                     _groupDAL = new GroupDAL(this);
                 return _groupDAL;
             }
+        }
+        #endregion
+
+        #region Methods
+        internal void InitializeConnectionString(string username, string password)
+        {
+            string server = "DESKTOP-B05EV29";
+            string databaseName = "AcademicInfo";
+
+            this.CONNECTION_STRING =  string.Format("Data Source={0};Initial Catalog={1};User id={2};Password={3};", server, databaseName, username, password);
         }
         #endregion
 

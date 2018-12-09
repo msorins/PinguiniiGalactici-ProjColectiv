@@ -1,9 +1,11 @@
 ﻿using PinguiniiGalactici.NewAcademicInfo.Business.Core;
+using PinguiniiGalactici.NewAcademicInfo.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
@@ -25,6 +27,37 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
                 }
                 return _businessContext;
             }
+        }
+        #endregion
+
+       #region Methods
+        private BusinessContext GetAuthenticatedBusinessContext()
+        {
+            ClaimsIdentity currentIdentity = (ClaimsIdentity)RequestContext.Principal.Identity;
+            if (currentIdentity == null)
+                return null;
+
+            var usernameClaim = currentIdentity.FindFirst(ClaimTypes.Name);
+            string username = usernameClaim?.Value;
+
+            if (string.IsNullOrEmpty(username))
+                return null;
+
+            var roleClaim = currentIdentity.FindFirst(ClaimTypes.Role);
+            string role = roleClaim?.Value;
+
+            if (string.IsNullOrEmpty(role) && role.ToLower() != "admin" && role.ToLower() != "teacher" && role.ToLower() != "student")
+                return null;
+
+            User authenticatedUser = new User()
+            {
+                Username = username,
+                Role = role.ToLower().Equals("admin") ? Models.Enumerations.Role.Admin :
+                       role.ToLower().Equals("teacher") ? Models.Enumerations.Role.Teacher :
+                       Models.Enumerations.Role.Student
+            };
+
+            return new BusinessContext(authenticatedUser);
         }
         #endregion
 

@@ -15,9 +15,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         #endregion
 
         #region Methods
-        public User ReadUser(String connectionString, String username, String password)
+        public User ReadUser(String username, String password)
         {
-            return _context.DALContext.UserDAL.ReadUser(String username,String password);
+            return _context.DALContext.UserDAL.ReadUser(username,password);
         }
         #endregion
     }
