@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
@@ -23,9 +23,12 @@ export const _filter = (opt: string[], value: string): string[] => {
   selector: 'app-teacher-courses-select',
   templateUrl: './teacher-courses-select.html',
   styleUrls: ['./teacher-courses-select.css'],
+  inputs: ['courses']
 })
 
 export class TeacherCoursesSelectComponent implements OnInit {
+  @Input() courses: Course[];
+
   stateForm: FormGroup = this.fb.group({
     stateGroup: '',
   });
