@@ -49,7 +49,6 @@ export class TeacherCoursesSelectComponent implements OnInit {
 
   stateGroupOptions: Observable<StateGroup[]>;
 
-  courses : Course[];
 
   constructor(private fb: FormBuilder,
     private APIservice : ConfigService
