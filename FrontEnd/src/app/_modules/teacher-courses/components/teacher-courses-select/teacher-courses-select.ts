@@ -2,8 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
-import { ConfigService } from 'src/app/_modules/shared/services/client.service';
 import { Course } from 'src/app/models/Course';
+import { TeacherCoursesService } from '../../services/TeacherCoursesService';
 
 export interface StateGroup {
   year: string;
@@ -34,14 +34,8 @@ export class TeacherCoursesSelectComponent implements OnInit {
   });
 
   stateGroups: StateGroup[] = [{
-    year: '1st year',
-    names: ['Algebra', 'Analiza', 'FP']
-  }, {
-    year: '2nd year',
-    names: ['MAP', 'MPP', 'SDI']
-  }, {
-    year: '3rd year',
-    names: ['Retele']
+    year: 'Courses',
+    names: []
   }
 ];
 
@@ -50,25 +44,24 @@ export class TeacherCoursesSelectComponent implements OnInit {
   stateGroupOptions: Observable<StateGroup[]>;
 
 
-  constructor(private fb: FormBuilder,
-    private APIservice : ConfigService
-    ) {}
+  constructor(private fb: FormBuilder, private _TeacherCoursesService: TeacherCoursesService) {}
 
   ngOnInit() {
-    this.APIservice.getAllCourses().subscribe(
+    this._TeacherCoursesService.getCourses().subscribe(
       data => {
         this.courses = data
-      },
-      error => {
-        console.log("error")
+        this.courses.forEach(element => {
+          this.stateGroups[0].names.push(element.Name);
+        });
+        
       }
     )
 
-    // this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
-    //   .pipe(
-    //     startWith(''),
-    //     map(value => this._filterGroup(value))
-    //   );
+    this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filterGroup(value))
+      );
   }
 
   private _filterGroup(value: string): StateGroup[] {
