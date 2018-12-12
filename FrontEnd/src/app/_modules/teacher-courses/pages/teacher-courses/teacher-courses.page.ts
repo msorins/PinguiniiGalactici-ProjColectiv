@@ -8,7 +8,7 @@ import { Course } from 'src/app/models/Course';
     styleUrls: ['./teacher-courses.page.css']
 })
 export class TeacherCoursesPageComponent implements OnInit {
-    private courses: Course[];
+    private courses: Course[] = [];
 
     constructor(private _coursesService: TeacherCoursesService) {
     }

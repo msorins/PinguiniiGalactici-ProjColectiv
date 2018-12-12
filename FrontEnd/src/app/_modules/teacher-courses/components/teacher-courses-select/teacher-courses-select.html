@@ -13,7 +13,7 @@
       </mat-autocomplete>
     </mat-form-field>
     <mat-form-field class="container-element">
-      <mat-select placeholder="Group">
+      <mat-select #d (change)="groupSelected(d.value)" placeholder="Group">
         <mat-option *ngFor="let group of groups" [value]="group">
           {{group}}
         </mat-option>

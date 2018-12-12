@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {startWith, map} from 'rxjs/operators';
 import { Course } from 'src/app/models/Course';
 import { TeacherCoursesService } from '../../services/TeacherCoursesService';
+import { EventEmitter, Output } from '@angular/core';
 
 export interface StateGroup {
   year: string;
@@ -28,34 +29,32 @@ export const _filter = (opt: string[], value: string): string[] => {
 
 export class TeacherCoursesSelectComponent implements OnInit {
   @Input() courses: Course[];
+  @Output() selectedCourse: EventEmitter<Course> = new EventEmitter<Course>() ;
+  @Output() selectedGroup:  EventEmitter<Number> = new EventEmitter<Number>() ;
 
   stateForm: FormGroup = this.fb.group({
     stateGroup: '',
   });
 
   stateGroups: StateGroup[] = [{
-    year: 'Courses',
-    names: []
-  }
-];
+      year: 'Courses',
+      names: []
+    }
+  ];
 
-  public groups : any = [];
-
+  private groups : any = [];
   stateGroupOptions: Observable<StateGroup[]>;
 
-  constructor(private fb: FormBuilder, private _TeacherCoursesService: TeacherCoursesService) {}
+  constructor(private fb: FormBuilder) {}
+
+  ngOnChanges(courses: Course[]): void {
+    this.courses.forEach(element => {
+      this.stateGroups[0].names.push(element.Name);
+    });
+    
+  }
 
   ngOnInit() {
-    this._TeacherCoursesService.getCourses().subscribe(
-      data => {
-        this.courses = data
-        this.courses.forEach(element => {
-          this.stateGroups[0].names.push(element.Name);
-        });
-        
-      }
-    )
-
     this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges
       .pipe(
         startWith(''),
@@ -78,6 +77,9 @@ export class TeacherCoursesSelectComponent implements OnInit {
     if(this.courses != null) {
       this.courses.forEach(element => {
         if(element.Name == value) {
+          // It means that a valid course was chosen
+          this.selectedCourse.emit(element);
+
           if(element.Year == 1) {
             this.groups = [911, 912, 913, 914, 915, 916, 917]
           }
@@ -90,5 +92,9 @@ export class TeacherCoursesSelectComponent implements OnInit {
         }
       });
     }
+  }
+
+  public groupSelected(event: number) {
+    this.selectedGroup.emit(event);
   }
 }
