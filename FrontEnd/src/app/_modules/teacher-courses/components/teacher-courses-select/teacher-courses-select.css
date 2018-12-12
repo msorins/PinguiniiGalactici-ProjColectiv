@@ -1,0 +1,18 @@
+.container {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-element {
+    flex-grow: 3;
+    flex-basis: 0;
+}
+
+.container-element:nth-child(2) {
+    flex-grow: 1;
+}
+
+.container-element + .container-element {
+    margin-left: 10px;
+}
