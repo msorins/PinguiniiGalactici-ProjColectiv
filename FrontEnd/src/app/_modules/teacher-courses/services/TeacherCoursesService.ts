@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Course } from '../course.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Course } from 'src/app/models/Course';
 
 @Injectable()
 export class TeacherCoursesService {

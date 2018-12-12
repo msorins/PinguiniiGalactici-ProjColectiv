@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../course.interface';
 import { TeacherCoursesService } from '../../services/TeacherCoursesService';
+import { Course } from 'src/app/models/Course';
 
 @Component({
     selector: 'app-teacher-courses',
@@ -8,7 +8,7 @@ import { TeacherCoursesService } from '../../services/TeacherCoursesService';
     styleUrls: ['./teacher-courses.page.css']
 })
 export class TeacherCoursesPageComponent implements OnInit {
-    private courses: Course[];
+    private courses: Course[] = [];
 
     constructor(private _coursesService: TeacherCoursesService) {
     }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
-import { ConfigService } from 'src/app/_modules/shared/services/client.service';
+
 
 export interface Student {
   name: string;
@@ -72,7 +72,7 @@ export class AttendancesComponent implements OnInit {
   ];
   dataSource = new MatTableDataSource(STUDENTS_DATA);
 
-  constructor(clientService : ConfigService) { }
+  constructor() { }
 
   @ViewChild(MatSort) sort: MatSort;
 
