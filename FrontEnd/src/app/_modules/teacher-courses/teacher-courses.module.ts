@@ -9,6 +9,9 @@ import { TeacherCoursesSelectComponent } from './components/teacher-courses-sele
 import { TeacherCoursesRoutingModule } from './teacher-courses-routing.module';
 import { AttendancesComponent } from './components/attendances/attendances.component';
 import { GradesComponent } from './components/grades/grades.component';
+import { TeacherCoursesService } from './services/TeacherCoursesService';
+
+import { FakeBackendInterceptor, fakeBackendProvider } from '../shared/helpers/fakeBackend.interceptor';
 
 @NgModule({
     imports: [
@@ -36,6 +39,9 @@ import { GradesComponent } from './components/grades/grades.component';
         AttendancesComponent,
         GradesComponent
     ],
-    providers: []
+    providers: [
+        fakeBackendProvider,
+        TeacherCoursesService
+    ]
 })
 export class TeacherCoursesModule {}
