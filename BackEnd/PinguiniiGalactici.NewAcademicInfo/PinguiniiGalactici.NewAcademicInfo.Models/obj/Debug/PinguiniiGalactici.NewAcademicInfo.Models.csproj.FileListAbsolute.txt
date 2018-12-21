@@ -1,6 +1,0 @@
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.csproj.CoreCompileInputs.cache
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.Models\obj\Debug\PinguiniiGalactici.NewAcademicInfo.Models.csprojAssemblyReference.cache
