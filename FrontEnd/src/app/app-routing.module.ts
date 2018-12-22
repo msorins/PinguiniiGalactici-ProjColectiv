@@ -25,6 +25,10 @@ const routes: Routes = [
         loadChildren: '../app/_modules/create-user/create-user.module#CreateUserModule'
     },
     {
+        path: 'teacher/assign-students',
+        loadChildren: '../app/_modules/assign-student/assign-student.module#AssignStudentModule'
+    },
+    {
         path: 'teacher/courses',
         loadChildren: '../app/_modules/teacher-courses/teacher-courses.module#TeacherCoursesModule'
     },
