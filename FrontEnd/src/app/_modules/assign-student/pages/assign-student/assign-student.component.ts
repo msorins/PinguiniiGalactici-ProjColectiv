@@ -32,7 +32,10 @@ export class AssignStudentPageComponent implements OnInit {
 
         return false;
     }
-
+    checkIfStudentAlreadyAssignedForACourse() {
+        // will get the courses for a certain student then check if the student is assingned
+        // when is pressed then an error will pe displayed in alert with the name of the student and course
+    }
     assignStudentsToCourses(): void {
         console.log(this.selectedCourses);
         console.log(this.selectedStudents);
