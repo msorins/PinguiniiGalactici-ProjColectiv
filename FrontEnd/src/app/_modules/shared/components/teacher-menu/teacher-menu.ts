@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { LoggedUser } from '../../models/LoggedUser';
 import { StudentUser } from '../../models/StudentUser';
+import { Student } from 'src/app/_modules/create-user/models/Student';
 import { SharedService } from '../../services/SharedService';
 
 @Component({

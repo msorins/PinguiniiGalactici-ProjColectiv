@@ -18,6 +18,12 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         private FacultyDAL _facultyDAL;
         private DepartmentDAL _departmentDAL;
         private GroupDAL _groupDAL;
+
+        private AttendanceDAL _AttendancesDAL;
+        private CoursesDAL _CoursesDAL;
+        private StudentDAL _StudentsDAL;
+        private TeacherDAL _TeachersDAL;
+        private GradeTypeDAL _TypesDAL;
         #endregion
 
         #region Properties      
@@ -58,6 +64,54 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
                 if (_groupDAL == null)
                     _groupDAL = new GroupDAL(this);
                 return _groupDAL;
+            }
+        }
+
+        public AttendanceDAL AttendancesDAL
+        {
+            get
+            {
+                if (_AttendancesDAL == null)
+                    _AttendancesDAL = new AttendanceDAL(this);
+                return _AttendancesDAL;
+            }
+        }
+        public CoursesDAL CoursesDAL
+        {
+            get
+            {
+                if (_CoursesDAL == null)
+                    _CoursesDAL = new CoursesDAL(this);
+                return _CoursesDAL;
+            }
+        }
+
+        public StudentDAL StudentsDAL
+        {
+            get
+            {
+                if (_StudentsDAL == null)
+                    _StudentsDAL = new StudentDAL(this);
+                return _StudentsDAL;
+            }
+        }
+
+        public TeacherDAL TeachersDAL
+        {
+            get
+            {
+                if (_TeachersDAL == null)
+                    _TeachersDAL = new TeacherDAL(this);
+                return _TeachersDAL;
+            }
+        }
+        public GradeTypeDAL TypesDAL
+        {
+            get
+            {
+                if (_TypesDAL == null)
+                    _TypesDAL = new GradeTypeDAL(this);
+                return _TypesDAL;
             }
         }
         #endregion

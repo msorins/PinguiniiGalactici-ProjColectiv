@@ -1,5 +1,5 @@
-<form [formGroup]="stateForm">
-    <mat-form-field style="width:99%; margin: 5px;">
+<form [formGroup]="stateForm" class="container">
+    <mat-form-field class="container-element">
       <input type="text" matInput placeholder="Courses" formControlName="stateGroup" required [matAutocomplete]="autoGroup">
         <mat-autocomplete #autoGroup="matAutocomplete">
           <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.year">
@@ -7,6 +7,16 @@
               {{name}}
             </mat-option>
         </mat-optgroup>
+        <!-- <mat-option *ngFor="let course of courses" [value]="course.Name">
+          {{course.Name}}
+        </mat-option> -->
       </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field class="container-element">
+      <mat-select #d (change)="groupSelected(d.value)" placeholder="Group">
+        <mat-option *ngFor="let group of groups" [value]="group">
+          {{group}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
