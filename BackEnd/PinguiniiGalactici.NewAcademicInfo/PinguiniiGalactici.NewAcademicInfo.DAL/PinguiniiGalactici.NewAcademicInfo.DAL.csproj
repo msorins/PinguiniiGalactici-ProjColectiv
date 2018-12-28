@@ -45,6 +45,7 @@
     <Compile Include="Core\DALContext.cs" />
     <Compile Include="Core\DALObject.cs" />
     <Compile Include="Core\DbOperations.cs" />
+    <Compile Include="StudentCourseDAL.cs" />
     <Compile Include="StudentDAL.cs" />
     <Compile Include="TeacherDAL.cs" />
     <Compile Include="CoursesDAL.cs" />

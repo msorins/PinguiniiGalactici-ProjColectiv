@@ -23,6 +23,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         private AttendanceBusiness _AttendancesBusiness;
         private CourseBusiness _CoursesBusiness;
         private StudentBusiness _StudentsBusiness;
+        private StudentCourseBusiness _StudentCourseBusiness;
         private TeacherBusiness _TeachersBusiness;
         private GradeTypeBusiness _TypesBusiness;
         #endregion
@@ -134,6 +135,18 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
                 return _StudentsBusiness;
             }
         }
+        public StudentCourseBusiness StudentCourseBusiness
+        {
+            get
+            {
+                if (_StudentCourseBusiness == null)
+                {
+                    _StudentCourseBusiness = new StudentCourseBusiness(this);
+                }
+                return _StudentCourseBusiness;
+            }
+        }
+        
         public TeacherBusiness TeachersBusiness
         {
             get

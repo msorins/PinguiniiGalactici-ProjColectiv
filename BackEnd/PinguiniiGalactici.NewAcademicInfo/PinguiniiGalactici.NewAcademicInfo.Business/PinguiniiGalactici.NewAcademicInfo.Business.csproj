@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Core\BusinessContext.cs" />
     <Compile Include="Core\BusinessObject.cs" />
+    <Compile Include="StudentCourseBusiness.cs" />
     <Compile Include="StudentBusiness.cs" />
     <Compile Include="TeacherBusiness.cs" />
     <Compile Include="CourseBusiness.cs" />

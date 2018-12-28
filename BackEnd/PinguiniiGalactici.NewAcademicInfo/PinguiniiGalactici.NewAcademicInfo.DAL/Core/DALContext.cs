@@ -22,6 +22,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         private AttendanceDAL _AttendancesDAL;
         private CoursesDAL _CoursesDAL;
         private StudentDAL _StudentsDAL;
+        private StudentCourseDAL _StudentCourseDAL;
         private TeacherDAL _TeachersDAL;
         private GradeTypeDAL _TypesDAL;
         #endregion
@@ -95,6 +96,16 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
                 return _StudentsDAL;
             }
         }
+        public StudentCourseDAL StudentCourseDAL
+        {
+            get
+            {
+                if (_StudentCourseDAL == null)
+                    _StudentCourseDAL = new StudentCourseDAL(this);
+                return _StudentCourseDAL;
+            }
+        }
+        
 
         public TeacherDAL TeachersDAL
         {

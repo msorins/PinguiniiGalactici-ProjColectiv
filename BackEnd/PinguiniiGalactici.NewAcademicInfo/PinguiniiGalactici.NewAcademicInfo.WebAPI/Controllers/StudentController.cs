@@ -1,15 +1,8 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using PinguiniiGalactici.NewAcademicInfo.Models;
+﻿using PinguiniiGalactici.NewAcademicInfo.Models;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Claims;
-using System.Web;
 using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
@@ -27,6 +20,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         public IEnumerable<Student> ReadAll()
         {
             return BusinessContext.StudentsBusiness.ReadAll();
+        }
+
+        [AuthenticationFilter]
+        [HttpGet]
+        [Route("fromCourse/{CourseId:Guid}")]
+        //[AuthorizationFilter(Role.Administrator)]
+        public IEnumerable<Student> ReadAllFromCourse(Guid courseId)
+        {
+            return BusinessContext.StudentsBusiness.ReadAllFromCourse(courseId);
         }
 
         [AuthenticationFilter]
