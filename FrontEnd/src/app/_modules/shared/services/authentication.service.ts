@@ -43,18 +43,22 @@ export class AuthenticationService {
     }
 
     getLoggedUser(): LoggedUser {
-        const user = JSON.parse(localStorage.getItem('currentUser'));
-        console.log(user);
-        if(user == null) {
-            return null;
-        }
-        
-        const loggedUser: LoggedUser = {
-            Id: user.id,
-            Name: user.username,
-            FirstName: user.firstName,
-            LastName: user.lastName,
-            Admin: true
+        //const user = JSON.parse(localStorage.getItem('currentUser'));
+        // console.log(user);
+        // const loggedUser: LoggedUser = {
+        //     Id: user.id,
+        //     Name: user.username,
+        //     FirstName: user.firstName,
+        //     LastName: user.lastName,
+        //     Admin: true
+        // };
+
+        const loggedUser = {
+            Id: 1,
+            Name: 'name',
+            FirstName: 'name',
+            LastName: 'name',
+            Admin: false
         };
 
         return loggedUser;

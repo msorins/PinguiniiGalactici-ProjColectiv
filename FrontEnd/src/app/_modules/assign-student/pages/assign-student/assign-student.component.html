@@ -1,0 +1,48 @@
+<app-header></app-header>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened>
+      <app-teacher-menu></app-teacher-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <div class="main-info-container">
+        
+          <div class="selection-container">
+            <label class="group-label">Groups:</label>
+              <mat-form-field>
+                  <mat-select [(value)]="groupSelected" (selectionChange)="onGroupSelected()">
+                    <mat-option *ngFor="let group of groups" [value]="group">{{group}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+          </div>
+
+        <div style="height:100%">
+            <div class="left-part">
+                <div class="title">Students</div>
+               <div class="student-list">
+                 <mat-selection-list #students [(ngModel)]="selectedStudents">
+                     <mat-list-option *ngFor="let student of displayedStudents" [value]="student">
+                       {{student?.name}}
+                     </mat-list-option>
+                   </mat-selection-list>
+               </div>
+              </div>
+       
+              <div class="right-part">
+                 <div class="title">Courses</div>
+                 <div class="courses-list">
+                     <mat-selection-list #courses [(ngModel)]="selectedCourses">
+                         <mat-list-option *ngFor="let course of coursesList" [value]="course">
+                           {{course?.name}}
+                         </mat-list-option>
+                       </mat-selection-list>
+                 </div>
+               </div>
+        </div>
+          
+      </div>
+      <button class="assign-button" 
+            mat-raised-button color="primary"
+            [disabled]="toggleAssignStudents()"
+            (click)="assignStudentsToCourses()">Assign Students</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

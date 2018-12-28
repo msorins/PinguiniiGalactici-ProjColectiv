@@ -1,5 +1,5 @@
 <mat-accordion>
-        <mat-expansion-panel>
+        <mat-expansion-panel  *ngIf="loggedUser?.Admin == false">
           <mat-expansion-panel-header>
             <mat-panel-title>
               Courses
@@ -19,7 +19,7 @@
             </mat-list>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <!-- <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     Users
@@ -37,12 +37,12 @@
                           <h4 [routerLink]="[ '/teacher/create-user' ]" mat-line>Create Teacher</h4>
                       </mat-list-item>
                   </mat-list>
-        </mat-expansion-panel>
+        </mat-expansion-panel> -->
 
         <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Raports
+                    Assign Menu
                   </mat-panel-title>
                   <mat-panel-description>
                   </mat-panel-description>
@@ -50,7 +50,7 @@
             
                 <mat-list>
                       <mat-list-item>
-                          <h4 mat-line>Group raports</h4>
+                          <h4 mat-line [routerLink]="['/teacher/assign-students']">Assign students to courses</h4>
                       </mat-list-item>
                       <mat-divider></mat-divider>
                       <mat-list-item>
