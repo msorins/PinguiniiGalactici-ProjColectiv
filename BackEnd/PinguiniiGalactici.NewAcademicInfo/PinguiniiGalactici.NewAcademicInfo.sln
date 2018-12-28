@@ -13,11 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.WebAPI", "PinguiniiGalactici.NewAcademicInfo.WebAPI\PinguiniiGalactici.NewAcademicInfo.WebAPI.csproj", "{5E48B563-8716-40C5-8979-23F210336AF4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{D358FAFF-E49C-45A5-8D6A-9906199EBB20}"
-	ProjectSection(SolutionItems) = preProject
-		C:\Users\Robert\Desktop\ProiectColectiv-TestQuery.sql = C:\Users\Robert\Desktop\ProiectColectiv-TestQuery.sql
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.Models", "PinguiniiGalactici.NewAcademicInfo.Models\PinguiniiGalactici.NewAcademicInfo.Models.csproj", "{C34CCF5E-20EE-4501-861C-8490A501EF7B}"
 EndProject
 Global

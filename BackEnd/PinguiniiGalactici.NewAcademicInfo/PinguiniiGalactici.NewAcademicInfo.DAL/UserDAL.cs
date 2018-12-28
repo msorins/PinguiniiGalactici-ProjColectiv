@@ -3,6 +3,7 @@ using PinguiniiGalactici.NewAcademicInfo.Library;
 using PinguiniiGalactici.NewAcademicInfo.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -17,30 +18,47 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
         #endregion
 
         #region Methods
-        public IEnumerable<User> ReadAll()
+        public User ReadUser(String username, String password)
         {
-            return DbOperations.ExecuteQuery<User>(_context.CONNECTION_STRING, "dbo.Users_ReadAll");
-        }
+            _context.InitializeConnectionString(username,password);
 
-        //aka ReadByID for the other models
-        public User ReadByUsername(string username)
-        {
-            return DbOperations.ExecuteQuery<User>(_context.CONNECTION_STRING, "dbo.Users_ReadByID", new SqlParameter("Username", username)).FirstOrDefault();
-        }
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_context.CONNECTION_STRING))
+                {
+                    using (SqlCommand command = new SqlCommand("dbo.GetCurrentUserRole"))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Connection = connection;
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                if (reader.Read())
+                                {
+                                    String role = reader.GetString(0);
+                                    User user = new User
+                                    {
+                                        Username = username,
+                                        Password = password,
+                                        Role = role.ToLower().Equals("admin") ? Models.Enumerations.Role.Admin :
+                                                role.ToLower().Equals("teacher") ? Models.Enumerations.Role.Teacher :
+                                                Models.Enumerations.Role.Student
+                                    };
+                                    return user;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
 
-        public void Insert(User user)
-        {
-            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo.Users_Insert", user.GenerateSqlParametersFromModel().ToArray());
-        }
-
-        public void Update(User user)
-        {
-            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo.Users_Update", user.GenerateSqlParametersFromModel().ToArray());
-        }
-
-        public void Delete(string username)
-        {
-            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo.Users_Delete", new SqlParameter("Username", username));
+            return null;
         }
         #endregion
     }
