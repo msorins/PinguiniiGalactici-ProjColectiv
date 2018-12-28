@@ -31,7 +31,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters
             var request = context.Request;
             var authorization = request.Headers.Authorization;
 
-            if (authorization == null || authorization.Scheme != "Bearer")
+            if (authorization == null || authorization.Scheme != null && authorization.Scheme.ToLower() != "bearer")
                 throw new Exception("Invalid scheme. Missing token parameter.");
 
             if (string.IsNullOrEmpty(authorization.Parameter))
@@ -60,13 +60,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters
             return Task.FromResult<IPrincipal>(null);
         }
 
-        //toDo
         private bool ValidateToken(string token, out IPrincipal simplePrinciple)
         {
             string username = null;
             string role = null;
 
             simplePrinciple = JwtTokenLibrary.GetPrincipal(token);
+            if (simplePrinciple == null)
+                return false;
+
             var identity = simplePrinciple.Identity as ClaimsIdentity;
 
             if (identity == null)
@@ -80,9 +82,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters
 
             if (string.IsNullOrEmpty(username))
                 return false;
-
-            // More validate to check whether username exists in system
-            //get user by username from db would be nice :)
 
             var roleClaim = identity.FindFirst(ClaimTypes.Role);
             role = roleClaim?.Value;

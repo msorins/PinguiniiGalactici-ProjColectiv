@@ -12,7 +12,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
     {
         private const string secret = "db3OIsj+BXE9NZDy0t8W3TcNekrF+2d/1sFnWG4HnV8TZY30iTOdtVWJG8abWvB1GlOgJuQZdcF2Luqm/hccMw==";
 
-        public static string GenerateToken(string username, string role, int expireMinutes = 20)
+        public static string GenerateToken(string username, string role,string encryptedPass,int expireMinutes = 20)
         {
             var symmetricKey = Convert.FromBase64String(secret);
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -23,6 +23,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
                 Subject = new ClaimsIdentity(new[]
                 {
                    new Claim(ClaimTypes.Name, username),
+                   new Claim(ClaimValueTypes.Rsa,encryptedPass),
                    new Claim(ClaimTypes.Role, role.ToString())
                 }),
 

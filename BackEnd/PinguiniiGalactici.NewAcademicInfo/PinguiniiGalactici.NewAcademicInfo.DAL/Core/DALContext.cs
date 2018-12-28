@@ -10,11 +10,13 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
 {
     public class DALContext : IDisposable
     {
-        #region Constants
-        internal string CONNECTION_STRING = "";
+        #region Constants     
+        private const string SERVER = "DESKTOP-LKES2D6\\SQLEXPRESS";
+        string DATABASE = "AcademicInfo";
         #endregion
 
         #region Members
+        internal string CONNECTION_STRING = "";
         private UserDAL _userDAL;
         private FacultyDAL _facultyDAL;
         private DepartmentDAL _departmentDAL;
@@ -64,12 +66,9 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         #endregion
 
         #region Methods
-        internal void InitializeConnectionString(string username, string password)
+        public void InitializeConnectionString(string username, string password)
         {
-            string server = "DESKTOP-B05EV29";
-            string databaseName = "AcademicInfo";
-
-            this.CONNECTION_STRING =  string.Format("Data Source={0};Initial Catalog={1};User id={2};Password={3};", server, databaseName, username, password);
+            this.CONNECTION_STRING = string.Format("Data Source={0};Initial Catalog={1};User id={2};Password={3};", SERVER, DATABASE, username, password);
         }
         #endregion
 

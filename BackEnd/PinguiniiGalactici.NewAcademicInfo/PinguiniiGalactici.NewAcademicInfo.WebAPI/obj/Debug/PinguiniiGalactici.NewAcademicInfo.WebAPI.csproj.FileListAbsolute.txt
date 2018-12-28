@@ -140,9 +140,6 @@ E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\Pi
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\PinguiniiGalactici.NewAcademicInfo.DAL.pdb
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\PinguiniiGalactici.NewAcademicInfo.Library.pdb
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.csprojAssemblyReference.cache
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.csproj.CoreCompileInputs.cache
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.csproj.CopyComplete
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.dll
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.pdb
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\PinguiniiGalactici.NewAcademicInfo.WebAPI.dll.config
@@ -412,3 +409,6 @@ E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcade
 E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\PinguiniiGalactici.NewAcademicInfo.DAL.pdb
 E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\bin\PinguiniiGalactici.NewAcademicInfo.Library.pdb
 E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.csproj.CopyComplete
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.csprojAssemblyReference.cache
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.csproj.CoreCompileInputs.cache
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.WebAPI\obj\Debug\PinguiniiGalactici.NewAcademicInfo.WebAPI.csproj.CopyComplete

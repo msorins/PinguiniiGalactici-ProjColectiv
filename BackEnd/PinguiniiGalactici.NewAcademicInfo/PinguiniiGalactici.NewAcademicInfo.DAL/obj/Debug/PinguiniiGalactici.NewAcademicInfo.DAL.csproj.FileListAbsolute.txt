@@ -18,9 +18,6 @@ E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\Pi
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.dll
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Library.pdb
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.Models.pdb
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csprojAssemblyReference.cache
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csproj.CoreCompileInputs.cache
-E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csproj.CopyComplete
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.dll
 E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.pdb
 Y:\Desktop\Y3S1\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\bin\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.dll
@@ -59,3 +56,6 @@ E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcade
 E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csproj.CopyComplete
 E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.dll
 E:\Facultate\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.pdb
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csprojAssemblyReference.cache
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csproj.CoreCompileInputs.cache
+E:\PinguiniiGalactici-ProjColectiv\BackEnd\PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.DAL\obj\Debug\PinguiniiGalactici.NewAcademicInfo.DAL.csproj.CopyComplete

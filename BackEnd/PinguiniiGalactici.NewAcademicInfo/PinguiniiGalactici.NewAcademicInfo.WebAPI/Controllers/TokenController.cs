@@ -24,8 +24,8 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         [Route("")]
         public string GetToken()
         {
-            string username = HttpContext.Current.Request.Params["username"];
-            string password = HttpContext.Current.Request.Params["password"];
+            string username = HttpContext.Current.Request.Headers["username"];
+            string password = HttpContext.Current.Request.Headers["password"];
 
             if(username == null || password == null)
                 throw new Exception("Unauthorized");
@@ -35,7 +35,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             if (user == null)
                 throw new Exception("Unauthorized");
 
-            return JwtTokenLibrary.GenerateToken(username, user.Role.ToString());
+            return JwtTokenLibrary.GenerateToken(username, user.Role.ToString(),RsaEncryption.Encryption(password));
         }
     }
 }

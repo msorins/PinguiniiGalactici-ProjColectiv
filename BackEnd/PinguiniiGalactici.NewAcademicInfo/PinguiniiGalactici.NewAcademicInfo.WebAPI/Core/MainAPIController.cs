@@ -43,6 +43,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
             if (string.IsNullOrEmpty(username))
                 return null;
 
+            var passwordClaim = currentIdentity.FindFirst(ClaimValueTypes.Rsa);
+            string password = passwordClaim?.Value;
+
+            if (string.IsNullOrEmpty(password))
+                return null;
+
+            string decryptedPassword = RsaEncryption.Decryption(password);
+
             var roleClaim = currentIdentity.FindFirst(ClaimTypes.Role);
             string role = roleClaim?.Value;
 
@@ -52,6 +60,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
             User authenticatedUser = new User()
             {
                 Username = username,
+                Password = decryptedPassword,
                 Role = role.ToLower().Equals("admin") ? Models.Enumerations.Role.Admin :
                        role.ToLower().Equals("teacher") ? Models.Enumerations.Role.Teacher :
                        Models.Enumerations.Role.Student

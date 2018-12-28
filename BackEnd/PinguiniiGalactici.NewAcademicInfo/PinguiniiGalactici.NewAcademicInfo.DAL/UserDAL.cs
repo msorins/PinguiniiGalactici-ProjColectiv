@@ -46,6 +46,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
                                                 role.ToLower().Equals("teacher") ? Models.Enumerations.Role.Teacher :
                                                 Models.Enumerations.Role.Student
                                     };
+                                    return user;
                                 }
                             }
                         }
