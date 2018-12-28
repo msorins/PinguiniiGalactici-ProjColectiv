@@ -115,6 +115,15 @@ BEGIN
 END
 GO
 
+create or alter procedure [Table1_ReadByCourseID] @CourseId GUID
+AS 
+BEGIN 
+	SELECT * FROM [Table1] s
+	INNER JOIN [Table1Table3] sc on s.RegistrationNumber = sc.StudentID
+	WHERE sc.CourseID = @CourseId
+END
+GO
+
 --read all
 create or alter procedure [Table1_ReadAll]
 AS
@@ -581,6 +590,7 @@ order by rp.name
 	GRANT EXECUTE ON [Table1_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table1_Update] TO [Admin]
 	GRANT EXECUTE ON [Table1_Delete] TO [Admin]
+	GRANT EXECUTE ON [Table1_ReadByCourseID] TO [Admin]
 
 	GRANT EXECUTE ON [Table1Table3_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table1Table3_ReadAll] TO [Admin]
@@ -607,6 +617,7 @@ order by rp.name
 	GRANT EXECUTE ON [Table6_ReadAll] TO [Teacher]
 	GRANT EXECUTE ON [Table5_ReadAll] TO [Teacher]
 	GRANT EXECUTE ON [Table1_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table1_ReadByCourseID] TO [Teacher]
 	GRANT EXECUTE ON [Table1Table3_ReadAll] TO [Teacher]
 	GRANT EXECUTE ON [Table2Table3_ReadAll] TO [Teacher]
 	GRANT EXECUTE ON [Table7_ReadAll] TO [Teacher]
