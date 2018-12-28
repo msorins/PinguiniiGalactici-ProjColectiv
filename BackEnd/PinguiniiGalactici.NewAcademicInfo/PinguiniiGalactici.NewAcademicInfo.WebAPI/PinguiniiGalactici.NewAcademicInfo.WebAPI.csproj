@@ -107,7 +107,6 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\TokenController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Core\JwtTokenLibrary.cs" />
     <Compile Include="Core\MainAPIController.cs" />
     <Compile Include="Core\RsaEncryption.cs" />
