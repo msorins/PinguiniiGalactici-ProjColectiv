@@ -14,13 +14,11 @@ using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
-
+    [AuthenticationFilter]
     [RoutePrefix("attendances")]
     public class AttendanceController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +27,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.AttendancesBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
         [HttpGet]
         [Route("{AttendancesNumber:Guid}")]
         public Attendance ReadById(Guid AttendancesNumber)
@@ -37,7 +34,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.AttendancesBusiness.ReadById(AttendancesNumber);
         }
 
-        [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Attendance Attendances)
@@ -45,7 +41,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.AttendancesBusiness.Insert(Attendances);
         }
 
-        [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Attendance Attendances)
@@ -53,7 +48,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.AttendancesBusiness.Update(Attendances);
         }
 
-        [AuthenticationFilter]
         [HttpDelete]
         [Route("{AttendancesNumber:Guid}")]
         public void Delete(Guid AttendancesNumber)
@@ -62,8 +56,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         }
 
         #endregion
-
-
     }
 }
 
