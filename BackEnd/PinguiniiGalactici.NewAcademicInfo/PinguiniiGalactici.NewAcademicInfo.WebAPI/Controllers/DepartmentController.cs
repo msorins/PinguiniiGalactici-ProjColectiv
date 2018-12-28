@@ -14,13 +14,11 @@ using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
-
+    [AuthenticationFilter]
     [RoutePrefix("departments")]
     public class DepartmentController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
-        #region Methods
-        [AuthenticationFilter]
+        #region Methods     
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +27,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.DepartmentBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
         [HttpGet]
         [Route("{departmentID:Guid}")]
         public Department ReadById(Guid departmentID)
@@ -37,7 +34,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.DepartmentBusiness.ReadById(departmentID);
         }
 
-        [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Department department)
@@ -45,7 +41,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.DepartmentBusiness.Insert(department);
         }
 
-        [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Department department)
@@ -53,7 +48,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.DepartmentBusiness.Update(department);
         }
 
-        [AuthenticationFilter]
         [HttpDelete]
         [Route("{departmentID:Guid}")]
         public void Delete(Guid departmentID)

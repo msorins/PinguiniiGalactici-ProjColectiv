@@ -14,13 +14,11 @@ using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
-
+    [AuthenticationFilter]
     [RoutePrefix("gradeTypes")]
     public class GradeTypeController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +27,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.TypesBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
         [HttpGet]
         [Route("{TypesNumber:Guid}")]
         public GradeType ReadById(Guid TypesNumber)
@@ -37,7 +34,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.TypesBusiness.ReadById(TypesNumber);
         }
 
-        [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody] Models.GradeType Types)
@@ -45,7 +41,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.TypesBusiness.Insert(Types);
         }
 
-        [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody] Models.GradeType Types)
@@ -53,7 +48,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.TypesBusiness.Update(Types);
         }
 
-        [AuthenticationFilter]
         [HttpDelete]
         [Route("{TypesNumber:Guid}")]
         public void Delete(Guid TypesNumber)
@@ -62,8 +56,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         }
 
         #endregion
-
-
     }
 }
 

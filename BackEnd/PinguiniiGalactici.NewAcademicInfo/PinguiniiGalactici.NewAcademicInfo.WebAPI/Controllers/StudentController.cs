@@ -1,4 +1,5 @@
 ﻿using PinguiniiGalactici.NewAcademicInfo.Models;
+using PinguiniiGalactici.NewAcademicInfo.Models.Enumerations;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
@@ -7,22 +8,22 @@ using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
-
+    [AuthenticationFilter]
     [RoutePrefix("students")]
     public class StudentController : MainAPIController
     {
         //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-      //  [AuthenticationFilter]
+        
         [HttpGet]
         [Route("")]
-        //[AuthorizationFilter(Role.Administrator)]
+        [AuthorizationFilter(Role.Admin)]
         public IEnumerable<Student> ReadAll()
         {
             return BusinessContext.StudentsBusiness.ReadAll();
         }
 
-      //  [AuthenticationFilter]
+        //[AuthorizationFilter(Role.Admin)]
         [HttpGet]
         [Route("fromCourse/{CourseId:Guid}")]
         //[AuthorizationFilter(Role.Administrator)]

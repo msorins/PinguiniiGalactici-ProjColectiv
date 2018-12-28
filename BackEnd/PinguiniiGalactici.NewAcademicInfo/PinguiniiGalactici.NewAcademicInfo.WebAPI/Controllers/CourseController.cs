@@ -14,13 +14,11 @@ using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
-
+    [AuthenticationFilter]
     [RoutePrefix("courses")]
     public class CourseController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-       // [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -37,7 +35,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.CoursesBusiness.ReadById(CoursesNumber);
         }
 
-        [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Course Courses)
@@ -45,7 +42,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.CoursesBusiness.Insert(Courses);
         }
 
-        [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Course Courses)
@@ -53,17 +49,13 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.CoursesBusiness.Update(Courses);
         }
 
-        [AuthenticationFilter]
         [HttpDelete]
         [Route("{CoursesNumber:Guid}")]
         public void Delete(Guid CoursesNumber)
         {
             BusinessContext.CoursesBusiness.Delete(CoursesNumber);
         }
-
         #endregion
-
-
     }
 }
 

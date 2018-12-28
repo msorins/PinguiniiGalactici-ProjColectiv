@@ -14,12 +14,11 @@ using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
+    [AuthenticationFilter]
     [RoutePrefix("groups")]
     public class GroupController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -28,7 +27,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.GroupBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
         [HttpGet]
         [Route("{groupNumber:int}")]
         public Group ReadById(Int32 groupNumber)
@@ -36,7 +34,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.GroupBusiness.ReadById(groupNumber);
         }
 
-        [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Group group)
@@ -44,7 +41,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.GroupBusiness.Insert(group);
         }
 
-        [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Group group)
@@ -52,7 +48,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.GroupBusiness.Update(group);
         }
 
-        [AuthenticationFilter]
         [HttpDelete]
         [Route("{groupNumber:int}")]
         public void Delete(Int32 groupNumber)

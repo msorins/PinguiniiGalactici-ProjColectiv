@@ -14,13 +14,11 @@ using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 {
-
+    [AuthenticationFilter]
     [RoutePrefix("teachers")]
     public class TeacherController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        //[AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +27,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.TeachersBusiness.ReadAll();
         }
 
-     //   [AuthenticationFilter]
+     // [AuthenticationFilter]
         [HttpGet]
         [Route("{TeachersNumber:Guid}")]
         public Teacher ReadById(Guid TeachersNumber)
