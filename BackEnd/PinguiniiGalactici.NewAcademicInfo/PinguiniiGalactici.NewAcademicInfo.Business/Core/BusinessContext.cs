@@ -34,6 +34,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         public BusinessContext(User authenticatedUser)
         {
             _currentUser = authenticatedUser;
+            DALContext.InitializeConnectionString(authenticatedUser.Username,authenticatedUser.Password);
         }
         #endregion
 

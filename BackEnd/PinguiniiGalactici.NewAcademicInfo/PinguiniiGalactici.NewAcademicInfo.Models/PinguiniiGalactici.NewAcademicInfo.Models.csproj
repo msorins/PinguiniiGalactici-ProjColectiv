@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="GradeType.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="Enumerations\Role.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="Utils\ConnectionString.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
