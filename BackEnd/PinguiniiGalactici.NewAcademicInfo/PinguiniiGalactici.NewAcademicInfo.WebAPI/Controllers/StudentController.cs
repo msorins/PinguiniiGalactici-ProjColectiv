@@ -13,7 +13,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     {
         //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -22,7 +22,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.StudentsBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpGet]
         [Route("fromCourse/{CourseId:Guid}")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -31,7 +31,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.StudentsBusiness.ReadAllFromCourse(courseId);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("{StudentsNumber:int}")]
         public Student ReadById(Int32 StudentsNumber)
@@ -39,7 +39,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.StudentsBusiness.ReadById(StudentsNumber);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Student Students)
@@ -47,7 +47,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.StudentsBusiness.Insert(Students);
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Student Students)
@@ -55,7 +55,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.StudentsBusiness.Update(Students);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpDelete]
         [Route("{StudentsNumber:int}")]
         public void Delete(Int32 StudentsNumber)

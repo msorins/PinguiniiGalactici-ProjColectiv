@@ -20,7 +20,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     {
         //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +29,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.CoursesBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("{CoursesNumber:Guid}")]
         public Course ReadById(Guid CoursesNumber)
