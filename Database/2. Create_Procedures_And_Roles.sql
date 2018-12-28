@@ -115,7 +115,7 @@ BEGIN
 END
 GO
 
-create or alter procedure [Table1_ReadByCourseID] @CourseId GUID
+create or alter procedure [Table1_ReadByCourseID] @CourseId UNIQUEIDENTIFIER
 AS 
 BEGIN 
 	SELECT * FROM [Table1] s
