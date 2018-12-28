@@ -24,6 +24,8 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
                 if (_businessContext == null)
                 {
                     _businessContext = GetAuthenticatedBusinessContext();
+                    if (_businessContext == null)
+                        throw new Exception("Unauthorized access!");
                 }
                 return _businessContext;
             }
