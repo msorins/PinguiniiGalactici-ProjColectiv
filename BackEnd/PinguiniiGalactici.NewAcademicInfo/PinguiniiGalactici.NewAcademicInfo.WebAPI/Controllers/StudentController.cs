@@ -1,15 +1,8 @@
-﻿using Microsoft.IdentityModel.Tokens;
-using PinguiniiGalactici.NewAcademicInfo.Models;
+﻿using PinguiniiGalactici.NewAcademicInfo.Models;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Claims;
-using System.Web;
 using System.Web.Http;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
@@ -20,7 +13,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     {
         //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -29,7 +22,16 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.StudentsBusiness.ReadAll();
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
+        [HttpGet]
+        [Route("fromCourse/{CourseId:Guid}")]
+        //[AuthorizationFilter(Role.Administrator)]
+        public IEnumerable<Student> ReadAllFromCourse(Guid courseId)
+        {
+            return BusinessContext.StudentsBusiness.ReadAllFromCourse(courseId);
+        }
+
+       // [AuthenticationFilter]
         [HttpGet]
         [Route("{StudentsNumber:int}")]
         public Student ReadById(Int32 StudentsNumber)
@@ -37,7 +39,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.StudentsBusiness.ReadById(StudentsNumber);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpPost]
         [Route("")]
         public void Insert([FromBody]Student Students)
@@ -45,7 +47,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.StudentsBusiness.Insert(Students);
         }
 
-        [AuthenticationFilter]
+      //  [AuthenticationFilter]
         [HttpPut]
         [Route("")]
         public void Update([FromBody]Student Students)
@@ -53,7 +55,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.StudentsBusiness.Update(Students);
         }
 
-        [AuthenticationFilter]
+       // [AuthenticationFilter]
         [HttpDelete]
         [Route("{StudentsNumber:int}")]
         public void Delete(Int32 StudentsNumber)
