@@ -29,6 +29,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             return DbOperations.ExecuteQuery<Student>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadByID", new SqlParameter("RegistrationNumber", RegistrationNumber)).FirstOrDefault();
         }
 
+        public IEnumerable<Student> ReadAllFromCourse(Guid CourseId)
+        {
+            return DbOperations.ExecuteQuery<Student>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadByCourseID", new SqlParameter("CourseId", CourseId));
+        }
+
         public void Insert(Student Students)
         {
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Insert", Students.GenerateSqlParametersFromModel().ToArray());
