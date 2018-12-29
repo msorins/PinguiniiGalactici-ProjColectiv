@@ -133,27 +133,27 @@ GO
 
 --exec deleteUser mmie2169
 GO
-EXEC Table1_Insert 2169, 'Mircea V.D. Maria-Madalina', 'mirceamariamadalina@yahoo.com', 935, 'pass'
+EXEC Table1_Insert 2169, 'Mircea V.D. Maria-Madalina', 'mmie2165@scs.ubbcluj.ro', 935, 'pass'
 GO
 --exec deleteUser mmie2165
 GO
-EXEC Table1_Insert 2165, 'Mihalache Mihai', 'mmie2165@scs.ubbcluj.ro', 935, '1234'
+EXEC Table1_Insert 2165, 'Mihalache Mihai', 'mirceamariamadalina@yahoo.com', 935, '1234'
 GO
 --exec deleteUser biie2065
 GO
-EXEC Table1_Insert 2065, 'BILC Irina', 'asdfg', 931, '1234'
+EXEC Table1_Insert 2065, 'BILC Irina', 'maddamaddie@gmail.com', 931, '1234'
 GO
 --exec deleteUser jrie2143
 GO
-EXEC Table1_Insert 2143, 'JUGARU Robert', 'ksfjdsf@fiowe.com', 935, '1234'
+EXEC Table1_Insert 2143, 'JUGARU Robert', 'xyz@abc.com', 935, '1234'
 GO
 --exec deleteUser lskd1234
 GO
-EXEC Table1_Insert 1234, 'IONESCU Ion', 'covfefe', 11, '1234'
+EXEC Table1_Insert 1234, 'IONESCU Ion', '1@yahoo.ro', 11, '1234'
 GO
 --exec deleteUser asdf2222
 GO
-EXEC Table1_Insert 2222, 'POPESCU Maria', 'kofew', 11, '1234'
+EXEC Table1_Insert 2222, 'POPESCU Maria', 'hello@buhbye.co.uk', 11, '1234'
 GO
 
 EXEC Table3_Insert 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab', 'Arhitectura Sistemelor de Calcul', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
