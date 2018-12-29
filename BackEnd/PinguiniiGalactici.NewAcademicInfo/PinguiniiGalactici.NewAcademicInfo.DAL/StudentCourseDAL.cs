@@ -21,7 +21,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             return DbOperations.ExecuteQuery<StudentCourse>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadAll");
         }
 
-        //aka ReadByID for the other models
         public StudentCourse ReadById(Guid enrollmentID)
         {
             return DbOperations.ExecuteQuery<StudentCourse>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadByID", new SqlParameter("EnrollmentID", enrollmentID)).FirstOrDefault();

@@ -32,7 +32,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Core
         }
         #endregion
 
-       #region Methods
+        #region Methods
         private BusinessContext GetAuthenticatedBusinessContext()
         {
             ClaimsIdentity currentIdentity = (ClaimsIdentity)RequestContext.Principal.Identity;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using PinguiniiGalactici.NewAcademicInfo.Models;
+using PinguiniiGalactici.NewAcademicInfo.Models.Enumerations;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
@@ -21,7 +22,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         #region Methods
         [HttpGet]
         [Route("")]
-        //[AuthorizationFilter(Role.Administrator)]
+        [AuthorizationFilter(Role.Admin, Role.Teacher, Role.Student)]
         public IEnumerable<Models.GradeType> ReadAll()
         {
             return BusinessContext.TypesBusiness.ReadAll();
@@ -29,6 +30,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpGet]
         [Route("{TypesNumber:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public GradeType ReadById(Guid TypesNumber)
         {
             return BusinessContext.TypesBusiness.ReadById(TypesNumber);
@@ -36,6 +38,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Insert([FromBody] Models.GradeType Types)
         {
             BusinessContext.TypesBusiness.Insert(Types);
@@ -43,6 +46,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPut]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Update([FromBody] Models.GradeType Types)
         {
             BusinessContext.TypesBusiness.Update(Types);
@@ -50,6 +54,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{TypesNumber:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public void Delete(Guid TypesNumber)
         {
             BusinessContext.TypesBusiness.Delete(TypesNumber);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using PinguiniiGalactici.NewAcademicInfo.Models;
+using PinguiniiGalactici.NewAcademicInfo.Models.Enumerations;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
@@ -21,47 +22,44 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         #region Methods
         [HttpGet]
         [Route("")]
-        //[AuthorizationFilter(Role.Administrator)]
+        [AuthorizationFilter(Role.Admin,Role.Teacher, Role.Student)]
         public IEnumerable<Teacher> ReadAll()
         {
             return BusinessContext.TeachersBusiness.ReadAll();
         }
 
-     // [AuthenticationFilter]
         [HttpGet]
         [Route("{TeachersNumber:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public Teacher ReadById(Guid TeachersNumber)
         {
             return BusinessContext.TeachersBusiness.ReadById(TeachersNumber);
         }
 
-       // [AuthenticationFilter]
         [HttpPost]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Insert([FromBody]Teacher Teachers)
         {
             BusinessContext.TeachersBusiness.Insert(Teachers);
         }
 
-     //   [AuthenticationFilter]
         [HttpPut]
         [Route("")]
+        [AuthorizationFilter(Role.Admin, Role.Teacher)]
         public void Update([FromBody]Teacher Teachers)
         {
             BusinessContext.TeachersBusiness.Update(Teachers);
         }
 
-      //  [AuthenticationFilter]
         [HttpDelete]
         [Route("{TeachersNumber:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public void Delete(Guid TeachersNumber)
         {
             BusinessContext.TeachersBusiness.Delete(TeachersNumber);
         }
-
         #endregion
-
-
     }
 }
 

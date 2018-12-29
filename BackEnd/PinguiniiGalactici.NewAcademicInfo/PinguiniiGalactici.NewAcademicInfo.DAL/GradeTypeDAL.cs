@@ -23,7 +23,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             return DbOperations.ExecuteQuery<Models.GradeType>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadAll");
         }
 
-        //aka ReadByID for the other models
         public GradeType ReadById(Guid TypesID)
         {
             return DbOperations.ExecuteQuery<GradeType>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadByID", new SqlParameter("TypeID", TypesID)).FirstOrDefault();

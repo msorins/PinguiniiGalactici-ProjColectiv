@@ -1,5 +1,4 @@
-﻿using PinguiniiGalactici.NewAcademicInfo.Models.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
     public class DALContext : IDisposable
     {
         #region Constants     
-        private const string SERVER = "DESKTOP-B55J5KA";
+        private const string SERVER = "DESKTOP-LKES2D6\\SQLEXPRESS";
         string DATABASE = "AcademicInfo";
         #endregion
 
@@ -21,13 +20,12 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         private FacultyDAL _facultyDAL;
         private DepartmentDAL _departmentDAL;
         private GroupDAL _groupDAL;
-
-        private AttendanceDAL _AttendancesDAL;
-        private CoursesDAL _CoursesDAL;
-        private StudentDAL _StudentsDAL;
-        private StudentCourseDAL _StudentCourseDAL;
-        private TeacherDAL _TeachersDAL;
-        private GradeTypeDAL _TypesDAL;
+        private AttendanceDAL _attendancesDAL;
+        private CoursesDAL _coursesDAL;
+        private StudentDAL _studentsDAL;
+        private StudentCourseDAL _studentCourseDAL;
+        private TeacherDAL _teachersDAL;
+        private GradeTypeDAL _typesDAL;
         #endregion
 
         #region Properties      
@@ -75,18 +73,18 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         {
             get
             {
-                if (_AttendancesDAL == null)
-                    _AttendancesDAL = new AttendanceDAL(this);
-                return _AttendancesDAL;
+                if (_attendancesDAL == null)
+                    _attendancesDAL = new AttendanceDAL(this);
+                return _attendancesDAL;
             }
         }
         public CoursesDAL CoursesDAL
         {
             get
             {
-                if (_CoursesDAL == null)
-                    _CoursesDAL = new CoursesDAL(this);
-                return _CoursesDAL;
+                if (_coursesDAL == null)
+                    _coursesDAL = new CoursesDAL(this);
+                return _coursesDAL;
             }
         }
 
@@ -94,38 +92,37 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         {
             get
             {
-                if (_StudentsDAL == null)
-                    _StudentsDAL = new StudentDAL(this);
-                return _StudentsDAL;
+                if (_studentsDAL == null)
+                    _studentsDAL = new StudentDAL(this);
+                return _studentsDAL;
             }
         }
         public StudentCourseDAL StudentCourseDAL
         {
             get
             {
-                if (_StudentCourseDAL == null)
-                    _StudentCourseDAL = new StudentCourseDAL(this);
-                return _StudentCourseDAL;
+                if (_studentCourseDAL == null)
+                    _studentCourseDAL = new StudentCourseDAL(this);
+                return _studentCourseDAL;
             }
         }
         
-
         public TeacherDAL TeachersDAL
         {
             get
             {
-                if (_TeachersDAL == null)
-                    _TeachersDAL = new TeacherDAL(this);
-                return _TeachersDAL;
+                if (_teachersDAL == null)
+                    _teachersDAL = new TeacherDAL(this);
+                return _teachersDAL;
             }
         }
         public GradeTypeDAL TypesDAL
         {
             get
             {
-                if (_TypesDAL == null)
-                    _TypesDAL = new GradeTypeDAL(this);
-                return _TypesDAL;
+                if (_typesDAL == null)
+                    _typesDAL = new GradeTypeDAL(this);
+                return _typesDAL;
             }
         }
         #endregion
@@ -140,16 +137,25 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         #region IDisposable Implementation
         public void Dispose()
         {
-            //Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        private void dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (!disposing)
                 return;
 
             DisposeDALObject(_userDAL);
+            DisposeDALObject(_attendancesDAL);
+            DisposeDALObject(_studentsDAL);
+            DisposeDALObject(_coursesDAL);
+            DisposeDALObject(_departmentDAL);
+            DisposeDALObject(_facultyDAL);
+            DisposeDALObject(_groupDAL);
+            DisposeDALObject(_studentCourseDAL);
+            DisposeDALObject(_teachersDAL);
+            DisposeDALObject(_typesDAL);
         }
 
         private void DisposeDALObject(DALObject dalObject)
@@ -163,7 +169,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
 
         ~DALContext()
         {
-            //Dispose(false);
+            Dispose(false);
         }
         #endregion
     }

@@ -19,43 +19,42 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("faculties")]
     public class FacultyController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
         [HttpGet]
         [Route("")]
-        [AuthorizationFilter(Role.Admin)]
+        [AuthorizationFilter(Role.Admin, Role.Teacher)]
         public IEnumerable<Faculty> ReadAll()
         {
             return BusinessContext.FacultyBusiness.ReadAll();
         }
 
-        //[AuthenticationFilter]
         [HttpGet]
         [Route("{facultyID:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public Faculty ReadById(Guid facultyID)
         {
             return BusinessContext.FacultyBusiness.ReadById(facultyID);
         }
 
-        //[AuthenticationFilter]
         [HttpPost]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Insert([FromBody]Faculty faculty)
         {
             BusinessContext.FacultyBusiness.Insert(faculty);
         }
 
-       // [AuthenticationFilter]
         [HttpPut]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Update([FromBody]Faculty faculty)
         {
             BusinessContext.FacultyBusiness.Update(faculty);
         }
 
-        //[AuthenticationFilter]
         [HttpDelete]
         [Route("{facultyID:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public void Delete(Guid facultyId)
         {
             BusinessContext.FacultyBusiness.Delete(facultyId);

@@ -14,8 +14,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         public StudentCourseBusiness(BusinessContext context) : base(context) { }
         #endregion
 
-        
-        
         #region Methods
         public void Insert(StudentCourse studentCourse)
         {
