@@ -101,6 +101,7 @@
     <Compile Include="Controllers\GradeTypeController.cs" />
     <Compile Include="Controllers\AttendanceController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\StudentsCoursesController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\GroupController.cs" />

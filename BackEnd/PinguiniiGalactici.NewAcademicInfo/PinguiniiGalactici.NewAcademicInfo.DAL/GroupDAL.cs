@@ -23,7 +23,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             return DbOperations.ExecuteQuery<Group>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadAll");
         }
 
-        //aka ReadByID for the other models
         public Group ReadById(Int32 groupNumber)
         {
             Console.WriteLine(groupNumber);

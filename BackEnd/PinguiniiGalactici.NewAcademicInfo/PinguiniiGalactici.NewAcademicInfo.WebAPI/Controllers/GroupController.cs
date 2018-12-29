@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using PinguiniiGalactici.NewAcademicInfo.Models;
+using PinguiniiGalactici.NewAcademicInfo.Models.Enumerations;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
@@ -18,11 +19,10 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("groups")]
     public class GroupController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
         [HttpGet]
         [Route("")]
-        //[AuthorizationFilter(Role.Administrator)]
+        [AuthorizationFilter(Role.Admin, Role.Teacher, Role.Student)]
         public IEnumerable<Group> ReadAll()
         {
             return BusinessContext.GroupBusiness.ReadAll();
@@ -30,6 +30,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpGet]
         [Route("{groupNumber:int}")]
+        [AuthorizationFilter(Role.Admin)]
         public Group ReadById(Int32 groupNumber)
         {
             return BusinessContext.GroupBusiness.ReadById(groupNumber);
@@ -37,6 +38,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Insert([FromBody]Group group)
         {
             BusinessContext.GroupBusiness.Insert(group);
@@ -44,6 +46,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPut]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Update([FromBody]Group group)
         {
             BusinessContext.GroupBusiness.Update(group);
@@ -51,11 +54,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{groupNumber:int}")]
+        [AuthorizationFilter(Role.Admin)]
         public void Delete(Int32 groupNumber)
         {
             BusinessContext.GroupBusiness.Delete(groupNumber);
         }
-
         #endregion     
     }
 }

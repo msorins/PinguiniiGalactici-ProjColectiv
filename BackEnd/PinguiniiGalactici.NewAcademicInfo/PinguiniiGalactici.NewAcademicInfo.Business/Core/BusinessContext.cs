@@ -18,14 +18,12 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         private FacultyBusiness _facultyBusiness;
         private DepartmentBusiness _departmentBusiness;
         private GroupBusiness _groupBusiness;
-
-
-        private AttendanceBusiness _AttendancesBusiness;
-        private CourseBusiness _CoursesBusiness;
-        private StudentBusiness _StudentsBusiness;
-        private StudentCourseBusiness _StudentCourseBusiness;
-        private TeacherBusiness _TeachersBusiness;
-        private GradeTypeBusiness _TypesBusiness;
+        private AttendanceBusiness _attendancesBusiness;
+        private CourseBusiness _coursesBusiness;
+        private StudentBusiness _studentsBusiness;
+        private StudentCourseBusiness _studentCourseBusiness;
+        private TeacherBusiness _teachersBusiness;
+        private GradeTypeBusiness _typesBusiness;
         #endregion
 
         #region Constructor
@@ -107,44 +105,44 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         {
             get
             {
-                if (_AttendancesBusiness == null)
+                if (_attendancesBusiness == null)
                 {
-                    _AttendancesBusiness = new AttendanceBusiness(this);
+                    _attendancesBusiness = new AttendanceBusiness(this);
                 }
-                return _AttendancesBusiness;
+                return _attendancesBusiness;
             }
         }
         public CourseBusiness CoursesBusiness
         {
             get
             {
-                if (_CoursesBusiness == null)
+                if (_coursesBusiness == null)
                 {
-                    _CoursesBusiness = new CourseBusiness(this);
+                    _coursesBusiness = new CourseBusiness(this);
                 }
-                return _CoursesBusiness;
+                return _coursesBusiness;
             }
         }
         public StudentBusiness StudentsBusiness
         {
             get
             {
-                if (_StudentsBusiness == null)
+                if (_studentsBusiness == null)
                 {
-                    _StudentsBusiness = new StudentBusiness(this);
+                    _studentsBusiness = new StudentBusiness(this);
                 }
-                return _StudentsBusiness;
+                return _studentsBusiness;
             }
         }
         public StudentCourseBusiness StudentCourseBusiness
         {
             get
             {
-                if (_StudentCourseBusiness == null)
+                if (_studentCourseBusiness == null)
                 {
-                    _StudentCourseBusiness = new StudentCourseBusiness(this);
+                    _studentCourseBusiness = new StudentCourseBusiness(this);
                 }
-                return _StudentCourseBusiness;
+                return _studentCourseBusiness;
             }
         }
         
@@ -152,22 +150,22 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         {
             get
             {
-                if (_TeachersBusiness == null)
+                if (_teachersBusiness == null)
                 {
-                    _TeachersBusiness = new TeacherBusiness(this);
+                    _teachersBusiness = new TeacherBusiness(this);
                 }
-                return _TeachersBusiness;
+                return _teachersBusiness;
             }
         }
         public GradeTypeBusiness TypesBusiness
         {
             get
             {
-                if (_TypesBusiness == null)
+                if (_typesBusiness == null)
                 {
-                    _TypesBusiness = new GradeTypeBusiness(this);
+                    _typesBusiness = new GradeTypeBusiness(this);
                 }
-                return _TypesBusiness;
+                return _typesBusiness;
             }
         }
         #endregion
@@ -185,6 +183,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
                 return;
 
             DisposeBusinessObject(_userBusiness);
+            DisposeBusinessObject(_attendancesBusiness);
+            DisposeBusinessObject(_coursesBusiness);
+            DisposeBusinessObject(_departmentBusiness);
+            DisposeBusinessObject(_facultyBusiness);
+            DisposeBusinessObject(_groupBusiness);
+            DisposeBusinessObject(_studentCourseBusiness);
+            DisposeBusinessObject(_studentsBusiness);
+            DisposeBusinessObject(_teachersBusiness);
+            DisposeBusinessObject(_typesBusiness);
 
             if (_dalContext != null)
             {

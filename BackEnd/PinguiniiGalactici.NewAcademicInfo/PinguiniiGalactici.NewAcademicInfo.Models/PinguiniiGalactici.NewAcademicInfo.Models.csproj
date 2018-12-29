@@ -54,7 +54,6 @@
     <Compile Include="Teacher.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Utils\ConnectionString.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

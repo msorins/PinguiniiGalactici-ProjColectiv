@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using PinguiniiGalactici.NewAcademicInfo.Models;
+using PinguiniiGalactici.NewAcademicInfo.Models.Enumerations;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
@@ -21,7 +22,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         #region Methods
         [HttpGet]
         [Route("")]
-        //[AuthorizationFilter(Role.Administrator)]
+        [AuthorizationFilter(Role.Teacher)]
         public IEnumerable<Attendance> ReadAll()
         {
             return BusinessContext.AttendancesBusiness.ReadAll();
@@ -29,6 +30,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpGet]
         [Route("{AttendancesNumber:Guid}")]
+        [AuthorizationFilter(Role.Teacher)]
         public Attendance ReadById(Guid AttendancesNumber)
         {
             return BusinessContext.AttendancesBusiness.ReadById(AttendancesNumber);
@@ -36,6 +38,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [AuthorizationFilter(Role.Teacher)]
         public void Insert([FromBody]Attendance Attendances)
         {
             BusinessContext.AttendancesBusiness.Insert(Attendances);
@@ -43,6 +46,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPut]
         [Route("")]
+        [AuthorizationFilter(Role.Teacher)]
         public void Update([FromBody]Attendance Attendances)
         {
             BusinessContext.AttendancesBusiness.Update(Attendances);
@@ -50,11 +54,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{AttendancesNumber:Guid}")]
+        [AuthorizationFilter(Role.Teacher)]
         public void Delete(Guid AttendancesNumber)
         {
             BusinessContext.AttendancesBusiness.Delete(AttendancesNumber);
         }
-
         #endregion
     }
 }

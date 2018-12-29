@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using PinguiniiGalactici.NewAcademicInfo.Models;
+using PinguiniiGalactici.NewAcademicInfo.Models.Enumerations;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters;
 using System;
@@ -21,15 +22,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         #region Methods
         [HttpGet]
         [Route("")]
-        //[AuthorizationFilter(Role.Administrator)]
+        [AuthorizationFilter(Role.Admin, Role.Teacher, Role.Student)]
         public IEnumerable<Course> ReadAll()
         {
             return BusinessContext.CoursesBusiness.ReadAll();
         }
 
-       // [AuthenticationFilter]
         [HttpGet]
         [Route("{CoursesNumber:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public Course ReadById(Guid CoursesNumber)
         {
             return BusinessContext.CoursesBusiness.ReadById(CoursesNumber);
@@ -37,6 +38,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPost]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Insert([FromBody]Course Courses)
         {
             BusinessContext.CoursesBusiness.Insert(Courses);
@@ -44,6 +46,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpPut]
         [Route("")]
+        [AuthorizationFilter(Role.Admin)]
         public void Update([FromBody]Course Courses)
         {
             BusinessContext.CoursesBusiness.Update(Courses);
@@ -51,11 +54,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{CoursesNumber:Guid}")]
+        [AuthorizationFilter(Role.Admin)]
         public void Delete(Guid CoursesNumber)
         {
             BusinessContext.CoursesBusiness.Delete(CoursesNumber);
         }
-
         #endregion
     }
 }

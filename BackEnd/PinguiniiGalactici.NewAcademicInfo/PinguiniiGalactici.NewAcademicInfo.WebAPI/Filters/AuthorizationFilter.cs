@@ -11,21 +11,27 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Filters
     public class AuthorizationFilter : AuthorizeAttribute
     {
         #region Members
-        private readonly Role _role;
+        private readonly string[] _roles;
         #endregion
 
         #region Constructors
-        public AuthorizationFilter(Role role)
+        public AuthorizationFilter(params object[] roles)
             : base()
         {
-            _role = role;
+            if (roles.Any(p => p.GetType().BaseType != typeof(Enum)))
+                throw new ArgumentException("Invalid role types!");
+
+            _roles = roles.Select(p => Enum.GetName(p.GetType(), p)).ToArray();
         }
         #endregion
 
         #region Methods
         protected override bool IsAuthorized(HttpActionContext actionContext)
         {
-            return actionContext.RequestContext.Principal.IsInRole(_role.ToString());            
+            foreach (var role in _roles)
+                if (actionContext.RequestContext.Principal.IsInRole(role.ToString()))
+                    return true;
+            return false;           
         }
         #endregion
     }

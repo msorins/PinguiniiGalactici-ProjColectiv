@@ -16,6 +16,5 @@ namespace PinguiniiGalactici.NewAcademicInfo.Models
         public Int32 StudentID { get; set; }
         [DataMember(Name = "CourseID")]
         public Guid CourseID { get; set; }
-
     }
 }

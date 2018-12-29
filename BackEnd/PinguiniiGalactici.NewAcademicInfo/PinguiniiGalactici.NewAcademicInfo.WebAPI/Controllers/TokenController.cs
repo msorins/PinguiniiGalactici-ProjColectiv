@@ -1,7 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using PinguiniiGalactici.NewAcademicInfo.Business.Core;
 using PinguiniiGalactici.NewAcademicInfo.Models;
-using PinguiniiGalactici.NewAcademicInfo.Models.Utils;
 using PinguiniiGalactici.NewAcademicInfo.WebAPI.Core;
 using System;
 using System.Collections.Generic;
