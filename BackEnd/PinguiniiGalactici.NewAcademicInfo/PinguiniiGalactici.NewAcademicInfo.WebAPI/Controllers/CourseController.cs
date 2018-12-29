@@ -55,7 +55,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         {
             BusinessContext.CoursesBusiness.Delete(CoursesNumber);
         }
-
         #endregion
     }
 }

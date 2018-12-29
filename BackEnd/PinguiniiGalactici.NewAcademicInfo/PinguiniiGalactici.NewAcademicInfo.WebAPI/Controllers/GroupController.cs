@@ -18,7 +18,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("groups")]
     public class GroupController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
         [HttpGet]
         [Route("")]

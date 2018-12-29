@@ -18,7 +18,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("departments")]
     public class DepartmentController : MainAPIController
     {
-        #region Methods
+        #region Methods     
         [HttpGet]
         [Route("")]
         //[AuthorizationFilter(Role.Administrator)]
@@ -27,7 +27,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.DepartmentBusiness.ReadAll();
         }
 
-        //[AuthenticationFilter]
         [HttpGet]
         [Route("{departmentID:Guid}")]
         public Department ReadById(Guid departmentID)

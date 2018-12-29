@@ -18,7 +18,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
     [RoutePrefix("teachers")]
     public class TeacherController : MainAPIController
     {
-        //[Route("{userID:Guid}")] - example for Guid (Type must be specified)
         #region Methods
         [HttpGet]
         [Route("")]
@@ -28,6 +27,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.TeachersBusiness.ReadAll();
         }
 
+     // [AuthenticationFilter]
         [HttpGet]
         [Route("{TeachersNumber:Guid}")]
         public Teacher ReadById(Guid TeachersNumber)
