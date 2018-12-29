@@ -32,12 +32,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
 
         public IEnumerable<Student> ReadAllFromCourse(Guid courseId)
         {
-            var studentIds = _context.DALContext.StudentCourseDAL.ReadAll()
-                .Where((StudentCourse s) => s.CourseID == courseId)
-                .Select((StudentCourse s) => s.StudentID)
-                .ToList();
-            var studentIdsSet = new HashSet<Int32>(from x in studentIds select x);
-            return _context.DALContext.StudentsDAL.ReadAll().Where((Student s) => studentIdsSet.Contains(s.RegistrationNumber));
+            return _context.DALContext.StudentsDAL.ReadAllFromCourse(courseId);
         }
 
         public void Update(Student Students)
