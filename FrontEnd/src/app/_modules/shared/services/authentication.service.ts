@@ -43,7 +43,7 @@ export class AuthenticationService {
     }
 
     getLoggedUser(): LoggedUser {
-        //const user = JSON.parse(localStorage.getItem('currentUser'));
+        // const user = JSON.parse(localStorage.getItem('currentUser'));
         // console.log(user);
         // const loggedUser: LoggedUser = {
         //     Id: user.id,
@@ -58,7 +58,7 @@ export class AuthenticationService {
             Name: 'name',
             FirstName: 'name',
             LastName: 'name',
-            Admin: false
+            Admin: true
         };
 
         return loggedUser;
