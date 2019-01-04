@@ -35,6 +35,16 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
             return _context.DALContext.StudentsDAL.ReadAllFromCourse(courseId);
         }
 
+        public void MoveToGroup(Int32 group, List<Int32> students)
+        {
+            foreach (Int32 sid in students)
+            {
+                Student s = _context.DALContext.StudentsDAL.ReadById(sid);
+                s.GroupNumber = group;
+                _context.DALContext.StudentsDAL.Update(s);
+            }
+        }
+
         public void Update(Student Students)
         {
             _context.DALContext.StudentsDAL.Update(Students);
