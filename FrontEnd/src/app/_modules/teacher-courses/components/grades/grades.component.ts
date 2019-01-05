@@ -118,6 +118,10 @@ export class GradesComponent implements OnInit {
       grade = 10;
     }
     element.grade[position] = parseInt(grade, 10);
+    const index = this.students.indexOf(element);
+    if (index > -1) {
+      this.students[index].grade[position] = parseInt(grade, 10);
+    }
     this.changes = true;
 
 

@@ -16,4 +16,8 @@ export class TeacherCoursesService {
     saveGrades(data) {
         console.log(data);
     }
+
+    saveAttendance(data) {
+        console.log(data);
+    }
 }
