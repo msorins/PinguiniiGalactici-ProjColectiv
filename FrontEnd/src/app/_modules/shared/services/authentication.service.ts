@@ -42,6 +42,7 @@ export class AuthenticationService {
             usr.FirstName = usr.LastName = usr.Name = "Admin";
             usr.Token = "1234";
 
+            localStorage.setItem('currentUser', JSON.stringify(usr));
             return of(usr);
         }
 
