@@ -8,7 +8,6 @@ import { LoggedUser } from '../../models/LoggedUser';
     styleUrls: ['./header.css']
 })
 export class HeaderComponent implements OnInit {
-
     loggedUser: LoggedUser;
 
     constructor(
