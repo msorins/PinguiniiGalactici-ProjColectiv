@@ -37,6 +37,10 @@ const routes: Routes = [
         loadChildren: '../app/_modules/teacher-courses/teacher-courses.module#TeacherCoursesModule'
     },
     {
+        path: 'student',
+        loadChildren: '../app/_modules/student-courses/student-courses.module#StudentCoursesModule'
+    },
+    {
         path: 'lazy',
         loadChildren: '../app/_modules/lazy-module/lazy.module#LazyModule'
     }

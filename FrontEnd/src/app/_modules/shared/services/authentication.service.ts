@@ -15,9 +15,9 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     // To do => refactor above functions into one
-    loginStudent(info: any) {
+    loginStudent(info: any): Observable<LoggedUser> {
         console.log(info);
-        this.login(info['email'], info['password']);
+        return this.login(info['email'], info['password']);
     }
 
     loginTeacher(info: any): Observable<LoggedUser> {
@@ -38,7 +38,7 @@ export class AuthenticationService {
         if(this.mocked) {
             let usr = new LoggedUser();
             usr.Id = 1;
-            usr.Admin = false;
+            usr.Admin = true;
             usr.FirstName = usr.LastName = usr.Name = "Admin";
             usr.Token = "1234";
 
