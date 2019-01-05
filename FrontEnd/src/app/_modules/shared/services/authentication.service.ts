@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Subscriber } from 'rxjs';
+import { Subscriber, Subscription, Observable } from 'rxjs';
 import { LoggedUser } from '../models/LoggedUser';
 import { USE_VALUE } from '@angular/core/src/di/injector';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from 'src/app/models/user';
 
 @Injectable()
 export class AuthenticationService {
@@ -18,24 +19,43 @@ export class AuthenticationService {
         this.login(info['email'], info['password']);
     }
 
-    loginTeacher(info: any) {
+    loginTeacher(info: any): Observable<LoggedUser> {
         console.log(info);
-        this.login(info['email'], info['password']);
+        return this.login(info['email'], info['password']);
     }
 
-    login(username: string, password: string) {
-        console.log('Doing post');
-        return this.http.post<any>(`/users/authenticate`, { username, password })
-            .pipe(map(user => {
+    login(username: string, password: string): Observable<LoggedUser> {
+        const headerDict = {
+            'username': username,
+            'password': password,
+        }
+          
+          const requestOptions = {                                                                                                                                                                                 
+            headers: new HttpHeaders(headerDict), 
+          };
+
+        return this.http.get<any>(`http://localhost:53440/token`, requestOptions)
+            .pipe(map(token => {
                 // login successful if there's a jwt token in the response
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                if (token) {  
+                    // Decode the token
+                    const helper = new JwtHelperService();
+                    const decodedToken = helper.decodeToken(token);
+
+                    // Form User Object
+                    var user = new LoggedUser();
+                    user.Token = token;
+                    user.Name = decodedToken.unique_name;
+                    user.FirstName = user.Name;
+                    user.LastName = user.Name;
+
                     localStorage.setItem('currentUser', JSON.stringify(user));
+                    console.log("Login was successful: ", JSON.stringify(user));
+                    return user;
                 }
-                console.log('User logged in', user);
-                return user;
-            }))
-            .subscribe();
+            
+                return null;
+            }));
     }
 
     logout() {
@@ -43,24 +63,7 @@ export class AuthenticationService {
     }
 
     getLoggedUser(): LoggedUser {
-        // const user = JSON.parse(localStorage.getItem('currentUser'));
-        // console.log(user);
-        // const loggedUser: LoggedUser = {
-        //     Id: user.id,
-        //     Name: user.username,
-        //     FirstName: user.firstName,
-        //     LastName: user.lastName,
-        //     Admin: true
-        // };
-
-        const loggedUser = {
-            Id: 1,
-            Name: 'name',
-            FirstName: 'name',
-            LastName: 'name',
-            Admin: true
-        };
-
+        const loggedUser = JSON.parse(localStorage.getItem('currentUser'));
         return loggedUser;
     }
 }
