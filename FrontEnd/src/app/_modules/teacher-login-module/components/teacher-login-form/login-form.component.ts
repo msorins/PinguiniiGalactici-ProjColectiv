@@ -42,7 +42,10 @@ export class LoginFormComponent implements OnInit {
 
     loginTeacher(): void {
         const teacherCredentials = {email: this.email.value, password: this.password.value};
-        this.router.navigate(['/teacher/create-user']);
-        //this.loginService.loginTeacher(teacherCredentials);
+        this.loginService.loginTeacher(teacherCredentials).subscribe( user => {
+            if(user != null) {
+                this.router.navigate(['/teacher/create-user']);
+            }
+        });
     }
 }
