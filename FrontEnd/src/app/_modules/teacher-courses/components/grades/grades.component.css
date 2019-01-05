@@ -8,7 +8,9 @@
   width: 300px;
   margin-left: 20px;
 }
-
+.small-select.mat-form-field{
+  width: 150px;
+}
 /*find something better then ::ng-deep... */
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
   border-color: gray;

@@ -92,6 +92,8 @@ export class GradesComponent implements OnInit {
   changes = false;
   groups = [];
   selectedCourse = null;
+  types = ['Seminar', 'Laboratory', 'Course'];
+  selectedType = null;
   constructor(private teacherService: TeacherCoursesService) {
   }
 
@@ -130,14 +132,15 @@ export class GradesComponent implements OnInit {
   saveChanges(): void {
      const data = {
        students: this.dataSource.data,
-       courseId: this.selectedCourse
+       courseId: this.selectedCourse,
+       type: this.selectedType
      };
      this.teacherService.saveGrades(data);
      this.changes = false;
   }
 
   toggleSaveChanges(): boolean {
-    if (this.changes && this.selectedCourse !== null) {
+    if (this.changes && this.selectedCourse !== null && this.selectedType !== null) {
       return false;
     }
 

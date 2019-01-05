@@ -79,6 +79,8 @@ export class AttendancesComponent implements OnInit {
   selectedCourse = null;
   groups = [];
   courses = [{id: 1, name: 'Limbaje formale si tehnici de compilare'}, {id: 2, name: 'Programare paralela si distribuita'}];
+  types = ['Seminar', 'Laboratory', 'Course'];
+  selectedType = null;
   changes = false;
   constructor(private teacherCourseService: TeacherCoursesService) { }
 
@@ -120,7 +122,7 @@ export class AttendancesComponent implements OnInit {
   }
 
   toggleSaveChanges(): boolean {
-    if (this.changes && this.selectedCourse !== null) {
+    if (this.changes && this.selectedCourse !== null && this.selectedType !== null) {
       return false;
     }
 
@@ -130,7 +132,8 @@ export class AttendancesComponent implements OnInit {
   saveChanges(): void {
     const data = {
       students: this.dataSource.data,
-      courseId: this.selectedCourse
+      courseId: this.selectedCourse,
+      type: this.selectedType
     };
     this.teacherCourseService.saveAttendance(data);
   }
@@ -144,6 +147,6 @@ export class AttendancesComponent implements OnInit {
        }
     });
     return result;
-  }
+   }
 
 }
