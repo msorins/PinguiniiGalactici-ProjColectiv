@@ -9,10 +9,17 @@
             </mat-option>
           </mat-select>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="small-select">
           <mat-select placeholder="Groups" (selectionChange)="onGroupChanged($event)">
             <mat-option *ngFor="let group of groups" [value]="group">
               {{group}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="small-select">
+          <mat-select placeholder="Type" [(ngModel)]="selectedType">
+            <mat-option *ngFor="let type of types" [value]="type">
+              {{type}}
             </mat-option>
           </mat-select>
       </mat-form-field>
