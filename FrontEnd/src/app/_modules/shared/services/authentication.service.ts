@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Subscriber, Subscription, Observable } from 'rxjs';
+import { Subscriber, Subscription, Observable, of } from 'rxjs';
 import { LoggedUser } from '../models/LoggedUser';
 import { USE_VALUE } from '@angular/core/src/di/injector';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -10,6 +10,7 @@ import { User } from 'src/app/models/user';
 @Injectable()
 export class AuthenticationService {
     private JWT: string;
+    private mocked: boolean = true;
 
     constructor(private http: HttpClient) { }
 
@@ -33,6 +34,17 @@ export class AuthenticationService {
           const requestOptions = {                                                                                                                                                                                 
             headers: new HttpHeaders(headerDict), 
           };
+        
+        if(this.mocked) {
+            let usr = new LoggedUser();
+            usr.Id = 1;
+            usr.Admin = true;
+            usr.FirstName = usr.LastName = usr.Name = "Admin";
+            usr.Token = "1234";
+
+            localStorage.setItem('currentUser', JSON.stringify(usr));
+            return of(usr);
+        }
 
         return this.http.get<any>(`http://localhost:53440/token`, requestOptions)
             .pipe(map(token => {
