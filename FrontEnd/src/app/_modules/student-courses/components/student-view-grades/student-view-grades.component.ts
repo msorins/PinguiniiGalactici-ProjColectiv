@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, Input} from '@angular/core';
 import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
 import { StudentTable } from '../../student-table.interface';
 
@@ -30,7 +30,8 @@ const DATA: StudentTable[] = [
   styleUrls: ['./student-view-grades.component.css']
 })
 export class StudentsViewGradesComponent implements OnInit {
-  data = DATA;
+  @Input() data: StudentTable[];
+
   displayedColumns: string[] = ['position', 'course', 'year', 'week1', 'week2', 'week3', 'week4',
     'week5', 'week6', 'week7', 'week8', 'week9', 'week11', 'week11', 'week12', 'week13', 'week14'
   ];
@@ -40,6 +41,10 @@ export class StudentsViewGradesComponent implements OnInit {
 
   constructor() {
     this.dataSource.sort = this.sort;
+  }
+
+  ngOnChanges(changes): void {
+    this.dataSource = new MatTableDataSource(changes.data.currentValue);
   }
 
   ngOnInit() {
