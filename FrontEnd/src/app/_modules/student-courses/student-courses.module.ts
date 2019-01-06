@@ -10,6 +10,7 @@ import { FakeBackendInterceptor, fakeBackendProvider } from '../shared/helpers/f
 import { StudentMainPageComponent } from './pages/student-main/student-main.page';
 import { StudentsViewGradesComponent } from './components/student-view-grades/student-view-grades.component';
 import { StudentCoursesRoutingModule } from './student-courses-routing.module';
+import { StudentsViewAttendencesComponent } from './components/student-view-attendances/student-view-attendances.component';
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import { StudentCoursesRoutingModule } from './student-courses-routing.module';
     ],
     declarations: [
        StudentMainPageComponent,
-       StudentsViewGradesComponent
+       StudentsViewGradesComponent,
+       StudentsViewAttendencesComponent
     ],
     providers: [
         fakeBackendProvider,

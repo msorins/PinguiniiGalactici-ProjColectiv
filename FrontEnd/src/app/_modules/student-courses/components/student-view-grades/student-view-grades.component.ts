@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
-import { TeacherCoursesService } from 'src/app/_modules/teacher-courses/services/TeacherCoursesService';
+
 
 const STUDENTS_DATA = [
   {
