@@ -1,14 +1,14 @@
 export interface StudentData {
     AttendanceID: string;
     EnrollmentID: string;
-    WeekNr: Number;
+    WeekNr: number;
     TypeID: string;
-    Grade?:  Number;
+    Grade?:  number;
     CourseID: string;
     CourseName: string;
-    TotalLabNr: Number;
-    TotalSeminarNr: Number;
-    Year: Number;
+    TotalLabNr: number;
+    TotalSeminarNr: number;
+    Year: number;
     TypeName: string
   }
   /*

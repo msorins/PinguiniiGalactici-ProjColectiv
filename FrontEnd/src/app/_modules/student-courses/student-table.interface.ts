@@ -1,12 +1,12 @@
 
 export interface StudentTable {
     CourseName: string;
-    Year: Number;
-    SeminarAttendances: Boolean[];
-    LabAttendances: Boolean[];
-    LabGrades: Number[];
-    TotalLabNr: Number;
-    TotalSeminarNr: Number;
+    Year: number;
+    SeminarAttendances: boolean[];
+    LabAttendances: boolean[];
+    LabGrades: number[];
+    TotalLabNr: number;
+    TotalSeminarNr: number;
   }
   /*
   {
