@@ -32,6 +32,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
             return _context.DALContext.AttendancesDAL.ReadAll();
         }
 
+        public IEnumerable<AttendancesCourses> ReadAllWithCourses()
+        {
+            return _context.DALContext.AttendancesDAL.ReadAllWithCourses();
+        }
+
         public void Update(Attendance Attendances)
         {
             _context.DALContext.AttendancesDAL.Update(Attendances);

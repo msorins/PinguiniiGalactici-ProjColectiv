@@ -1,6 +1,17 @@
 use AcademicInfo
 GO
 
+create or alter procedure [GetAttendancesWithCourses]
+as begin
+	select a.AttendanceID, a.EnrollmentID, a.Grade, a.TypeID, a.WeekNr, sc.CourseID,
+		c.Name as CourseName, c.TotalLabNr, c.TotalSeminarNr, c.Year, t.Name as TypeName
+	from Table4 a
+	inner join Table1Table3 sc on sc.EnrollmentID = a.EnrollmentID
+	inner join Table3 c on c.CourseID = sc.CourseID
+	inner join Table7 t on t.TypeID = a.TypeID
+end
+go
+
 create or alter procedure [GetCurrentUserRole]
 as begin
 	if IS_ROLEMEMBER('Admin') = 1
@@ -654,6 +665,7 @@ order by rp.name
 	GRANT EXECUTE ON [Table4_ReadByID] TO [Teacher]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
+	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
 
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
@@ -682,6 +694,7 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Student]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
+	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Student]
 END
 GO
 

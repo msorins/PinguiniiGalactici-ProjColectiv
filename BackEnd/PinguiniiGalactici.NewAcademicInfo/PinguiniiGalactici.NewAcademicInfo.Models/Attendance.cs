@@ -19,6 +19,6 @@ namespace PinguiniiGalactici.NewAcademicInfo.Models
         [DataMember(Name = "TypeID")] 
         public Guid TypeID { get; set; }
         [DataMember(Name = "Grade")]
-        public decimal Grade { get; set; }
+        public Nullable<decimal> Grade { get; set; }
     }
 }

@@ -1,0 +1,56 @@
+GET:
+/token - username and password in Headers, returns a token
+/attendances - token in Headers, returns all attendances(grades), grade is null if it is just an attendance
+/attendances/{id} - token in Headers, returns the attendance(grade) with that id
+/attendances/withCourses - token in Headers, returns all attendances(grades) and the course and type information
+/courses
+/courses/{id}
+/departments
+/departments/{id}
+/faculties
+/faculties/{id}
+/gradeTypes
+/gradeTypes/{id}
+/groups
+/groups/{id}
+/students
+/students/{id}
+/students/fromCourse/{courseID}
+/studentsCourses
+/studentsCourses/{id}
+/teachers
+/teachers/{id}
+
+PUT:
+/attendances - token in Headers, attendance in Body, updates attendance, sends email
+/attendances/updateBulk - token in Headers, attendance list in Body, updates attendances, sends emails
+/courses
+/departments
+/faculties
+/gradeTypes
+/groups
+/students
+/studentsCourses
+/teachers
+
+POST:
+/attendances - token in Headers, attendance in Body, inserts new attendance(grade)
+/courses
+/departments
+/faculties
+/gradeTypes
+/groups
+/students
+/studentsCourses
+/teachers
+
+DELETE:
+/attendances/{id} - token in Headers, deletes the attendance(grade) with that id
+/courses/{id}
+/departments/{id}
+/faculties/{id}
+/gradeTypes/{id}
+/groups/{id}
+/students/{id}
+/studentsCourses/{id}
+/teachers/{id}

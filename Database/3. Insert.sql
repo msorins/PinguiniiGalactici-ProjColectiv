@@ -207,6 +207,8 @@ EXEC Table4_Insert 'd450a30f-7d2d-43b2-ba20-08de77f7982d', 'ef64e4f2-bfbe-4f88-b
 GO
 EXEC Table4_Insert 'a8a79787-1dbb-44c7-9c2e-f9dfae1ca0eb', 'c55ecf93-0396-4668-9ead-5c85627cdd14', 14, 'd65d97bd-b6d1-4829-a6d3-26bd51e921fa', 10.0
 GO
+EXEC Table4_Insert '27b2c9f5-1f38-4bf8-a0da-d616fa89cd57', 'ef64e4f2-bfbe-4f88-b088-6a0cae672215', 5, '08ac7284-0228-4267-b3bd-a5ff5f5c9e5b', NULL
+GO
 
 
 --execute Table1_ReadAll
