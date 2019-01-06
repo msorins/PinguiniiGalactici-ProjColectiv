@@ -92,7 +92,7 @@ export class StudentsViewGradesComponent implements OnInit {
   changes = false;
   groups = [];
   selectedCourse = null;
-  constructor(private teacherService: TeacherCoursesService) {
+  constructor() {
   }
 
   @ViewChild(MatSort) sort: MatSort;
@@ -132,7 +132,7 @@ export class StudentsViewGradesComponent implements OnInit {
        students: this.dataSource.data,
        courseId: this.selectedCourse
      };
-     this.teacherService.saveGrades(data);
+    //  this.teacherService.saveGrades(data);
      this.changes = false;
   }
 
