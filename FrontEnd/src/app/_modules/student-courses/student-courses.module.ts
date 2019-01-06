@@ -12,6 +12,7 @@ import { StudentsViewGradesComponent } from './components/student-view-grades/st
 import { StudentCoursesRoutingModule } from './student-courses-routing.module';
 import { StudentsViewAttendencesComponent } from './components/student-view-attendances/student-view-attendances.component';
 import { StudentCoursesService } from './services/student-courses.service';
+import { JwtInterceptor, jwtProvider } from '../shared/helpers/jwt.interceptor';
 
 @NgModule({
     imports: [
@@ -41,6 +42,7 @@ import { StudentCoursesService } from './services/student-courses.service';
     ],
     providers: [
         fakeBackendProvider,
+        jwtProvider,
         StudentCoursesService
     ]
 })
