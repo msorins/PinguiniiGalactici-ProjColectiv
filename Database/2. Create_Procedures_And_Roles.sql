@@ -515,7 +515,7 @@ GO
 
 CREATE OR ALTER PROCEDURE [Table4_Insert]
 	@AttendanceID UNIQUEIDENTIFIER, @EnrollmentID UNIQUEIDENTIFIER, @WeekNr int,
-	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2) AS 
+	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2)=NULL AS 
 BEGIN
 	INSERT INTO [Table4]([AttendanceID], [EnrollmentID],[WeekNr],[TypeID], [Grade])
 	VALUES (@AttendanceID, @EnrollmentID, @WeekNr, @TypeID, @Grade)
