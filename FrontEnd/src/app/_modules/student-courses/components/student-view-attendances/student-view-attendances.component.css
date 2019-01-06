@@ -14,11 +14,11 @@
   border-color: gray;
 }
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
-  background-color: #4CAF50 !important;
+  background-color: #4CAF50 !important; 
 }
 
 .table-container{
-  height: 400px;
+  height: 75vh;
   margin-left:20px;
   margin-top:10px;
   margin-right: 20px;
@@ -31,35 +31,17 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
+  box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #9E9E9E;
+  background: #9E9E9E; 
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #616161;
-}
-
-.container {
-  margin-top:10px;
-  font-family:arial;
-}
-input:focus {
-}
-input {
-  border:none;
-  background-color:transparent;
-}
-.container header {
-  padding-bottom:20px;
-  border-bottom:1px solid black;
-}
-ul, input, .container {
-  padding:10px;
 }

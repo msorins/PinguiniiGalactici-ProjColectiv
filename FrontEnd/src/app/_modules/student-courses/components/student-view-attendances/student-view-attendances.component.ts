@@ -1,7 +1,6 @@
-import {Component, OnInit, ViewChild, Input} from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
 import { StudentTable } from '../../student-table.interface';
-
 
 const DATA: StudentTable[] = [
   {
@@ -16,8 +15,8 @@ const DATA: StudentTable[] = [
   {
     CourseName: "Geometry",
     Year: 1,
-    SeminarAttendances:  [false, false, false, true, true, true, true, true, true, true, true, true, true, true],
-    LabAttendances: [true, false, false, true, true, true, true, true, true, true, true, true, true, true],
+    SeminarAttendances:  [false, false, false, false, true, true, true, false, true, true, true, true, true, true],
+    LabAttendances: [true, false, false, true, true, true, false, true, false, true, true, true, true, true],
     LabGrades: [4, 4, 4, 10, 3, 9, 10, 10, 4, 7, 8, 2, 10, 5],
     TotalLabNr: 14,
     TotalSeminarNr: 14
@@ -25,13 +24,13 @@ const DATA: StudentTable[] = [
 ];
 
 @Component({
-  selector: 'app-student-grades',
-  templateUrl: './student-view-grades.component.html',
-  styleUrls: ['./student-view-grades.component.css']
+  selector: 'app-student-attendances',
+  templateUrl: './student-view-attendances.component.html',
+  styleUrls: ['./student-view-attendances.component.css']
 })
-export class StudentsViewGradesComponent implements OnInit {
+export class StudentsViewAttendencesComponent implements OnInit {
   @Input() data: StudentTable[];
-
+  
   displayedColumns: string[] = ['position', 'course', 'year', 'week1', 'week2', 'week3', 'week4',
     'week5', 'week6', 'week7', 'week8', 'week9', 'week11', 'week11', 'week12', 'week13', 'week14'
   ];
@@ -39,7 +38,7 @@ export class StudentsViewGradesComponent implements OnInit {
   dataSource = new MatTableDataSource(this.data);
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
+  constructor() { 
     this.dataSource.sort = this.sort;
   }
 
@@ -48,6 +47,5 @@ export class StudentsViewGradesComponent implements OnInit {
   }
 
   ngOnInit() {
-  
   }
 }
