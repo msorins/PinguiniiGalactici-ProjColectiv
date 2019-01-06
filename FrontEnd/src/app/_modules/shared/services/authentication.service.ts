@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user';
 @Injectable()
 export class AuthenticationService {
     private JWT: string;
-    private mocked: boolean = true;
+    private mocked: boolean = false;
 
     constructor(private http: HttpClient) { }
 

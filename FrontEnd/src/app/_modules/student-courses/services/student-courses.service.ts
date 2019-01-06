@@ -13,7 +13,7 @@ export class StudentCoursesService {
 
     public getData(): Observable<StudentTable[]> {
         return this.http
-        .get<StudentData[]>('http://www.mocky.io/v2/5c322f253500000509caa012').pipe(
+        .get<StudentData[]>('http://localhost:53440/attendances/withCourses').pipe( //http://www.mocky.io/v2/5c322f253500000509caa012
             map((e: StudentData[]) => {
                 var table: StudentTable[] = [];
 
