@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user';
 @Injectable()
 export class AuthenticationService {
     private JWT: string;
-    private mocked: boolean = false;
+    private mocked: boolean = true;
 
     constructor(private http: HttpClient) { }
 
@@ -38,7 +38,7 @@ export class AuthenticationService {
         if(this.mocked) {
             let usr = new LoggedUser();
             usr.Id = 1;
-            usr.Admin = true;
+            usr.Admin = false;
             usr.FirstName = usr.LastName = usr.Name = "Admin";
             usr.Token = "1234";
 

@@ -33,6 +33,11 @@ const routes: Routes = [
         loadChildren: '../app/_modules/assign-group/assign-group.module#AssignGroupModule'
     },
     {
+        path: 'teacher/grade-student',
+        loadChildren: '../app/_modules/teacher-grade-student/teacher-grade-student.module#TeacherGradeStudentModule'
+
+    },
+    {
         path: 'teacher/courses',
         loadChildren: '../app/_modules/teacher-courses/teacher-courses.module#TeacherCoursesModule'
     },
