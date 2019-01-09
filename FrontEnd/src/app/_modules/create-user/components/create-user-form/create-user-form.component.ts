@@ -12,37 +12,39 @@ import { validateNumber } from 'src/app/_modules/shared/validators/validators';
 export class CreateUserFormComponent implements OnInit {
 
     createUser: FormGroup;
-    name: AbstractControl;
-    email: AbstractControl;
-    registration: AbstractControl;
-    group: AbstractControl;
+    Name: AbstractControl;
+    Email: AbstractControl;
+    RegistrationNumber: AbstractControl;
+    GroupNumber: AbstractControl;
+    
     isErasmus = false;
     invalidForm = true;
     constructor(private formBuilder: FormBuilder,
                 private createService: CreateUserService) {
+                    
         this.createUser = formBuilder.group({
-            name: new FormControl('', Validators.required),
-            email: new FormControl('', Validators.required),
-            registration: new FormControl('', [Validators.required]),
-            group: new FormControl(''),
-
+            Name: new FormControl('', Validators.required),
+            Email: new FormControl('', Validators.required),
+            RegistrationNumber: new FormControl('', [Validators.required]),
+            GroupNumber: new FormControl(''),
         });
-        this.name = this.createUser.get('name');
-        this.email = this.createUser.get('email');
-        this.registration = this.createUser.get('registration');
-        this.group = this.createUser.get('group');
+
+        this.Name = this.createUser.get('Name');
+        this.Email = this.createUser.get('Email');
+        this.RegistrationNumber = this.createUser.get('RegistrationNumber');
+        this.GroupNumber = this.createUser.get('GroupNumber');
     }
 
     ngOnInit() {
-        console.log(this.group);
+        console.log(this.GroupNumber);
     }
 
     onCheckChange(event): void {
         if (event.checked) {
-            this.group.disable();
+            this.GroupNumber.disable();
             this.isErasmus = true;
         } else {
-            this.group.enable();
+            this.GroupNumber.enable();
             this.isErasmus = false;
         }
 
@@ -50,15 +52,14 @@ export class CreateUserFormComponent implements OnInit {
 
     getUser(): Student {
         const student: Student = {
-            Id: -1,
-            Name: this.name.value,
-            Email: this.email.value,
-            Registration: this.registration.value,
-            Group: 0,
+            RegistrationNumber: this.RegistrationNumber.value,
+            Name: this.Name.value,
+            Email: this.Email.value,
+            GroupNumber: this.GroupNumber.value,
             Erasmus: this.isErasmus
         };
         if (!this.isErasmus) {
-            student.Group = this.group.value;
+            student.GroupNumber = this.GroupNumber.value;
         }
         return student;
     }
