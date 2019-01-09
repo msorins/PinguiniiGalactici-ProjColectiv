@@ -3,6 +3,7 @@ GET:
 /attendances - token in Headers, returns all attendances(grades), grade is null if it is just an attendance
 /attendances/{id} - token in Headers, returns the attendance(grade) with that id
 /attendances/withCourses - token in Headers, returns all attendances(grades) and the course and type information
+/attendances/forStudent - token in Headers, returns all attendances(grades) for the currently connected student
 /courses
 /courses/{id}
 /departments
