@@ -66,7 +66,8 @@ export class GradeStudentComponent implements OnInit {
     }
 
     toggleSaveChanges(): boolean {
-        if (this.selectedCourse && this.selectedStudents && this.selectedType && this.selectedWeek && this.grade.value !== '') {
+        if (this.selectedCourse && this.selectedStudents && this.selectedType && this.selectedWeek && this.grade.value !== ''
+        && this.selectedStudents.length > 0) {
             if (parseInt(this.grade.value, 10) && parseInt(this.grade.value, 10) >= 1 && parseInt(this.grade.value, 10) <= 10 ) {
                 return false;
             } else {

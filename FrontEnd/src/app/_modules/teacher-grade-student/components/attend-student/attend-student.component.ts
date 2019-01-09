@@ -1,9 +1,9 @@
-import { OnInit } from "@angular/core";
+import { OnInit, Component } from "@angular/core";
 
 @Component({
     selector: 'app-attend-student',
-    tem
+    // tem
 })
-export class AttendStudentComponent implements OnInit {
+export class AttendStudentComponent {
     
 }
