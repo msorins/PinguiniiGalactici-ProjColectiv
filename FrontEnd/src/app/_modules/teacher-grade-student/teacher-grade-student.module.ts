@@ -8,7 +8,8 @@ import { MatToolbarModule, MatFormFieldModule,
     MatButtonModule, MatSidenavModule, MatCheckboxModule,
     MatAutocompleteModule, MatTableModule, MatSortModule, MatTabsModule, MatSelectModule, MatListModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { GradeStudentComponent } from './components/grade-student.component';
+import { TeacherGradeService } from './services/teacher-grade.service';
+import { GradeStudentComponent } from './components/grade-student/grade-student.component';
 
 
 @NgModule({
@@ -37,6 +38,8 @@ import { GradeStudentComponent } from './components/grade-student.component';
         TeacherGradeStudentPageComponent,
         GradeStudentComponent
     ],
-    providers: []
+    providers: [
+        TeacherGradeService,
+    ]
 })
 export class TeacherGradeStudentModule {}

@@ -9,7 +9,7 @@
   
   .main-info-container{
     height:calc(100% - 120px);
-    width: 98%;
+    width: 100%;
     margin:10px;
     padding-bottom: 20px;
     background-color:white;
