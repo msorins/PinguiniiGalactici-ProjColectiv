@@ -42,6 +42,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
         {
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Delete", new SqlParameter("AttendanceID", AttendanceID));
         }
+
+        public IEnumerable<AttendancesCourses> ReadAllWithCourses()
+        {
+            return DbOperations.ExecuteQuery<AttendancesCourses>(_context.CONNECTION_STRING, "dbo.GetAttendancesWithCourses");
+        }
         #endregion
     }
 }

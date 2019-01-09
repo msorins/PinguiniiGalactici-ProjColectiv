@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace PinguiniiGalactici.NewAcademicInfo.WebAPI
 {
@@ -10,6 +11,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+
+            // Enable CORS
+            string origin = "*";
+            EnableCorsAttribute cors = new EnableCorsAttribute(origin, "*", "*");
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();

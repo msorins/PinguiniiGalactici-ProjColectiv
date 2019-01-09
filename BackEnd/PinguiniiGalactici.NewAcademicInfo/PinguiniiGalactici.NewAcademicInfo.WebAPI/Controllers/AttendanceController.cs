@@ -59,6 +59,23 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         {
             BusinessContext.AttendancesBusiness.Delete(AttendancesNumber);
         }
+
+        [HttpPut]
+        [Route("UpdateBulk")]
+        [AuthorizationFilter(Role.Teacher)]
+        public void UpdateBulk([FromBody]List<Attendance> Attendances)
+        {
+            BusinessContext.AttendancesBusiness.UpdateBulk(Attendances);
+        }
+
+        [HttpGet]
+        [Route("WithCourses")]
+        [AuthorizationFilter(Role.Teacher)]
+        public IEnumerable<AttendancesCourses> ReadAllWithCourses()
+        {
+            return BusinessContext.AttendancesBusiness.ReadAllWithCourses();
+        }
+
         #endregion
     }
 }

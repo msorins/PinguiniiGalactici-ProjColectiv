@@ -4,4 +4,5 @@ export class LoggedUser {
     FirstName: string;
     LastName: string;
     Admin: boolean;
+    Token: string;
 }

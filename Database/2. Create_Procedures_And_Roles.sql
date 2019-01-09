@@ -1,6 +1,17 @@
 use AcademicInfo
 GO
 
+create or alter procedure [GetAttendancesWithCourses]
+as begin
+	select a.AttendanceID, a.EnrollmentID, a.Grade, a.TypeID, a.WeekNr, sc.CourseID,
+		c.Name as CourseName, c.TotalLabNr, c.TotalSeminarNr, c.Year, t.Name as TypeName
+	from Table4 a
+	inner join Table1Table3 sc on sc.EnrollmentID = a.EnrollmentID
+	inner join Table3 c on c.CourseID = sc.CourseID
+	inner join Table7 t on t.TypeID = a.TypeID
+end
+go
+
 create or alter procedure [GetCurrentUserRole]
 as begin
 	if IS_ROLEMEMBER('Admin') = 1
@@ -504,7 +515,7 @@ GO
 
 CREATE OR ALTER PROCEDURE [Table4_Insert]
 	@AttendanceID UNIQUEIDENTIFIER, @EnrollmentID UNIQUEIDENTIFIER, @WeekNr int,
-	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2) AS 
+	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2)=NULL AS 
 BEGIN
 	INSERT INTO [Table4]([AttendanceID], [EnrollmentID],[WeekNr],[TypeID], [Grade])
 	VALUES (@AttendanceID, @EnrollmentID, @WeekNr, @TypeID, @Grade)
@@ -563,21 +574,26 @@ order by rp.name
 	DROP ROLE IF EXISTS [Admin]
 	CREATE ROLE [Admin]
 	GRANT EXECUTE ON [Table2_Insert] TO [Admin]
+	GRANT EXECUTE ON [Table2_ReadByID] TO [Admin]
 	GRANT EXECUTE ON [Table2_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table2_Update] TO [Admin]
 	GRANT EXECUTE ON [Table2_Delete] TO [Admin]
-	GRANT EXECUTE ON [Table3_Insert] TO [Admin]
 
+	GRANT EXECUTE ON [Table3_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table3_ReadAll] TO [Admin]
+	GRANT EXECUTE ON [Table3_ReadByID] TO [Admin]
 	GRANT EXECUTE ON [Table3_Update] TO [Admin]
 	GRANT EXECUTE ON [Table3_Delete] TO [Admin]
+
 	GRANT EXECUTE ON [Table6_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table6_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table6_Update] TO [Admin]
 	GRANT EXECUTE ON [Table6_Delete] TO [Admin]
+	GRANT EXECUTE ON [Table6_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [Table8_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table8_ReadAll] TO [Admin]
+	GRANT EXECUTE ON [Table8_ReadByID] TO [Admin]
 	GRANT EXECUTE ON [Table8_Update] TO [Admin]
 	GRANT EXECUTE ON [Table8_Delete] TO [Admin]
 
@@ -585,26 +601,31 @@ order by rp.name
 	GRANT EXECUTE ON [Table5_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table5_Update] TO [Admin]
 	GRANT EXECUTE ON [Table5_Delete] TO [Admin]
+	GRANT EXECUTE ON [Table5_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [Table1_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table1_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table1_Update] TO [Admin]
 	GRANT EXECUTE ON [Table1_Delete] TO [Admin]
 	GRANT EXECUTE ON [Table1_ReadByCourseID] TO [Admin]
+	GRANT EXECUTE ON [Table1_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [Table1Table3_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table1Table3_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table1Table3_Update] TO [Admin]
 	GRANT EXECUTE ON [Table1Table3_Delete] TO [Admin]
+	GRANT EXECUTE ON [Table1Table3_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [Table2Table3_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table2Table3_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table2Table3_Delete] TO [Admin]
+	GRANT EXECUTE ON [Table2Table3_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [Table7_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table7_ReadAll] TO [Admin]
 	GRANT EXECUTE ON [Table7_Update] TO [Admin]
 	GRANT EXECUTE ON [Table7_Delete] TO [Admin]
+	GRANT EXECUTE ON [Table7_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
 
@@ -612,36 +633,68 @@ order by rp.name
 	CREATE ROLE [Teacher]
 	GRANT EXECUTE ON [Table2_ReadAll] TO [Teacher]
 	GRANT EXECUTE ON [Table2_Update] TO [Teacher]
+	GRANT EXECUTE ON [Table2_ReadByID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table1_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table1_ReadByID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table3_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table3_ReadByID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table6_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table6_ReadByID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table5_ReadAll] TO [Teacher]
-	GRANT EXECUTE ON [Table1_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table5_ReadByID] TO [Teacher]
+	
 	GRANT EXECUTE ON [Table1_ReadByCourseID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table1Table3_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table1Table3_ReadByID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table2Table3_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table2Table3_ReadByID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table7_ReadAll] TO [Teacher]
+	GRANT EXECUTE ON [Table7_ReadByID] TO [Teacher]
+
 	GRANT EXECUTE ON [Table4_ReadAll] TO [Teacher]
 	GRANT EXECUTE ON [Table4_Insert] TO [Teacher]
 	GRANT EXECUTE ON [Table4_Update] TO [Teacher]
 	GRANT EXECUTE ON [Table4_Delete] TO [Teacher]
+	GRANT EXECUTE ON [Table4_ReadByID] TO [Teacher]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
+	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
 
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
 
 	--GRANT EXECUTE ON [Table4_ReadAll] TO [Student]
 	GRANT EXECUTE ON [Table1_ReadTable4] TO [Student]
+	GRANT EXECUTE ON [Table1_ReadByID] TO [Student]
+
 	GRANT EXECUTE ON [Table2_ReadAll] TO [Student]
+	GRANT EXECUTE ON [Table2_ReadByID] TO [Student]
+
 	GRANT EXECUTE ON [Table3_ReadAll] TO [Student]
+	GRANT EXECUTE ON [Table3_ReadByID] TO [Student]
+
 	GRANT EXECUTE ON [Table5_ReadAll] TO [Student]
+	GRANT EXECUTE ON [Table5_ReadByID] TO [Student]
+
 	GRANT EXECUTE ON [Table1_ReadAll] TO [Student]
 	GRANT EXECUTE ON [Table1Table3_ReadAll] TO [Student]
+	GRANT EXECUTE ON [Table1Table3_ReadByID] TO [Student]
+
 	GRANT EXECUTE ON [Table2Table3_ReadAll] TO [Student]
+	GRANT EXECUTE ON [Table2Table3_ReadByID] TO [Student]
+
 	GRANT EXECUTE ON [Table7_ReadAll] TO [Student]
+	GRANT EXECUTE ON [Table7_ReadByID] TO [Student]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
+	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Student]
 END
 GO
 

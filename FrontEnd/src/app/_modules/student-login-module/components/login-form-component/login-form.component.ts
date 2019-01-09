@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { AuthenticationService } from 'src/app/_modules/shared/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login-form',
@@ -15,6 +16,7 @@ export class LoginFormComponent implements OnInit {
     studentForm: FormGroup;
     constructor(
         private formBuilder: FormBuilder,
+        private router: Router,
         private loginService: AuthenticationService) {
         this.studentForm = formBuilder.group({
             email: new FormControl('', [Validators.required, Validators.email]),
@@ -39,6 +41,11 @@ export class LoginFormComponent implements OnInit {
 
     loginStudent(): void {
         const studentCredentials = {email: this.email.value, password: this.password.value};
-        //this.loginService.loginStudent(studentCredentials);
+       
+        this.loginService.loginStudent(studentCredentials).subscribe( user => {
+            if(user != null) {
+                this.router.navigate(['/student']);
+            }
+        });
     }
 }

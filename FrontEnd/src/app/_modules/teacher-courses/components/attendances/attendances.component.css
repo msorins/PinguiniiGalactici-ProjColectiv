@@ -9,6 +9,10 @@
   margin-left: 20px;
 }
 
+.small-select.mat-form-field{
+  width: 150px;
+}
+
 /*find something better then ::ng-deep... */
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
   border-color: gray;
@@ -18,7 +22,7 @@
 }
 
 .table-container{
-  height: 570px;
+  height: 400px;
   margin-left:20px;
   margin-top:10px;
   margin-right: 20px;

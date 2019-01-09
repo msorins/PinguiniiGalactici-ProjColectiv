@@ -1,7 +1,28 @@
-<div style=" margin-top:10px; margin-bottom:-5px;">
-  <mat-form-field style="width:98%">  
-    <input style="width:100%; margin-left:10px; margin-right:10px;" matInput (keyup)="applyFilter($event.target.value)" placeholder="Student Name">
-  </mat-form-field>
+<div>
+    <mat-form-field >  
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Student Name">
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder="Courses" [(ngModel)]="selectedCourse" (selectionChange)="onCourseChanged($event)">
+            <mat-option *ngFor="let course of courses" [value]="course.id">
+              {{course.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="small-select">
+          <mat-select placeholder="Groups" (selectionChange)="onGroupChanged($event)">
+            <mat-option *ngFor="let group of groups" [value]="group">
+              {{group}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="small-select">
+          <mat-select placeholder="Type" [(ngModel)]="selectedType">
+            <mat-option *ngFor="let type of types" [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
 </div>
 <div class="table-container">
 
@@ -20,6 +41,12 @@
         {{element.name}} 
       </td>
     </ng-container>
+    <ng-container matColumnDef="group">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Group </th>
+        <td mat-cell *matCellDef="let element"> 
+          {{element.group}} 
+        </td>
+      </ng-container>
 
     <!-- <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef> Email. </th>
@@ -31,7 +58,7 @@
         <ng-container matColumnDef="week{{i}}">
             <th mat-header-cell *matHeaderCellDef> Week {{i}} </th>
             <td mat-cell *matCellDef="let element"> 
-              <mat-checkbox [checked]="element.present[i-1]" (click)="onChecked(element, i-1)"></mat-checkbox>
+              <mat-checkbox [checked]="element.attendance[i-1]" (click)="onChecked(element, i-1)"></mat-checkbox>
             </td>
             <td></td>
           </ng-container>
@@ -43,3 +70,5 @@
 
 
 </div>
+<button class="login-button create-button" mat-raised-button color="primary" 
+[disabled]="toggleSaveChanges()" (click)="saveChanges()">Save changes</button>
