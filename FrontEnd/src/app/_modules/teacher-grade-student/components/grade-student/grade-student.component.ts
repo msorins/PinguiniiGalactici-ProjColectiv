@@ -41,6 +41,7 @@ export class GradeStudentComponent implements OnInit {
     ngOnInit() {
         this.studentsDisplayed = this.allStudents;
         this.groups = this.trimResult(this.allStudents.map(s => s.group));
+        console.log(this.groups);
     }
 
     onCourseChanged(event): void {
@@ -56,7 +57,12 @@ export class GradeStudentComponent implements OnInit {
     }
 
     onGroupChange(event): void {
-        console.log(event);
+        debugger;
+        if (event.value) {
+            this.studentsDisplayed = this.allStudents.filter(s => s.group === event.value);
+        } else {
+            this.studentsDisplayed = this.allStudents;
+        }
     }
 
     toggleSaveChanges(): boolean {
@@ -101,7 +107,7 @@ export class GradeStudentComponent implements OnInit {
         const result = [];
         groups.forEach(st => {
             const index = result.indexOf(st);
-            if (index > -1) {
+            if (index === -1) {
                 result.push(st);
             }
         });
