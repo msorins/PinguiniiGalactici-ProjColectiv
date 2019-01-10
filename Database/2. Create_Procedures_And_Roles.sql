@@ -157,12 +157,7 @@ BEGIN
 	exec DeleteUser @username
 	DELETE FROM [Table1] WHERE [RegistrationNumber] = @RegistrationNumber;
 END
-GO 
-
-execute as user='admin@gmail.com'
-select user
-select * from Table1
-exec Table1_ReadAll
+GO
 
 --read by id
 create or alter procedure [Table1_ReadById]
@@ -462,6 +457,16 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE Table3_ReadAllForTeacher @TeacherID UNIQUEIDENTIFIER AS
+BEGIN
+	SELECT t3.CourseID, t3.DepartmentID, t3.Name, t3.TotalLabNr, t3.TotalSeminarNr, t3.Year
+	FROM [Table3] t3
+	INNER JOIN	[Table2Table3] t23 on t3.CourseID = t23.CourseID
+	INNER JOIN [Table2] t2 on t2.TeacherID = t23.TeacherID
+	WHERE t2.TeacherID = @TeacherID
+END
+GO
+
 CREATE OR ALTER PROCEDURE Table2Table3_Insert @TeacherID UNIQUEIDENTIFIER, @CourseID UNIQUEIDENTIFIER AS 
 BEGIN
 	INSERT INTO [Table2Table3]([CourseID], [TeacherID])
@@ -678,6 +683,7 @@ order by rp.name
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
 	GRANT EXECUTE ON [Create_Student] to [Admin]
 	GRANT EXECUTE ON [Create_Teacher] to [Admin]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Admin]
 	GRANT EXECUTE ON [Create_Admin] to Admin
 	GRANT ALTER ANY USER TO Admin
 	GRANT ALTER ANY ROLE TO Admin
@@ -719,6 +725,7 @@ order by rp.name
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Teacher]
 
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
@@ -747,6 +754,7 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Student]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Student]
 END
 GO
 
