@@ -6,6 +6,7 @@ GET:
 /attendances/forStudent - token in Headers, returns all attendances(grades) for the currently connected student
 /courses
 /courses/{id}
+/courses/forTeacher/{TeacherID}
 /departments
 /departments/{id}
 /faculties

@@ -48,10 +48,8 @@ CREATE OR ALTER PROCEDURE [Create_Admin]
 BEGIN
 	declare @s varchar(100)
 	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
-	print @s
 	exec(@s)
 	set @s = 'alter role Admin add member [' + @Username + ']'
-	print(@s)
 	exec(@s)
 END
 GO
@@ -71,10 +69,8 @@ CREATE OR ALTER PROCEDURE [Create_Teacher]
 BEGIN
 	declare @s varchar(100)
 	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
-	print @s
 	exec(@s)
 	set @s = 'alter role Teacher add member [' + @Username + ']'
-	print(@s)
 	exec(@s)
 END
 GO
@@ -94,21 +90,27 @@ CREATE OR ALTER PROCEDURE [Create_Student]
 BEGIN
 	declare @s varchar(100)
 	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
-	print @s
 	exec(@s)
 	set @s = 'alter role Student add member [' + @Username + ']'
-	print(@s)
 	exec(@s)
 END
 GO
 
-create or alter procedure deleteUser @username VARCHAR(50) AS
+--create or alter procedure deleteUser @username VARCHAR(50) AS
+--BEGIN
+--	IF EXISTS (SELECT name FROM master.sys.server_principals WHERE name = @username)
+--	BEGIN
+--		exec sp_dropuser @username
+--		exec sp_droplogin @username
+--	END
+--END
+--GO
+
+create or alter procedure DeleteUser @Username VARCHAR(50) AS
 BEGIN
-	IF EXISTS (SELECT name FROM master.sys.server_principals WHERE name = @username)
-	BEGIN
-		exec sp_dropuser @username
-		exec sp_droplogin @username
-	END
+	declare @s varchar(100)
+	set @s = 'DROP USER IF EXISTS [' + @Username + ']'
+	exec(@s)
 END
 GO
 
@@ -149,11 +151,13 @@ GO
 create or alter procedure [Table1_Delete]
        @RegistrationNumber    INT        
 AS 
-BEGIN 
+BEGIN
+	declare @username varchar(100)
+	select @username=Email from Table1 where RegistrationNumber = @RegistrationNumber
+	exec DeleteUser @username
 	DELETE FROM [Table1] WHERE [RegistrationNumber] = @RegistrationNumber;
-
 END
-GO 
+GO
 
 --read by id
 create or alter procedure [Table1_ReadById]
@@ -453,6 +457,16 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE Table3_ReadAllForTeacher @TeacherID UNIQUEIDENTIFIER AS
+BEGIN
+	SELECT t3.CourseID, t3.DepartmentID, t3.Name, t3.TotalLabNr, t3.TotalSeminarNr, t3.Year
+	FROM [Table3] t3
+	INNER JOIN	[Table2Table3] t23 on t3.CourseID = t23.CourseID
+	INNER JOIN [Table2] t2 on t2.TeacherID = t23.TeacherID
+	WHERE t2.TeacherID = @TeacherID
+END
+GO
+
 CREATE OR ALTER PROCEDURE Table2Table3_Insert @TeacherID UNIQUEIDENTIFIER, @CourseID UNIQUEIDENTIFIER AS 
 BEGIN
 	INSERT INTO [Table2Table3]([CourseID], [TeacherID])
@@ -669,6 +683,7 @@ order by rp.name
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
 	GRANT EXECUTE ON [Create_Student] to [Admin]
 	GRANT EXECUTE ON [Create_Teacher] to [Admin]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Admin]
 	GRANT EXECUTE ON [Create_Admin] to Admin
 	GRANT ALTER ANY USER TO Admin
 	GRANT ALTER ANY ROLE TO Admin
@@ -710,6 +725,7 @@ order by rp.name
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Teacher]
 
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
@@ -738,6 +754,7 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Student]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Student]
 END
 GO
 
