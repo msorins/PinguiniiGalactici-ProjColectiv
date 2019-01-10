@@ -6,7 +6,7 @@
 .mat-form-field {
   font-size: 14px;
   width: 300px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .small-select.mat-form-field{
@@ -22,7 +22,7 @@
 }
 
 .table-container{
-  height: 400px;
+  max-height: 487px;
   margin-left:20px;
   margin-top:10px;
   margin-right: 20px;
@@ -48,4 +48,16 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #616161;
+}
+
+.options-container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 30px 0 30px;
+}
+
+.centered-cell {
+  text-align: center;
 }

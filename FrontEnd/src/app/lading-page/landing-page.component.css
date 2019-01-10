@@ -4,7 +4,7 @@
     overflow: hidden;
     position: absolute;
     top:50px;
-    filter:blur(10px);
+    filter:blur(5px);
     transition: 1s all ease-in-out;
 }
 .left-side{

@@ -98,6 +98,7 @@ export class AttendancesComponent implements OnInit {
   }
 
   onChecked(element, position): void {
+    return;
     console.log(element, position);
     const index = STUDENTS_DATA.indexOf(element);
     if (index > -1) {
