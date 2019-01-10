@@ -4,8 +4,8 @@
     </mat-form-field>
     <mat-form-field>
         <mat-select placeholder="Courses" [(ngModel)]="selectedCourse" (selectionChange)="onCourseChanged($event)">
-          <mat-option *ngFor="let course of courses" [value]="course.id">
-            {{course.name}}
+          <mat-option *ngFor="let course of courses" [value]="course.DepartmentID">
+            {{course.Name}}
           </mat-option>
         </mat-select>
     </mat-form-field>

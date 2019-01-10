@@ -10,7 +10,7 @@ export class TeacherCoursesService {
 
     public getCourses(): Observable<any[]> {
         return this.http
-        .get<any[]>('http://www.mocky.io/v2/5c114cee2e0000940a55ba49')
+        .get<any[]>('http://localhost:53440/courses')
     }
 
     saveGrades(data) {

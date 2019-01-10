@@ -65,6 +65,65 @@ const STUDENTS_DATA = [
   },
 ];
 
+const COURSES_DATA = [
+  {
+    CourseID: "0d223c71-6ddf-41e2-b266-25585f5b25f3",
+    Name: "Object Oriented Programming",
+    DepartmentID: "95366cea-de83-4c47-b004-cee1056540d4",
+    Year: 1,
+    TotalLabNr: 14,
+    TotalSeminarNr: 14
+  },
+  {
+    CourseID: "ba889e1a-0ec5-4089-b702-3c9bf80e5bab",
+    Name: "Algebra",
+    DepartmentID: "83604cf3-bc0a-4f59-aabe-841b14b12a17",
+    Year: 1,
+    TotalLabNr: 14,
+    TotalSeminarNr: 14
+  },
+  {
+    CourseID: "f1647dfe-bdb0-4987-b0ac-45c7a7d80b4d",
+    Name: "Web Programming",
+    DepartmentID: "83604cf3-bc0a-4f59-aabe-841b14b12a17",
+    Year: 3,
+    TotalLabNr: 7,
+    TotalSeminarNr: 0
+  },
+  {
+    CourseID: "b0094904-b0a7-4c66-a7d3-6c313d5d193a",
+    Name: "Mobile Applications",
+    DepartmentID: "83604cf3-bc0a-4f59-aabe-841b14b12a17",
+    Year: 3,
+    TotalLabNr: 7,
+    TotalSeminarNr: 0
+  },
+  {
+    CourseID: "80f3c166-4067-40af-bc2e-8175618bde32",
+    Name: "Fundamentals of Programming",
+    DepartmentID: "dabf09a2-7e02-4941-9ff3-5a6a36d61d16",
+    Year: 2,
+    TotalLabNr: 14,
+    TotalSeminarNr: 7
+  },
+  {
+    CourseID: "80f3c166-4067-40af-bc2e-8175618bde32",
+    Name: "Artificial Intelligence",
+    DepartmentID: "dabf09a2-7e02-4941-9ff3-5a6a36d61d16",
+    Year: 2,
+    TotalLabNr: 14,
+    TotalSeminarNr: 7
+  },
+  {
+    CourseID: "80f3c166-4067-40af-bc2e-8175618bde32",
+    Name: "Logical and Functional Programming",
+    DepartmentID: "dabf09a2-7e02-4941-9ff3-5a6a36d61d16",
+    Year: 2,
+    TotalLabNr: 14,
+    TotalSeminarNr: 7
+  }
+];
+
 @Component({
   selector: 'app-attendances',
   templateUrl: './attendances.component.html',
@@ -78,7 +137,7 @@ export class AttendancesComponent implements OnInit {
   dataSource = new MatTableDataSource(STUDENTS_DATA);
   selectedCourse = null;
   groups = [];
-  courses = [{id: 1, name: 'Limbaje formale si tehnici de compilare'}, {id: 2, name: 'Programare paralela si distribuita'}];
+  courses : any;
   types = ['Seminar', 'Laboratory', 'Course'];
   selectedType = null;
   changes = false;
@@ -89,8 +148,8 @@ export class AttendancesComponent implements OnInit {
   ngOnInit() {
     this.dataSource.sort = this.sort;
     this.groups = this.trimResult(STUDENTS_DATA.map(student => student.group));
+    this.getCourses();
   }
-
 
   applyFilter(filterValue: string) {
     //todo: add custom filter only by name
@@ -113,7 +172,7 @@ export class AttendancesComponent implements OnInit {
   }
 
   onCourseChanged(event): void {
-    console.log(event.value);
+    console.log("Course: ",event.value);
   }
 
   onGroupChanged(event): void {
@@ -149,5 +208,12 @@ export class AttendancesComponent implements OnInit {
     });
     return result;
    }
+
+  private getCourses() {
+    this.teacherCourseService.getCourses().subscribe(
+      (apidata) => this.courses = apidata,
+      error => this.courses = COURSES_DATA
+    )
+  } 
 
 }
