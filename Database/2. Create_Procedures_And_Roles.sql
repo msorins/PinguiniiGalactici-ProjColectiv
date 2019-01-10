@@ -33,36 +33,74 @@ as begin
 end
 go
 
+--CREATE OR ALTER PROCEDURE [Create_Admin]
+--@Username as nvarchar(30), @Password nvarchar(30) AS
+--BEGIN
+--	EXEC sp_addlogin @Username, @Password
+--	EXEC sp_adduser @Username, @Username, 'Admin'
+--	--EXEC sp_addrole 'Admin', @Username
+----	ALTER ROLE [Admin] ADD MEMBER @Username
+--END
+--GO
+
 CREATE OR ALTER PROCEDURE [Create_Admin]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
-	EXEC sp_addlogin @Username, @Password
-	EXEC sp_adduser @Username, @Username, 'Admin'
-	--EXEC sp_addrole 'Admin', @Username
---	ALTER ROLE [Admin] ADD MEMBER @Username
+	declare @s varchar(100)
+	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
+	print @s
+	exec(@s)
+	set @s = 'alter role Admin add member [' + @Username + ']'
+	print(@s)
+	exec(@s)
 END
 GO
+
+--CREATE OR ALTER PROCEDURE [Create_Teacher]
+--@Username as nvarchar(30), @Password nvarchar(30) AS
+--BEGIN
+--	EXEC sp_addlogin @Username, @Password
+--	EXEC sp_adduser @Username, @Username, 'Teacher'
+--	--EXEC sp_addrole 'Teacher', @Username
+----	ALTER ROLE [Teacher] ADD MEMBER @Username
+--END
+--GO
 
 CREATE OR ALTER PROCEDURE [Create_Teacher]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
-	EXEC sp_addlogin @Username, @Password
-	EXEC sp_adduser @Username, @Username, 'Teacher'
-	--EXEC sp_addrole 'Teacher', @Username
---	ALTER ROLE [Teacher] ADD MEMBER @Username
+	declare @s varchar(100)
+	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
+	print @s
+	exec(@s)
+	set @s = 'alter role Teacher add member [' + @Username + ']'
+	print(@s)
+	exec(@s)
 END
 GO
+
+--CREATE OR ALTER PROCEDURE [Create_Student]
+--@Username as nvarchar(30), @Password nvarchar(30) AS
+--BEGIN
+--	EXEC sp_addlogin @Username, @Password
+--	EXEC sp_adduser @Username, @Username, 'Student'
+--	--EXEC sp_addrole 'Student', @Username
+----	ALTER ROLE [Student] ADD MEMBER @Username
+--END
+--GO
 
 CREATE OR ALTER PROCEDURE [Create_Student]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
-	EXEC sp_addlogin @Username, @Password
-	EXEC sp_adduser @Username, @Username, 'Student'
-	--EXEC sp_addrole 'Student', @Username
---	ALTER ROLE [Student] ADD MEMBER @Username
+	declare @s varchar(100)
+	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
+	print @s
+	exec(@s)
+	set @s = 'alter role Student add member [' + @Username + ']'
+	print(@s)
+	exec(@s)
 END
 GO
-
 
 create or alter procedure deleteUser @username VARCHAR(50) AS
 BEGIN
@@ -80,11 +118,11 @@ create or alter procedure [Table1_Insert]
 		@Name  varchar(100),
 		@Email text,
 		@GroupNumber int,
-		@Password text
+		@Password text='pass'
 AS 
 BEGIN
-	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber]) 
-     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber);
+	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber], [Password]) 
+     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber, @Password);
 	 exec Create_Student @Email, @Password
 END 
 GO
@@ -245,8 +283,8 @@ create or alter procedure Table2_Insert
 	@Password text
 AS 
 BEGIN
-	INSERT INTO Table2([TeacherID], [Name], [Email]) 
-     VALUES (@TeacherID, @Name, @Email)
+	INSERT INTO Table2([TeacherID], [Name], [Email], [Password]) 
+     VALUES (@TeacherID, @Name, @Email, @Password)
 	 EXEC Create_Teacher @Email, @Password
 END 
 
@@ -256,7 +294,8 @@ GO
 create or alter procedure Table2_Update
 	@TeacherID UNIQUEIDENTIFIER,
 	@Name varchar(50),
-	@Email text
+	@Email text,
+	@Password text
 AS
 BEGIN
 	UPDATE Table2 
@@ -628,6 +667,11 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
+	GRANT EXECUTE ON [Create_Student] to [Admin]
+	GRANT EXECUTE ON [Create_Teacher] to [Admin]
+	GRANT EXECUTE ON [Create_Admin] to Admin
+	GRANT ALTER ANY USER TO Admin
+	GRANT ALTER ANY ROLE TO Admin
 
 	DROP ROLE IF EXISTS [Teacher]
 	CREATE ROLE [Teacher]
@@ -694,16 +738,7 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Student]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
-	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Student]
 END
 GO
 
 EXEC Create_Roles
-GO
-
-
-
-
---execute as login='mirceamariamadalina@yahoo.com'
---execute GetCurrentUserRole
---revert
