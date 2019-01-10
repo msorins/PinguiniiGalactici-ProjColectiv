@@ -563,6 +563,51 @@ END
 GO
 
 
+--------------------------- REPORTS -------------------------------
+
+CREATE OR ALTER PROCEDURE [Get_Average_Grade_For_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeName varchar(20) AS
+BEGIN
+	SELECT t1.GroupNumber, AVG(partial_res_1.Grade) AS AverageGrade 
+	FROM (SELECT t1t3.StudentID, t4.Grade FROM Table1Table3 t1t3
+		  INNER JOIN Table4 t4 ON t4.EnrollmentID = t1t3.EnrollmentID AND t1t3.CourseID = @CourseID AND 
+			(SELECT t7.TypeID FROM Table7 t7 WHERE t7.[Name] = @TypeName) = t4.TypeID
+		  ) partial_res_1
+	INNER JOIN Table1 t1 ON t1.RegistrationNumber = partial_res_1.StudentID
+	GROUP BY t1.GroupNumber
+END
+GO
+
+CREATE OR ALTER PROCEDURE [Get_Passing_Grades_Number_For_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeName varchar(20) AS
+BEGIN
+	SELECT t1.GroupNumber, COUNT(CASE WHEN partial_res_1.Grade >= 4.5 THEN 1 END) AS PassingGradesNumber,COUNT(partial_res_1.Grade) AS TotalGradesNumber
+	FROM (SELECT t1t3.StudentID, t4.Grade FROM Table1Table3 t1t3
+		  INNER JOIN Table4 t4 ON t4.EnrollmentID = t1t3.EnrollmentID AND t1t3.CourseID = @CourseID AND 
+			(SELECT t7.TypeID FROM Table7 t7 WHERE t7.[Name] = @TypeName) = t4.TypeID
+		  ) partial_res_1
+	INNER JOIN Table1 t1 ON t1.RegistrationNumber = partial_res_1.StudentID
+	GROUP BY t1.GroupNumber
+END
+GO
+
+CREATE OR ALTER PROCEDURE [Get_Attendances_Percentage_for_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeName varchar(20) AS
+BEGIN
+	--COMPLICATED QUERY GOES HERE
+	SELECT * FROM Table4
+END
+GO
+
+--exec as login='admin1'
+--revert
+--exec Get_Attendances_Percentage_for_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeName='Seminar'
+--exec Get_Passing_Grades_Number_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeName='Seminar'
+--exec Get_Average_Grade_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeName='Laborator'
+--exec Table1_ReadAll
+--SELECT * FROM Table4
+--drop proc Get_Attendances_Procentage_for_Course
+
 CREATE OR ALTER PROCEDURE [Create_Roles] AS
 BEGIN
 	select 'ALTER ROLE ' +  QUOTENAME(rp.name)  + ' DROP MEMBER ' + QUOTENAME(mp.name)
@@ -628,6 +673,15 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
+
+	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Teacher]
+
+	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Teacher]
+
+	GRANT EXECUTE ON [Get_Attendances_Percentage_for_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Attendances_Percentage_for_Course_by_Attendance_Type] TO [Teacher]
 
 	DROP ROLE IF EXISTS [Teacher]
 	CREATE ROLE [Teacher]
