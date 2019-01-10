@@ -10,6 +10,7 @@ import { MatToolbarModule, MatFormFieldModule,
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TeacherGradeService } from './services/teacher-grade.service';
 import { GradeStudentComponent } from './components/grade-student/grade-student.component';
+import { AttendStudentComponent } from './components/attend-student/attend-student.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { GradeStudentComponent } from './components/grade-student/grade-student.
     ],
     declarations: [
         TeacherGradeStudentPageComponent,
-        GradeStudentComponent
+        GradeStudentComponent,
+        AttendStudentComponent
     ],
     providers: [
         TeacherGradeService,
