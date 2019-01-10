@@ -48,10 +48,8 @@ CREATE OR ALTER PROCEDURE [Create_Admin]
 BEGIN
 	declare @s varchar(100)
 	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
-	print @s
 	exec(@s)
 	set @s = 'alter role Admin add member [' + @Username + ']'
-	print(@s)
 	exec(@s)
 END
 GO
@@ -71,10 +69,8 @@ CREATE OR ALTER PROCEDURE [Create_Teacher]
 BEGIN
 	declare @s varchar(100)
 	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
-	print @s
 	exec(@s)
 	set @s = 'alter role Teacher add member [' + @Username + ']'
-	print(@s)
 	exec(@s)
 END
 GO
@@ -94,21 +90,27 @@ CREATE OR ALTER PROCEDURE [Create_Student]
 BEGIN
 	declare @s varchar(100)
 	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
-	print @s
 	exec(@s)
 	set @s = 'alter role Student add member [' + @Username + ']'
-	print(@s)
 	exec(@s)
 END
 GO
 
-create or alter procedure deleteUser @username VARCHAR(50) AS
+--create or alter procedure deleteUser @username VARCHAR(50) AS
+--BEGIN
+--	IF EXISTS (SELECT name FROM master.sys.server_principals WHERE name = @username)
+--	BEGIN
+--		exec sp_dropuser @username
+--		exec sp_droplogin @username
+--	END
+--END
+--GO
+
+create or alter procedure DeleteUser @Username VARCHAR(50) AS
 BEGIN
-	IF EXISTS (SELECT name FROM master.sys.server_principals WHERE name = @username)
-	BEGIN
-		exec sp_dropuser @username
-		exec sp_droplogin @username
-	END
+	declare @s varchar(100)
+	set @s = 'DROP USER IF EXISTS [' + @Username + ']'
+	exec(@s)
 END
 GO
 
@@ -149,11 +151,18 @@ GO
 create or alter procedure [Table1_Delete]
        @RegistrationNumber    INT        
 AS 
-BEGIN 
+BEGIN
+	declare @username varchar(100)
+	select @username=Email from Table1 where RegistrationNumber = @RegistrationNumber
+	exec DeleteUser @username
 	DELETE FROM [Table1] WHERE [RegistrationNumber] = @RegistrationNumber;
-
 END
 GO 
+
+execute as user='admin@gmail.com'
+select user
+select * from Table1
+exec Table1_ReadAll
 
 --read by id
 create or alter procedure [Table1_ReadById]
