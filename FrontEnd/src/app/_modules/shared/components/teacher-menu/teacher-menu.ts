@@ -19,6 +19,7 @@ export class TeacherMenuComponent implements OnInit {
         private sharedService: SharedService
     ) {
         this.loggedUser = this.authenticationService.getLoggedUser();
+        console.log(this.loggedUser);
     }
     ngOnInit() {
 

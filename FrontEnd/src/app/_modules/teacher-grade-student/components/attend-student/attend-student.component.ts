@@ -32,7 +32,7 @@ export class AttendStudentComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.teacherService.getCourses();
     }
 
     onWeekChanged(event): void {

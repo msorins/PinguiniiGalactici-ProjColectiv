@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user';
 @Injectable()
 export class AuthenticationService {
     private JWT: string;
-    private mocked: boolean = true;
+    private mocked: boolean = false;
 
     constructor(private http: HttpClient) { }
 
@@ -32,7 +32,7 @@ export class AuthenticationService {
         }
           
           const requestOptions = {                                                                                                                                                                                 
-            headers: new HttpHeaders(headerDict), 
+            headers: new HttpHeaders(headerDict),
           };
         
         if(this.mocked) {
@@ -46,7 +46,7 @@ export class AuthenticationService {
             return of(usr);
         }
 
-        return this.http.get<any>(`http://localhost:53440/token`, requestOptions)
+        return this.http.get<any>(`https://421fab97.ngrok.io/token`, requestOptions)
             .pipe(map(token => {
                 // login successful if there's a jwt token in the response
                 if (token) {  
@@ -75,7 +75,14 @@ export class AuthenticationService {
     }
 
     getLoggedUser(): LoggedUser {
+        debugger;
         const loggedUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (loggedUser.Name === 'admin@gmail.com') {
+            loggedUser.Admin = true;
+        } else {
+            loggedUser.Admin = false;
+        }
+        console.log(loggedUser);
         return loggedUser;
     }
 }

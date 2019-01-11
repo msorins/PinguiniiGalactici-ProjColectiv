@@ -4,6 +4,7 @@ import { Student } from '../models/Student';
 import { Teacher } from '../models/Teacher';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { ApiUrl } from '../../shared/services/ApiUrls';
+import { debug } from 'util';
 
 
 @Injectable()
@@ -19,7 +20,7 @@ export class CreateUserService {
     }
 
     saveTeacher(teacher: Teacher): void {
-        console.log(teacher);
-        console.log(this.localStorage.getLoggedUser());
+        debugger;
+        this.httpClient.post(ApiUrl.ngRokUrl + '/teachers', teacher).subscribe();
     }
 }

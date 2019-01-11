@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TeacherGradeService {
 
+    url = 'https://421fab97.ngrok.io';
     constructor(private http: HttpClient) {
 
     }
@@ -15,5 +16,11 @@ export class TeacherGradeService {
 
     saveStudentAttendance(data) {
         console.log(data);
+    }
+
+    getCourses() {
+        this.http.get(this.url + '/courses').subscribe(s => {
+            console.log(s);
+        });
     }
 }

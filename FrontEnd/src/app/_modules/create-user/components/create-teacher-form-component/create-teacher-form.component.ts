@@ -28,9 +28,10 @@ export class CreateTeacherFormComponent implements OnInit {
     }
 
     getUser(): Teacher {
-        const teacher: Teacher = {
+        const teacher = {
             Id: -1,
             Name: this.name.value,
+            Password: 'pass',
             Email: this.email.value
         };
         return teacher;
@@ -38,6 +39,7 @@ export class CreateTeacherFormComponent implements OnInit {
 
     saveTeacher(): void {
         const teacher = this.getUser();
+
         this.createUserService.saveTeacher(teacher);
     }
 
