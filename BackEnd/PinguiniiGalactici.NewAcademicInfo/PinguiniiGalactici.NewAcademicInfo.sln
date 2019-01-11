@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo", "PinguiniiGalactici.NewAcademicInfo\PinguiniiGalactici.NewAcademicInfo.csproj", "{CF20680A-4CD7-4E5D-BF01-200057D0D8DE}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.WebAPI", "PinguiniiGalactici.NewAcademicInfo.WebAPI\PinguiniiGalactici.NewAcademicInfo.WebAPI.csproj", "{5E48B563-8716-40C5-8979-23F210336AF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.Models", "PinguiniiGalactici.NewAcademicInfo.Models\PinguiniiGalactici.NewAcademicInfo.Models.csproj", "{C34CCF5E-20EE-4501-861C-8490A501EF7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PinguiniiGalactici.NewAcademicInfo.BusinessTests", "PinguiniiGalactici.NewAcademicInfo.BusinessTests\PinguiniiGalactici.NewAcademicInfo.BusinessTests.csproj", "{98537831-AEBB-4810-ADB7-3413E829A6C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C34CCF5E-20EE-4501-861C-8490A501EF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C34CCF5E-20EE-4501-861C-8490A501EF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C34CCF5E-20EE-4501-861C-8490A501EF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98537831-AEBB-4810-ADB7-3413E829A6C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98537831-AEBB-4810-ADB7-3413E829A6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98537831-AEBB-4810-ADB7-3413E829A6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98537831-AEBB-4810-ADB7-3413E829A6C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

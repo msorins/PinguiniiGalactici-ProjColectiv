@@ -10,7 +10,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
     public class DALContext : IDisposable
     {
         #region Constants     
-        private const string SERVER = "MADALINA\\SQLEXPRESS01";
+        private const string SERVER = "DESKTOP-D8HOAVG\\SQLEXPRESS";
         string DATABASE = "AcademicInfo";
         #endregion
 
