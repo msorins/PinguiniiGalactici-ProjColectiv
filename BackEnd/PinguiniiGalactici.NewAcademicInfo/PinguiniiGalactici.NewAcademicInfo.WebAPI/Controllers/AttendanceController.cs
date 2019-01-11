@@ -84,6 +84,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.AttendancesBusiness.ReadAllWithCourses();
         }
 
+        [HttpGet]
+        [Route("WithCourseAndStudent/{CourseID:Guid}/{RegistrationNumber:int}")]
+        [AuthorizationFilter(Role.Teacher)]
+        public IEnumerable<AttendancesCourses> ReadAllWithCourseAndStudent(Guid CourseID, int RegistrationNumber)
+        {
+            return BusinessContext.AttendancesBusiness.ReadAllWithCourseAndStudent(CourseID, RegistrationNumber);
+        }
+
         #endregion
     }
 }

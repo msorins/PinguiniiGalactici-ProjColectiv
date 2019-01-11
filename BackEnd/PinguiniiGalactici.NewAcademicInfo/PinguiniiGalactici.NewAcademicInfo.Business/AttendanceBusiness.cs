@@ -90,6 +90,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
             SmtpServer.Send(mail);
         }
 
+        public IEnumerable<AttendancesCourses> ReadAllWithCourseAndStudent(Guid courseID, int registrationNumber)
+        {
+            return _context.DALContext.AttendancesDAL.ReadAllWithCourseAndStudent(courseID, registrationNumber);
+        }
+
         #endregion
     }
 }
