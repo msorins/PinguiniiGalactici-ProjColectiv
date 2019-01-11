@@ -615,25 +615,6 @@ BEGIN
 END
 GO
 
-CREATE OR ALTER PROCEDURE [Table4_UpdateOrInsert]
-	@StudentID INT, @CourseID UNIQUEIDENTIFIER, @WeekNr INT,
-	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2) = NULL AS
-BEGIN
-	DECLARE @enrollmentID UNIQUEIDENTIFIER = (SELECT TOP 1 [EnrollmentID] FROM [Table1Table3] WHERE [StudentID]=@StudentID AND [CourseID] = @CourseID)
-	IF @enrollmentID IS NULL
-		RETURN
-	
-	DECLARE @attendanceID UNIQUEIDENTIFIER = (SELECT TOP 1 [AttendanceID] FROM [Table4] WHERE [EnrollmentID]=@enrollmentID AND [WeekNr]=@WeekNr AND [TypeID]=@TypeID)
-	IF @attendanceID IS NULL
-		BEGIN
-			SET @attendanceID = NEWID()
-			exec [Table4_Insert] @attendanceID,@enrollmentID,@WeekNr,@TypeID,@Grade
-		END
-	ELSE
-		exec [Table4_Update] @attendanceID,@enrollmentID,@WeekNr,@TypeID,@Grade
-
-END
-GO
 
 CREATE OR ALTER PROCEDURE [Create_Roles] AS
 BEGIN
@@ -745,8 +726,7 @@ order by rp.name
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Teacher]
-	GRANT EXECUTE ON [Table4_UpdateOrInsert] to [Teacher]
-	
+
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
 
