@@ -29,6 +29,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         }
 
         [HttpGet]
+        [Route("forTeacher/{TeacherID:Guid}")]
+        [AuthorizationFilter(Role.Admin, Role.Teacher, Role.Student)]
+        public IEnumerable<Course> ReadAllForTeacher(Guid TeacherID)
+        {
+            return BusinessContext.CoursesBusiness.ReadAllForTeacher(TeacherID);
+        }
+
+        [HttpGet]
         [Route("{CoursesNumber:Guid}")]
         [AuthorizationFilter(Role.Admin)]
         public Course ReadById(Guid CoursesNumber)

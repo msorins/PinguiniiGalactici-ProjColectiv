@@ -16,7 +16,10 @@ export class CreateUserService {
     }
 
     saveStudent(student: Student): void {
-        this.httpClient.post(ApiUrl.insertUserUrl, student);
+        this.httpClient.post(ApiUrl.insertUserUrl, student).subscribe((data: any) =>  {
+            console.log("Done");
+            console.log(data);
+        });
     }
 
     saveTeacher(teacher: Teacher): void {

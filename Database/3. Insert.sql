@@ -31,7 +31,56 @@ WITH (STATE=ON)
 GO
 
 --exec deleteUser admin1
-exec Create_Admin 'admin1', 'pass'
+exec Create_Admin 'admin@gmail.com', 'pass'
+--EXEC sp_addrolemember N'db_owner', N'admin1@gmail.com'
+--exec('create login admin with password = ''pass''')
+
+--go
+--create user admin@admin.com for login test_logingo
+--go
+
+--CREATE OR ALTER PROCEDURE [Create_Admin]
+--@Username as nvarchar(30), @Password nvarchar(30) AS
+--BEGIN
+--	declare @s varchar(100)
+--	set @s = 'create login [' + @Username + '] with password = ''' + @Password + ''''
+--	print @s
+--	exec(@s)
+--	set @s = 'create user [' + @Username + '] for login [' + @Username + ']'
+--	print @s
+--	exec(@s)
+--	set @s = 'alter role Admin add member [' + @Username + ']'
+--	print(@s)
+--	exec(@s)
+--	--set @s = 'create user [' + @Username + '] for login [' + @Username + ']'
+--	--print @s
+--	--exec(@s)
+--	--exec('EXEC sp_addlogin ' + @Username + ',' + @Password)
+	
+--	--exec('EXEC sp_adduser ' + @Username + ',' + @Username + ',' +  '''Admin''')
+--END
+--GO
+
+--use AcademicInfo
+--create user ['mada'] with password = 'pass'
+
+--revert
+--select user
+--exec Create_Admin 'admin2@admin.ro', 'pass'
+
+--execute as login='admin2@admin.ro'
+
+
+--execute as login='admin4'
+--exec Create_Admin 'teacher@teacher.com', 'pass'
+
+--grant execute on Create_Admin to Admin
+--use AcademicInfo
+--GRANT ALTER ANY LOGIN TO Admin
+
+--grant alter any login to Admin
+--grant alter credential to Admin
+--grant alter user to Admin
 
 --DELETE FROM [Table1Table3]
 --GO
@@ -155,6 +204,25 @@ GO
 GO
 EXEC Table1_Insert 2222, 'POPESCU Maria', 'hello@buhbye.co.uk', 11, '1234'
 GO
+--revert
+--select user
+--create login test_login with password = 'pass'
+--go
+--create user test_user for login test_login
+--go
+
+--use AcademicInfo
+--exec as login='admin1@gmail.com'
+--go
+--EXEC Table1_Insert 2224, 'POP Maria', 'hello2211@buhbye.co.uk', 11, 'pass'
+--exec Table1_ReadAll
+--exec Table1_ReadById 2224
+--exec Table1_Delete 2224
+--go
+--revert
+--go
+
+--select user
 
 EXEC Table3_Insert 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab', 'Arhitectura Sistemelor de Calcul', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
 GO
@@ -230,7 +298,7 @@ GO
 --execute as login='mmie2169'
 --GO
 --execute Table1_ReadAll
-execute Table1_ReadTable4
+--execute Table1_ReadTable4
 --execute Table4_ReadAll
 --GO
 --revert

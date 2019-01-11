@@ -38,6 +38,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Update", Courses.GenerateSqlParametersFromModel().ToArray());
         }
 
+        public IEnumerable<Course> ReadAllForTeacher(Guid TeacherID)
+        {
+            return DbOperations.ExecuteQuery<Course>(_context.CONNECTION_STRING, "dbo." + tableName + "_ReadAllForTeacher", new SqlParameter("TeacherID", TeacherID));
+        }
+
         public void Delete(Guid CoursesID)
         {
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Delete", new SqlParameter("CourseID", CoursesID));

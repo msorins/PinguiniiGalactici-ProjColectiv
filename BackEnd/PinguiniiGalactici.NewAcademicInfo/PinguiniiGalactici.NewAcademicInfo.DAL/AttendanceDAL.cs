@@ -33,6 +33,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Insert", attendances.GenerateSqlParametersFromModel().ToArray());
         }
 
+        public IEnumerable<Attendance> ReadForStudent()
+        {
+            return DbOperations.ExecuteQuery<Attendance>(_context.CONNECTION_STRING, "dbo.Table1_ReadTable4");
+        }
+
         public void Update(Attendance attendances)
         {
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Update", attendances.GenerateSqlParametersFromModel().ToArray());
