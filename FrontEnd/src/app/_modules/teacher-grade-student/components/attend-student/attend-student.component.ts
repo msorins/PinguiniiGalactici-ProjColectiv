@@ -28,7 +28,7 @@ export class AttendStudentComponent implements OnInit {
     selectedCourse: any;
     constructor(private teacherService: TeacherGradeService) {
         this.displayedStudents = this.allStudents;
-        this.groups = this.trimResult(this.displayedStudents.map(s => s.group));
+        this.groups = this.trimResult(this.displayedStudents.map(s => s.GroupNumbers));
     }
 
     ngOnInit() {

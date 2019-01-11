@@ -47,7 +47,7 @@ export class AuthenticationService {
             return of(usr);
         }
 
-        return this.http.get<any>(ApiUrl.ngRokUrl + `/token`, requestOptions)
+        return this.http.get<any>(ApiUrl.getTokenUrl, requestOptions)
             .pipe(map(token => {
                 // login successful if there's a jwt token in the response
                 if (token) {  
