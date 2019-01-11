@@ -1,37 +1,58 @@
-<div>
-        <mat-form-field >  
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Student Name">
-              </mat-form-field>
-              <mat-form-field>
-                <mat-select placeholder="Group" [(ngModel)]="selectedGroups" (selectionChange)="onGroupChange($event)">
-                  <mat-option *ngFor="let group of groups" [value]="group">
-                    {{group}}
-                  </mat-option>
-                </mat-select>
-        </mat-form-field>
-</div>
-<div class="left-part">
-        <div class="student-list-container">
-                <div class="title">Students</div>
-                <div class="student-list">
-                    <mat-selection-list #student [(ngModel)]="selectedStudents">
-                        <mat-list-option *ngFor="let student of displayedStudents" [value]="student">
-                            {{student?.name}}
-                        </mat-list-option>
-                    </mat-selection-list>
+<div class="container">
+        <div class="left-part">
+                <mat-form-field class="search">
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Student Name">
+                </mat-form-field>
+                <mat-form-field>
+                        <mat-select placeholder="Group" [(ngModel)]="selectedGroups" (selectionChange)="onGroupChange($event)">
+                                <mat-option *ngFor="let group of groups" [value]="group">
+                                        {{group}}
+                                </mat-option>
+                        </mat-select>
+                </mat-form-field>
+                <div class="student-list-container">
+                        <div class="title">Students</div>
+                        <div class="student-list">
+                                <mat-selection-list #student [(ngModel)]="selectedStudents">
+                                        <mat-list-option *ngFor="let student of displayedStudents" [value]="student">
+                                                {{student?.name}}
+                                        </mat-list-option>
+                                </mat-selection-list>
+                        </div>
                 </div>
         </div>
-</div>
-<div class="right-part">
-        <mat-form-field>
-                <mat-select placeholder="Week" [(ngModel)]="selectedWeek" (selectionChange)="onWeekChanged($event)">
-                  <mat-option *ngFor="let week of weeks" [value]="week">
-                    Week&nbsp;{{week}}
-                  </mat-option>
-                </mat-select>
-        </mat-form-field>
+        <div class="right-part">
+                <div>
+                        <mat-form-field>
+                                <mat-select placeholder="Courses" [(ngModel)]="selectedCourse" (selectionChange)="onCourseChanged($event)">
+                                        <mat-option *ngFor="let course of courses" [value]="course.id">
+                                                {{course.name}}
+                                        </mat-option>
+                                </mat-select>
+                        </mat-form-field>
+                </div>
 
+                <div>
+                        <mat-form-field>
+                                <mat-select placeholder="Type" [(ngModel)]="selectedType" (selectionChange)="onTypeChanged($event)">
+                                        <mat-option *ngFor="let type of types" [value]="type">
+                                                {{type.name}}
+                                        </mat-option>
+                                </mat-select>
+                        </mat-form-field>
+                </div>
+                <mat-form-field>
+                        <mat-select placeholder="Week" [(ngModel)]="selectedWeek" (selectionChange)="onWeekChanged($event)">
+                                <mat-option *ngFor="let week of weeks" [value]="week">
+                                        Week&nbsp;{{week}}
+                                </mat-option>
+                        </mat-select>
+                </mat-form-field>
+
+        </div>
 </div>
 
-<button class="login-button create-button" mat-raised-button color="primary" 
-[disabled]="toggleSaveChanges()" (click)="saveChanges()">Save changes</button>
+<div class="button-wrapper">
+<button class="login-button create-button" mat-raised-button color="primary" [disabled]="toggleSaveChanges()" (click)="saveChanges()">Save
+        changes</button>
+</div>
