@@ -12,6 +12,21 @@ as begin
 end
 go
 
+create or alter procedure [GetAttendancesWithCourseAndStudent]
+	@RegistrationNumber int,
+	@CourseID UNIQUEIDENTIFIER
+as begin
+	select a.AttendanceID, a.EnrollmentID, a.Grade, a.TypeID, a.WeekNr, sc.CourseID,
+		c.Name as CourseName, c.TotalLabNr, c.TotalSeminarNr, c.Year, t.Name as TypeName
+	from Table4 a
+	inner join Table1Table3 sc on sc.EnrollmentID = a.EnrollmentID
+	inner join Table3 c on c.CourseID = sc.CourseID
+	inner join Table7 t on t.TypeID = a.TypeID
+	inner join Table1 s on s.RegistrationNumber = sc.StudentID
+	where c.CourseID = @CourseID and s.RegistrationNumber = @RegistrationNumber
+end
+go
+
 create or alter procedure [GetCurrentUserRole]
 as begin
 	if IS_ROLEMEMBER('Admin') = 1
@@ -730,6 +745,7 @@ order by rp.name
 	GRANT EXECUTE ON [Create_Teacher] to [Admin]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Admin]
 	GRANT EXECUTE ON [Create_Admin] to Admin
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Admin]
 	GRANT ALTER ANY USER TO Admin
 	GRANT ALTER ANY ROLE TO Admin
 
@@ -780,6 +796,7 @@ order by rp.name
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Teacher]
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Teacher]
 
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
@@ -809,6 +826,7 @@ order by rp.name
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Student]
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Student]
 END
 GO
 

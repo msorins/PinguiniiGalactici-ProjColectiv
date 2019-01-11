@@ -52,6 +52,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
         {
             return DbOperations.ExecuteQuery<AttendancesCourses>(_context.CONNECTION_STRING, "dbo.GetAttendancesWithCourses");
         }
+
+        public IEnumerable<AttendancesCourses> ReadAllWithCourseAndStudent(Guid courseID, int registrationNumber)
+        {
+            return DbOperations.ExecuteQuery<AttendancesCourses>(_context.CONNECTION_STRING, "dbo.GetAttendancesWithCourseAndStudent", new SqlParameter("CourseID", courseID), new SqlParameter("RegistrationNumber", registrationNumber));
+        }
         #endregion
     }
 }
