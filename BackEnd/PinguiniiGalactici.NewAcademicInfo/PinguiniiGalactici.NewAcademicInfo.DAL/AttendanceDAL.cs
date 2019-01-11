@@ -57,6 +57,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
         {
             return DbOperations.ExecuteQuery<AttendancesCourses>(_context.CONNECTION_STRING, "dbo.GetAttendancesWithCourseAndStudent", new SqlParameter("CourseID", courseID), new SqlParameter("RegistrationNumber", registrationNumber));
         }
+
+        public void UpdateOrInsert(int studentID, Guid courseID, int weekNr, Guid TypeID, decimal? grade)
+        {
+            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_UpdateOrInsert", new SqlParameter("StudentID", studentID),
+                                                                                                            new SqlParameter("CourseID", courseID),
+                                                                                                            new SqlParameter("WeekNr", weekNr),
+                                                                                                            new SqlParameter("TypeID", TypeID),
+                                                                                                            new SqlParameter("Grade", grade));
+        }
         #endregion
     }
 }
