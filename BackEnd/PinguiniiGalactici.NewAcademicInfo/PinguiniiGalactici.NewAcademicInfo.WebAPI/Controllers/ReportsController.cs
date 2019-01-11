@@ -20,7 +20,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI
     public class ReportsController: MainAPIController
     {
         [HttpGet]
-        [Route("average/{CourseID:Guid}/{TypeName}")]
+        [Route("average/{CourseID:Guid}/{TypeName}")]  // TypeName should be 'Laborator' or 'Seminar'
         [AuthorizationFilter(Role.Admin, Role.Teacher)]
         public IEnumerable<AverageGradeReport> AverageGradesReport(Guid CourseID, String TypeName)
         {
@@ -28,7 +28,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI
         }
 
         [HttpGet]
-        [Route("passing-grade/{CourseID:Guid}/{TypeName}")]
+        [Route("passing-grades/{CourseID:Guid}/{TypeName}")]  // TypeName should be 'Laborator' or 'Seminar'
         [AuthorizationFilter(Role.Admin, Role.Teacher)]
         public IEnumerable<PassingGradesReport> PassingGradesReport(Guid CourseID, String TypeName)
         {
