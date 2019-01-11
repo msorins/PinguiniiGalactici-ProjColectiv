@@ -1,181 +1,181 @@
 export const STUDENTS_DATA_ATTENDANCES = [
     {
-        name: 'Nazarie Ciprian', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Nazarie Ciprian', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Nechita Sebastian', email: 'a@gmail.com',
-        group: 912,
+        Name: 'Nechita Sebastian', email: 'a@gmail.com',
+        GroupNumber: 912,
         attendance: [false, false, false, true, true, true, false,
         false, false, false, true, true, true, false]
       },
       {
-        name: 'Mircea Sorin', email: 'a@gmail.com',
-        group: 913,
+        Name: 'Mircea Sorin', email: 'a@gmail.com',
+        GroupNumber: 913,
         attendance: [true, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Vieriu Denis', email: 'a@gmail.com',
-        group: 916,
+        Name: 'Vieriu Denis', email: 'a@gmail.com',
+        GroupNumber: 916,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, false, true, true, true, false]
       },
       {
-        name: 'Mircea Madalina', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Mircea Madalina', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Moisuc Naomi', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Moisuc Naomi', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Jugaru Robert', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Jugaru Robert', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Mihalache Mihai', email: 'a@gmail.com',
-        group: 912,
+        Name: 'Mihalache Mihai', email: 'a@gmail.com',
+        GroupNumber: 912,
         attendance: [true, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Mihaliuc Ioana', email: 'a@gmail.com',
-        group: 913,
+        Name: 'Mihaliuc Ioana', email: 'a@gmail.com',
+        GroupNumber: 913,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, false, true, true, true, false]
       },
       {
-        name: 'Obreja Elena', email: 'a@gmail.com',
-        group: 916,
+        Name: 'Obreja Elena', email: 'a@gmail.com',
+        GroupNumber: 916,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Neamt Vlad', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Neamt Vlad', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Dogar Alexandru', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Dogar Alexandru', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, false, false, true, true, true, false,
             false, true, false, false, true, true, true, false]
       },
       {
-        name: 'Nechita Ionut', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Nechita Ionut', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [true, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Nemes Bianca', email: 'a@gmail.com',
-        group: 912,
+        Name: 'Nemes Bianca', email: 'a@gmail.com',
+        GroupNumber: 912,
         attendance: [false, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Micu Emerson', email: 'a@gmail.com',
-        group: 913,
+        Name: 'Micu Emerson', email: 'a@gmail.com',
+        GroupNumber: 913,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Oltean Andrei', email: 'a@gmail.com',
-        group: 916,
+        Name: 'Oltean Andrei', email: 'a@gmail.com',
+        GroupNumber: 916,
         attendance: [false, false, false, true, true, true, false,
             false, true, false, false, true, true, true, false]
       },
       {
-        name: 'Frent George', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Frent George', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, false, true, true, true, false]
       },
       {
-        name: 'Marcu Miriam', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Marcu Miriam', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [true, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Pop Maria', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Pop Maria', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Pop Ionut', email: 'a@gmail.com',
-        group: 912,
+        Name: 'Pop Ionut', email: 'a@gmail.com',
+        GroupNumber: 912,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Muresan Alexandra', email: 'a@gmail.com',
-        group: 913,
+        Name: 'Muresan Alexandra', email: 'a@gmail.com',
+        GroupNumber: 913,
         attendance: [false, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Ilie Andrei', email: 'a@gmail.com',
-        group: 916,
+        Name: 'Ilie Andrei', email: 'a@gmail.com',
+        GroupNumber: 916,
         attendance: [true, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Frent Tudor', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Frent Tudor', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, false, false, true, true, true, false,
             false, true, false, false, true, true, true, false]
       },
       {
-        name: 'Moldovan Alexandru', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Moldovan Alexandru', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Balc Radu', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Balc Radu', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, false, true, true, true, false]
       },
       {
-        name: 'David Bianca', email: 'a@gmail.com',
-        group: 912,
+        Name: 'David Bianca', email: 'a@gmail.com',
+        GroupNumber: 912,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Grigorovici Monica', email: 'a@gmail.com',
-        group: 913,
+        Name: 'Grigorovici Monica', email: 'a@gmail.com',
+        GroupNumber: 913,
         attendance: [true, true, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Balu Anca', email: 'a@gmail.com',
-        group: 916,
+        Name: 'Balu Anca', email: 'a@gmail.com',
+        GroupNumber: 916,
         attendance: [false, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
       {
-        name: 'Tripon Madalina', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Tripon Madalina', email: 'a@gmail.com',
+        GroupNumber: 911,
         attendance: [false, true, false, false, true, true, true, false,
             false, false, false, true, false, true, true, true, false]
       },
       {
-        name: 'Rus Mihai', email: 'a@gmail.com',
-        group: 911,
+        Name: 'Rus Mihai', email: 'a@gmail.com',
+        GroupNumberNumber: 911,
         attendance: [false, false, false, true, true, true, false,
             false, false, false, true, true, true, false]
       },
@@ -242,183 +242,183 @@ export  const COURSES_DATA = [
 
 export  const STUDENTS_DATA_GRADES = [
     {
-      name: 'Nazarie Ciprian', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 9, 10, 8, 9, 10,
+      Name: 'Nazarie Ciprian', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 9, 10, 8, 9, 10,
         10, 10, 10, 9, 8, 6, 8]
     },
     {
-      name: 'Nechita Sebastian', email: 'a@gmail.com',
-      group: 912,
-      grade: [10, 10, 10, 10, 10, 10, 10,
+      Name: 'Nechita Sebastian', email: 'a@gmail.com',
+      GroupNumber: 912,
+      Grade: [10, 10, 10, 10, 10, 10, 10,
         10, 9, 9, 9, 10, 10, 10]
     },
     {
-      name: 'Mircea Sorin', email: 'a@gmail.com',
-      group: 913,
-      grade: [10, 10, 10, 10, 10, 9, 9, 8,
+      Name: 'Mircea Sorin', email: 'a@gmail.com',
+      GroupNumber: 913,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 8,
         8, 5, 6, 10, 10, 8, 9, 7, 10],
     },
     {
-      name: 'Vieriu Denis', email: 'a@gmail.com',
-      group: 916,
-      grade: [10, 9, 9, 4, 5, 8, 9, 7,
+      Name: 'Vieriu Denis', email: 'a@gmail.com',
+      GroupNumber: 916,
+      Grade: [10, 9, 9, 4, 5, 8, 9, 7,
         10, 7, 8, 9, 10, 10, 10],
     },
     {
-      name: 'Mircea Madalina', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 10, 10, 9, 9, 9,
+      Name: 'Mircea Madalina', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 9,
         10, 10, 10, 10, 10, 10, 10],
     },
     {
-      name: 'Moisuc Naomi', email: 'a@gmail.com',
-      group: 911,
-      grade: [9, 10, 10, 10, 7, 8, 6,
+      Name: 'Moisuc Naomi', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [9, 10, 10, 10, 7, 8, 6,
         8, 9, 7, 8, 8, 9, 9, 9],
     },
     {
-      name: 'Jugaru Robert', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 9, 10, 8, 9, 10,
+      Name: 'Jugaru Robert', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 9, 10, 8, 9, 10,
         10, 10, 10, 9, 8, 6, 8]
     },
     {
-      name: 'Mihalache Mihai', email: 'a@gmail.com',
-      group: 912,
-      grade: [10, 10, 10, 10, 10, 10, 10,
+      Name: 'Mihalache Mihai', email: 'a@gmail.com',
+      GroupNumber: 912,
+      Grade: [10, 10, 10, 10, 10, 10, 10,
         10, 9, 9, 9, 10, 10, 10]
     },
     {
-      name: 'Mihaliuc Ioana', email: 'a@gmail.com',
-      group: 913,
-      grade: [10, 10, 10, 10, 10, 9, 9, 8,
+      Name: 'Mihaliuc Ioana', email: 'a@gmail.com',
+      GroupNumber: 913,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 8,
         8, 5, 6, 10, 10, 8, 9, 7, 10],
     },
     {
-      name: 'Obreja Elena', email: 'a@gmail.com',
-      group: 916,
-      grade: [10, 9, 9, 4, 5, 8, 9, 7,
+      Name: 'Obreja Elena', email: 'a@gmail.com',
+      GroupNumber: 916,
+      Grade: [10, 9, 9, 4, 5, 8, 9, 7,
         10, 7, 8, 9, 10, 10, 10],
     },
     {
-      name: 'Neamt Vlad', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 10, 10, 9, 9, 9,
+      Name: 'Neamt Vlad', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 9,
         10, 10, 10, 10, 10, 10, 10],
     },
     {
-      name: 'Dogar Alexandru', email: 'a@gmail.com',
-      group: 911,
-      grade: [9, 10, 10, 10, 7, 8, 6,
+      Name: 'Dogar Alexandru', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [9, 10, 10, 10, 7, 8, 6,
         8, 9, 7, 8, 8, 9, 9, 9],
     },
     {
-      name: 'Nechita Ionut', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 9, 10, 8, 9, 10,
+      Name: 'Nechita Ionut', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 9, 10, 8, 9, 10,
         10, 10, 10, 9, 8, 6, 8]
     },
     {
-      name: 'Nemes Bianca', email: 'a@gmail.com',
-      group: 912,
-      grade: [10, 10, 10, 10, 10, 10, 10,
+      Name: 'Nemes Bianca', email: 'a@gmail.com',
+      GroupNumber: 912,
+      Grade: [10, 10, 10, 10, 10, 10, 10,
         10, 9, 9, 9, 10, 10, 10]
     },
     {
-      name: 'Micu Emerson', email: 'a@gmail.com',
-      group: 913,
-      grade: [10, 10, 10, 10, 10, 9, 9, 8,
+      Name: 'Micu Emerson', email: 'a@gmail.com',
+      GroupNumber: 913,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 8,
         8, 5, 6, 10, 10, 8, 9, 7, 10],
     },
     {
-      name: 'Oltean Andrei', email: 'a@gmail.com',
-      group: 916,
-      grade: [10, 9, 9, 4, 5, 8, 9, 7,
+      Name: 'Oltean Andrei', email: 'a@gmail.com',
+      GroupNumber: 916,
+      Grade: [10, 9, 9, 4, 5, 8, 9, 7,
         10, 7, 8, 9, 10, 10, 10],
     },
     {
-      name: 'Frent George', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 10, 10, 9, 9, 9,
+      Name: 'Frent George', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 9,
         10, 10, 10, 10, 10, 10, 10],
     },
     {
-      name: 'Marcu Miriam', email: 'a@gmail.com',
-      group: 911,
-      grade: [9, 10, 10, 10, 7, 8, 6,
+      Name: 'Marcu Miriam', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [9, 10, 10, 10, 7, 8, 6,
         8, 9, 7, 8, 8, 9, 9, 9],
     },
     {
-      name: 'Pop Maria', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 9, 10, 8, 9, 10,
+      Name: 'Pop Maria', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 9, 10, 8, 9, 10,
         10, 10, 10, 9, 8, 6, 8]
     },
     {
-      name: 'Pop Ionut', email: 'a@gmail.com',
-      group: 912,
-      grade: [10, 10, 10, 10, 10, 10, 10,
+      Name: 'Pop Ionut', email: 'a@gmail.com',
+      GroupNumber: 912,
+      Grade: [10, 10, 10, 10, 10, 10, 10,
         10, 9, 9, 9, 10, 10, 10]
     },
     {
-      name: 'Muresan Alexandra', email: 'a@gmail.com',
-      group: 913,
-      grade: [10, 10, 10, 10, 10, 9, 9, 8,
+      Name: 'Muresan Alexandra', email: 'a@gmail.com',
+      GroupNumber: 913,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 8,
         8, 5, 6, 10, 10, 8, 9, 7, 10],
     },
     {
-      name: 'Ilie Andrei', email: 'a@gmail.com',
-      group: 916,
-      grade: [10, 9, 9, 4, 5, 8, 9, 7,
+      Name: 'Ilie Andrei', email: 'a@gmail.com',
+      GroupNumber: 916,
+      Grade: [10, 9, 9, 4, 5, 8, 9, 7,
         10, 7, 8, 9, 10, 10, 10],
     },
     {
-      name: 'Frent Tudor', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 10, 10, 9, 9, 9,
+      Name: 'Frent Tudor', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 9,
         10, 10, 10, 10, 10, 10, 10],
     },
     {
-      name: 'Moldovan Alexandru', email: 'a@gmail.com',
-      group: 911,
-      grade: [9, 10, 10, 10, 7, 8, 6,
+      Name: 'Moldovan Alexandru', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [9, 10, 10, 10, 7, 8, 6,
         8, 9, 7, 8, 8, 9, 9, 9],
     },
     {
-      name: 'Balc Radu', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 9, 10, 8, 9, 10,
+      Name: 'Balc Radu', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 9, 10, 8, 9, 10,
         10, 10, 10, 9, 8, 6, 8]
     },
     {
-      name: 'David Bianca', email: 'a@gmail.com',
-      group: 912,
-      grade: [10, 10, 10, 10, 10, 10, 10,
+      Name: 'David Bianca', email: 'a@gmail.com',
+      GroupNumber: 912,
+      Grade: [10, 10, 10, 10, 10, 10, 10,
         10, 9, 9, 9, 10, 10, 10]
     },
     {
-      name: 'Grigorovici Monica', email: 'a@gmail.com',
-      group: 913,
-      grade: [10, 10, 10, 10, 10, 9, 9, 8,
+      Name: 'Grigorovici Monica', email: 'a@gmail.com',
+      GroupNumber: 913,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 8,
         8, 5, 6, 10, 10, 8, 9, 7, 10],
     },
     {
-      name: 'Balu Anca', email: 'a@gmail.com',
-      group: 916,
-      grade: [10, 9, 9, 4, 5, 8, 9, 7,
+      Name: 'Balu Anca', email: 'a@gmail.com',
+      GroupNumber: 916,
+      Grade: [10, 9, 9, 4, 5, 8, 9, 7,
         10, 7, 8, 9, 10, 10, 10],
     },
     {
-      name: 'Tripon Madalina', email: 'a@gmail.com',
-      group: 911,
-      grade: [10, 10, 10, 10, 10, 9, 9, 9,
+      Name: 'Tripon Madalina', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [10, 10, 10, 10, 10, 9, 9, 9,
         10, 10, 10, 10, 10, 10, 10],
     },
     {
-      name: 'Rus Mihai', email: 'a@gmail.com',
-      group: 911,
-      grade: [9, 10, 10, 10, 7, 8, 6,
+      Name: 'Rus Mihai', email: 'a@gmail.com',
+      GroupNumber: 911,
+      Grade: [9, 10, 10, 10, 7, 8, 6,
         8, 9, 7, 8, 8, 9, 9, 9],
     },
   ];

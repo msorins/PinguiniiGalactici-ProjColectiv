@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { TeacherGradeService } from '../../services/teacher-grade.service';
 import { group } from '@angular/animations';
-import { STUDENTS_DATA_GRADES } from 'src/app/_modules/shared/constants';
+import { STUDENTS_DATA_GRADES, COURSES_DATA } from 'src/app/_modules/shared/constants';
 
 
 @Component({
@@ -20,7 +20,8 @@ export class GradeStudentComponent implements OnInit {
     // {id: 11, name: 'John42342', group: 961}, {id: 12, name: 'John', group: 931}];
     allStudents = STUDENTS_DATA_GRADES;
     studentsDisplayed: any[];
-    courses = [{id: 1, name: 'Some Course'}, {id: 2, name: 'Some other course'}];
+    // courses = [{id: 1, name: 'Some Course'}, {id: 2, name: 'Some other course'}];
+    courses = COURSES_DATA;
     weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
     types = [{id: 1, name: 'Seminar'}, {id: 2, name: 'Laboratory'}, {id: 3, name: 'Course'}];
     groups: any;
@@ -42,7 +43,7 @@ export class GradeStudentComponent implements OnInit {
 
     ngOnInit() {
         this.studentsDisplayed = this.allStudents;
-        this.groups = this.trimResult(this.allStudents.map(s => s.group));
+        this.groups = this.trimResult(this.allStudents.map(s => s.GroupNumber));
         console.log(this.groups);
     }
 
@@ -61,7 +62,7 @@ export class GradeStudentComponent implements OnInit {
     onGroupChange(event): void {
         debugger;
         if (event.value) {
-            this.studentsDisplayed = this.allStudents.filter(s => s.group === event.value);
+            this.studentsDisplayed = this.allStudents.filter(s => s.GroupNumber === event.value);
         } else {
             this.studentsDisplayed = this.allStudents;
         }
@@ -95,7 +96,7 @@ export class GradeStudentComponent implements OnInit {
         console.log(value);
         if (value && value !== '') {
             this.studentsDisplayed = this.allStudents.filter(s => {
-                const index = s.name.indexOf(value);
+                const index = s.Name.indexOf(value);
                 if (index > -1) {
                     return true;
                 }

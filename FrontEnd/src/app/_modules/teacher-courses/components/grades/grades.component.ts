@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
 import { TeacherCoursesService } from '../../services/TeacherCoursesService';
-import { STUDENTS_DATA_GRADES, COURSES_DATA } from 'src/app/_modules/shared/constants';
+import {  COURSES_DATA, STUDENTS_DATA_GRADES } from 'src/app/_modules/shared/constants';
 
 @Component({
   selector: 'app-grades',
@@ -27,7 +27,7 @@ export class GradesComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
-    this.groups = this.trimResult(this.students.map(student => student.group));
+    this.groups = this.trimResult(this.students.map(student => student.GroupNumber));
     this.dataSource.sort = this.sort;
     this.inputValue = 1;
     this.getCourses();

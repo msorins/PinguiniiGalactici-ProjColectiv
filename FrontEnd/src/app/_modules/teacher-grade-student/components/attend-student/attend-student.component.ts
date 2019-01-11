@@ -1,7 +1,7 @@
 import { OnInit, Component } from '@angular/core';
 import { debug } from 'util';
 import { TeacherGradeService } from '../../services/teacher-grade.service';
-import { STUDENTS_DATA_ATTENDANCES } from 'src/app/_modules/shared/constants';
+import { STUDENTS_DATA_ATTENDANCES, COURSES_DATA } from 'src/app/_modules/shared/constants';
 
 @Component({
     selector: 'app-attend-student',
@@ -19,7 +19,8 @@ export class AttendStudentComponent implements OnInit {
     displayedStudents: any[];
     selectedStudents: any;
     groups: any;
-    courses = [{id: 1, name: 'Some Course'}, {id: 2, name: 'Some other course'}];
+    // courses = [{id: 1, name: 'Some Course'}, {id: 2, name: 'Some other course'}];
+    courses = COURSES_DATA;
     weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
     types = [{id: 1, name: 'Seminar'}, {id: 2, name: 'Laboratory'}, {id: 3, name: 'Course'}];
     selectedWeek: any;
@@ -40,7 +41,7 @@ export class AttendStudentComponent implements OnInit {
 
     onGroupChange(event): void {
         if (event.value && event.value !== '') {
-            this.displayedStudents = this.allStudents.filter(s => s.group === event.value);
+            this.displayedStudents = this.allStudents.filter(s => s.GroupNumber === event.value);
             console.log(this.displayedStudents);
         } else {
             this.displayedStudents = this.allStudents;
@@ -51,7 +52,7 @@ export class AttendStudentComponent implements OnInit {
         debugger;
         if (value && value !== '') {
             this.displayedStudents = this.allStudents.filter(s => {
-                const index = s.name.indexOf(value);
+                const index = s.Name.indexOf(value);
                 if (index > -1) {
                     return true;
                 }

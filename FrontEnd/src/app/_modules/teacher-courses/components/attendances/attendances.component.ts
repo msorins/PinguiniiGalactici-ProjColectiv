@@ -26,7 +26,7 @@ export class AttendancesComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
-    this.groups = this.trimResult(STUDENTS_DATA_ATTENDANCES.map(student => student.group));
+    this.groups = this.trimResult(STUDENTS_DATA_ATTENDANCES.map(student => student.GroupNumber));
     this.getCourses();
   }
 
@@ -56,7 +56,7 @@ export class AttendancesComponent implements OnInit {
 
   onGroupChanged(event): void {
     console.log(event.value);
-    const filtered = STUDENTS_DATA_ATTENDANCES.filter(student => student.group === event.value);
+    const filtered = STUDENTS_DATA_ATTENDANCES.filter(student => student.GroupNumber === event.value);
     this.dataSource =  new MatTableDataSource(filtered);
   }
 
