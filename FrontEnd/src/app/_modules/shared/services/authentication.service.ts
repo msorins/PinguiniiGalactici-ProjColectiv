@@ -6,11 +6,12 @@ import { LoggedUser } from '../models/LoggedUser';
 import { USE_VALUE } from '@angular/core/src/di/injector';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from 'src/app/models/user';
+import { ApiUrl } from './ApiUrls';
 
 @Injectable()
 export class AuthenticationService {
     private JWT: string;
-    private mocked: boolean = true;
+    private mocked: boolean = false;
 
     constructor(private http: HttpClient) { }
 
@@ -46,7 +47,7 @@ export class AuthenticationService {
             return of(usr);
         }
 
-        return this.http.get<any>(`http://localhost:53440/token`, requestOptions)
+        return this.http.get<any>(ApiUrl.getTokenUrl, requestOptions)
             .pipe(map(token => {
                 // login successful if there's a jwt token in the response
                 if (token) {  
@@ -60,6 +61,7 @@ export class AuthenticationService {
                     user.Name = decodedToken.unique_name;
                     user.FirstName = user.Name;
                     user.LastName = user.Name;
+                    user.Admin = true;
 
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     console.log("Login was successful: ", JSON.stringify(user));

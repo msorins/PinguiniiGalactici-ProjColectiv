@@ -1,3 +1,11 @@
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE ;  
+GO
+USE [master]  
+GO  
+ALTER DATABASE [AcademicInfo] SET CONTAINMENT = PARTIAL  
+GO  
 USE AcademicInfo
 GO
 CREATE OR ALTER PROCEDURE [Create_Tables] AS
@@ -43,6 +51,7 @@ BEGIN
 		[TeacherID] UNIQUEIDENTIFIER,
 		[Name] varchar(100),
 		[Email] text,
+		[Password] text,
 		CONSTRAINT [PK_Table2] PRIMARY KEY ([TeacherID])
 	)
 
@@ -68,6 +77,7 @@ BEGIN
 		[Name] varchar(100) NULL,
 		[Email] text NULL,
 		[GroupNumber] INT,
+		[Password] text,
 		CONSTRAINT [PK_Table1] PRIMARY KEY ([RegistrationNumber]),
 		CONSTRAINT [FK_Table1Table5] FOREIGN KEY([GroupNumber])
 			REFERENCES [Table5]([GroupNumber]) ON DELETE SET NULL

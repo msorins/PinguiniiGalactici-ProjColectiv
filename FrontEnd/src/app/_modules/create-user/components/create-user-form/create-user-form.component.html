@@ -1,20 +1,20 @@
 
     <form class="example-form" [formGroup]="createUser">
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name" [formControl]="name" required>
-            <mat-error *ngIf="name.invalid">Name is Required</mat-error>
+            <input matInput placeholder="Name" [formControl]="Name" required>
+            <mat-error *ngIf="Name.invalid">Name is Required</mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" [formControl]="email" required email>
-            <mat-error *ngIf="email.invalid">Email is required or format is not valid</mat-error>
+            <input matInput placeholder="Email" [formControl]="Email" required email>
+            <mat-error *ngIf="Email.invalid">Email is required or format is not valid</mat-error>
         </mat-form-field>
         <mat-form-field class="half-width-input registration-input">
-            <input matInput placeholder="Registration" [formControl]="registration" required>
-            <mat-error *ngIf="registration.invalid">Matricol number is required</mat-error>
+            <input matInput placeholder="Registration" [formControl]="RegistrationNumber" required>
+            <mat-error *ngIf="RegistrationNumber.invalid">Matricol number is required</mat-error>
         </mat-form-field>
         <mat-form-field class="half-width-input group-input">
-            <input matInput placeholder="Group" [formControl]="group" required>
-            <mat-error *ngIf="group.invalid">Group number is required</mat-error>
+            <input matInput placeholder="Group" [formControl]="GroupNumber" required>
+            <mat-error *ngIf="GroupNumber.invalid">Group number is required</mat-error>
         </mat-form-field>
         
     </form>

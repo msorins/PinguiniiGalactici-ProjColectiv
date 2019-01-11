@@ -11,6 +11,7 @@ import { HeaderComponent } from '../shared/components/header/header';
 import { SharedModule } from '../shared/shared.module';
 import { CreateUserService } from './services/create-user.service';
 import { CreateTeacherFormComponent } from './components/create-teacher-form-component/create-teacher-form.component';
+import { jwtProvider } from '../shared/helpers/jwt.interceptor';
 
 @NgModule({
     imports: [
@@ -33,7 +34,8 @@ import { CreateTeacherFormComponent } from './components/create-teacher-form-com
         CreateTeacherFormComponent
     ],
     providers: [
-        CreateUserService
+        CreateUserService,
+        jwtProvider,
     ]
 })
 export class CreateUserModule {}

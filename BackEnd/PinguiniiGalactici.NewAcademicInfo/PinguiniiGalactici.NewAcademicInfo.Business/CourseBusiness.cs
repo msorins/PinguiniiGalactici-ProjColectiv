@@ -39,6 +39,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         {
             _context.DALContext.CoursesDAL.Delete(CoursesID);
         }
+
+        public IEnumerable<Course> ReadAllForTeacher(Guid TeacherID)
+        {
+            return _context.DALContext.CoursesDAL.ReadAllForTeacher(TeacherID);
+        }
         #endregion
     }
 }
