@@ -50,7 +50,7 @@ export class GradesComponent implements OnInit {
     element.grade[position] = parseInt(grade, 10);
     const index = this.students.indexOf(element);
     if (index > -1) {
-      this.students[index].grade[position] = parseInt(grade, 10);
+      this.students[index].Grade[position] = parseInt(grade, 10);
     }
     this.changes = true;
 
@@ -82,7 +82,7 @@ export class GradesComponent implements OnInit {
 
   onGroupChanged(event) {
     console.log(event.value);
-    const filtered = this.students.filter(student => student.group === event.value);
+    const filtered = this.students.filter(student => student.GroupNumber === event.value);
     this.dataSource =  new MatTableDataSource(filtered);
   }
 
