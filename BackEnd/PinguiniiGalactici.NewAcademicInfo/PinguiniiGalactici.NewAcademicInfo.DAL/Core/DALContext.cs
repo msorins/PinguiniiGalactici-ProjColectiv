@@ -10,7 +10,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
     public class DALContext : IDisposable
     {
         #region Constants     
-        private const string SERVER = "SORINSEBAST1B1A";
+        private const string SERVER = "DESKTOP-O3PB523\\ABRACADABRA123";
         string DATABASE = "AcademicInfo";
         #endregion
 
@@ -26,6 +26,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
         private StudentCourseDAL _studentCourseDAL;
         private TeacherDAL _teachersDAL;
         private GradeTypeDAL _typesDAL;
+        private ReportsDAL _reportsDAL;
         #endregion
 
         #region Properties      
@@ -125,6 +126,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
                 return _typesDAL;
             }
         }
+        public ReportsDAL ReportsDAL
+        {
+            get
+            {
+                if (_reportsDAL == null)
+                    _reportsDAL = new ReportsDAL(this);
+                return _reportsDAL;
+            }
+        }
         #endregion
 
         #region Methods
@@ -156,6 +166,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
             DisposeDALObject(_studentCourseDAL);
             DisposeDALObject(_teachersDAL);
             DisposeDALObject(_typesDAL);
+            DisposeDALObject(_reportsDAL);
         }
 
         private void DisposeDALObject(DALObject dalObject)
