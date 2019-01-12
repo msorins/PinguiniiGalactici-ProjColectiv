@@ -20,10 +20,11 @@ export class CreateUserService {
             console.log("Done");
             console.log(data);
         });
+        //this.httpClient.post(ApiUrl.ngRokUrl + '/students', student).subscribe();
     }
 
     saveTeacher(teacher: Teacher): void {
         debugger;
-        this.httpClient.post(ApiUrl.ngRokUrl + '/teachers', teacher).subscribe();
+        //this.httpClient.post(ApiUrl.ngRokUrl + '/teachers', teacher).subscribe();
     }
 }

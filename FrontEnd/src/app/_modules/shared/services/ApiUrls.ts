@@ -15,5 +15,5 @@ export class ApiUrl {
     static urlCourses = '/courses';
     // http://localhost:3000/students
 
-    static ngRokUrl = 'https://421fab97.ngrok.io';
+    static ngRokUrl = 'https://53efee57.ngrok.io';
 }
