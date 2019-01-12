@@ -1,7 +1,7 @@
 export class StudentUser {
-    id: number;
-    name: string;
-    email: string;
-    registrationNumber: number;
-    group: number;
+    Name: string;
+    Email: string;
+    RegistrationNumber: number;
+    GroupNumber: number;
+    Password: string;
 }

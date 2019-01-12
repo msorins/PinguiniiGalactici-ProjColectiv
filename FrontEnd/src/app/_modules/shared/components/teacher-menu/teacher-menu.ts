@@ -43,22 +43,22 @@ export class TeacherMenuComponent implements OnInit {
         console.log(lines);
         lines.forEach(line => {
             const tokens = line.split(',');
-            if (tokens.length !== 5) {
+            if (tokens.length !== 6) {
                 const index = lines.indexOf(line);
                 alert('Invalid student format at line:' + index);
             } else {
                 const user: StudentUser = new StudentUser();
                 if (tokens[4] === '1' ) {
-                    user.group = -1;
+                    user.GroupNumber = 123;
                 } else {
                     const y = 0;
-                    user.group = parseInt(tokens[3], 10);
+                    user.GroupNumber = parseInt(tokens[3], 10);
                 }
 
-                user.id = -1;
-                user.name = tokens[0];
-                user.email = tokens[1];
-                user.registrationNumber = parseInt(tokens[2], 10);
+                user.Name = tokens[0];
+                user.Email = tokens[1];
+                user.Password = tokens[5];
+                user.RegistrationNumber = parseInt(tokens[2], 10);
                 users.push(user);
             }
         });

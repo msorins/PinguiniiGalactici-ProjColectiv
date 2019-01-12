@@ -16,15 +16,17 @@ export class CreateUserService {
     }
 
     saveStudent(student: Student): void {
-        this.httpClient.post(ApiUrl.insertUserUrl, student).subscribe((data: any) =>  {
+        this.httpClient.post(ApiUrl.ngRokUrl + '/students', student).subscribe((data: any) =>  {
             console.log("Done");
             console.log(data);
         });
         //this.httpClient.post(ApiUrl.ngRokUrl + '/students', student).subscribe();
     }
 
-    saveTeacher(teacher: Teacher): void {
+    saveTeacher(teacher): void {
         debugger;
-        //this.httpClient.post(ApiUrl.ngRokUrl + '/teachers', teacher).subscribe();
+        this.httpClient.post(ApiUrl.ngRokUrl + '/teachers', teacher).subscribe((data: any) => {
+            console.log(data);
+        });
     }
 }

@@ -12,6 +12,14 @@ export class AssignStudentService {
 
     assignStudentsToCourses(studentsCourses: any): void {
         console.log(studentsCourses);
-        this.http.post(ApiUrl.assingStudentUrl, studentsCourses).subscribe();
+        this.http.post(ApiUrl.ngRokUrl + '/studentsCourses/insertBulk', studentsCourses).subscribe();
+    }
+
+    getStudents() {
+        return this.http.get(ApiUrl.ngRokUrl + '/students');
+    }
+
+    getCourses() {
+        return this.http.get(ApiUrl.ngRokUrl + '/courses');
     }
 }

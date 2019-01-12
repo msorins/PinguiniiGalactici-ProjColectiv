@@ -15,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SharedService } from './services/SharedService';
+import { jwtProvider } from './helpers/jwt.interceptor';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [AuthenticationService, SharedService]
+            providers: [AuthenticationService, SharedService, jwtProvider]
         };
     }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiUrl } from '../../shared/services/ApiUrls';
 
 
 @Injectable()
@@ -9,12 +10,16 @@ export class AssignGroupService{
     }
 
     createNewGroup(info) {
-        //post call with body containing a new group and students assigned to it
-        console.log(info);
+        debugger;
+        this.httpClient.post(ApiUrl.ngRokUrl + '/groups', info).subscribe(s => {
+            console.log(s);
+        });
+        //console.log(info);
     }
 
-    assignToExistingGroup(info) {
-        console.log(info);
-        //post call same as above different function or same 
+    createCourse(info) {
+        this.httpClient.post(ApiUrl.ngRokUrl + '/courses', info).subscribe(s => {
+            console.log(s);
+        });
     }
 }

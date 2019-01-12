@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AssignStudentService } from '../../services/assign-student.service';
+import { Guid } from 'guid-typescript';
 
 @Component({
     selector: 'app-assign-student-page',
@@ -7,22 +8,28 @@ import { AssignStudentService } from '../../services/assign-student.service';
     styleUrls: ['./assign-student.component.css']
 })
 export class AssignStudentPageComponent implements OnInit {
-    coursesList = [{id: 1, name: 'Mpp'}, {id: 1, name: 'Mpp'}, {id: 1, name: 'Mpp'},
-    {id: 1, name: 'Mpp'}, {id: 1, name: 'Mpp'}, {id: 1, name: 'Mpp'}];
-    studentList = [{id: 1, name: 'John', group: 911}, {id: 1, name: 'Mary', group: 911}, {id: 1, name: 'Ran', group: 911},
-     {id: 1, name: 'Xaxa', group: 911}, {id: 1, name: 'Ich', group: 911}, {id: 1, name: 'Rin', group: 911},
-    {id: 1, name: 'ddas', group: 911}, {id: 1, name: 'user2', group: 912}, {id: 1, name: 'user3', group: 913},
-    {id: 1, name: 'student1', group: 913}, {id: 1, name: 'student3', group: 911}, {id: 1, name: 'student 4', group: 912}];
+    coursesList: any;
+    studentList: any;
     groupSelected = null;
-    displayedStudents = [];
+    displayedStudents: any;
     selectedStudents = [];
     selectedCourses = [];
-    groups = [911, 912, 913, 914, 915];
+    groups: any;
     constructor(private assignStudentsService: AssignStudentService) {
-        this.displayedStudents = this.studentList;
     }
 
     ngOnInit() {
+        this.assignStudentsService.getStudents().subscribe(students => {
+            this.studentList = students;
+            this.displayedStudents = students;
+            console.log(students);
+            this.groups = this.trimList(this.studentList.map(st => st.GroupNumber));
+        });
+
+        this.assignStudentsService.getCourses().subscribe(courses => {
+            this.coursesList = courses;
+            console.log(courses);
+        });
     }
 
     toggleAssignStudents(): boolean {
@@ -39,12 +46,20 @@ export class AssignStudentPageComponent implements OnInit {
     assignStudentsToCourses(): void {
         console.log(this.selectedCourses);
         console.log(this.selectedStudents);
-        const studentData = this.selectedStudents.map(student => student.id);
-        const coursesData = this.selectedCourses.map(course => course.id);
-        const data = {
-            students: studentData,
-            courses: coursesData
-        };
+        const studentData = this.selectedStudents.map(student => student.RegistrationNumber);
+        const coursesData = this.selectedCourses.map(course => course.CourseID);
+        const data = [];
+        for (let i = 0; i < studentData.length; i++) {
+            for (let j = 0; j < coursesData.length; j++) {
+                const id = Guid.create().toString();
+                const obj = {
+                    EnrollmentID: id,
+                    StudentID: studentData[i],
+                    CourseID: coursesData[i]
+                };
+                data.push(obj);
+            }
+        }
         this.selectedStudents = [];
         this.selectedCourses = [];
         alert('Students assigned');
@@ -53,7 +68,18 @@ export class AssignStudentPageComponent implements OnInit {
 
     onGroupSelected(): void {
         if (this.groupSelected) {
-            this.displayedStudents = this.studentList.filter(student => student.group === this.groupSelected);
+            this.displayedStudents = this.studentList.filter(student => student.GroupNumber === this.groupSelected);
         }
+    }
+
+    private trimList(list) {
+        const result = [];
+        list.forEach(element => {
+            const index = result.indexOf(element);
+            if (index === -1) {
+                result.push(element);
+            }
+        });
+        return result;
     }
 }

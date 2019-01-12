@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiUrl } from '../../shared/services/ApiUrls';
 
 
 @Injectable()
@@ -11,16 +12,26 @@ export class TeacherGradeService {
     }
 
     saveStudentGrades(data) {
-        console.log(data);
+       this.http.put(ApiUrl.ngRokUrl + '/attendances/UpdateOrInsert', data).subscribe();
     }
 
     saveStudentAttendance(data) {
-        console.log(data);
+        this.http.put(ApiUrl.ngRokUrl + '/attendances/UpdateOrInsert', data).subscribe();
     }
 
     getCourses() {
-        this.http.get(this.url + '/courses').subscribe(s => {
-            console.log(s);
-        });
+        return this.http.get(ApiUrl.ngRokUrl + '/courses');
+    }
+
+    getStudents() {
+        return this.http.get(ApiUrl.ngRokUrl + '/students');
+    }
+
+    getEnrollments() {
+        return this.http.get(ApiUrl.ngRokUrl + '/studentsCourses');
+    }
+
+    getAttendances() {
+        return this.http.get(ApiUrl.ngRokUrl + '/attendances');
     }
 }

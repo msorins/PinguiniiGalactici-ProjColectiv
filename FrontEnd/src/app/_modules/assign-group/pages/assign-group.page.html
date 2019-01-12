@@ -8,7 +8,7 @@
        <div>
         <form class="example-form" [formGroup]="createGroup">
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Group" [formControl]="Group">
+                <input matInput placeholder="Group" [formControl]="group" required>
             </mat-form-field>
         </form>
         <button class="login-button create-button" 
@@ -17,9 +17,19 @@
                 (click)="saveGroup()">Save</button>
        </div>
        <div>
-        <form class="example-form" [formGroup]="createUser">
+        <form class="example-form" [formGroup]="createCourse">
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Course" [formControl]="Course">
+                <input matInput placeholder="Course" [formControl]="course" required>
+               
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Year" [formControl]="year" required> 
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Number of labs" [formControl]="labnr" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Number of Seminars" [formControl]="seminarsnr" required>
             </mat-form-field>
         </form>
         <button class="login-button create-button" 

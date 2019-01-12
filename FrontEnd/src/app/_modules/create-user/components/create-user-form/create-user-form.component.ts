@@ -66,6 +66,7 @@ export class CreateUserFormComponent implements OnInit {
 
     saveUser(): void {
         const student = this.getUser();
+        console.log(student);
         this.createService.saveStudent(student);
     }
 }
