@@ -54,6 +54,12 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         {
             _context.DALContext.StudentsDAL.Delete(StudentsID);
         }
+
+        public void AddBulk(List<Student> students)
+        {
+            foreach (Student student in students)
+                Insert(student);
+        }
         #endregion
     }
 }

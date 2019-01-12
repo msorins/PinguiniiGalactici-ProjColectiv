@@ -58,7 +58,8 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         [AuthorizationFilter(Role.Admin)]
         public void InsertAll([FromBody]List<Student> students)
         {
-            Console.WriteLine(students.ToString());
+            // Console.WriteLine(students.ToString());
+            BusinessContext.StudentsBusiness.AddBulk(students);
         }
 
         [AuthorizationFilter(Role.Admin)]
@@ -76,6 +77,10 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         {
             BusinessContext.StudentsBusiness.Delete(StudentsNumber);
         }
+
+        
+
+
         #endregion
     }
 }
