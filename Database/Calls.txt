@@ -21,6 +21,7 @@ GET:
 /students/fromCourse/{courseID}
 /studentsCourses
 /studentsCourses/{id}
+/studentsCourses/insertBulk
 /teachers
 /teachers/{id}
 

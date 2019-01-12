@@ -40,6 +40,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.StudentCourseBusiness.Insert(StudentCourse);
         }
 
+        [HttpPost]
+        [Route("insertBulk")]
+        [AuthorizationFilter(Role.Admin)]
+        public void InsertBulk([FromBody]IEnumerable<StudentCourse> students)
+        {
+            BusinessContext.StudentCourseBusiness.InsertBulk(students);
+        }
+
         [AuthorizationFilter(Role.Admin)]
         [HttpPut]
         [Route("")]

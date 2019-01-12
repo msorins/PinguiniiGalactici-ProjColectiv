@@ -39,6 +39,12 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         {
             _context.DALContext.StudentCourseDAL.Delete(enrollementID);
         }
+
+        public void InsertBulk(IEnumerable<StudentCourse> students)
+        {
+            foreach(StudentCourse sc in students)
+                _context.DALContext.StudentCourseDAL.Insert(sc);
+        }
         #endregion
     }
 }
