@@ -53,6 +53,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.StudentsBusiness.Insert(Students);
         }
 
+        [HttpPost]
+        [Route("upload")]
+        [AuthorizationFilter(Role.Admin)]
+        public void InsertAll([FromBody]List<Student> students)
+        {
+            Console.WriteLine(students.ToString());
+        }
+
         [AuthorizationFilter(Role.Admin)]
         [HttpPut]
         [Route("")]
