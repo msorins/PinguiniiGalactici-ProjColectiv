@@ -566,47 +566,61 @@ GO
 --------------------------- REPORTS -------------------------------
 
 CREATE OR ALTER PROCEDURE [Get_Average_Grade_For_Course_by_Attendance_Type]
-	@CourseID UNIQUEIDENTIFIER, @TypeName varchar(20) AS
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER AS
 BEGIN
 	SELECT t1.GroupNumber, AVG(partial_res_1.Grade) AS AverageGrade 
 	FROM (SELECT t1t3.StudentID, t4.Grade FROM Table1Table3 t1t3
 		  INNER JOIN Table4 t4 ON t4.EnrollmentID = t1t3.EnrollmentID AND t1t3.CourseID = @CourseID AND 
-			(SELECT t7.TypeID FROM Table7 t7 WHERE t7.[Name] = @TypeName) = t4.TypeID
-		  ) partial_res_1
+		   t4.TypeID = @TypeID) partial_res_1
 	INNER JOIN Table1 t1 ON t1.RegistrationNumber = partial_res_1.StudentID
 	GROUP BY t1.GroupNumber
 END
 GO
 
 CREATE OR ALTER PROCEDURE [Get_Passing_Grades_Number_For_Course_by_Attendance_Type]
-	@CourseID UNIQUEIDENTIFIER, @TypeName varchar(20) AS
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER AS
 BEGIN
 	SELECT t1.GroupNumber, COUNT(CASE WHEN partial_res_1.Grade >= 4.5 THEN 1 END) AS PassingGradesNumber,COUNT(partial_res_1.Grade) AS TotalGradesNumber
 	FROM (SELECT t1t3.StudentID, t4.Grade FROM Table1Table3 t1t3
 		  INNER JOIN Table4 t4 ON t4.EnrollmentID = t1t3.EnrollmentID AND t1t3.CourseID = @CourseID AND 
-			(SELECT t7.TypeID FROM Table7 t7 WHERE t7.[Name] = @TypeName) = t4.TypeID
-		  ) partial_res_1
+		  t4.TypeID = @TypeID) partial_res_1
 	INNER JOIN Table1 t1 ON t1.RegistrationNumber = partial_res_1.StudentID
 	GROUP BY t1.GroupNumber
 END
 GO
 
-CREATE OR ALTER PROCEDURE [Get_Attendances_Percentage_for_Course_by_Attendance_Type]
-	@CourseID UNIQUEIDENTIFIER, @TypeName varchar(20) AS
+CREATE OR ALTER PROCEDURE [Get_Group_Attendances_for_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER, @GroupNumber int AS
 BEGIN
-	--COMPLICATED QUERY GOES HERE
-	SELECT * FROM Table4
+	SELECT t4.WeekNr, COUNT(*) AS AttendancesCount
+	FROM (SELECT t1t3.EnrollmentID FROM Table1Table3 t1t3
+		  INNER JOIN Table1 t1 ON t1.RegistrationNumber = t1t3.StudentID
+		  WHERE t1.GroupNumber = @GroupNumber AND t1t3.CourseID = @CourseID) partial_res_1
+	INNER JOIN Table4 t4 on t4.EnrollmentID = partial_res_1.EnrollmentID AND t4.TypeID = @TypeID
+	GROUP BY WeekNr
+END
+GO
+
+CREATE OR ALTER PROCEDURE [Get_Group_Grades_for_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER, @GroupNumber int AS
+BEGIN
+	SELECT t4.Grade
+	FROM (SELECT t1t3.EnrollmentID FROM Table1Table3 t1t3
+		  INNER JOIN Table1 t1 ON t1.RegistrationNumber = t1t3.StudentID
+		  WHERE t1.GroupNumber = @GroupNumber AND t1t3.CourseID = @CourseID) partial_res_1
+	INNER JOIN Table4 t4 on t4.EnrollmentID = partial_res_1.EnrollmentID AND t4.TypeID = @TypeID
 END
 GO
 
 --exec as login='admin1'
 --revert
---exec Get_Attendances_Percentage_for_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeName='Seminar'
---exec Get_Passing_Grades_Number_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeName='Seminar'
---exec Get_Average_Grade_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeName='Laborator'
+--exec [Get_Group_Attendances_for_Course_by_Attendance_Type] @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='08AC7284-0228-4267-B3BD-A5FF5F5C9E5B', @GroupNumber=935
+--exec [Get_Group_Grades_for_Course_by_Attendance_Type] @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='63E3DF71-A7D4-4A30-9299-16A11E104536', @GroupNumber=935
+--exec Get_Passing_Grades_Number_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='63E3DF71-A7D4-4A30-9299-16A11E104536'
+--exec Get_Average_Grade_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='08AC7284-0228-4267-B3BD-A5FF5F5C9E5B'
 --exec Table1_ReadAll
---SELECT * FROM Table4
---drop proc Get_Attendances_Procentage_for_Course
+--SELECT * FROM Table4 SELECT * FROM Table1Table3 SELECT * FROM Table1
+--drop proc Get_Group_Attendance_Percentage_for_Course_by_Attendance_Type
 
 CREATE OR ALTER PROCEDURE [Create_Roles] AS
 BEGIN
@@ -680,8 +694,11 @@ order by rp.name
 	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Admin]
 	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Teacher]
 
-	GRANT EXECUTE ON [Get_Attendances_Percentage_for_Course_by_Attendance_Type] TO [Admin]
-	GRANT EXECUTE ON [Get_Attendances_Percentage_for_Course_by_Attendance_Type] TO [Teacher]
+	GRANT EXECUTE ON [Get_Group_Attendances_for_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Group_Attendances_for_Course_by_Attendance_Type] TO [Teacher]
+
+	GRANT EXECUTE ON [Get_Group_Grades_for_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Group_Grades_for_Course_by_Attendance_Type] TO [Teacher]
 
 	DROP ROLE IF EXISTS [Teacher]
 	CREATE ROLE [Teacher]
