@@ -20,19 +20,35 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI
     public class ReportsController: MainAPIController
     {
         [HttpGet]
-        [Route("average/{CourseID:Guid}/{TypeName}")]  // TypeName should be 'Laborator' or 'Seminar'
+        [Route("average/{CourseID:Guid}/{TypeID:Guid}")]
         [AuthorizationFilter(Role.Admin, Role.Teacher)]
-        public IEnumerable<AverageGradeReport> AverageGradesReport(Guid CourseID, String TypeName)
+        public IEnumerable<AverageGradeReport> AverageGradesReport(Guid CourseID, Guid TypeID)
         {
-            return BusinessContext.ReportsBusiness.AverageGradesReport(CourseID, TypeName);
+            return BusinessContext.ReportsBusiness.AverageGradesReport(CourseID, TypeID);
         }
 
         [HttpGet]
-        [Route("passing-grades/{CourseID:Guid}/{TypeName}")]  // TypeName should be 'Laborator' or 'Seminar'
+        [Route("passing-grades/{CourseID:Guid}/{TypeID:Guid}")]
         [AuthorizationFilter(Role.Admin, Role.Teacher)]
-        public IEnumerable<PassingGradesReport> PassingGradesReport(Guid CourseID, String TypeName)
+        public IEnumerable<PassingGradesReport> PassingGradesReport(Guid CourseID, Guid TypeID)
         {
-            return BusinessContext.ReportsBusiness.PassingGradesReport(CourseID, TypeName);
+            return BusinessContext.ReportsBusiness.PassingGradesReport(CourseID, TypeID);
+        }
+
+        [HttpGet]
+        [Route("group-attendances/{CourseID:Guid}/{TypeID:Guid}/{GroupNumber:int}")]
+        [AuthorizationFilter(Role.Admin, Role.Teacher)]
+        public IEnumerable<GroupAttendacesReport> GroupAttendancesReport(Guid CourseID, Guid TypeID, Int32 GroupNumber)
+        {
+            return BusinessContext.ReportsBusiness.GroupAttendancesReport(CourseID, TypeID, GroupNumber);
+        }
+
+        [HttpGet]
+        [Route("group-grades/{CourseID:Guid}/{TypeID:Guid}/{GroupNumber:int}")]
+        [AuthorizationFilter(Role.Admin, Role.Teacher)]
+        public IEnumerable<CompleteGroupGradesReport> GroupGradesReport(Guid CourseID, Guid TypeID, Int32 GroupNumber)
+        {
+            return BusinessContext.ReportsBusiness.GroupGradesReport(CourseID, TypeID, GroupNumber);
         }
     }
 }

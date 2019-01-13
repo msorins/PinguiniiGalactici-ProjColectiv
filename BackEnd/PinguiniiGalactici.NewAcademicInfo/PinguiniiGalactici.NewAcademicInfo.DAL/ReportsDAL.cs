@@ -17,14 +17,24 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
         #endregion
 
         #region Methods
-        public IEnumerable<AverageGradeReport> AverageGradesReport(Guid CourseID, String TypeName)
+        public IEnumerable<AverageGradeReport> AverageGradesReport(Guid CourseID, Guid TypeID)
         {
-            return DbOperations.ExecuteQuery<AverageGradeReport>(_context.CONNECTION_STRING, "dbo.Get_Average_Grade_For_Course_by_Attendance_Type", new SqlParameter("CourseID", CourseID), new SqlParameter("TypeName", TypeName));
+            return DbOperations.ExecuteQuery<AverageGradeReport>(_context.CONNECTION_STRING, "dbo.Get_Average_Grade_For_Course_by_Attendance_Type", new SqlParameter("CourseID", CourseID), new SqlParameter("TypeID", TypeID));
         }
 
-        public IEnumerable<PassingGradesReport> PassingGradesReport(Guid CourseID, String TypeName)
+        public IEnumerable<PassingGradesReport> PassingGradesReport(Guid CourseID, Guid TypeID)
         {
-            return DbOperations.ExecuteQuery<PassingGradesReport>(_context.CONNECTION_STRING, "dbo.Get_Passing_Grades_Number_For_Course_by_Attendance_Type", new SqlParameter("CourseID", CourseID), new SqlParameter("TypeName", TypeName));
+            return DbOperations.ExecuteQuery<PassingGradesReport>(_context.CONNECTION_STRING, "dbo.Get_Passing_Grades_Number_For_Course_by_Attendance_Type", new SqlParameter("CourseID", CourseID), new SqlParameter("TypeID", TypeID));
+        }
+        
+        public IEnumerable<GroupAttendacesReport> GroupAttendancesReport(Guid CourseID, Guid TypeID, Int32 GroupNumber)
+        {
+            return DbOperations.ExecuteQuery<GroupAttendacesReport>(_context.CONNECTION_STRING, "dbo.Get_Group_Attendances_for_Course_by_Attendance_Type", new SqlParameter("CourseID", CourseID), new SqlParameter("TypeID", TypeID), new SqlParameter("GroupNumber", GroupNumber));
+        }
+
+        public IEnumerable<GroupGradesReport> GroupGradesReport(Guid CourseID, Guid TypeID, Int32 GroupNumber)
+        {
+            return DbOperations.ExecuteQuery<GroupGradesReport>(_context.CONNECTION_STRING, "dbo.Get_Group_Grades_for_Course_by_Attendance_Type", new SqlParameter("CourseID", CourseID), new SqlParameter("TypeID", TypeID), new SqlParameter("GroupNumber", GroupNumber));
         }
         #endregion
     }
