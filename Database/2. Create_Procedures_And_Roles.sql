@@ -12,6 +12,21 @@ as begin
 end
 go
 
+create or alter procedure [GetAttendancesWithCourseAndStudent]
+	@RegistrationNumber int,
+	@CourseID UNIQUEIDENTIFIER
+as begin
+	select a.AttendanceID, a.EnrollmentID, a.Grade, a.TypeID, a.WeekNr, sc.CourseID,
+		c.Name as CourseName, c.TotalLabNr, c.TotalSeminarNr, c.Year, t.Name as TypeName
+	from Table4 a
+	inner join Table1Table3 sc on sc.EnrollmentID = a.EnrollmentID
+	inner join Table3 c on c.CourseID = sc.CourseID
+	inner join Table7 t on t.TypeID = a.TypeID
+	inner join Table1 s on s.RegistrationNumber = sc.StudentID
+	where c.CourseID = @CourseID and s.RegistrationNumber = @RegistrationNumber
+end
+go
+
 create or alter procedure [GetCurrentUserRole]
 as begin
 	if IS_ROLEMEMBER('Admin') = 1
@@ -33,44 +48,84 @@ as begin
 end
 go
 
+--CREATE OR ALTER PROCEDURE [Create_Admin]
+--@Username as nvarchar(30), @Password nvarchar(30) AS
+--BEGIN
+--	EXEC sp_addlogin @Username, @Password
+--	EXEC sp_adduser @Username, @Username, 'Admin'
+--	--EXEC sp_addrole 'Admin', @Username
+----	ALTER ROLE [Admin] ADD MEMBER @Username
+--END
+--GO
+
 CREATE OR ALTER PROCEDURE [Create_Admin]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
-	EXEC sp_addlogin @Username, @Password
-	EXEC sp_adduser @Username, @Username, 'Admin'
-	--EXEC sp_addrole 'Admin', @Username
---	ALTER ROLE [Admin] ADD MEMBER @Username
+	declare @s varchar(100)
+	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
+	exec(@s)
+	set @s = 'alter role Admin add member [' + @Username + ']'
+	exec(@s)
 END
 GO
+
+--CREATE OR ALTER PROCEDURE [Create_Teacher]
+--@Username as nvarchar(30), @Password nvarchar(30) AS
+--BEGIN
+--	EXEC sp_addlogin @Username, @Password
+--	EXEC sp_adduser @Username, @Username, 'Teacher'
+--	--EXEC sp_addrole 'Teacher', @Username
+----	ALTER ROLE [Teacher] ADD MEMBER @Username
+--END
+--GO
 
 CREATE OR ALTER PROCEDURE [Create_Teacher]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
-	EXEC sp_addlogin @Username, @Password
-	EXEC sp_adduser @Username, @Username, 'Teacher'
-	--EXEC sp_addrole 'Teacher', @Username
---	ALTER ROLE [Teacher] ADD MEMBER @Username
+	declare @s varchar(100)
+	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
+	exec(@s)
+	set @s = 'alter role Teacher add member [' + @Username + ']'
+	exec(@s)
 END
 GO
+
+--CREATE OR ALTER PROCEDURE [Create_Student]
+--@Username as nvarchar(30), @Password nvarchar(30) AS
+--BEGIN
+--	EXEC sp_addlogin @Username, @Password
+--	EXEC sp_adduser @Username, @Username, 'Student'
+--	--EXEC sp_addrole 'Student', @Username
+----	ALTER ROLE [Student] ADD MEMBER @Username
+--END
+--GO
 
 CREATE OR ALTER PROCEDURE [Create_Student]
 @Username as nvarchar(30), @Password nvarchar(30) AS
 BEGIN
-	EXEC sp_addlogin @Username, @Password
-	EXEC sp_adduser @Username, @Username, 'Student'
-	--EXEC sp_addrole 'Student', @Username
---	ALTER ROLE [Student] ADD MEMBER @Username
+	declare @s varchar(100)
+	set @s = 'create user [' + @Username + '] with password=''' + @Password + ''''
+	exec(@s)
+	set @s = 'alter role Student add member [' + @Username + ']'
+	exec(@s)
 END
 GO
 
+--create or alter procedure deleteUser @username VARCHAR(50) AS
+--BEGIN
+--	IF EXISTS (SELECT name FROM master.sys.server_principals WHERE name = @username)
+--	BEGIN
+--		exec sp_dropuser @username
+--		exec sp_droplogin @username
+--	END
+--END
+--GO
 
-create or alter procedure deleteUser @username VARCHAR(50) AS
+create or alter procedure DeleteUser @Username VARCHAR(50) AS
 BEGIN
-	IF EXISTS (SELECT name FROM master.sys.server_principals WHERE name = @username)
-	BEGIN
-		exec sp_dropuser @username
-		exec sp_droplogin @username
-	END
+	declare @s varchar(100)
+	set @s = 'DROP USER IF EXISTS [' + @Username + ']'
+	exec(@s)
 END
 GO
 
@@ -80,11 +135,11 @@ create or alter procedure [Table1_Insert]
 		@Name  varchar(100),
 		@Email text,
 		@GroupNumber int,
-		@Password text
+		@Password text='pass'
 AS 
 BEGIN
-	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber]) 
-     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber);
+	INSERT INTO [Table1]([RegistrationNumber], [Name], [Email], [GroupNumber], [Password]) 
+     VALUES (@RegistrationNumber, @Name, @Email, @GroupNumber, @Password);
 	 exec Create_Student @Email, @Password
 END 
 GO
@@ -111,11 +166,13 @@ GO
 create or alter procedure [Table1_Delete]
        @RegistrationNumber    INT        
 AS 
-BEGIN 
+BEGIN
+	declare @username varchar(100)
+	select @username=Email from Table1 where RegistrationNumber = @RegistrationNumber
+	exec DeleteUser @username
 	DELETE FROM [Table1] WHERE [RegistrationNumber] = @RegistrationNumber;
-
 END
-GO 
+GO
 
 --read by id
 create or alter procedure [Table1_ReadById]
@@ -245,8 +302,8 @@ create or alter procedure Table2_Insert
 	@Password text
 AS 
 BEGIN
-	INSERT INTO Table2([TeacherID], [Name], [Email]) 
-     VALUES (@TeacherID, @Name, @Email)
+	INSERT INTO Table2([TeacherID], [Name], [Email], [Password]) 
+     VALUES (@TeacherID, @Name, @Email, @Password)
 	 EXEC Create_Teacher @Email, @Password
 END 
 
@@ -256,7 +313,8 @@ GO
 create or alter procedure Table2_Update
 	@TeacherID UNIQUEIDENTIFIER,
 	@Name varchar(50),
-	@Email text
+	@Email text,
+	@Password text
 AS
 BEGIN
 	UPDATE Table2 
@@ -414,6 +472,16 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE Table3_ReadAllForTeacher @TeacherID UNIQUEIDENTIFIER AS
+BEGIN
+	SELECT t3.CourseID, t3.DepartmentID, t3.Name, t3.TotalLabNr, t3.TotalSeminarNr, t3.Year
+	FROM [Table3] t3
+	INNER JOIN	[Table2Table3] t23 on t3.CourseID = t23.CourseID
+	INNER JOIN [Table2] t2 on t2.TeacherID = t23.TeacherID
+	WHERE t2.TeacherID = @TeacherID
+END
+GO
+
 CREATE OR ALTER PROCEDURE Table2Table3_Insert @TeacherID UNIQUEIDENTIFIER, @CourseID UNIQUEIDENTIFIER AS 
 BEGIN
 	INSERT INTO [Table2Table3]([CourseID], [TeacherID])
@@ -562,6 +630,25 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE [Table4_UpdateOrInsert]
+	@StudentID INT, @CourseID UNIQUEIDENTIFIER, @WeekNr INT,
+	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2) = NULL AS
+BEGIN
+	DECLARE @enrollmentID UNIQUEIDENTIFIER = (SELECT TOP 1 [EnrollmentID] FROM [Table1Table3] WHERE [StudentID]=@StudentID AND [CourseID] = @CourseID)
+	IF @enrollmentID IS NULL
+		RETURN
+
+	DECLARE @attendanceID UNIQUEIDENTIFIER = (SELECT TOP 1 [AttendanceID] FROM [Table4] WHERE [EnrollmentID]=@enrollmentID AND [WeekNr]=@WeekNr AND [TypeID]=@TypeID)
+	IF @attendanceID IS NULL
+		BEGIN
+			SET @attendanceID = NEWID()
+			exec [Table4_Insert] @attendanceID,@enrollmentID,@WeekNr,@TypeID,@Grade
+		END
+	ELSE
+		exec [Table4_Update] @attendanceID,@enrollmentID,@WeekNr,@TypeID,@Grade
+
+END
+GO
 
 --------------------------- REPORTS -------------------------------
 
@@ -687,6 +774,13 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Admin]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Admin]
+	GRANT EXECUTE ON [Create_Student] to [Admin]
+	GRANT EXECUTE ON [Create_Teacher] to [Admin]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Admin]
+	GRANT EXECUTE ON [Create_Admin] to Admin
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Admin]
+	GRANT ALTER ANY USER TO Admin
+	GRANT ALTER ANY ROLE TO Admin
 
 	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Admin]
 	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Teacher]
@@ -737,6 +831,9 @@ order by rp.name
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Teacher]
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Teacher]
+	GRANT EXECUTE ON [Table4_UpdateOrInsert] to [Teacher]
 
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
@@ -765,16 +862,9 @@ order by rp.name
 	GRANT EXECUTE ON [Table7_ReadByID] TO [Student]
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
-	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Student]
+	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Student]
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Student]
 END
 GO
 
 EXEC Create_Roles
-GO
-
-
-
-
---execute as login='mirceamariamadalina@yahoo.com'
---execute GetCurrentUserRole
---revert

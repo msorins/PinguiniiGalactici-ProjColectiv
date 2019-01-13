@@ -15,8 +15,10 @@ namespace PinguiniiGalactici.NewAcademicInfo.Models
         [DataMember(Name = "Name")]
         public String Name { get; set; }
         [DataMember(Name = "Email")]
-        public String Email { get; set; }
+        public string Email { get; set; }
         [DataMember(Name = "GroupNumber")] 
         public Int32 GroupNumber { get; set; }
+        [DataMember(Name = "Password")]
+        public string Password { get; set; }
     }
 }

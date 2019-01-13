@@ -13,6 +13,10 @@ namespace PinguiniiGalactici.NewAcademicInfo.Models
         [DataMember(Name = "TeacherID")]
         public Guid TeacherID { get; set; }
         [DataMember(Name = "Name")]
-        public String Name { get; set; }
+        public string Name { get; set; }
+        [DataMember(Name = "Email")]
+        public string Email { get; set; }
+        [DataMember(Name = "Password")]
+        public string Password { get; set; }
     }
 }

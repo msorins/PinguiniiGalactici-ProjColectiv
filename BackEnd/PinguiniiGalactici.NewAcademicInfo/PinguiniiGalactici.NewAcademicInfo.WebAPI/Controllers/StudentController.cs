@@ -29,6 +29,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             return BusinessContext.StudentsBusiness.ReadAllFromCourse(courseId);
         }
 
+        [HttpPost]
+        [Route("addToGroup/{groupId:int}")]
+        [AuthorizationFilter(Role.Admin)]
+        public void Insert([FromUri]Int32 groupId, [FromBody]List<Int32> students)
+        {
+            BusinessContext.StudentsBusiness.MoveToGroup(groupId, students);
+        }
+
         [HttpGet]
         [Route("{StudentsNumber:int}")]
         [AuthorizationFilter(Role.Admin)]
@@ -43,6 +51,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         public void Insert([FromBody]Student Students)
         {
             BusinessContext.StudentsBusiness.Insert(Students);
+        }
+
+        [HttpPost]
+        [Route("upload")]
+        [AuthorizationFilter(Role.Admin)]
+        public void InsertAll([FromBody]List<Student> students)
+        {
+            Console.WriteLine(students.ToString());
         }
 
         [AuthorizationFilter(Role.Admin)]

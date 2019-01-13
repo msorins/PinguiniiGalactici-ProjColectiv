@@ -33,6 +33,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Insert", attendances.GenerateSqlParametersFromModel().ToArray());
         }
 
+        public IEnumerable<Attendance> ReadForStudent()
+        {
+            return DbOperations.ExecuteQuery<Attendance>(_context.CONNECTION_STRING, "dbo.Table1_ReadTable4");
+        }
+
         public void Update(Attendance attendances)
         {
             DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_Update", attendances.GenerateSqlParametersFromModel().ToArray());
@@ -46,6 +51,20 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL
         public IEnumerable<AttendancesCourses> ReadAllWithCourses()
         {
             return DbOperations.ExecuteQuery<AttendancesCourses>(_context.CONNECTION_STRING, "dbo.GetAttendancesWithCourses");
+        }
+
+        public IEnumerable<AttendancesCourses> ReadAllWithCourseAndStudent(Guid courseID, int registrationNumber)
+        {
+            return DbOperations.ExecuteQuery<AttendancesCourses>(_context.CONNECTION_STRING, "dbo.GetAttendancesWithCourseAndStudent", new SqlParameter("CourseID", courseID), new SqlParameter("RegistrationNumber", registrationNumber));
+        }
+
+        public void UpdateOrInsert(int studentID, Guid courseID, int weekNr, Guid TypeID, decimal? grade)
+        {
+            DbOperations.ExecuteCommand(_context.CONNECTION_STRING, "dbo." + tableName + "_UpdateOrInsert", new SqlParameter("StudentID", studentID),
+                                                                                                            new SqlParameter("CourseID", courseID),
+                                                                                                            new SqlParameter("WeekNr", weekNr),
+                                                                                                            new SqlParameter("TypeID", TypeID),
+                                                                                                            new SqlParameter("Grade", grade));
         }
         #endregion
     }

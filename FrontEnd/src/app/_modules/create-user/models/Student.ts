@@ -1,8 +1,7 @@
 export class Student {
-    Id: number;
+    RegistrationNumber: number;
     Name: string;
     Email: string;
-    Registration: string;
-    Group: number;
+    GroupNumber: number;
     Erasmus: boolean;
 }

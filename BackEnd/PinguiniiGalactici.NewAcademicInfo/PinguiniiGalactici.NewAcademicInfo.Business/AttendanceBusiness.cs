@@ -37,6 +37,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
             return _context.DALContext.AttendancesDAL.ReadAllWithCourses();
         }
 
+        public IEnumerable<Attendance> ReadForStudent()
+        {
+            return _context.DALContext.AttendancesDAL.ReadForStudent();
+        }
+
         public void Update(Attendance Attendances)
         {
             _context.DALContext.AttendancesDAL.Update(Attendances);
@@ -57,6 +62,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         {
             foreach (Attendance a in attendances)
                 Update(a);
+        }
+
+        public void UpdateOrInsert(int studentID, Guid courseID, int weekNr, Guid typeID, decimal? grade)
+        {
+            _context.DALContext.AttendancesDAL.UpdateOrInsert(studentID, courseID, weekNr, typeID, grade);
         }
 
         private void SendEmail(string email)
@@ -83,6 +93,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);
+        }
+
+        public IEnumerable<AttendancesCourses> ReadAllWithCourseAndStudent(Guid courseID, int registrationNumber)
+        {
+            return _context.DALContext.AttendancesDAL.ReadAllWithCourseAndStudent(courseID, registrationNumber);
         }
 
         #endregion
