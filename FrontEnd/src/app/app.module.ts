@@ -13,12 +13,15 @@ import { SharedModule } from './_modules/shared/shared.module';
 import { JwtInterceptor } from './_modules/shared/helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_modules/shared/helpers/error.interceptor';
 import { FakeBackendInterceptor, fakeBackendProvider } from './_modules/shared/helpers/fakeBackend.interceptor';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatSidenavModule, MatCheckboxModule, MatAutocompleteModule, MatTableModule, MatSortModule, MatTabsModule, MatSelectModule } from '@angular/material';
+import { AboutUsPageComponent } from './_modules/about-us-page/about-us-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    AboutUsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,19 @@ import { MatToolbarModule } from '@angular/material';
     MatToolbarModule,
     AppRoutingModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatCheckboxModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatSortModule,
+    MatTabsModule,
+    MatSelectModule,
     SharedModule.forRoot()
   ],
   providers: [
