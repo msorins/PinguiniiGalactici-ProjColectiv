@@ -11,7 +11,7 @@ import { ApiUrl } from './ApiUrls';
 @Injectable()
 export class AuthenticationService {
     private JWT: string;
-    private mocked: boolean = false;
+    private mocked: boolean = true;
 
     constructor(private http: HttpClient) { }
 
