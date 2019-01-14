@@ -24,6 +24,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
         private StudentCourseBusiness _studentCourseBusiness;
         private TeacherBusiness _teachersBusiness;
         private GradeTypeBusiness _typesBusiness;
+        private ReportsBusiness _reportsBusiness;
         #endregion
 
         #region Constructor
@@ -168,6 +169,18 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
                 return _typesBusiness;
             }
         }
+
+        public ReportsBusiness ReportsBusiness
+        {
+            get
+            {
+                if (_reportsBusiness == null)
+                {
+                    _reportsBusiness = new ReportsBusiness(this);
+                }
+                return _reportsBusiness;
+            }
+        }
         #endregion
 
         #region IDisposable Implementation
@@ -192,6 +205,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Core
             DisposeBusinessObject(_studentsBusiness);
             DisposeBusinessObject(_teachersBusiness);
             DisposeBusinessObject(_typesBusiness);
+            DisposeBusinessObject(_reportsBusiness);
 
             if (_dalContext != null)
             {

@@ -1,6 +1,8 @@
 <mat-toolbar class="toolbar" color="primary">
-    <div>SmartAcademy</div>
+    <div [routerLink]="[ '/' ]" >SmartAcademy</div>
     <span class="example-spacer"></span>
+   
+    <div [routerLink]="[ '/about' ]" class="toolbar-user"> About </div>
     <div class="toolbar-user">{{loggedUser?.Name}}</div>
     <div class="toolbar-logout" (click)="logout()">Logout</div>
 </mat-toolbar>

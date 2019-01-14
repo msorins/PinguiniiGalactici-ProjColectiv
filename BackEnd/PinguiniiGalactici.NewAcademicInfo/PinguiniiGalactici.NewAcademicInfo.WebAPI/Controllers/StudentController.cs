@@ -53,6 +53,15 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
             BusinessContext.StudentsBusiness.Insert(Students);
         }
 
+        [HttpPost]
+        [Route("upload")]
+        [AuthorizationFilter(Role.Admin)]
+        public void InsertAll([FromBody]List<Student> students)
+        {
+            // Console.WriteLine(students.ToString());
+            BusinessContext.StudentsBusiness.AddBulk(students);
+        }
+
         [AuthorizationFilter(Role.Admin)]
         [HttpPut]
         [Route("")]
@@ -68,6 +77,10 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         {
             BusinessContext.StudentsBusiness.Delete(StudentsNumber);
         }
+
+        
+
+
         #endregion
     }
 }

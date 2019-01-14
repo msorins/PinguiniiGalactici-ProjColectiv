@@ -64,6 +64,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
                 Update(a);
         }
 
+        public void UpdateOrInsert(int studentID, Guid courseID, int weekNr, Guid typeID, decimal? grade)
+        {
+            _context.DALContext.AttendancesDAL.UpdateOrInsert(studentID, courseID, weekNr, typeID, grade);
+        }
+
         private void SendEmail(string email)
         {
             string senderEmail = ConfigurationManager.AppSettings["senderEmail"];
@@ -88,6 +93,11 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);
+        }
+
+        public IEnumerable<AttendancesCourses> ReadAllWithCourseAndStudent(Guid courseID, int registrationNumber)
+        {
+            return _context.DALContext.AttendancesDAL.ReadAllWithCourseAndStudent(courseID, registrationNumber);
         }
 
         #endregion

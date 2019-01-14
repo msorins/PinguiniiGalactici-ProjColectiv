@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './lading-page/landing-page.component';
 import { SharedModule } from './_modules/shared/shared.module';
+import { AboutUsPageComponent } from './_modules/about-us-page/about-us-page.component';
 
 const routes: Routes = [
     {
         path: '',
         component: LandingPageComponent
+    },
+    {
+        path: 'about',
+        component: AboutUsPageComponent
     },
     {
         path: 'login/student',

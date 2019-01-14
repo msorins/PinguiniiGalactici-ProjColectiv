@@ -4,6 +4,7 @@ GET:
 /attendances/{id} - token in Headers, returns the attendance(grade) with that id
 /attendances/withCourses - token in Headers, returns all attendances(grades) and the course and type information
 /attendances/forStudent - token in Headers, returns all attendances(grades) for the currently connected student
+/attendances/withCourseAndStudent/{CourseID}/{StudentID}
 /courses
 /courses/{id}
 /courses/forTeacher/{TeacherID}
@@ -20,6 +21,7 @@ GET:
 /students/fromCourse/{courseID}
 /studentsCourses
 /studentsCourses/{id}
+/studentsCourses/insertBulk
 /teachers
 /teachers/{id}
 

@@ -12,6 +12,21 @@ as begin
 end
 go
 
+create or alter procedure [GetAttendancesWithCourseAndStudent]
+	@RegistrationNumber int,
+	@CourseID UNIQUEIDENTIFIER
+as begin
+	select a.AttendanceID, a.EnrollmentID, a.Grade, a.TypeID, a.WeekNr, sc.CourseID,
+		c.Name as CourseName, c.TotalLabNr, c.TotalSeminarNr, c.Year, t.Name as TypeName
+	from Table4 a
+	inner join Table1Table3 sc on sc.EnrollmentID = a.EnrollmentID
+	inner join Table3 c on c.CourseID = sc.CourseID
+	inner join Table7 t on t.TypeID = a.TypeID
+	inner join Table1 s on s.RegistrationNumber = sc.StudentID
+	where c.CourseID = @CourseID and s.RegistrationNumber = @RegistrationNumber
+end
+go
+
 create or alter procedure [GetCurrentUserRole]
 as begin
 	if IS_ROLEMEMBER('Admin') = 1
@@ -615,6 +630,84 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE [Table4_UpdateOrInsert]
+	@StudentID INT, @CourseID UNIQUEIDENTIFIER, @WeekNr INT,
+	@TypeID UNIQUEIDENTIFIER, @Grade DECIMAL(9,2) = NULL AS
+BEGIN
+	DECLARE @enrollmentID UNIQUEIDENTIFIER = (SELECT TOP 1 [EnrollmentID] FROM [Table1Table3] WHERE [StudentID]=@StudentID AND [CourseID] = @CourseID)
+	IF @enrollmentID IS NULL
+		RETURN
+
+	DECLARE @attendanceID UNIQUEIDENTIFIER = (SELECT TOP 1 [AttendanceID] FROM [Table4] WHERE [EnrollmentID]=@enrollmentID AND [WeekNr]=@WeekNr AND [TypeID]=@TypeID)
+	IF @attendanceID IS NULL
+		BEGIN
+			SET @attendanceID = NEWID()
+			exec [Table4_Insert] @attendanceID,@enrollmentID,@WeekNr,@TypeID,@Grade
+		END
+	ELSE
+		exec [Table4_Update] @attendanceID,@enrollmentID,@WeekNr,@TypeID,@Grade
+
+END
+GO
+
+--------------------------- REPORTS -------------------------------
+
+CREATE OR ALTER PROCEDURE [Get_Average_Grade_For_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER AS
+BEGIN
+	SELECT t1.GroupNumber, AVG(partial_res_1.Grade) AS AverageGrade 
+	FROM (SELECT t1t3.StudentID, t4.Grade FROM Table1Table3 t1t3
+		  INNER JOIN Table4 t4 ON t4.EnrollmentID = t1t3.EnrollmentID AND t1t3.CourseID = @CourseID AND 
+		   t4.TypeID = @TypeID) partial_res_1
+	INNER JOIN Table1 t1 ON t1.RegistrationNumber = partial_res_1.StudentID
+	GROUP BY t1.GroupNumber
+END
+GO
+
+CREATE OR ALTER PROCEDURE [Get_Passing_Grades_Number_For_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER AS
+BEGIN
+	SELECT t1.GroupNumber, COUNT(CASE WHEN partial_res_1.Grade >= 4.5 THEN 1 END) AS PassingGradesNumber,COUNT(partial_res_1.Grade) AS TotalGradesNumber
+	FROM (SELECT t1t3.StudentID, t4.Grade FROM Table1Table3 t1t3
+		  INNER JOIN Table4 t4 ON t4.EnrollmentID = t1t3.EnrollmentID AND t1t3.CourseID = @CourseID AND 
+		  t4.TypeID = @TypeID) partial_res_1
+	INNER JOIN Table1 t1 ON t1.RegistrationNumber = partial_res_1.StudentID
+	GROUP BY t1.GroupNumber
+END
+GO
+
+CREATE OR ALTER PROCEDURE [Get_Group_Attendances_for_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER, @GroupNumber int AS
+BEGIN
+	SELECT t4.WeekNr, COUNT(*) AS AttendancesCount
+	FROM (SELECT t1t3.EnrollmentID FROM Table1Table3 t1t3
+		  INNER JOIN Table1 t1 ON t1.RegistrationNumber = t1t3.StudentID
+		  WHERE t1.GroupNumber = @GroupNumber AND t1t3.CourseID = @CourseID) partial_res_1
+	INNER JOIN Table4 t4 on t4.EnrollmentID = partial_res_1.EnrollmentID AND t4.TypeID = @TypeID
+	GROUP BY WeekNr
+END
+GO
+
+CREATE OR ALTER PROCEDURE [Get_Group_Grades_for_Course_by_Attendance_Type]
+	@CourseID UNIQUEIDENTIFIER, @TypeID UNIQUEIDENTIFIER, @GroupNumber int AS
+BEGIN
+	SELECT t4.Grade
+	FROM (SELECT t1t3.EnrollmentID FROM Table1Table3 t1t3
+		  INNER JOIN Table1 t1 ON t1.RegistrationNumber = t1t3.StudentID
+		  WHERE t1.GroupNumber = @GroupNumber AND t1t3.CourseID = @CourseID) partial_res_1
+	INNER JOIN Table4 t4 on t4.EnrollmentID = partial_res_1.EnrollmentID AND t4.TypeID = @TypeID
+END
+GO
+
+--exec as login='admin1'
+--revert
+--exec [Get_Group_Attendances_for_Course_by_Attendance_Type] @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='08AC7284-0228-4267-B3BD-A5FF5F5C9E5B', @GroupNumber=935
+--exec [Get_Group_Grades_for_Course_by_Attendance_Type] @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='63E3DF71-A7D4-4A30-9299-16A11E104536', @GroupNumber=935
+--exec Get_Passing_Grades_Number_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='63E3DF71-A7D4-4A30-9299-16A11E104536'
+--exec Get_Average_Grade_For_Course_by_Attendance_Type @CourseID='B0094904-B0A7-4C66-A7D3-6C313D5D193A', @TypeID='08AC7284-0228-4267-B3BD-A5FF5F5C9E5B'
+--exec Table1_ReadAll
+--SELECT * FROM Table4 SELECT * FROM Table1Table3 SELECT * FROM Table1
+--drop proc Get_Group_Attendance_Percentage_for_Course_by_Attendance_Type
 
 CREATE OR ALTER PROCEDURE [Create_Roles] AS
 BEGIN
@@ -685,8 +778,21 @@ order by rp.name
 	GRANT EXECUTE ON [Create_Teacher] to [Admin]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Admin]
 	GRANT EXECUTE ON [Create_Admin] to Admin
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Admin]
 	GRANT ALTER ANY USER TO Admin
 	GRANT ALTER ANY ROLE TO Admin
+
+	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Teacher]
+
+	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Teacher]
+
+	GRANT EXECUTE ON [Get_Group_Attendances_for_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Group_Attendances_for_Course_by_Attendance_Type] TO [Teacher]
+
+	GRANT EXECUTE ON [Get_Group_Grades_for_Course_by_Attendance_Type] TO [Admin]
+	GRANT EXECUTE ON [Get_Group_Grades_for_Course_by_Attendance_Type] TO [Teacher]
 
 	DROP ROLE IF EXISTS [Teacher]
 	CREATE ROLE [Teacher]
@@ -726,6 +832,8 @@ order by rp.name
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Teacher]
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Teacher]
+	GRANT EXECUTE ON [Table4_UpdateOrInsert] to [Teacher]
 
 	DROP ROLE IF EXISTS [Student]
 	CREATE ROLE [Student]
@@ -755,6 +863,7 @@ order by rp.name
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Student]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Student]
+	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Student]
 END
 GO
 
