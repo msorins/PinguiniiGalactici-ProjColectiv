@@ -12,7 +12,7 @@ import { GradesComponent } from './components/grades/grades.component';
 import { TeacherCoursesService } from './services/TeacherCoursesService';
 
 import { FakeBackendInterceptor, fakeBackendProvider } from '../shared/helpers/fakeBackend.interceptor';
-import { JwtInterceptor } from '../shared/helpers/jwt.interceptor';
+import { JwtInterceptor, jwtProvider } from '../shared/helpers/jwt.interceptor';
 
 @NgModule({
     imports: [
@@ -44,6 +44,7 @@ import { JwtInterceptor } from '../shared/helpers/jwt.interceptor';
     providers: [
         fakeBackendProvider,
         JwtInterceptor,
+        jwtProvider,
         TeacherCoursesService
     ]
 })

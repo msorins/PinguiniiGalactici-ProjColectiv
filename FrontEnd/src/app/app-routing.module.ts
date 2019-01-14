@@ -38,6 +38,11 @@ const routes: Routes = [
         loadChildren: '../app/_modules/assign-group/assign-group.module#AssignGroupModule'
     },
     {
+        path: 'teacher/grade-student',
+        loadChildren: '../app/_modules/teacher-grade-student/teacher-grade-student.module#TeacherGradeStudentModule'
+
+    },
+    {
         path: 'teacher/courses',
         loadChildren: '../app/_modules/teacher-courses/teacher-courses.module#TeacherCoursesModule'
     },
@@ -46,13 +51,17 @@ const routes: Routes = [
         loadChildren: '../app/_modules/student-courses/student-courses.module#StudentCoursesModule'
     },
     {
+        path: 'teacher/reports',
+        loadChildren: '../app/_modules/reports/reports.module#ReportsModule'
+    },
+    {
         path: 'lazy',
         loadChildren: '../app/_modules/lazy-module/lazy.module#LazyModule'
     }
 ];
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes, {enableTracing: true}), // enableTracing debuging purpose
+        RouterModule.forRoot(routes, {enableTracing: false}), // enableTracing debuging purpose
     ],
     exports: [
         RouterModule

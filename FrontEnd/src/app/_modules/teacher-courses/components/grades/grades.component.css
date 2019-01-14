@@ -6,7 +6,7 @@
 .mat-form-field {
   font-size: 14px;
   width: 300px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 .small-select.mat-form-field{
   width: 150px;
@@ -20,48 +20,41 @@
 }
 
 .table-container{
-  height: 400px;
+  max-height: 487px;
   margin-left:20px;
   margin-top:10px;
   margin-right: 20px;
   overflow: auto;
   width: auto;
 }
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #9E9E9E;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #616161;
-}
 
 .container {
   margin-top:10px;
   font-family:arial;
 }
-input:focus {
-}
+
 input {
   border:none;
   background-color:transparent;
 }
+
 .container header {
   padding-bottom:20px;
   border-bottom:1px solid black;
 }
-ul, input, .container {
+
+ul, .container {
   padding:10px;
+}
+
+.options-container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 30px 0 30px;
+}
+
+.centered-cell {
+  text-align: center;
 }

@@ -13,4 +13,7 @@ export class ApiUrl {
 
     static apiexaple = 'controller/....';
     static urlCourses = '/courses';
+    // http://localhost:3000/students
+
+    static ngRokUrl = 'https://53efee57.ngrok.io';
 }

@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.student-list{
+    height: 340px;
+    overflow: auto;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.12);
+    background-color: #F8F8F8;
+    margin-top: 5px;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.right-part {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.search {
+    margin-right: 100px;
+}

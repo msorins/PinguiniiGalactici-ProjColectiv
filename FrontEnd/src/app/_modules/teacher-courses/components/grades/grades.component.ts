@@ -1,93 +1,20 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
 import { TeacherCoursesService } from '../../services/TeacherCoursesService';
+import {  COURSES_DATA, STUDENTS_DATA_GRADES } from 'src/app/_modules/shared/constants';
 
-const STUDENTS_DATA = [
-  {
-    name: 'Nazarie Ciprian', email: 'a@gmail.com',
-    group: 911,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1]
-  },
-  {
-    name: 'Nechita Sebastian', email: 'a@gmail.com',
-    group: 912,
-    grade: [1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1]
-  },
-  {
-    name: 'Mircea Sorin', email: 'a@gmail.com',
-    group: 913,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Vieriu Denis', email: 'a@gmail.com',
-    group: 916,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Mircea Madalina', email: 'a@gmail.com',
-    group: 911,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Moisuc Naomi', email: 'a@gmail.com',
-    group: 911,
-    grade: [1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Nazarie Ciprian', email: 'a@gmail.com',
-    group: 923,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Nechita Sebastian', email: 'a@gmail.com',
-    group: 912,
-    grade: [1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Mircea Sorin', email: 'a@gmail.com',
-    group: 913,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Vieriu Denis', email: 'a@gmail.com',
-    group: 914,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Mircea Madalina', email: 'a@gmail.com',
-    group: 916,
-    grade: [1, 1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    name: 'Moisuc Naomi', email: 'a@gmail.com',
-    group: 914,
-    grade: [1, 1, 1, 1, 1, 1, 1,
-      1, 1, 1, 1, 1, 1, 1, 1],
-  },
-];
 @Component({
   selector: 'app-grades',
   templateUrl: './grades.component.html',
   styleUrls: ['./grades.component.css']
 })
 export class GradesComponent implements OnInit {
-  students = STUDENTS_DATA;
+  students = STUDENTS_DATA_GRADES;
   displayedColumns: string[] = ['position', 'name', 'group', 'week1', 'week2', 'week3', 'week4',
     'week5', 'week6', 'week7', 'week8', 'week9', 'week11', 'week11', 'week12', 'week13', 'week14'
   ];
-  courses = [{id: 1, name: 'Limbaje formale si tehnici de compilare'}, {id: 2, name: 'Programare paralela si distribuita'}];
-  dataSource = new MatTableDataSource(STUDENTS_DATA);
+  courses: any;
+  dataSource = new MatTableDataSource(STUDENTS_DATA_GRADES);
   inputValue: number;
   changes = false;
   groups = [];
@@ -100,9 +27,10 @@ export class GradesComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
-    this.groups = this.trimResult(this.students.map(student => student.group));
+    this.groups = this.trimResult(this.students.map(student => student.GroupNumber));
     this.dataSource.sort = this.sort;
     this.inputValue = 1;
+    this.getCourses();
   }
 
 
@@ -122,7 +50,7 @@ export class GradesComponent implements OnInit {
     element.grade[position] = parseInt(grade, 10);
     const index = this.students.indexOf(element);
     if (index > -1) {
-      this.students[index].grade[position] = parseInt(grade, 10);
+      this.students[index].Grade[position] = parseInt(grade, 10);
     }
     this.changes = true;
 
@@ -154,7 +82,7 @@ export class GradesComponent implements OnInit {
 
   onGroupChanged(event) {
     console.log(event.value);
-    const filtered = this.students.filter(student => student.group === event.value);
+    const filtered = this.students.filter(student => student.GroupNumber === event.value);
     this.dataSource =  new MatTableDataSource(filtered);
   }
 
@@ -168,5 +96,12 @@ export class GradesComponent implements OnInit {
     });
     return result;
   }
+
+  private getCourses() {
+    this.teacherService.getCourses().subscribe(
+      (apidata) => this.courses = apidata,
+      error => this.courses = COURSES_DATA
+    )
+  } 
 
 }

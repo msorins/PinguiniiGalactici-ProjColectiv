@@ -1,11 +1,11 @@
-<div>
+<div class="options-container">
     <mat-form-field >  
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Student Name">
       </mat-form-field>
       <mat-form-field>
           <mat-select placeholder="Courses" [(ngModel)]="selectedCourse" (selectionChange)="onCourseChanged($event)">
-            <mat-option *ngFor="let course of courses" [value]="course.id">
-              {{course.name}}
+            <mat-option *ngFor="let course of courses" [value]="course.CourseID">
+              {{course.Name}}
             </mat-option>
           </mat-select>
       </mat-form-field>
@@ -38,13 +38,13 @@
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
       <td mat-cell *matCellDef="let element"> 
-        {{element.name}} 
+        {{element.Name}} 
       </td>
     </ng-container>
     <ng-container matColumnDef="group">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Group </th>
         <td mat-cell *matCellDef="let element"> 
-          {{element.group}} 
+          {{element.GroupNumber}} 
         </td>
       </ng-container>
 
@@ -56,9 +56,9 @@
      <!-- Weeks Columns from 1 to 14 -->
     <div *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
         <ng-container matColumnDef="week{{i}}">
-            <th mat-header-cell *matHeaderCellDef> Week {{i}} </th>
-            <td mat-cell *matCellDef="let element"> 
-              <mat-checkbox [checked]="element.attendance[i-1]" (click)="onChecked(element, i-1)"></mat-checkbox>
+            <th mat-header-cell *matHeaderCellDef class="centered-cell"> Week {{i}} </th>
+            <td mat-cell *matCellDef="let element" class="centered-cell"> 
+              <mat-checkbox disabled [checked]="element.attendance[i-1]" (click)="onChecked(element, i-1)"></mat-checkbox>
             </td>
             <td></td>
           </ng-container>
@@ -70,5 +70,5 @@
 
 
 </div>
-<button class="login-button create-button" mat-raised-button color="primary" 
-[disabled]="toggleSaveChanges()" (click)="saveChanges()">Save changes</button>
+<!-- <button class="login-button create-button" mat-raised-button color="primary" 
+[disabled]="toggleSaveChanges()" (click)="saveChanges()">Save changes</button> -->

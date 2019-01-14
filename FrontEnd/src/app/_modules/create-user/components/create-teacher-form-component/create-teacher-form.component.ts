@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { Teacher } from '../../models/Teacher';
 import { CreateUserService } from '../../services/create-user.service';
+import { Guid } from 'guid-typescript';
 
 @Component({
     selector: 'app-create-teacher-form',
@@ -27,10 +28,12 @@ export class CreateTeacherFormComponent implements OnInit {
     ngOnInit() {
     }
 
-    getUser(): Teacher {
-        const teacher: Teacher = {
-            Id: -1,
+    getUser(){
+        const id = Guid.create().toString();
+        const teacher = {
+            TeacherID: id,
             Name: this.name.value,
+            Password: 'pass',
             Email: this.email.value
         };
         return teacher;
@@ -38,6 +41,7 @@ export class CreateTeacherFormComponent implements OnInit {
 
     saveTeacher(): void {
         const teacher = this.getUser();
+
         this.createUserService.saveTeacher(teacher);
     }
 

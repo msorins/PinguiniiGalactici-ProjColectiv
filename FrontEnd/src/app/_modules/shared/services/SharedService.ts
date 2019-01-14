@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/models/user';
+import { ApiUrl } from './ApiUrls';
+
 
 
 
@@ -13,7 +14,14 @@ export class SharedService {
     ) {
     }
 
-    uploadUsers(users: User[]): void {
+    uploadUsers(users): void {
+        this.http.post(ApiUrl.ngRokUrl + '/students/upload', users).subscribe(data => {
+            console.log(data);
+            if (data == null) {
+                alert('Data has been uploaded');
+            }
+        });
         console.log(users);
+        alert('Data has been uploaded');
     }
 }

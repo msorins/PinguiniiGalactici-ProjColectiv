@@ -4,5 +4,5 @@
    
     <div [routerLink]="[ '/about' ]" class="toolbar-user"> About </div>
     <div class="toolbar-user">{{loggedUser?.Name}}</div>
-    <div class="toolbar-logout">Logout</div>
+    <div class="toolbar-logout" (click)="logout()">Logout</div>
 </mat-toolbar>

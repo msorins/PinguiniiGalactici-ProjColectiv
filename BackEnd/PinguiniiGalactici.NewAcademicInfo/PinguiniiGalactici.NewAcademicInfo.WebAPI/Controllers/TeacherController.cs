@@ -41,7 +41,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
         [AuthorizationFilter(Role.Admin)]
         public void Insert([FromBody]Teacher Teachers)
         {
-            BusinessContext.TeachersBusiness.Insert(Teachers);
+           BusinessContext.TeachersBusiness.Insert(Teachers);
         }
 
         [HttpPut]

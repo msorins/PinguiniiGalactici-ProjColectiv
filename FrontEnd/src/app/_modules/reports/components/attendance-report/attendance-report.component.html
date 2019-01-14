@@ -1,0 +1,45 @@
+<div>
+    <div class="selection-container">
+        <label class="group-label">Courses:</label>
+          <mat-form-field>
+              <mat-select [(value)]="selectedCourse" (selectionChange)="onCourseSelected($event)">
+                <mat-option *ngFor="let course of courses" [value]="course">{{course.Name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <div class="selection-container">
+        <label class="group-label">Groups:</label>
+          <mat-form-field>
+              <mat-select [(value)]="selectedGroup" (selectionChange)="onGroupSelected($event)">
+                <mat-option *ngFor="let group of groups" [value]="group">{{group}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <div class="selection-container">
+        <label class="group-label">Types:</label>
+          <mat-form-field>
+              <mat-select [(value)]="selectedType" (selectionChange)="onTypeSelected($event)">
+                <mat-option *ngFor="let type of types" [value]="type">{{type.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+
+      <div class="selection-container">
+        <button class="login-button create-button" 
+                mat-raised-button color="primary" 
+                [disabled]="!selectedCourse || !selectedType || !selectedGroup"
+                (click)="exportExcell()">Export</button>
+      </div>
+
+      <div *ngIf="this.selectedCourse && this.selectedGroup && this.selectedType">
+            <google-chart
+                width="1200"
+                height="500"
+                [title]="selectedCourse?.Name"
+                [type]="'ColumnChart'"
+                [data]="columnChart .data"
+                [columnNames]="columnChart.columnNames"
+                [options]="columnChart.options">
+            </google-chart>
+      </div>
+</div>

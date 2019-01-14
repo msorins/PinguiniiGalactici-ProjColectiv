@@ -7,6 +7,7 @@ import { MatSidenavModule, MatToolbarModule, MatFormFieldModule,
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { AssignStudentService } from './services/assign-student.service';
+import { jwtProvider } from '../shared/helpers/jwt.interceptor';
 
 
 
@@ -30,7 +31,8 @@ import { AssignStudentService } from './services/assign-student.service';
         AssignStudentPageComponent
     ],
     providers: [
-        AssignStudentService
+        AssignStudentService,
+        jwtProvider
     ]
 })
 export class AssignStudentModule { }

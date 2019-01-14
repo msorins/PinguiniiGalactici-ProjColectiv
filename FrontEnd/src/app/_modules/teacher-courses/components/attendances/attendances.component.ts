@@ -1,69 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatCheckboxModule, MatSort} from '@angular/material';
 import { TeacherCoursesService } from '../../services/TeacherCoursesService';
-
-const STUDENTS_DATA = [
-  {name: 'Nazarie Ciprian', email: 'a@gmail.com',
-    group: 911,
-   attendance: [false, true, false, false, true, true, true, false,
-     false, false, false, true, true, true, false]
-  },
-  { name: 'Nechita Sebastian', email: 'a@gmail.com',
-  group: 912,
-    attendance: [false, false, false, true, true, true, false,
-      false, false, false, true, true, true, false]
-  },
-  {name: 'Mircea Sorin', email: 'a@gmail.com',
-  group: 913,
-    attendance: [false, true, false, false, true, true, true, false,
-      false, false, false, true, false, true, true, true, false]
-  },
-  {name: 'Vieriu Denis', email: 'a@gmail.com',
-  group: 916,
-    attendance: [true, true, false, false, true, true, true, false,
-      false, false, false, true, true, true, false]
-  },
-  { name: 'Mircea Madalina', email: 'a@gmail.com',
-  group: 911,
-    attendance: [false, true, false, false, true, true, true, false,
-      false, false, false, true, true, true, false]
-  },
-  {name: 'Moisuc Naomi', email: 'a@gmail.com',
-  group: 911,
-    attendance: [false, false, false, true, true, true, false,
-      false, true, false, false, true, true, true, false]
-  },
-  { name: 'Nazarie Ciprian', email: 'a@gmail.com',
-  group: 923,
-   attendance: [false, true, false, false, true, true, true, false,
-     false, false, false, true, true, true, false]
-  },
-  {name: 'Nechita Sebastian', email: 'a@gmail.com',
-  group: 912,
-    attendance: [false, false, false, true, true, true, false,
-      false, false, false, true, true, true, false]
-  },
-  {name: 'Mircea Sorin', email: 'a@gmail.com',
-  group: 913,
-    attendance: [false, true, false, false, true, true, true, false,
-      false, false, false, true, false, true, true, true, false]
-  },
-  {name: 'Vieriu Denis', email: 'a@gmail.com',
-  group: 914,
-    attendance: [true, true, false, false, true, true, true, false,
-      false, false, false, true, true, true, false]
-  },
-  {name: 'Mircea Madalina', email: 'a@gmail.com',
-  group: 916,
-    attendance: [false, true, false, false, true, true, true, false,
-      false, false, false, true, true, true, false]
-  },
-  { name: 'Moisuc Naomi', email: 'a@gmail.com',
-  group: 914,
-    attendance: [false, false, false, true, true, true, false,
-      false, true, false, false, true, true, true, false]
-  },
-];
+import { STUDENTS_DATA_ATTENDANCES, COURSES_DATA } from 'src/app/_modules/shared/constants';
 
 @Component({
   selector: 'app-attendances',
@@ -75,10 +13,10 @@ export class AttendancesComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'group', 'week1', 'week2', 'week3', 'week4',
   'week5', 'week6', 'week7', 'week8', 'week9', 'week10', 'week11', 'week12', 'week13', 'week14'
   ];
-  dataSource = new MatTableDataSource(STUDENTS_DATA);
+  dataSource = new MatTableDataSource(STUDENTS_DATA_ATTENDANCES);
   selectedCourse = null;
   groups = [];
-  courses = [{id: 1, name: 'Limbaje formale si tehnici de compilare'}, {id: 2, name: 'Programare paralela si distribuita'}];
+  courses : any;
   types = ['Seminar', 'Laboratory', 'Course'];
   selectedType = null;
   changes = false;
@@ -88,9 +26,9 @@ export class AttendancesComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
-    this.groups = this.trimResult(STUDENTS_DATA.map(student => student.group));
+    this.groups = this.trimResult(STUDENTS_DATA_ATTENDANCES.map(student => student.GroupNumber));
+    this.getCourses();
   }
-
 
   applyFilter(filterValue: string) {
     //todo: add custom filter only by name
@@ -98,26 +36,27 @@ export class AttendancesComponent implements OnInit {
   }
 
   onChecked(element, position): void {
-    console.log(element, position);
-    const index = STUDENTS_DATA.indexOf(element);
-    if (index > -1) {
-      const oldValue = STUDENTS_DATA[index].attendance[position];
-      if (oldValue) {
-        STUDENTS_DATA[index].attendance[position] = false;
-      } else {
-        STUDENTS_DATA[index].attendance[position] = true;
-      }
-    }
-    this.changes = true;
+    return;
+    // console.log(element, position);
+    // const index = STUDENTS_DATA.indexOf(element);
+    // if (index > -1) {
+    //   const oldValue = STUDENTS_DATA[index].attendance[position];
+    //   if (oldValue) {
+    //     STUDENTS_DATA[index].attendance[position] = false;
+    //   } else {
+    //     STUDENTS_DATA[index].attendance[position] = true;
+    //   }
+    // }
+    // this.changes = true;
   }
 
   onCourseChanged(event): void {
-    console.log(event.value);
+    console.log("Course: ",event.value);
   }
 
   onGroupChanged(event): void {
     console.log(event.value);
-    const filtered = STUDENTS_DATA.filter(student => student.group === event.value);
+    const filtered = STUDENTS_DATA_ATTENDANCES.filter(student => student.GroupNumber === event.value);
     this.dataSource =  new MatTableDataSource(filtered);
   }
 
@@ -148,5 +87,12 @@ export class AttendancesComponent implements OnInit {
     });
     return result;
    }
+
+  private getCourses() {
+    this.teacherCourseService.getCourses().subscribe(
+      (apidata) => this.courses = apidata,
+      error => this.courses = COURSES_DATA
+    )
+  } 
 
 }

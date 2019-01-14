@@ -5,56 +5,38 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="main-info-container">
-
-            <mat-tab-group>
-                <mat-tab label="Create New Group">
-                    <form class="example-form" [formGroup]="createGroup">
-                        <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Group" [formControl]="group" required>
-                            <mat-error *ngIf="group.invalid">Group is Required</mat-error>
-                        </mat-form-field>
-                    </form>
-                    <div class="student-list-container">
-                            <div class="title">Students</div>
-                            <div class="student-list">
-                                <mat-selection-list #student [(ngModel)]="selectedStudents">
-                                    <mat-list-option *ngFor="let student of displayedStudents" [value]="student">
-                                        {{student?.name}}
-                                    </mat-list-option>
-                                </mat-selection-list>
-                            </div>
-                    </div>
-                    <button class="assign-button" 
-                        mat-raised-button color="primary"
-                        [disabled]="toggleCreateGroup()"
-                        (click)="onCreateNewGroup()">Assign Students</button>
-                </mat-tab>
-                <mat-tab label="Assign Students to Existing Group">
-                        <div class="selection-container">
-                                <label class="group-label">Groups:</label>
-                                  <mat-form-field>
-                                      <mat-select [(value)]="groupSelected">
-                                        <mat-option *ngFor="let group of existingGroups" [value]="group">{{group}}</mat-option>
-                                      </mat-select>
-                                    </mat-form-field>
-                        </div>
-                        <div class="student-list-container">
-                                <div class="title">Students</div>
-                                <div class="student-list">
-                                    <mat-selection-list #student [(ngModel)]="selectedStudents">
-                                        <mat-list-option *ngFor="let student of displayedStudents" [value]="student">
-                                            {{student?.name}}
-                                        </mat-list-option>
-                                    </mat-selection-list>
-                                </div>
-                        </div>
-                        <button class="assign-button" 
-                            mat-raised-button color="primary"
-                            [disabled]="toggleAssignToExistingGroup()"
-                            (click)="onAssignToExistingGroup()">Assign Students</button>
-                </mat-tab>
-            </mat-tab-group>
-
+       <div>
+        <form class="example-form" [formGroup]="createGroup">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Group" [formControl]="group" required>
+            </mat-form-field>
+        </form>
+        <button class="login-button create-button" 
+                mat-raised-button color="primary" 
+                [disabled]="toggleSaveGroup()"
+                (click)="saveGroup()">Save</button>
+       </div>
+       <div>
+        <form class="example-form" [formGroup]="createCourse">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Course" [formControl]="course" required>
+               
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Year" [formControl]="year" required> 
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Number of labs" [formControl]="labnr" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Number of Seminars" [formControl]="seminarsnr" required>
+            </mat-form-field>
+        </form>
+        <button class="login-button create-button" 
+                mat-raised-button color="primary" 
+                [disabled]="toggleSaveCourse()"
+                (click)="saveCourse()">Save</button>
+       </div>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
