@@ -15,7 +15,7 @@ export class SharedService {
     }
 
     uploadUsers(users): void {
-        this.http.post(ApiUrl.ngRokUrl + '/students/upload', users).subscribe(data => {
+        this.http.post(ApiUrl.url + '/students/upload', users).subscribe(data => {
             console.log(data);
             if (data == null) {
                 alert('Data has been uploaded');

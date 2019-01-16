@@ -11,7 +11,7 @@ import { ApiUrl } from './ApiUrls';
 @Injectable()
 export class AuthenticationService {
     private JWT: string;
-    private mocked: boolean = true;
+    private mocked: boolean = false;
 
     constructor(private http: HttpClient) { }
 
@@ -47,7 +47,7 @@ export class AuthenticationService {
             return of(usr);
         }
 
-        return this.http.get<any>(ApiUrl.ngRokUrl + '/token', requestOptions)
+        return this.http.get<any>(ApiUrl.url + '/token', requestOptions)
             .pipe(map(token => {
                 // login successful if there's a jwt token in the response
                 if (token) {  
@@ -77,7 +77,6 @@ export class AuthenticationService {
     }
 
     getLoggedUser(): LoggedUser {
-        debugger;
         const loggedUser = JSON.parse(localStorage.getItem('currentUser'));
         if (loggedUser.Name === 'admin@gmail.com') {
             loggedUser.Admin = true;

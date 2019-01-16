@@ -94,7 +94,6 @@ export class GradeStudentComponent implements OnInit {
     }
 
     onGroupChange(event): void {
-        debugger;
         if (event.value) {
             this.studentsDisplayed = this.allStudents.filter(s => s.GroupNumber === event.value);
         } else {

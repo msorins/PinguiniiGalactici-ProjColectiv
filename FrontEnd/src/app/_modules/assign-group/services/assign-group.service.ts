@@ -10,15 +10,14 @@ export class AssignGroupService{
     }
 
     createNewGroup(info) {
-        debugger;
-        this.httpClient.post(ApiUrl.ngRokUrl + '/groups', info).subscribe(s => {
+        this.httpClient.post(ApiUrl.url + '/groups', info).subscribe(s => {
             console.log(s);
         });
         //console.log(info);
     }
 
     createCourse(info) {
-        this.httpClient.post(ApiUrl.ngRokUrl + '/courses', info).subscribe(s => {
+        this.httpClient.post(ApiUrl.url + '/courses', info).subscribe(s => {
             console.log(s);
         });
     }

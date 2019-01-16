@@ -17,13 +17,13 @@ export class ReportsService {
         return of(null);
     }
     getAttendaceReport(data) {
-        const url = ApiUrl.ngRokUrl + '/reports/group-attendances/' + data.CourseID + '/' + data.TypeID + '/' + data.GroupID;
+        const url = ApiUrl.url + '/reports/group-attendances/' + data.CourseID + '/' + data.TypeID + '/' + data.GroupID;
         //return this.httpClient.get(url);
         return of(null);
     }
 
     getAverageReport(data) {
-        const url = ApiUrl.ngRokUrl + '/reports/average/' + data.CourseID + '/' + data.TypeID;
+        const url = ApiUrl.url + '/reports/average/' + data.CourseID + '/' + data.TypeID;
         //return this.httpClient.get(url);
         return of(null);
     }
