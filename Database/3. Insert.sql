@@ -107,6 +107,46 @@ EXEC Table8_Insert 'bc425374-81d3-45a1-8789-1239745cf428', 'Drept'
 GO
 EXEC Table8_Insert '3467882d-f557-4278-93f6-958d99359576', 'Litere'
 GO
+EXEC Table8_Insert '801c8f0d-f30c-4c0d-9f35-8611a8d52b5b', 'Fizica'
+GO
+EXEC Table8_Insert '5003086f-d507-4734-acc7-2410a42e9ccd', 'Chimie si Inginerie Chimica'
+GO
+EXEC Table8_Insert '151cf40f-3856-4b14-a1cb-3dee5b27ed0c', 'Biologie si Geologie'
+GO
+EXEC Table8_Insert '76ace7f4-f8f9-4347-bc96-2233b7574e7a', 'Geografie'
+GO
+EXEC Table8_Insert '1b8a482a-9c99-4889-8a88-8d84fef59d0e6', 'Stiinta si Ingineria Mediului'
+GO
+EXEC Table8_Insert '1d1d1a66-2fa9-4951-bf12-0de12b44f46c', 'Istorie si Filosofie'
+GO
+EXEC Table8_Insert '95ffffc2-6a8c-49ee-af63-4f4d23e0f302', 'Sociologie si Asistenta Sociala'
+GO
+EXEC Table8_Insert '7dd547c3-1315-4e9d-901f-3a098d78c8d4', 'Psihologie si Stiinte Ale Educatiei'
+GO
+EXEC Table8_Insert '655c6195-ee85-4c5f-a354-cb3363c50da8', 'Stiinte Economice si Gestiunea Afacerilor'
+GO
+EXEC Table8_Insert '96981183-c921-4b54-a157-608906595cb2', 'Studii Europene'
+GO
+EXEC Table8_Insert '5fb5e643-58f1-4643-94b5-7cbfee76d84d', 'Business'
+GO
+EXEC Table8_Insert 'c3e81a42-7bee-4656-b0bc-b54aaa210c13', 'Stiinte Politice, Administrative si ale Comunicarii'
+GO
+EXEC Table8_Insert 'e2357d57-c8c9-45e9-b23a-7bf9f30bd96d', 'Educatie Fizica si Sport'
+GO
+EXEC Table8_Insert 'fc1663d7-ae0c-4052-aec7-d944ad4e6f61', 'Stiinte Politice, Administrative si ale Comunicarii'
+GO
+EXEC Table8_Insert 'f373b55e-c924-4d41-b249-a1fe893cec8d', 'Educatie Fizica si Sport'
+GO
+EXEC Table8_Insert '1283c959-e99d-4937-8c98-3f4f41563f14', 'Teologie Ortodoxa'
+GO
+EXEC Table8_Insert '74a1e12c-ac23-41a2-95b0-466c5057b1ff', 'Teologie Greco-Catolica'
+GO
+EXEC Table8_Insert 'b6bcf5f2-f299-400a-bfbf-cffd99ba98d8', 'Teologie Reformata'
+GO
+EXEC Table8_Insert 'd07fb067-cd32-4829-b9f3-670dd25db448', 'Teologie Romano-Catolica'
+GO
+EXEC Table8_Insert '1d0d7331-e99a-4ff6-84e7-a45b8b6cc21b', 'Teatru si Film'
+GO
 
 EXEC Table7_Insert 'd65d97bd-b6d1-4829-a6d3-26bd51e921fa', 'Curs'
 GO
@@ -117,6 +157,10 @@ GO
 EXEC Table7_Insert 'a9ad4e26-3611-4a32-b72f-d4a35b88ad14', 'Bonus'
 GO
 EXEC Table7_Insert '2e9f5cda-5322-40e1-aa7d-faa0b51393e3', 'Partial'
+GO
+EXEC Table7_Insert 'a35f5669-fa38-4196-8346-8be80f792b56', 'Optional'
+GO
+EXEC Table7_Insert 'a0fc1d8a-c7a6-4a85-957c-2c9eaf1f45ac', 'Facultativ'
 GO
 
 --exec deleteUser rares
@@ -151,7 +195,78 @@ GO
 GO
 EXEC Table2_Insert 'cafdccfc-0073-413e-9c62-c7f6e84df9ff', 'BOC Oana', 'bocbocboc@qsl.com', '121212'
 GO
-
+--exec deleteUser arthur
+GO
+EXEC Table2_Insert 'a6010569-2514-4d72-919c-38a218ad44b0', 'MOLNAR Arthur', 'arthur@raw.com', 'abcd'
+GO
+--exec deleteUser mihoc
+GO
+EXEC Table2_Insert 'eb0b09d9-16eb-46c6-bfd1-c62826c8a87f', 'MIHOC Tudor', 'mihoc@ubb.ro', '4321'
+GO
+--exec deleteUser lupsa
+GO
+EXEC Table2_Insert 'ed869b18-9c30-4256-a292-eb80241df1be', 'LUPSA Radu', 'lupsa@ubb.ro', 'bst'
+GO
+--exec deleteUser gaceanu
+GO
+EXEC Table2_Insert '0a4c8fe0-d4ea-4979-b661-9e39a4e7248f', 'GACEANU Radu', 'gaceanu@gml.com', '1234'
+GO
+--exec deleteUser cojocar
+GO
+EXEC Table2_Insert '8f20675a-7b60-416c-abfb-983a8b6a31a4', 'COJOCAR Dan', 'cojocar@mob.flt', '1234'
+GO
+--exec deleteUser bocior
+GO
+EXEC Table2_Insert '46d20b6e-cdcf-471c-b6d1-170ba1a12793', 'BOCICOR Maria', 'bocior@res.com', 'pass'
+GO
+--exec deleteUser motogna
+GO
+EXEC Table2_Insert '92515681-523c-4dff-a9e1-bca23f105112', 'MOTOGNA Simona', 'motogna@ceo.com', 'lr0'
+GO
+--exec deleteUser darabant
+GO
+EXEC Table2_Insert '6c39ecfd-9aec-4177-b296-128d49166d70', 'DARABANT Sergiu', 'darabant@mob.flt', '1234'
+GO
+--exec deleteUser craciun
+GO
+EXEC Table2_Insert 'd33490eb-ecc1-4638-be7b-f304844be99b', 'CRACIUN Florin', 'craciun@mob.flt', '1234'
+GO
+--exec deleteUser grigoreta
+GO
+EXEC Table2_Insert 'd5c0af94-bf35-47bb-88d0-b4f4a78f7a71', 'COJOCAR Grigoreta', 'grigoreta@jva.com', 'pass'
+GO
+--exec deleteUser czibula
+GO
+EXEC Table2_Insert 'ab20cd13-6d78-4a32-93e5-7346913ba414', 'CZIBULA Gabriela', 'darabant@mob.flt', '1234'
+GO
+--exec deleteUser diosan
+GO
+EXEC Table2_Insert 'baec3848-22a7-40bf-883b-431113f75eb7', 'DIOSAN Laura', 'diosan@ofc.ro', 'ml12'
+GO
+--exec deleteUser sotropa
+GO
+EXEC Table2_Insert '92d6dc44-f145-4133-ba80-47a04d292f2c', 'ŞOTROPA Dian', 'sotropa@scs.ro', 'pass'
+GO
+--exec deleteUser adela
+GO
+EXEC Table2_Insert '75910808-c33b-493a-be9d-69b58153e64c', 'RUS Adela', 'adela@new.com', 'qwerty'
+GO
+--exec deleteUser emilia
+GO
+EXEC Table2_Insert '794d12d8-605d-4335-8ae7-b403bf97cd7f', 'POP Emilia', 'emlia@ofc.ro', '4321'
+GO
+--exec deleteUser mircea
+GO
+EXEC Table2_Insert '76d89815-d7b2-4394-9e5e-b264fb3940bf', 'MIRCEA Ioan', 'mircea@pyt.com', 'asdf'
+GO
+--exec deleteUser adrianac
+GO
+EXEC Table2_Insert '039720f2-9be9-45a1-a7e7-eec955f0faad', 'COROIU Adriana', 'adrianac@lsp.ro', 'pass'
+GO
+--exec deleteUser ionut
+GO
+EXEC Table2_Insert '28caf36b-6c8b-4063-bd6e-44fdac48e4fb', 'BADARINZA Ioan', 'ionut@net.com', 'pass'
+GO
 
 
 EXEC Table6_Insert 'ebeb04bd-0610-4eb7-9184-1206eaeac40a', 'Matematica', '9097dc47-e843-4a1c-9978-bb5519f047b2'
@@ -166,6 +281,58 @@ EXEC Table6_Insert '4fec4636-0c5c-468b-8320-6a65b2b01ac7', 'Literatură Română
 GO
 EXEC Table6_Insert 'dabf09a2-7e02-4941-9ff3-5a6a36d61d16', 'Limbi si literaturi clasice', '3467882d-f557-4278-93f6-958d99359576'
 GO
+EXEC Table6_Insert '522ed0c2-e8c6-4050-93f0-68fb0d260b98', 'Departamentul de Fizica Biomedicala, Teoretica si Spectroscopie Moleculara', '801c8f0d-f30c-4c0d-9f35-8611a8d52b5b'
+GO
+EXEC Table6_Insert '547ec0c0-a0d3-4427-accf-6ab5c9d54dac', 'Departamentul de Fizica Starii Condensate si a Tehnologiilor Avansate', '801c8f0d-f30c-4c0d-9f35-8611a8d52b5b'
+GO
+EXEC Table6_Insert '0133c901-034b-43e0-b605-e4721626c906', 'Departamentul de Fizica al liniei maghiare', '801c8f0d-f30c-4c0d-9f35-8611a8d52b5b'
+GO
+EXEC Table6_Insert 'd233e89d-35c0-443a-833c-f085865f029f', 'Departamentul de Biologie Moleculară şi Biotehnologii', '151cf40f-3856-4b14-a1cb-3dee5b27ed0c'
+GO
+EXEC Table6_Insert '94df6943-04ff-41af-b3a8-57d4205d976c', 'Departamentul de Taxonomie şi Ecologie', '151cf40f-3856-4b14-a1cb-3dee5b27ed0c'
+GO
+EXEC Table6_Insert '2b16414d-aace-45c1-a97d-9852c4717e75', 'Departamentul de Geologie', '151cf40f-3856-4b14-a1cb-3dee5b27ed0c'
+GO
+EXEC Table6_Insert '23334ce2-0b3e-4705-828d-07fb9056d325', 'Departamentul Liniei Maghiare', '151cf40f-3856-4b14-a1cb-3dee5b27ed0c'
+GO
+EXEC Table6_Insert 'aa1ef44b-e67b-4717-8e38-07b55c759acf', 'Departamentul de Geografie Regională şi Planificare Teritorială', '76ace7f4-f8f9-4347-bc96-2233b7574e7a'
+GO
+EXEC Table6_Insert 'ae2e0014-6fd3-4ad1-8b8e-4b2248694d8d', 'Departamentul de Geografie Umană şi Turism', '76ace7f4-f8f9-4347-bc96-2233b7574e7a'
+GO
+EXEC Table6_Insert '51e53bc3-f38d-44cc-84ab-d85e645ccb16', 'Departamentul de Geografie Fizică şi Tehnică', '76ace7f4-f8f9-4347-bc96-2233b7574e7a'
+GO
+EXEC Table6_Insert '543cb256-d6ba-417f-bc6c-be1bdedd1d1a', 'Departamentul de Geografie al Liniei Maghiare', '76ace7f4-f8f9-4347-bc96-2233b7574e7a'
+GO
+EXEC Table6_Insert '0268f5c4-c54d-494b-b804-84997aa40efe', 'Departamentul de Geografie Fizică şi Tehnică', '76ace7f4-f8f9-4347-bc96-2233b7574e7a'
+GO
+EXEC Table6_Insert '58e60585-8b90-4d40-9cef-769c3af5c73d', 'Departamentul de Stiinta Mediului', '1b8a482a-9c99-4889-8a88-8d84fef59d0e6'
+GO
+EXEC Table6_Insert '44357938-03ed-4a72-90e3-5e4fd1386baf', 'Departamentul de Analiza si Ingineria Mediului', '1b8a482a-9c99-4889-8a88-8d84fef59d0e6'
+GO
+EXEC Table6_Insert 'e6cdcfee-d89e-4f17-b813-7838e3c0d2cb', 'Departamentul de Istorie Antică şi Arheologie', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert '48598018-2812-489a-aa55-fd103e6c8a01', 'Departamentul de Istorie Medievală, Premodernă şi Istoria Artei', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert 'da29b7f9-d85c-42fe-84f6-a69f896c3f51', 'Departamentul de Istorie Modernă, Arhivistică şi Etnologie', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert '6847f7d1-b391-4914-90ed-7deeb51b259f', 'Departamentul de Studii internaţionale şi Istorie Contemporană', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert '2248a815-3677-4354-8828-8f75ef204ebb', 'Departamentul de Istorie în limba maghiară', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert '0ca044aa-a500-4552-a738-663781fcec2c', 'Departamentul de Filosofie', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert 'e41ff27c-a72c-451d-8db4-3692dee11e06', 'Departamentul de Filosofie Premodernă şi Românească', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert 'dbd4146c-585d-428a-959a-e091506da49e', 'Departamentul de Filosofie în Limba maghiară', '1d1d1a66-2fa9-4951-bf12-0de12b44f46c'
+GO
+EXEC Table6_Insert '0a1e6215-1819-41ac-b120-9e43b53e77d6', 'Departamentul de Sociologie', '95ffffc2-6a8c-49ee-af63-4f4d23e0f302'
+GO
+EXEC Table6_Insert 'deae85a4-93e3-4c17-b7d3-6b6af683786c', 'Departamentul de Asistenţă Socială', '95ffffc2-6a8c-49ee-af63-4f4d23e0f302'
+GO
+EXEC Table6_Insert 'e29c3976-74e5-471d-8bf1-206a557097c0', 'Departamentul de Sociologie şi Asistenţă Socială al Liniei Maghiare', '95ffffc2-6a8c-49ee-af63-4f4d23e0f302'
+GO
+
+
 
 EXEC Table5_Insert 931, '83604cf3-bc0a-4f59-aabe-841b14b12a17'
 GO
