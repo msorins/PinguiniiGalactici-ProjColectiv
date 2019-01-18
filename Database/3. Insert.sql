@@ -371,6 +371,58 @@ GO
 GO
 EXEC Table1_Insert 2222, 'POPESCU Maria', 'hello@buhbye.co.uk', 11, '1234'
 GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 2256, 'POPESCU Ioana', 'pioana@scs.com', 935, '1234'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1467, 'Ioana Andrei', 'iandrei@scs.com', 935, 'pass'
+GO
+--exec deleteUser tmadalina4111
+GO
+EXEC Table1_Insert 4111, 'Tanase Madalina', 'tmadalina@scs.ubb.com', 934, 'pass'
+GO
+--exec deleteUser mcervinski1233
+GO
+EXEC Table1_Insert 1233, 'Cervinski Mariana', 'mcervinski@scs.ubbcluj.ro', 934, 'abcd'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1575, 'Mereniuc Edita', 'medita@edu.scs.com', 934, 'pass'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1722, 'Burlacu Maria', 'bmaria@scs.ubb.uk', 11, 'pass'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 8541, 'Chislea Sabina', 'csabina@edu.scc.com', 11, 'pass'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1456, 'Ciocan Liviu', 'cliviu@edu.scc.com', 932, 'pass'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1832, 'Corjan Anastasia', 'canstasia@edu.scs.com', 932, 'qwerty'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 9781, 'Curjos Diana', 'cdiana@edu.scs.com', 932, '1234'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1257, 'Sterpu Irina', 'sirina', 932, '4321'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1203, 'Lupascu Cristina', 'lcristina@edu.scs.com', 932, 'abcd'
+GO
+--exec deleteUser asdf2222
+GO
+EXEC Table1_Insert 1541, 'Mitu Ana', 'mana@edu.abc.com', 932, 'pass'
+GO
 --revert
 --select user
 --create login test_login with password = 'pass'
@@ -399,8 +451,58 @@ EXEC Table3_Insert '0d223c71-6ddf-41e2-b266-25585f5b25f3', 'Drept', '95366cea-de
 GO
 EXEC Table3_Insert '80f3c166-4067-40af-bc2e-8175618bde32', 'Literatura', 'dabf09a2-7e02-4941-9ff3-5a6a36d61d16', 2, 14, 7
 GO
-EXEC Table3_Insert 'b0094904-b0a7-4c66-a7d3-6c313d5d193a', 'Procesarea Datelor Audio Video', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 3, 7, 0
+EXEC Table3_Insert '5ffa7ed7-42e4-4a80-9ded-e66da2df0271', 'Analiza matematica', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 0, 14
 GO
+EXEC Table3_Insert 'c87c5af0-3c1b-400a-a520-9d442f1c93d9', 'Algebra', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 0, 14
+GO
+EXEC Table3_Insert '1e15675f-daaa-4584-b0d7-395994dadeb5', 'Fundamentele Programarii', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
+GO
+EXEC Table3_Insert '5ee7eb35-3093-4a4e-b147-772043f8f351', 'Logica Computationala', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
+GO
+EXEC Table3_Insert '31e9b16a-c033-4d3c-b47e-f36d44b31a26', 'Comunicare si dezvoltare profesionala', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 0, 7
+GO
+EXEC Table3_Insert '26139308-c2a2-4868-bbd3-08918417192f', 'Programare in C', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 7, 7
+GO
+EXEC Table3_Insert '3190d74a-1e33-4220-9f74-c43a3177710d', 'Geometrie', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 0, 14
+GO
+EXEC Table3_Insert '342fcf03-3162-4a6f-a585-51280599df35', 'Sisteme dinamice', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
+GO
+EXEC Table3_Insert 'a72fe067-fe7a-4a8e-aa76-9287eb1a7a34', 'Programare orientata obiect', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
+GO
+EXEC Table3_Insert '8ddb8815-72ec-40db-9532-cef08e6647c5', 'Structuri de date si algoritmi', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
+GO
+EXEC Table3_Insert '032468af-02a9-4f46-aaeb-16e126bfe3c0', 'Algoritmica grafelor', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
+GO
+EXEC Table3_Insert '5f5d94d2-433f-4cfd-9e8d-9ad60dc69ee4', 'Sisteme de operare', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 14, 14
+GO
+EXEC Table3_Insert 'f7cc1449-d78b-4abd-af2c-53cf2b18d72f', 'Metode avansate de rezolvare a problemelor de matematică şi informatică', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 1, 7, 7
+GO
+EXEC Table3_Insert '02951ac8-e039-4a53-941e-840c08fbde4b', 'Programare functionala si logica', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 14
+GO
+EXEC Table3_Insert 'c747b445-2658-4778-8115-12eef5b9a152', 'Metode avansate de programare', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 14
+GO
+EXEC Table3_Insert 'b978db42-c291-4f98-b170-b4e49a52f79d', 'Retele de calculatoare', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 14
+GO
+EXEC Table3_Insert '59bf1af6-99b4-4fc5-b1ff-e295896acae1', 'Baze de date', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 7
+GO
+EXEC Table3_Insert 'eb0e258d-6553-4ca5-9fbc-45edade9f5f3', 'Probabilitati si statistica', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 14
+GO
+EXEC Table3_Insert 'd289505a-bce4-409c-8331-418a35abb203', 'Ingineria sistemelor soft', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 7
+GO
+EXEC Table3_Insert 'cc8d55c4-1c68-49d0-9e7a-547710706c47', 'Programare web', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 14
+GO
+EXEC Table3_Insert 'b639d4c7-9829-4bc8-9322-cd7b9f6116b2', 'Sisteme de gestiune a bazelor de date', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 7, 7
+GO
+EXEC Table3_Insert '5e1b4382-cfab-4e7e-a2d3-644af74462b4', 'Inteligenta artificiala', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 7, 14
+GO
+EXEC Table3_Insert 'edd395fb-3eca-4fd6-ae51-8f57747a7a4c', 'Medii de proiectare și programare', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 2, 14, 14
+GO
+EXEC Table3_Insert '440ca891-3686-4e95-9434-481a6272d241', 'Programare paralela si distribuita', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 3, 14, 7
+GO
+EXEC Table3_Insert 'b6b4cecb-68b6-4073-9266-5b32625ec760', 'Programare pentru dispozitive mobile', '83604cf3-bc0a-4f59-aabe-841b14b12a17', 3, 14, 14
+GO
+
+
 
 EXEC Table2Table3_Insert '2357f5bd-cdbe-4e66-ae06-d013b3511050', 'f1647dfe-bdb0-4987-b0ac-45c7a7d80b4d'
 GO
