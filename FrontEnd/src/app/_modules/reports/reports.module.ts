@@ -10,6 +10,7 @@ import { ReportsService } from './services/reports.service';
 import {GoogleChartsModule} from 'angular-google-charts';
 import { AverageGradesComponent } from './components/average-grades/average-grades.component';
 import { ExcelService } from './services/xls.service';
+import { PassingGradeReportComponent } from './components/passing-grade-report/passing-grade-report.component';
 @NgModule({
     imports: [
         CommonModule,
@@ -25,7 +26,8 @@ import { ExcelService } from './services/xls.service';
     declarations: [
         ReportsPageComponent,
         AttendacenReportComponent,
-        AverageGradesComponent
+        AverageGradesComponent,
+        PassingGradeReportComponent
     ],
     providers: [
         jwtProvider,

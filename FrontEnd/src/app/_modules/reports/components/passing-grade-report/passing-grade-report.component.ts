@@ -4,11 +4,11 @@ import { ExcelService } from '../../services/xls.service';
 import { COURSES_DATA } from 'src/app/_modules/shared/constants';
 
 @Component({
-    selector: 'app-average-grades',
-    templateUrl: './average-grades.component.html',
-    styleUrls: ['./average-grades.component.css']
+    selector: 'app-passing-grade-report',
+    templateUrl: './passing-grade-report.component.html',
+    styleUrls: ['./passing-grade-report.component.css']
 })
-export class AverageGradesComponent implements OnInit {
+export class PassingGradeReportComponent implements OnInit {
     // types = [{id: '63E3DF71-A7D4-4A30-9299-16A11E104536', name: 'Seminar'},
     // {id: '08AC7284-0228-4267-B3BD-A5FF5F5C9E5B', name: 'Laboratory'}, {id: 'D65D97BD-B6D1-4829-A6D3-26BD51E921FA', name: 'Course'},
     // {id: 'A9AD4E26-3611-4A32-B72F-D4A35B88AD14', name: 'Bonus'}, {id: 'A9AD4E26-3611-4A32-B72F-D4A35B88AD14', name: 'Partial'}];
@@ -26,7 +26,7 @@ export class AverageGradesComponent implements OnInit {
             ['Group 932', 19.30],
             ['Group 934', 21.45],
           ],
-        columnNames: ['Element', 'Average Grades'],
+        columnNames: ['Element', 'Passing Grades'],
         options: {
           animation: {
             duration: 250,
@@ -89,14 +89,14 @@ export class AverageGradesComponent implements OnInit {
             CourseID: this.selectedCourse.CourseID,
             TypeID: this.selectedType.TypeID
         };
-        this.reportsService.getAverageReport(data).subscribe((info) => {
+        this.reportsService.getPassingGradeReport(data).subscribe((info) => {
             console.log(info);
             const result = [];
             this.excelData = info;
             info.forEach(element => {
                 const miniList = [];
                 miniList.push('Group ' + element.GroupNumber);
-                miniList.push(element.AverageGrade);
+                miniList.push(element.PassingGradesNumber);
                 result.push(miniList);
             })
             this.columnChart.data = result;
