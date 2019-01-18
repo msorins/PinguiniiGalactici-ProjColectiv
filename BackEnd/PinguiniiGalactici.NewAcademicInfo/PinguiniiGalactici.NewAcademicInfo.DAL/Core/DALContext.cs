@@ -11,6 +11,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.DAL.Core
     {
         #region Constants     
         private const string SERVER = "SORINSEBAST1B1A";
+
         string DATABASE = "AcademicInfo";
         #endregion
 
