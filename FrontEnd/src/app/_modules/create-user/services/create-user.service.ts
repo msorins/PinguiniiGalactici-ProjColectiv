@@ -16,7 +16,7 @@ export class CreateUserService {
     }
 
     saveStudent(student: Student): void {
-        this.httpClient.post(ApiUrl.ngRokUrl + '/students', student).subscribe((data: any) =>  {
+        this.httpClient.post(ApiUrl.url + '/students', student).subscribe((data: any) =>  {
             console.log("Done");
             console.log(data);
         });
@@ -24,8 +24,7 @@ export class CreateUserService {
     }
 
     saveTeacher(teacher): void {
-        debugger;
-        this.httpClient.post(ApiUrl.ngRokUrl + '/teachers', teacher).subscribe((data: any) => {
+        this.httpClient.post(ApiUrl.url + '/teachers', teacher).subscribe((data: any) => {
             console.log(data);
         });
     }

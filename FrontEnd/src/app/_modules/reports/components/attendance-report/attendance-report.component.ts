@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReportsService } from '../../services/reports.service';
 import { ExcelService } from '../../services/xls.service';
+import { COURSES_DATA } from 'src/app/_modules/shared/constants';
 
 @Component({
     selector: 'app-attendance-report',
@@ -10,11 +11,14 @@ import { ExcelService } from '../../services/xls.service';
 
 export class AttendacenReportComponent implements OnInit {
 
-    types = [{id: '63E3DF71-A7D4-4A30-9299-16A11E104536', name: 'Seminar'},
-    {id: '08AC7284-0228-4267-B3BD-A5FF5F5C9E5B', name: 'Laboratory'}, {id: 'D65D97BD-B6D1-4829-A6D3-26BD51E921FA', name: 'Course'},
-    {id: 'A9AD4E26-3611-4A32-B72F-D4A35B88AD14', name: 'Bonus'}, {id: 'A9AD4E26-3611-4A32-B72F-D4A35B88AD14', name: 'Partial'}];
-    groups = [935, 934, 936];
-    courses = [{Name: 'course1', id: 1}, {Name: 'course1', id: 2}, {Name: 'course1', id: 3}];
+    // types = [{id: '63E3DF71-A7D4-4A30-9299-16A11E104536', name: 'Seminar'},
+    // {id: '08AC7284-0228-4267-B3BD-A5FF5F5C9E5B', name: 'Laboratory'}, {id: 'D65D97BD-B6D1-4829-A6D3-26BD51E921FA', name: 'Course'},
+    // {id: 'A9AD4E26-3611-4A32-B72F-D4A35B88AD14', name: 'Bonus'}, {id: 'A9AD4E26-3611-4A32-B72F-D4A35B88AD14', name: 'Partial'}];
+    // groups = [935, 934, 936];
+    // courses = [{Name: 'course1', id: 1}, {Name: 'course1', id: 2}, {Name: 'course1', id: 3}];
+    types: any[];
+    groups: any[];
+    courses: any[];
     selectedType: any;
     selectedCourse: any;
     selectedGroup: any;
@@ -54,6 +58,9 @@ export class AttendacenReportComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getCourses();
+        this.getTypes();
+        this.getGroups();
         // this.reportsService.getGroups().subscribe(groups => {
         //     this.groups = groups;
         //     this.selectedGroup = this.groups[0];
@@ -64,6 +71,36 @@ export class AttendacenReportComponent implements OnInit {
         //     this.selectedCourse = this.courses [0];
         // });
     }
+
+    private getCourses() {
+        this.reportsService.getCourses().subscribe(
+            (apidata) => {
+                this.courses = apidata,
+                console.log(this.courses)
+            },
+            error => this.courses = COURSES_DATA
+        );
+    } 
+
+    private getTypes() {
+        this.reportsService.getTypes().subscribe(
+            (apidata) => {
+                this.types = apidata,
+                console.log(apidata)
+            },
+            // error => this.courses = COURSES_DATA
+        );
+    } 
+
+    private getGroups() {
+        this.reportsService.getGroups().subscribe(
+            (apidata) => {
+                this.groups = apidata,
+                console.log(apidata)
+            },
+            // error => this.courses = COURSES_DATA
+        );
+    } 
 
     onCourseSelected(event) {
         if (this.selectedCourse && this.selectedGroup && this.selectedType) {
@@ -90,7 +127,7 @@ export class AttendacenReportComponent implements OnInit {
     private getData() {
         const data = {
             CourseID: this.selectedCourse.CourseID,
-            GroupID: this.selectedGroup.GroupID,
+            GroupID: this.selectedGroup.GroupNumber,
             TypeID: this.selectedType.TypeID
         };
         this.reportsService.getAttendaceReport(data).subscribe(info => {

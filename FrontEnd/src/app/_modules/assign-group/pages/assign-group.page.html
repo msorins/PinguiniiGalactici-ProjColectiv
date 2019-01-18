@@ -11,7 +11,7 @@
                 <input matInput placeholder="Group" [formControl]="group" required>
             </mat-form-field>
         </form>
-        <button class="login-button create-button" 
+        <button class="login-button create-button with-margin" 
                 mat-raised-button color="primary" 
                 [disabled]="toggleSaveGroup()"
                 (click)="saveGroup()">Save</button>
@@ -32,7 +32,7 @@
                 <input matInput placeholder="Number of Seminars" [formControl]="seminarsnr" required>
             </mat-form-field>
         </form>
-        <button class="login-button create-button" 
+        <button class="login-button create-button with-margin" 
                 mat-raised-button color="primary" 
                 [disabled]="toggleSaveCourse()"
                 (click)="saveCourse()">Save</button>

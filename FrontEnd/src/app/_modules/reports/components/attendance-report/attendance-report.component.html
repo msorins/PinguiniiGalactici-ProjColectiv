@@ -11,7 +11,7 @@
         <label class="group-label">Groups:</label>
           <mat-form-field>
               <mat-select [(value)]="selectedGroup" (selectionChange)="onGroupSelected($event)">
-                <mat-option *ngFor="let group of groups" [value]="group">{{group}}</mat-option>
+                <mat-option *ngFor="let group of groups" [value]="group">{{group.GroupNumber}}</mat-option>
               </mat-select>
             </mat-form-field>
       </div>
@@ -19,7 +19,7 @@
         <label class="group-label">Types:</label>
           <mat-form-field>
               <mat-select [(value)]="selectedType" (selectionChange)="onTypeSelected($event)">
-                <mat-option *ngFor="let type of types" [value]="type">{{type.name}}</mat-option>
+                <mat-option *ngFor="let type of types" [value]="type">{{type.Name}}</mat-option>
               </mat-select>
             </mat-form-field>
       </div>
@@ -31,15 +31,18 @@
                 (click)="exportExcell()">Export</button>
       </div>
 
-      <div *ngIf="this.selectedCourse && this.selectedGroup && this.selectedType">
+      <div *ngIf="this.selectedCourse && this.selectedGroup && this.selectedType && columnChart.data[0]">
             <google-chart
                 width="1200"
                 height="500"
                 [title]="selectedCourse?.Name"
                 [type]="'ColumnChart'"
-                [data]="columnChart .data"
+                [data]="columnChart.data"
                 [columnNames]="columnChart.columnNames"
                 [options]="columnChart.options">
             </google-chart>
+      </div>
+      <div class="empty" *ngIf="!this.selectedCourse || !this.selectedGroup || !this.selectedType || !columnChart.data[0]">
+        No Reports
       </div>
 </div>

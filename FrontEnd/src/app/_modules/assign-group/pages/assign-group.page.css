@@ -82,3 +82,7 @@
     right: 50px;
     bottom:20px;
 }
+
+.with-margin {
+    margin-left: 20px;
+}

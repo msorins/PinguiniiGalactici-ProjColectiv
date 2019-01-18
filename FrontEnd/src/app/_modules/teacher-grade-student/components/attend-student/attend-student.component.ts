@@ -63,7 +63,6 @@ export class AttendStudentComponent implements OnInit {
     }
 
     applyFilter(value): void {
-        debugger;
         if (value && value !== '') {
             this.displayedStudents = this.allStudents.filter(s => {
                 const index = s.Name.indexOf(value);
@@ -73,9 +72,7 @@ export class AttendStudentComponent implements OnInit {
                 return false;
             });
             console.log(this.displayedStudents);
-            debugger;
         } else {
-            debugger;
             this.displayedStudents = this.allStudents;
         }
     }
