@@ -346,6 +346,15 @@ EXEC Table5_Insert 11, 'ebeb04bd-0610-4eb7-9184-1206eaeac40a'
 GO
 EXEC Table5_Insert 261, '95366cea-de83-4c47-b004-cee1056540d4'
 GO
+EXEC Table5_Insert 921, '83604cf3-bc0a-4f59-aabe-841b14b12a17'
+GO
+EXEC Table5_Insert 922, '83604cf3-bc0a-4f59-aabe-841b14b12a17'
+GO
+EXEC Table5_Insert 911, '83604cf3-bc0a-4f59-aabe-841b14b12a17'
+GO
+EXEC Table5_Insert 912, '83604cf3-bc0a-4f59-aabe-841b14b12a17'
+GO
+
 
 /* ------------------------------  Galactic Penguins ------------------------------------------ */
 --exec deleteUser mmie2169
@@ -411,7 +420,7 @@ GO
 
 /* ------------------------------------------ 921 ------------------------------------------*/
 GO
-EXEC Table1_Insert 2134, 'ARDELEANU Mircea', 'maie2134@scs.ubbcluj.com', 921, 'pass'
+EXEC Table1_Insert 2913, 'ARDELEANU Mircea', 'maie2134@scs.ubbcluj.com', 921, 'pass'
 GO
 EXEC Table1_Insert 2135, 'Argint Cornel', 'caie2135@scs.ubbcluj.com', 921, 'pass'
 GO
@@ -475,13 +484,13 @@ GO
 GO
 EXEC Table1_Insert 2162, 'CÎRSTEA DAIANA-BIANCA', 'dcie2162@scs.ubbcluj.com', 911, 'pass'
 GO
-EXEC Table1_Insert 2162, 'IVAN CRISTIAN-DENIS', 'ciie2162@scs.ubbcluj.com', 911, 'pass'
+EXEC Table1_Insert 2962, 'IVAN CRISTIAN-DENIS', 'ciie2162@scs.ubbcluj.com', 911, 'pass'
 GO
 EXEC Table1_Insert 2163, 'NICOARĂ DENISA-MARIA', 'dnie2163@scs.ubbcluj.com', 911, 'pass'
 GO
 EXEC Table1_Insert 2164, 'BOŢOC ANDREEA MALINA', 'abie2164@scs.ubbcluj.com', 911, 'pass'
 GO
-EXEC Table1_Insert 2165, 'FRUJA ANDREEA-DAIANA', 'afie2165@scs.ubbcluj.com', 911, 'pass'
+EXEC Table1_Insert 2965, 'FRUJA ANDREEA-DAIANA', 'afie2165@scs.ubbcluj.com', 911, 'pass'
 GO
 EXEC Table1_Insert 2166, 'HANG ALEXANDRU', 'ahie2166@scs.ubbcluj.com', 911, 'pass'
 GO
@@ -489,7 +498,7 @@ EXEC Table1_Insert 2167, 'LENHARDT SILVIU', 'slie2167@scs.ubbcluj.com', 911, 'pa
 GO
 EXEC Table1_Insert 2168, 'MERONIUC MĂLINA -  ŞTEFANIA', 'mmie2168@scs.ubbcluj.com', 911, 'pass'
 GO
-EXEC Table1_Insert 2169, 'NUŢIU DORIN-IONUŢ', 'dnie2169@scs.ubbcluj.com', 911, 'pass'
+EXEC Table1_Insert 2969, 'NUŢIU DORIN-IONUŢ', 'dnie2169@scs.ubbcluj.com', 911, 'pass'
 GO
 EXEC Table1_Insert 2170, 'SANDU NARCIS-CASIAN', 'ns2170@scs.ubbcluj.com', 911, 'pass'
 GO
@@ -682,8 +691,6 @@ GO
 EXEC Table2Table3_Insert '2357f5bd-cdbe-4e66-ae06-d013b3511050', 'f1647dfe-bdb0-4987-b0ac-45c7a7d80b4d'
 GO
 EXEC Table2Table3_Insert '99506ecd-d561-432f-8245-ec5ea3360ee8', 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
-GO
-EXEC Table2Table3_Insert '426fef7f-4288-47f2-9df2-8c448dc04786', 'b0094904-b0a7-4c66-a7d3-6c313d5d193a'
 GO
 EXEC Table2Table3_Insert 'a9e2492f-85b0-47fa-bb36-8e04d8900c6d', '0d223c71-6ddf-41e2-b266-25585f5b25f3'
 GO
