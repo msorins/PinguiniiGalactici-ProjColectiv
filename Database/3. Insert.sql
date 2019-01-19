@@ -429,7 +429,7 @@ EXEC Table1_Insert 2141, 'BARABOI ADRIAN', 'abie2141@scs.ubbcluj.com', 921, 'pas
 GO
 EXEC Table1_Insert 2142, 'BARAN MARIA ILEANA', 'mbie2142@scs.ubbcluj.com', 921, 'pass'
 GO
-EXEC Table1_Insert 2143, 'BECHET PAUL', 'pbie2143@scs.ubbcluj.com', 921, 'pass'
+EXEC Table1_Insert 2199, 'BECHET PAUL', 'pbie2143@scs.ubbcluj.com', 921, 'pass'
 GO
 EXEC Table1_Insert 2144, 'BIDIAN DAN', 'bdie2144@scs.ubbcluj.com', 921, 'pass'
 GO
@@ -691,22 +691,82 @@ EXEC Table2Table3_Insert 'cafdccfc-0073-413e-9c62-c7f6e84df9ff', '80f3c166-4067-
 GO
 EXEC Table2Table3_Insert '426fef7f-4288-47f2-9df2-8c448dc04786', 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
 GO
+EXEC Table2Table3_Insert 'a6010569-2514-4d72-919c-38a218ad44b0', '1e15675f-daaa-4584-b0d7-395994dadeb5'
+GO
+EXEC Table2Table3_Insert '92515681-523c-4dff-a9e1-bca23f105112', '26139308-c2a2-4868-bbd3-08918417192f'
+GO
+EXEC Table2Table3_Insert '46d20b6e-cdcf-471c-b6d1-170ba1a12793', 'a72fe067-fe7a-4a8e-aa76-9287eb1a7a34'
+GO
+EXEC Table2Table3_Insert 'ed869b18-9c30-4256-a292-eb80241df1be', '032468af-02a9-4f46-aaeb-16e126bfe3c0'
+GO
+EXEC Table2Table3_Insert '2357f5bd-cdbe-4e66-ae06-d013b3511050', '5f5d94d2-433f-4cfd-9e8d-9ad60dc69ee4'
+GO
+EXEC Table2Table3_Insert 'd33490eb-ecc1-4638-be7b-f304844be99b', 'c747b445-2658-4778-8115-12eef5b9a152'
+GO
+EXEC Table2Table3_Insert '6c39ecfd-9aec-4177-b296-128d49166d70', 'b978db42-c291-4f98-b170-b4e49a52f79d'
+GO
+EXEC Table2Table3_Insert '0a4c8fe0-d4ea-4979-b661-9e39a4e7248f', 'edd395fb-3eca-4fd6-ae51-8f57747a7a4c'
+GO
+EXEC Table2Table3_Insert '426fef7f-4288-47f2-9df2-8c448dc04786', 'cc8d55c4-1c68-49d0-9e7a-547710706c47'
+GO
+EXEC Table2Table3_Insert 'd813d59d-4827-4dc1-8d4b-4aef1b898a82', 'b639d4c7-9829-4bc8-9322-cd7b9f6116b2'
+GO
+EXEC Table2Table3_Insert 'eb0b09d9-16eb-46c6-bfd1-c62826c8a87f', '5e1b4382-cfab-4e7e-a2d3-644af74462b4'
+GO
+EXEC Table2Table3_Insert 'ed869b18-9c30-4256-a292-eb80241df1be', '440ca891-3686-4e95-9434-481a6272d241'
+GO
+EXEC Table2Table3_Insert '8f20675a-7b60-416c-abfb-983a8b6a31a4', 'b6b4cecb-68b6-4073-9266-5b32625ec760'
+GO
 
 EXEC Table1Table3_Insert 'c55ecf93-0396-4668-9ead-5c85627cdd14', 1234, '0d223c71-6ddf-41e2-b266-25585f5b25f3'
 GO
-EXEC Table1Table3_Insert '1ce4c47e-854b-427c-ba44-e932cced59f9', 2065, 'b0094904-b0a7-4c66-a7d3-6c313d5d193a'
+EXEC Table1Table3_Insert '1ce4c47e-854b-427c-ba44-e932cced59f9', 2065, 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
 GO
-EXEC Table1Table3_Insert 'eb78364e-7842-4810-9c59-0830632adee8', 2143, 'b0094904-b0a7-4c66-a7d3-6c313d5d193a'
+EXEC Table1Table3_Insert 'eb78364e-7842-4810-9c59-0830632adee8', 2143, 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
 GO
-EXEC Table1Table3_Insert 'fe3edbb7-cdbd-469a-903a-5f8831bf4c41', 2165, 'b0094904-b0a7-4c66-a7d3-6c313d5d193a'
+EXEC Table1Table3_Insert 'fe3edbb7-cdbd-469a-903a-5f8831bf4c41', 2165, 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
 GO
-EXEC Table1Table3_Insert '878f4cca-f8c7-4d97-bb20-ceec3f78cb9d', 2169, 'b0094904-b0a7-4c66-a7d3-6c313d5d193a'
+EXEC Table1Table3_Insert '878f4cca-f8c7-4d97-bb20-ceec3f78cb9d', 2169, 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
 GO
 EXEC Table1Table3_Insert 'ef64e4f2-bfbe-4f88-b088-6a0cae672215', 2222, '80f3c166-4067-40af-bc2e-8175618bde32'
 GO
 EXEC Table1Table3_Insert '5013cf3e-010e-4a52-8fa3-c534040bdd1d', 2143, 'f1647dfe-bdb0-4987-b0ac-45c7a7d80b4d'
 GO
 EXEC Table1Table3_Insert '4e77a0e9-ac47-4f6b-8cd0-e4aca2c11f77', 2169, 'f1647dfe-bdb0-4987-b0ac-45c7a7d80b4d'
+GO
+EXEC Table1Table3_Insert 'f3629c6e-8b70-464a-9ad1-f54fe2f7129c', 2170, 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
+GO
+EXEC Table1Table3_Insert 'c19d0b35-9d9f-4277-abab-c370451b61e4', 2171, '0d223c71-6ddf-41e2-b266-25585f5b25f3'
+GO
+EXEC Table1Table3_Insert '456f5658-a122-445f-ad45-13df93eb7b1f', 2172, 'f1647dfe-bdb0-4987-b0ac-45c7a7d80b4db'
+GO
+EXEC Table1Table3_Insert 'ea318bb6-b9c8-408c-8913-c458dac04ae1', 2173, '0d223c71-6ddf-41e2-b266-25585f5b25f3'
+GO
+EXEC Table1Table3_Insert '84ab75ce-a8d1-493d-89d1-abf078f2ae12', 2174, 'ba889e1a-0ec5-4089-b702-3c9bf80e5bab'
+GO
+EXEC Table1Table3_Insert '05382496-7111-4dee-a6a4-5aecfbc2b542', 2175, '80f3c166-4067-40af-bc2e-8175618bde32'
+GO
+EXEC Table1Table3_Insert 'f370566b-1de8-4ae8-8684-f735ad3f9923', 2176, '5ffa7ed7-42e4-4a80-9ded-e66da2df0271'
+GO
+EXEC Table1Table3_Insert 'bbba1b24-b781-4d73-8505-77a7541087eb', 2177, 'c87c5af0-3c1b-400a-a520-9d442f1c93d9'
+GO
+EXEC Table1Table3_Insert '4c56686b-5217-43bd-9aec-1cfb185816a3', 2178, '1e15675f-daaa-4584-b0d7-395994dadeb5'
+GO
+EXEC Table1Table3_Insert '14870209-cc67-4504-8014-05ef6830e27e', 2179, '5ee7eb35-3093-4a4e-b147-772043f8f351'
+GO
+EXEC Table1Table3_Insert '128f0497-8c77-44b6-8f79-e9bb5477f114', 2180, '31e9b16a-c033-4d3c-b47e-f36d44b31a26'
+GO
+EXEC Table1Table3_Insert '7889d2b5-dddc-4935-a703-d8b8e144254b', 2181, '26139308-c2a2-4868-bbd3-08918417192f'
+GO
+EXEC Table1Table3_Insert '32ff8f52-0db9-4364-917a-fa5aa966dd46', 2182, '3190d74a-1e33-4220-9f74-c43a3177710d'
+GO
+EXEC Table1Table3_Insert '83ab6f79-1209-4803-af2c-a717c82d4ba3', 2183, '342fcf03-3162-4a6f-a585-51280599df35'
+GO
+EXEC Table1Table3_Insert 'bd4dada6-063d-47f0-b89d-e826c1d21bb5', 2184, 'a72fe067-fe7a-4a8e-aa76-9287eb1a7a34'
+GO
+EXEC Table1Table3_Insert 'a3f01e99-e459-4abb-9184-78bdf8db4a5c', 2185, '8ddb8815-72ec-40db-9532-cef08e6647c5'
+GO
+EXEC Table1Table3_Insert '327cf402-125c-4439-a335-65c5ad256345', 2186, '032468af-02a9-4f46-aaeb-16e126bfe3c0'
 GO
 
 EXEC Table4_Insert '71bc1a66-a8f1-41f1-8ec9-3a1dfd589d43', 'eb78364e-7842-4810-9c59-0830632adee8', 2, '08ac7284-0228-4267-b3bd-a5ff5f5c9e5b', 10
