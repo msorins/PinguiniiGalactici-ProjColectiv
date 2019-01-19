@@ -347,6 +347,7 @@ GO
 EXEC Table5_Insert 261, '95366cea-de83-4c47-b004-cee1056540d4'
 GO
 
+/* ------------------------------  Galactic Penguins ------------------------------------------ */
 --exec deleteUser mmie2169
 GO
 EXEC Table1_Insert 2169, 'Mircea V.D. Maria-Madalina', 'mmie2165@scs.ubbcluj.ro', 935, 'pass'
@@ -355,13 +356,65 @@ GO
 GO
 EXEC Table1_Insert 2165, 'Mihalache Mihai', 'mirceamariamadalina@yahoo.com', 935, '1234'
 GO
---exec deleteUser biie2065
-GO
-EXEC Table1_Insert 2065, 'BILC Irina', 'maddamaddie@gmail.com', 931, '1234'
-GO
 --exec deleteUser jrie2143
 GO
 EXEC Table1_Insert 2143, 'JUGARU Robert', 'xyz@abc.com', 935, '1234'
+GO
+--exec deleteUser cnie2123
+GO
+EXEC Table1_Insert 2123, 'Ciprian Nazarie', 'cnie2123@scs.ubbcluj.com', 935, '1234'
+GO
+--exec deleteUser nbie2124
+GO
+EXEC Table1_Insert 2124, 'Bianca Nemes', 'nbie2124@scs.ubbcluj.com', 935, 'pass'
+GO
+--exec deleteUser vdie2125
+GO
+EXEC Table1_Insert 2125, 'Denis Vieriu', 'vdie2125@scs.ubbcluj.com', 935, '1234'
+GO
+--exec deleteUser daie2126
+GO
+EXEC Table1_Insert 2126, 'Alexandru Dogar', 'daie2126@scs.ubbcluj.com', 935, 'pass'
+GO
+--exec deleteUser oeie2127
+GO
+EXEC Table1_Insert 2127, 'Elena Obreja', 'oeie2127@scs.ubbcluj.com', 935, '1234'
+GO
+--exec deleteUser meie2128
+GO
+EXEC Table1_Insert 2128, 'Emerson Micu', 'meie2128@scs.ubbcluj.com', 935, '1234'
+GO
+--exec deleteUser aiie2129
+GO
+EXEC Table1_Insert 2129, 'Ioana Alexandra', 'aiie2129@scs.ubbcluj.com', 935, 'pass'
+GO
+--exec deleteUser maie2130
+GO
+EXEC Table1_Insert 2130, 'Alexandra Muresan', 'maie2130@scs.ubbcluj.com', 935, '1234'
+GO
+--exec deleteUser mnie2131
+GO
+EXEC Table1_Insert 2131, 'Naomi Moisuc', 'mnie2131@scs.ubbcluj.com', 935, 'pass'
+GO
+--exec deleteUser nsie2132
+GO
+EXEC Table1_Insert 2132, 'Sebi Nechita', 'nsie2132@scs.ubbcluj.com', 935, 'pass'
+GO
+--exec deleteUser msie2133
+GO
+EXEC Table1_Insert 2133, 'Sorin Mircea', 'msie2133@scs.ubbcluj.com', 935, '1234'
+GO
+--exec deleteUser nvie2134
+GO
+EXEC Table1_Insert 2134, 'Vlad Neamt', 'nvie2134@scs.ubbcluj.com', 935, 'pass'
+GO
+
+/* ------------------------------------------ 921 ------------------------------------------*/
+
+
+--exec deleteUser biie2065
+GO
+EXEC Table1_Insert 2065, 'BILC Irina', 'maddamaddie@gmail.com', 931, '1234'
 GO
 --exec deleteUser lskd1234
 GO
