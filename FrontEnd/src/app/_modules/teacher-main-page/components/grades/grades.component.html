@@ -1,0 +1,98 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td><img src="c:\Users\dvieriu\Desktop\mail-forward-button_318-47337.jpg"/></td>
+    <!--<td mat-cell *matCellDef="let element"> {{element.email}} </td>-->
+  </ng-container>
+
+  <ng-container matColumnDef="S1">
+    <th mat-header-cell *matHeaderCellDef> S1 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S1}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S2">
+    <th mat-header-cell *matHeaderCellDef> S2 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S2}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S3">
+    <th mat-header-cell *matHeaderCellDef> S3 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S3}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S4">
+    <th mat-header-cell *matHeaderCellDef> S4 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S4}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S5">
+    <th mat-header-cell *matHeaderCellDef> S5 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S5}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S6">
+    <th mat-header-cell *matHeaderCellDef> S6 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S6}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S7">
+    <th mat-header-cell *matHeaderCellDef> S7 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S7}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S8">
+    <th mat-header-cell *matHeaderCellDef> S8 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S8}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="S9">
+    <th mat-header-cell *matHeaderCellDef> S9 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S9}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="S10">
+    <th mat-header-cell *matHeaderCellDef> S10 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S10}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="S11">
+    <th mat-header-cell *matHeaderCellDef> S11 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S11}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="S12">
+    <th mat-header-cell *matHeaderCellDef> S12 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S12}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S13">
+    <th mat-header-cell *matHeaderCellDef> S13 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S13}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="S14">
+    <th mat-header-cell *matHeaderCellDef> S14 </th>
+    <td mat-cell *matCellDef="let element"> {{element.S14}} </td>
+  </ng-container>
+  
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

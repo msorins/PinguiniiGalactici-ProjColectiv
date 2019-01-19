@@ -410,6 +410,128 @@ EXEC Table1_Insert 2134, 'Vlad Neamt', 'nvie2134@scs.ubbcluj.com', 935, 'pass'
 GO
 
 /* ------------------------------------------ 921 ------------------------------------------*/
+GO
+EXEC Table1_Insert 2134, 'ARDELEANU Mircea', 'maie2134@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2135, 'Argint Cornel', 'caie2135@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2136, 'BADEA ION', 'ibie2136@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2137, 'BADEA NICOLAE', 'nbie2137@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2138, 'BADESCU LAVINIA', 'lbie2138@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2139, 'BADIC MIHAI', 'bmie2139@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2140, 'BALTAG OCTAVIAN', 'obie2140@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2141, 'BARABOI ADRIAN', 'abie2141@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2142, 'BARAN MARIA ILEANA', 'mbie2142@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2143, 'BECHET PAUL', 'pbie2143@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2144, 'BIDIAN DAN', 'bdie2144@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2145, 'SĂUTEA CAMELIA- GEORGETA', 'csie2145@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2146, 'NISTOR COSMINA', 'cnie2146@scs.ubbcluj.com', 921, 'pass'
+GO
+EXEC Table1_Insert 2147, 'CROICU ELENA', 'ecie2147@scs.ubbcluj.com', 921, 'pass'
+GO
+
+/* ------------------------------------------ 922 ------------------------------------------*/
+GO
+EXEC Table1_Insert 2148, 'MIXICH LORENA', 'lmie2148@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2149, 'ANDREICA SIMONA-AURICA', 'saie2149@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2150, 'STRĂULEA MARINA-ISABELA', 'msie2150@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2151, 'PĂUN LILIANA-MĂDĂLINA', 'lpie2151@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2152, 'GROSULEAC OVIDIU-ILIE', 'ogie2152@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2153, 'CUCUIAT ANDREI', 'acie2153@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2154, 'VASILIEV VALERIU', 'vvie2154@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2155, 'MARRALI MARIA CARMELA', 'mmie2155@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2156, 'UNTARU MARIA-ALEXANDRA', 'auie2156@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2157, 'ŞERBAN ANCA-ELENA', 'asie2157@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2158, 'PAVEL ANDRA-CRISTINA', 'apie2158@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2159, 'GULER CLAUDIA', 'cgie2159@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2160, 'ZDRENŢAN DACIAN', 'dzie2160@scs.ubbcluj.com', 922, 'pass'
+GO
+EXEC Table1_Insert 2161, 'HUHULEA ORIANA-RALUCA', 'ohie2161@scs.ubbcluj.com', 922, 'pass'
+GO
+
+/* ------------------------------------------ 911 ------------------------------------------*/
+GO
+EXEC Table1_Insert 2162, 'CÎRSTEA DAIANA-BIANCA', 'dcie2162@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2162, 'IVAN CRISTIAN-DENIS', 'ciie2162@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2163, 'NICOARĂ DENISA-MARIA', 'dnie2163@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2164, 'BOŢOC ANDREEA MALINA', 'abie2164@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2165, 'FRUJA ANDREEA-DAIANA', 'afie2165@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2166, 'HANG ALEXANDRU', 'ahie2166@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2167, 'LENHARDT SILVIU', 'slie2167@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2168, 'MERONIUC MĂLINA -  ŞTEFANIA', 'mmie2168@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2169, 'NUŢIU DORIN-IONUŢ', 'dnie2169@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2170, 'SANDU NARCIS-CASIAN', 'ns2170@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2171, 'BUBANSZKI ANDREEA-CRISTINA', 'abie2171@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2172, 'BALŞ DRAGOŞ-LUCIAN', 'dbie2172@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2173, 'CIOBANU ANA-MARIA', 'acie2173@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2174, 'BOLOGA DRAGOŞ - MIHAI', 'dbie2174@scs.ubbcluj.com', 911, 'pass'
+GO
+EXEC Table1_Insert 2175, 'CÎRLUGEA CĂTĂLIN-CONSTANTIN', 'ccie2175@scs.ubbcluj.com', 911, 'pass'
+
+/* ------------------------------------------ 912 ------------------------------------------*/
+GO
+EXEC Table1_Insert 2176, 'NICOLA IOANA-ANDREEA', 'in2176@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2177, 'POPESCU DANIEL-PAUL', 'dpie2177@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2178, 'ROŞOIU NICOLETA-LOREDANA', 'nrie2178@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2179, 'ONEŢIU ADELINA-LIANA', 'aoie2179@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2180, 'MARINESCU ELENA-NICOLETA', 'emie2180@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2181, 'OLTEANU PATRICIA-DAIANA', 'poie2181@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2182, 'CRIŞAN GIORGIANA-ANDREEA', 'gcie2182@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2183, 'ENULESCU MIHAELA - ANDREEA', 'meie2183@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2184, 'GUBĂUCEANU DANA-CRISTINA', 'dgie2184@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2185, 'MIRCEA RALUCA-SORINA', 'mrie2185@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2186, 'UNGUR DAMARIS - LIDIA', 'du2186@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2187, 'RĂDUICA MARIA-IZABELA', 'mr2187@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2188, 'BAIAŞ CRISTINA-ELISABETA', 'cb2188@scs.ubbcluj.com', 912, 'abcd'
+GO
+EXEC Table1_Insert 2189, 'VUCEA ADELINA-NICOLETA', 'avie2189@scs.ubbcluj.com', 912, 'abcd'
 
 
 --exec deleteUser biie2065
@@ -426,11 +548,11 @@ EXEC Table1_Insert 2222, 'POPESCU Maria', 'hello@buhbye.co.uk', 11, '1234'
 GO
 --exec deleteUser asdf2222
 GO
-EXEC Table1_Insert 2256, 'POPESCU Ioana', 'pioana@scs.com', 935, '1234'
+EXEC Table1_Insert 2256, 'POPESCU Ioana', 'pioana@scs.com', 11, '1234'
 GO
 --exec deleteUser asdf2222
 GO
-EXEC Table1_Insert 1467, 'Ioana Andrei', 'iandrei@scs.com', 935, 'pass'
+EXEC Table1_Insert 1467, 'Ioana Andrei', 'iandrei@scs.com', 11, 'pass'
 GO
 --exec deleteUser tmadalina4111
 GO
@@ -599,7 +721,6 @@ EXEC Table4_Insert 'a8a79787-1dbb-44c7-9c2e-f9dfae1ca0eb', 'c55ecf93-0396-4668-9
 GO
 EXEC Table4_Insert '27b2c9f5-1f38-4bf8-a0da-d616fa89cd57', 'ef64e4f2-bfbe-4f88-b088-6a0cae672215', 5, '08ac7284-0228-4267-b3bd-a5ff5f5c9e5b', NULL
 GO
-
 
 --execute Table1_ReadAll
 --execute Table2_ReadAll
