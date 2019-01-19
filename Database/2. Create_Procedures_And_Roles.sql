@@ -719,6 +719,10 @@ WHERE rp.name = 'Admin '
 order by rp.name
 	DROP ROLE IF EXISTS [Admin]
 	CREATE ROLE [Admin]
+	DROP ROLE IF EXISTS [Teacher]
+	CREATE ROLE [Teacher]
+	DROP ROLE IF EXISTS [Student]
+	CREATE ROLE [Student]
 	GRANT EXECUTE ON [Table2_Insert] TO [Admin]
 	GRANT EXECUTE ON [Table2_ReadByID] TO [Admin]
 	GRANT EXECUTE ON [Table2_ReadAll] TO [Admin]
@@ -784,6 +788,7 @@ order by rp.name
 
 	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Admin]
 	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Teacher]
+	GRANT EXECUTE ON [Get_Average_Grade_For_Course_by_Attendance_Type] TO [Student]
 
 	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Admin]
 	GRANT EXECUTE ON [Get_Passing_Grades_Number_For_Course_by_Attendance_Type] TO [Teacher]
@@ -794,8 +799,7 @@ order by rp.name
 	GRANT EXECUTE ON [Get_Group_Grades_for_Course_by_Attendance_Type] TO [Admin]
 	GRANT EXECUTE ON [Get_Group_Grades_for_Course_by_Attendance_Type] TO [Teacher]
 
-	DROP ROLE IF EXISTS [Teacher]
-	CREATE ROLE [Teacher]
+	
 	GRANT EXECUTE ON [Table2_ReadAll] TO [Teacher]
 	GRANT EXECUTE ON [Table2_Update] TO [Teacher]
 	GRANT EXECUTE ON [Table2_ReadByID] TO [Teacher]
@@ -835,8 +839,7 @@ order by rp.name
 	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Teacher]
 	GRANT EXECUTE ON [Table4_UpdateOrInsert] to [Teacher]
 
-	DROP ROLE IF EXISTS [Student]
-	CREATE ROLE [Student]
+
 
 	--GRANT EXECUTE ON [Table4_ReadAll] TO [Student]
 	GRANT EXECUTE ON [Table1_ReadTable4] TO [Student]
