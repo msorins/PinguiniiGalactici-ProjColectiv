@@ -835,6 +835,7 @@ order by rp.name
 
 	GRANT EXECUTE ON [GetCurrentUserRole] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Teacher]
+	GRANT EXECUTE ON [GetAttendancesWithCourses] to [Student]
 	GRANT EXECUTE ON [Table3_ReadAllForTeacher] to [Teacher]
 	GRANT EXECUTE ON [GetAttendancesWithCourseAndStudent] to [Teacher]
 	GRANT EXECUTE ON [Table4_UpdateOrInsert] to [Teacher]
