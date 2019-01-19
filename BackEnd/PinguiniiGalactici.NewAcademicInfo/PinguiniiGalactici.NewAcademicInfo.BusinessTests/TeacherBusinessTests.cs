@@ -27,7 +27,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Tests
 
             User user = new User()
             {
-                Username = "admin1",
+                Username = "admin@gmail.com",
                 Password = "pass",
                 Role = Models.Enumerations.Role.Admin
             };
@@ -51,7 +51,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Tests
         {
             User user = new User()
             {
-                Username = "admin1",
+                Username = "admin@gmail.com",
                 Password = "pass",
                 Role = Models.Enumerations.Role.Admin
             };
@@ -65,7 +65,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Tests
         {
             User user = new User()
             {
-                Username = "admin1",
+                Username = "admin@gmail.com",
                 Password = "pass",
                 Role = Models.Enumerations.Role.Admin
             };
@@ -77,7 +77,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Tests
         {
             User user = new User()
             {
-                Username = "admin1",
+                Username = "admin@gmail.com",
                 Password = "pass",
                 Role = Models.Enumerations.Role.Admin
             };

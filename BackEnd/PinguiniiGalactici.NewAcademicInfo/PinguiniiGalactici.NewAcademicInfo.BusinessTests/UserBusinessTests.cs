@@ -16,7 +16,17 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Tests
         [TestMethod()]
         public void ReadUserTest()
         {
-            Assert.Fail();
+
+            User user = new User()
+            {
+                Username = "admin@gmail.com",
+                Password = "pass",
+                Role = Models.Enumerations.Role.Admin
+            };
+            BusinessContext businessContext = new BusinessContext(user);
+
+            User newUser = businessContext.UserBusiness.ReadUser(user.Username, user.Password);
+            Assert.IsTrue(user != null);
         }
     }
 }
