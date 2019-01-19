@@ -69,6 +69,8 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         public void UpdateOrInsert(int studentID, Guid courseID, int weekNr, Guid typeID, decimal? grade)
         {
             _context.DALContext.AttendancesDAL.UpdateOrInsert(studentID, courseID, weekNr, typeID, grade);
+            Student student = _context.DALContext.StudentsDAL.ReadById(studentID);
+            SendEmail(student.Email);
         }
 
         private void PrepareForEmail(Attendance attendance)
