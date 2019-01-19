@@ -1,0 +1,49 @@
+0. Login with
+    admin@gmail.com 
+    pass
+
+1. Create a teacher
+    Profesor Snape
+    profesorsnape@gmail.com
+
+2. Facem o grupa
+    112
+
+3. Facem un curs nou
+    PotionsAndMagic
+    3
+    14
+    14
+    
+4. Facem un student
+    Good Student
+    goodstudent@gmail.com
+    19362
+    112
+
+
+5. Assignam studentul creat la noul curs
+    Group 112, Good Student to Courses PotionsAndMagic
+
+
+6. Login with profesorsnape
+    profesorsnape@gmail.com
+    pass
+
+7. Set Grade to student GoodStudent
+    PotionsAndMagic
+    Lab
+    Week 1
+    10
+
+8. Set Attendance toGoodStudent
+    PotionsAndMagic
+    Lab
+    Week 1
+    1
+
+9. View Grade that was inserted !!!
+
+10. Intram ca GoodStudent , ne uitam la notele lui
+
+11. Intram ca profesor, adaugam mai multe note la Drept si ne uitam la rapoarte

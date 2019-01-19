@@ -79,7 +79,7 @@ namespace PinguiniiGalactici.NewAcademicInfo.WebAPI.Controllers
 
         [HttpGet]
         [Route("WithCourses")]
-        [AuthorizationFilter(Role.Teacher)]
+        [AuthorizationFilter(Role.Student)]
         public IEnumerable<AttendancesCourses> ReadAllWithCourses()
         {
             return BusinessContext.AttendancesBusiness.ReadAllWithCourses();
