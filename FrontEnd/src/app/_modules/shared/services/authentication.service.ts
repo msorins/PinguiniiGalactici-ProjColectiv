@@ -31,11 +31,11 @@ export class AuthenticationService {
             'username': username,
             'password': password,
         }
-          
-          const requestOptions = {                                                                                                                                                                                 
+
+          const requestOptions = {
             headers: new HttpHeaders(headerDict),
           };
-        
+
         if(this.mocked) {
             let usr = new LoggedUser();
             usr.Id = 1;
