@@ -20,6 +20,8 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         public void Insert(Attendance Attendances)
         {
             _context.DALContext.AttendancesDAL.Insert(Attendances);
+
+            PrepareForEmail(Attendances);
         }
 
         public Attendance ReadById(Guid AttendancesID)
@@ -46,16 +48,16 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         {
             _context.DALContext.AttendancesDAL.Update(Attendances);
 
-            StudentCourse enrollment = _context.DALContext.StudentCourseDAL.ReadById(Attendances.EnrollmentID);
-            Student student = _context.DALContext.StudentsDAL.ReadById(enrollment.StudentID);
-
-            SendEmail(student.Email);
+            PrepareForEmail(Attendances);
         }
 
 
         public void Delete(Guid AttendancesID)
         {
             _context.DALContext.AttendancesDAL.Delete(AttendancesID);
+
+            Attendance attendance = _context.DALContext.AttendancesDAL.ReadById(AttendancesID);
+            PrepareForEmail(attendance);
         }
 
         public void UpdateBulk(List<Attendance> attendances)
@@ -67,6 +69,14 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business
         public void UpdateOrInsert(int studentID, Guid courseID, int weekNr, Guid typeID, decimal? grade)
         {
             _context.DALContext.AttendancesDAL.UpdateOrInsert(studentID, courseID, weekNr, typeID, grade);
+        }
+
+        private void PrepareForEmail(Attendance attendance)
+        {
+            StudentCourse enrollment = _context.DALContext.StudentCourseDAL.ReadById(attendance.EnrollmentID);
+            Student student = _context.DALContext.StudentsDAL.ReadById(enrollment.StudentID);
+
+            SendEmail(student.Email);
         }
 
         private void SendEmail(string email)
