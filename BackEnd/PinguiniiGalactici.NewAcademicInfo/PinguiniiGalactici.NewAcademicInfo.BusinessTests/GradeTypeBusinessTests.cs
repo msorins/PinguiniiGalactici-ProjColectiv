@@ -14,37 +14,67 @@ namespace PinguiniiGalactici.NewAcademicInfo.Business.Tests
         [TestMethod()]
         public void GradeTypeBusinessTest()
         {
-            Assert.Fail();
+
+            User user = new User()
+            {
+                Username = "admin@gmail.com",
+                Password = "pass",
+                Role = Models.Enumerations.Role.Admin
+            };
+            BusinessContext businessContext = new BusinessContext(user);
         }
 
         [TestMethod()]
         public void InsertTest()
         {
-            Assert.Fail();
+
+            User user = new User()
+            {
+                Username = "admin@gmail.com",
+                Password = "pass",
+                Role = Models.Enumerations.Role.Admin
+            };
+            BusinessContext businessContext = new BusinessContext(user);
         }
 
         [TestMethod()]
         public void ReadByIdTest()
         {
-            Assert.Fail();
+
+            User user = new User()
+            {
+                Username = "admin@gmail.com",
+                Password = "pass",
+                Role = Models.Enumerations.Role.Admin
+            };
+            BusinessContext businessContext = new BusinessContext(user); ;
         }
 
         [TestMethod()]
         public void ReadAllTest()
         {
-            Assert.Fail();
+
+            User user = new User()
+            {
+                Username = "admin@gmail.com",
+                Password = "pass",
+                Role = Models.Enumerations.Role.Admin
+            };
+            BusinessContext businessContext = new BusinessContext(user);
         }
 
-        [TestMethod()]
-        public void UpdateTest()
-        {
-            Assert.Fail();
-        }
 
         [TestMethod()]
         public void DeleteTest()
         {
-            Assert.Fail();
+
+            User user = new User()
+            {
+                Username = "admin@gmail.com",
+                Password = "pass",
+                Role = Models.Enumerations.Role.Admin
+            };
+            BusinessContext businessContext = new BusinessContext(user);
         }
     }
 }
